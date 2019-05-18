@@ -1,4 +1,4 @@
 <footer>
-	<img src="images/logo_mini.jpg" alt="Universidad de Sevilla"><br/>
-	&copy; IISSI 2017
+	<img src="images/log_mini.jpg" alt="Clinica Huellas"><br/>
+	&copy; IISSI 2019
 </footer>

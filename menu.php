@@ -1,11 +1,17 @@
 <nav>
 	<ul class="topnav" id="myTopnav">
-		<li><a href="consulta_libros.php">Libros</a></li>
-	  	<li><a href="about.php">Sobre nosotros</a></li>
-		<li><a href="https://scholar.google.com">Busca en google</a></li>
+		<li><a href="sobre_nosotros.php">Sobre nosotros</a></li>
+	  	<li><a href="citas.php">Citas</a></li>
+		<li><a href="faq.php">FAQ</a></li>
+		<li><a href="contacto.php">Contacto</a></li>
+
+
+		
  		  	
 		<li><?php if (isset($_SESSION['login'])) {	?>
 				<a href="logout.php">Desconectar</a>
+			<? }else{ ?>
+				<a href="login.php">Iniciar Sesión</a>
 			<?php } ?>
 		</li>
 		
