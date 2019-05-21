@@ -6,56 +6,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
-    <link rel="stylesheet" type="text/css" href="css/biblio.css" />
+  <link rel="stylesheet" type="text/css" href="css/about.css" />
 	<script type="text/javascript" src="./js/boton.js"></script>
   <title>Gestión de biblioteca: Sobre Nosotros</title>
 </head>
 
 <body>
 <?php	
-	include_once("cabecera.php"); 
-	include_once("menu.php");
+	include_once("include/cabecera.php"); 
+	include_once("include/menu.php");
 ?>
 <main>
 
-<h3>Introducción a la Ingeniería del Software y los Sistemas de Información</h2>
+<div class="tituloAbout">
+	<h2>HUELLAS</h2>
+</div>
 
-<h4>Objetivos y competencias<sup><a href="#fn1" id="r1">[1]</a></sup></h3>
-
-<ul>
-<li>Conocer los conceptos básicos de la Ingeniería del Software.</li>
-<li>Conocer los conceptos básicos de los Sistemas de Información.</li>
-<li>Conocer los conceptos básicos de Gestión de Proyectos.</li>
-<li>Conocer los conceptos básicos de Control de Versiones.</li>
-<li>Ser capaz de manejar una herramienta de gestión de proyectos.</li>
-<li>Ser capaz de manejar una herramienta de control de versiones.</li>
-<li>Ser capaz de estudiar un dominio de problema, unos procesos de negocio y elaborar unos requisitos básicos.</li>
-<li>Ser capaz de analizar requisitos mediante el desarrollo de modelos conceptuales.</li>
-<li>Conocer el Modelo Relacional de datos.</li>
-<li>Ser capaz de transformar modelos conceptuales en modelos relacionales.</li>
-<li>Conocer el lenguaje SQL.</li>
-<li>Ser capaz de manejar un SGBD relacional avanzado.</li>
-<li>Ser capaz de desarrollar un esquema SQL complejo.</li>
-<li>Conocer los conceptos básicos de las aplicaciones web.</li>
-<li>Conocer tecnologías de cliente web: HTML, CSS y Javascript.</li>
-<li>Ser capaz de desarrollar una interfaz de usuario sencilla con HTML, CSS y Javascript.</li>
-<li>Conocer tecnologías de procesamiento en servidor web.</li>
-<li>Ser capaz de desarrollar una aplicación web con acceso a una base de datos relacional.</li>
-</ul>
-
-<p>Para más información, visitar la <a href="http://www.lsi.us.es/docencia/pagina_asignatura.php?id=96" target="_blank">página de la asignatura</a></p>
-
-<section id="footnotes" class="footnotes">
- <p id="fn1"><a href="#r1">[1]</a> Extraído del programa docente de la asignatura.</p>
-</section>
+<div class="p">
+	<div class = "p1">
+		<p>Somos un centro veterinario situado en Villanueva de la Serena que cuenta con más de 12 años de experiencia.</p>
+		<p>Nacimos con la idea de poder ofrecer un buen servicio a las mascotas, por eso nuestro equipo ofrece desde asesoramiento
+para su mascota hasta su tratamiento.</p>
+		<p>Nuestras instalaciones cuentan con un equipamiento moderno y con todo el material necesario para garantizar los mejores 
+resultados para su mascota.</p>
+		<p>Nuestra filosofía es simple, fomentar la prevencion y hacer medicina de calidad basada en la comunicación y el trato
+cercano con el cliente.</p>
+		<p>Venga a conocer nuestro centro, estaremos encantados de poder atender a sus mascotas sea cual sea su especie o raza.</p>
+	</div>
+	<div class = "p2">
+		<img class = "fotoAbout" src="images/foto_about.jpg">
+	</div>
+</div>
 
 </main>
 
 <?php	
-	include_once("pie.php");
+	include_once("include/pie.php");
 ?>		
 </body>
 </html>

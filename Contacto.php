@@ -6,27 +6,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<style>
-	.container {
-  height: 35px;
-  position: absolute;
- 
-	}
 
-	.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-	right: 1090px;
-	}
-	
-</style>
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
-    <link rel="stylesheet" type="text/css" href="css/biblio.css" />
+  <link rel="stylesheet" type="text/css" href="css/biblio.css" />
 	<script type="text/javascript" src="./js/boton.js"></script>
   <title>Gestión de biblioteca: Sobre Nosotros</title>
 </head>
@@ -38,46 +22,9 @@
 ?>
 <main>
 
-<h3>Introducción a la Ingeniería del Software y los Sistemas de Información</h2>
-
-<h4>Objetivos y competencias<sup><a href="#fn1" id="r1">[1]</a></sup></h3>
-
-<ul>
-<div class = "container">
-	<div><img style="width:30px; height:30px;" src="images/ContactoImagen.png"></div>
-	<div class="vertical-center"><a> Telefono de contacto </a></div>		
-	<ul>
-		<li>92321321</li>
-		<li>92321321</li><br>
-	</ul>
+<div class=>
 </div>
-
-
-<li>Abrimos de lunes a sábado</li><br>
-<li>Conocer los conceptos básicos de Gestión de Proyectos.</li>
-<li>Conocer los conceptos básicos de Control de Versiones.</li>
-<li>Ser capaz de manejar una herramienta de gestión de proyectos.</li>
-<li>Ser capaz de manejar una herramienta de control de versiones.</li>
-<li>Ser capaz de estudiar un dominio de problema, unos procesos de negocio y elaborar unos requisitos básicos.</li>
-<li>Ser capaz de analizar requisitos mediante el desarrollo de modelos conceptuales.</li>
-<li>Conocer el Modelo Relacional de datos.</li>
-<li>Ser capaz de transformar modelos conceptuales en modelos relacionales.</li>
-<li>Conocer el lenguaje SQL.</li>
-<li>Ser capaz de manejar un SGBD relacional avanzado.</li>
-<li>Ser capaz de desarrollar un esquema SQL complejo.</li>
-<li>Conocer los conceptos básicos de las aplicaciones web.</li>
-<li>Conocer tecnologías de cliente web: HTML, CSS y Javascript.</li>
-<li>Ser capaz de desarrollar una interfaz de usuario sencilla con HTML, CSS y Javascript.</li>
-<li>Conocer tecnologías de procesamiento en servidor web.</li>
-<li>Ser capaz de desarrollar una aplicación web con acceso a una base de datos relacional.</li>
-</ul>
-
-<p>Para más información, visitar la <a href="http://www.lsi.us.es/docencia/pagina_asignatura.php?id=96" target="_blank">página de la asignatura</a></p>
-
-<section id="footnotes" class="footnotes">
- <p id="fn1"><a href="#r1">[1]</a> Extraído del programa docente de la asignatura.</p>
-</section>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1844.269772337436!2d-5.798117441185871!3d38.97698158831014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1459999beb0727%3A0x8954b11b82f5a1b4!2sHuellas+Clinica+Veterinaria!5e0!3m2!1ses!2ses!4v1558458729690!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </main>
 
 <?php	
