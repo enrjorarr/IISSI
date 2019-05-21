@@ -9,7 +9,7 @@
 <style>
 	.container {
   height: 35px;
-  position: absolute;
+  
  
 	}
 
@@ -19,7 +19,7 @@
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-	right: 1090px;
+	right: -90px;
 	}
 	
 </style>
@@ -53,30 +53,9 @@
 </div>
 
 
-<li>Abrimos de lunes a sábado</li><br>
-<li>Conocer los conceptos básicos de Gestión de Proyectos.</li>
-<li>Conocer los conceptos básicos de Control de Versiones.</li>
-<li>Ser capaz de manejar una herramienta de gestión de proyectos.</li>
-<li>Ser capaz de manejar una herramienta de control de versiones.</li>
-<li>Ser capaz de estudiar un dominio de problema, unos procesos de negocio y elaborar unos requisitos básicos.</li>
-<li>Ser capaz de analizar requisitos mediante el desarrollo de modelos conceptuales.</li>
-<li>Conocer el Modelo Relacional de datos.</li>
-<li>Ser capaz de transformar modelos conceptuales en modelos relacionales.</li>
-<li>Conocer el lenguaje SQL.</li>
-<li>Ser capaz de manejar un SGBD relacional avanzado.</li>
-<li>Ser capaz de desarrollar un esquema SQL complejo.</li>
-<li>Conocer los conceptos básicos de las aplicaciones web.</li>
-<li>Conocer tecnologías de cliente web: HTML, CSS y Javascript.</li>
-<li>Ser capaz de desarrollar una interfaz de usuario sencilla con HTML, CSS y Javascript.</li>
-<li>Conocer tecnologías de procesamiento en servidor web.</li>
-<li>Ser capaz de desarrollar una aplicación web con acceso a una base de datos relacional.</li>
 </ul>
 
-<p>Para más información, visitar la <a href="http://www.lsi.us.es/docencia/pagina_asignatura.php?id=96" target="_blank">página de la asignatura</a></p>
 
-<section id="footnotes" class="footnotes">
- <p id="fn1"><a href="#r1">[1]</a> Extraído del programa docente de la asignatura.</p>
-</section>
 
 </main>
 
