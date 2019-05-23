@@ -3,8 +3,8 @@
 function crearConexionBD()
 {
 	$host="oci:dbname=localhost/XE";
-	$usuario="BIBLIO";
-	$password="biblio";
+	$usuario="AJ";
+	$password="proyect";
 
 	try{
 		/* Indicar que las sucesivas conexiones se puedan reutilizar */	
@@ -13,6 +13,7 @@ function crearConexionBD()
     	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		return $conexion;
 	}catch(PDOException $e){
+		
 		$_SESSION['excepcion'] = $e->GetMessage();
 		header("Location: excepcion.php");
 	}

@@ -3,29 +3,28 @@
 	
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
-	require_once("gestionar_direcciones.php");
-	require_once("gestionar_generos_literarios.php");
+	//require_once("gestionar_direcciones.php");
+	//require_once("gestionar_generos_literarios.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION["formulario"])) {
-		$formulario['nif'] = "";
-		$formulario['nombre'] = "";
-		$formulario['apellidos'] = "";
-		$formulario['perfil'] = "ALUMNO";
-		$formulario['fechaNacimiento'] = "";
-		$formulario['email'] = "";
-		$formulario['pass'] = "";
-		$formulario['calle'] = "";
-		$formulario['provincia'] = "";
-		$formulario['municipio'] = "";
-		$formulario['generoLiterario'] = array();
+		$formulario['nif'] = "";                                      //  
+		$formulario['nombre'] = "";                                   //
+		$formulario['apellidos'] = "";                                //    
+		$formulario['fechaNacimiento'] = "";                          //           
+		$formulario['email'] = "";                                    //
+		$formulario['pass'] = "";                                     //
+		$formulario['calle'] = "";                                    // 
+		$formulario['numeroTelefono'] = "";                                          
+                                      
 	
 		$_SESSION["formulario"] = $formulario;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
-	else
+	else{
+		
 		$formulario = $_SESSION["formulario"];
-			
+	}		
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
@@ -44,7 +43,7 @@
   <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  <title>Gestión de Biblioteca: Alta de Usuarios</title>
+  <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
 </head>
 
 <body>
@@ -66,22 +65,11 @@
 				passwordColor();
 			});
 
-			// EJERCICIO 4: Uso de AJAX con JQuery para cargar de manera asíncrona los municipios según la provincia seleccionada
-			// Manejador de evento sobre el campo de provincias
-			$("#provincia").on("input", function () {
-				// Llamada AJAX con JQuery, pasándole el valor de la provincia como parámetro
-        		$.get("cambio_provincia.php", { provinciaMunicipio: $("#provincia").val()}, function (data) {
-        			// Borro los municipios que hubiera antes en el datalist
-        			$("#opcionesMunicipios").empty();
-        			// Adjunto al datalist la lista de municipios devuelta por la consulta AJAX
-        			$("#opcionesMunicipios").append(data);
-				});
-    		});
-		});
 	</script>
 	
 	<?php
-		include_once("cabecera.php");
+        include_once("include/cabecera.php");
+        include_once("include/menu.php");
 	?>
 	
 	<?php 
@@ -96,7 +84,7 @@
   		}
 	?>
 	
-	<form id="altaUsuario" method="get" action="validacion_alta_usuario.php"
+	<form id="altaCliente" method="get" action="validacion_alta_cliente.php"
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
@@ -114,25 +102,18 @@
 			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
 			</div>
 
-			<div><label>Perfil:</label>
-			<label>
-				<input name="perfil" type="radio" value="ALUMNO" <?php if($formulario['perfil']=='ALUMNO') echo ' checked ';?>/>
-				Alumno</label>
-			<label>
-				<input name="perfil" type="radio" value="PDI" <?php if($formulario['perfil']=='PDI') echo ' checked ';?>/>
-				PDI</label>
-			<label>
-				<input name="perfil" type="radio" value="PAS" <?php if($formulario['perfil']=='PAS') echo ' checked ';?>/>
-				PAS</label>
-			</div>
-
-			<div<<label for="fechaNacimiento">Fecha de nacimiento:</label>
+			<div><label for="fechaNacimiento">Fecha de nacimiento:</label>
 			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"/>
 			</div>
 
 			<div><label for="email">Email:<em>*</em></label>
-			<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/><br>
+			<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/>
 			</div>
+
+			<div><label for="numeroTelefono">Telefono:<em>*</em></label>
+			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" value="<?php echo $formulario['numeroTelefono'];?>" required/>
+			</div>
+
 		</fieldset>
 
 		<fieldset><legend>Datos de cuenta</legend>
@@ -144,24 +125,7 @@
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 			</div>
 			<div><label for="confirmpass">Confirmar Password: </label>
-				<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña"  oninput="passwordConfirmation();" required"/>
-			</div>
-			
-			<div><label for="generoLiterario">¿Cuáles son tus géneros literarios favoritos?<em>*</em></label>
-				<select multiple name="generoLiterario[]" id="generoLiterario" required>
-					<?php
-						$generos = listarGeneros($conexion);
-						
-				  		foreach($generos as $genero) {
-				  			// Chequea si este género literario fue seleccionado previamente, para marcarlo en el HTML con el atributo "selected"
-				  			if(in_array($genero["OID_GENERO"], $formulario['generoLiterario'])){ 
-								echo "<option value='".$genero["OID_GENERO"]."' label='".$genero["NOMBRE"]."' selected/>";
-							}else{
-								echo "<option value='".$genero["OID_GENERO"]."' label='".$genero["NOMBRE"]."'/>";
-							}
-						}
-					?>
-				</select>
+				<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña"  oninput="passwordConfirmation();""required"/>
 			</div>
 		</fieldset>
 
@@ -173,35 +137,13 @@
 			<div><label for="calle">Calle/Avda.:<em>*</em></label>
 			<input id="calle" name="calle" type="text" size="80" value="<?php echo $formulario['calle'];?>" required/>
 			</div>
-
-			<div><label for="provincia">Provincia:<em>*</em></label>
-			<input list="opcionesProvincias" name="provincia" id="provincia" required value="<?php echo $formulario['provincia'];?>"/>
-			<datalist id="opcionesProvincias">
-			  	<?php
-			  		$provincias = listarProvincias($conexion);
-
-			  		foreach($provincias as $provincia) {
-			  			echo "<option label='".$provincia["NOMBRE"]."' value='".$provincia["OID_PROVINCIA"]."'>";
-					}
-				?>
-			</datalist>
-			</div>
-
-			<div><label for="municipio">Municipio:<em>*</em></label>
-			<input id="municipio" name="municipio" type="text" list="opcionesMunicipios" required value="<?php echo $formulario['municipio'];?>">
-			<datalist id="opcionesMunicipios">
-			<!--
-				AQUÍ se añadirán con AJAX las opciones de municipios según la provincia escogida
-			-->
-			</datalist>
-			</div>
 		</fieldset>
 
 		<div><input type="submit" value="Enviar" /></div>
 	</form>
 	
 	<?php
-		include_once("pie.php");
+		include_once("include/pie.php");
 		cerrarConexionBD($conexion);
 	?>
 	
