@@ -1,0 +1,86 @@
+body{
+    size: 100%;
+    margin-left:2em;
+
+}
+header{
+    size: 20%;
+	display:block; 
+	color: blue; 
+	border-bottom:5px solid brown;
+}
+footer{
+    size: 10%;
+	border-top: 5px solid brown;
+	text-align:center;
+    clear: both;
+    padding-top: 1%;
+}
+ul.topnav {
+    size: 10%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+.main{
+    size: 100%;
+    height: 100%;
+    position: relative;
+
+}
+.tituloContacto{
+    height: 10%;
+    width: 100%;
+    position: relative;
+	text-align:center;
+}
+.p{
+    size: 80%;
+    position: relative;
+    padding-bottom: 10%;
+    padding-left: 5%;
+    padding-right: 10%;
+    padding-top: 7%;
+}
+.p1{
+    padding-left: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    background-color: mediumseagreen;
+    height: 100%;
+    width: 40%;
+    float: left;
+
+}
+.p2{
+    
+    height: 100%;
+    width: 50%; 
+    margin-left: 50%;
+}
+.lugar{
+    padding-right: 15%;
+    font-family: Arial, Helvetica, sans-serif;
+
+    text-align:center;
+
+}
+.lugar2{
+    background-color: mediumseagreen;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+    text-align:center;
+
+}
+
+.texto{
+    font-size: 82%;
+}
+.reloj{
+    padding-top: 1%;
+    font-family: sans-serif;
+    font-weight:bold; 
+
+}

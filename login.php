@@ -1,8 +1,8 @@
 <?php
 	session_start();
   	
-  	include_once("gestionBD.php");
- 	include_once("gestionarUsuarios.php");
+  	include_once("include/gestionBD.php");
+ 	include_once("include/gestionarUsuarios.php");
 	
 	if (isset($_POST['submit'])){
 		$email= $_POST['email'];
@@ -16,7 +16,7 @@
 			$login = "error";	
 		else {
 			$_SESSION['login'] = $email;
-			Header("Location: index.php");
+			Header("Location: include/index.php");
 		}	
 	}
 
@@ -33,7 +33,10 @@
 <body>
 
 <?php
-	include_once("cabecera.php");
+	include_once("include/cabecera.php");
+	include_once("include/menu.php");
+
+
 ?>
 
 <main>
@@ -55,7 +58,7 @@
 </main>
 
 <?php
-	include_once("pie.php");
+	include_once("include/pie.php");
 ?>
 </body>
 </html>

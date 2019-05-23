@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css"
+    "\\css",
+    "\\include"
   ],
-  "SelectedNode": "\\css\\biblio.css",
+  "SelectedNode": "\\include\\cabecera.php",
   "PreviewInSolutionExplorer": false
 }
