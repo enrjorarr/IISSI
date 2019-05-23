@@ -33,8 +33,8 @@
 <body>
 
 <?php
-	include_once("include/cabecera.php");
-	include_once("include/menu.php");
+	include_once("cabecera.php");
+	include_once("menu.php");
 
 
 ?>
@@ -58,7 +58,7 @@
 </main>
 
 <?php
-	include_once("include/pie.php");
+	include_once("pie.php");
 ?>
 </body>
 </html>

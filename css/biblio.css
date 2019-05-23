@@ -15,9 +15,10 @@ body{
 
 header{
 	display:block; 
-	color: blue; 
+	color: rgb(247, 0, 255); 
 	border-bottom:5px solid brown;
 }
+
 
 
 footer{
@@ -26,16 +27,20 @@ footer{
 	clear: both;
 }
 
-/* Ejercicio 3 */
+/* CABECERA */
 
 /* small-caps */
 
 header h1  {
 
 	display: inline;  
-	font-variant: small-caps;  
-	color: brown;
+	font-variant: small-caps; 
+	font-style: oblique; 
+	color: rgb(27, 117, 83);
+
 }
+
+
 
 /* Ejercicio 4 */
 
