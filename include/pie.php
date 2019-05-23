@@ -1,4 +1,4 @@
 <footer>
-	<img src="images/log_mini.jpg" alt="Clinica Huellas"><br/>
+	<img src="images/huella_mini.png" alt="Clinica Huellas">Clinica Huellas<br/>
 	&copy; IISSI 2019
 </footer>
