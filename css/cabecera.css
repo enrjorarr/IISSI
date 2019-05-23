@@ -1,3 +1,12 @@
+
+
+.cabecera{
+    background-image: url("images/fondo.jpg");
+    display: block;
+    
+}
+
+
 header h1{ 
 
 
@@ -6,8 +15,8 @@ header h1{
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     position: absolute;
-    background: "fondo.jpg";
-    
+    background-image: url("images/fondo.jpg");
+    margin-left:50%;    
 
 }
 
@@ -15,7 +24,7 @@ header h2{
     color: rgb(17, 195, 219);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: oblique;
-    background: "fondo.jpg";
+    background-image: url("images/fondo.jpg");
 
 
 

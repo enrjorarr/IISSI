@@ -1,12 +1,19 @@
 
 
+
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     background: url(http://101.ru/vardata/modules/channel/background/85/857850-b18c1a5c2adf09a15940240cb9f2b59b.jpg);
     background-size: cover;
+
     
+}
+
+.menu{
+    display: block;
+    background-image: url("images/fondo.jpg");
 }
 
 ul {

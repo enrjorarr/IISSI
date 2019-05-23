@@ -3,4 +3,7 @@ footer{
 	text-align:center;
     clear: both;
     display: block;
+    background-image: url("images/fondo.jpg");
+    position: relative;
+    margin-top: 90%;
 }
