@@ -11,7 +11,7 @@
   <!-- Hay que indicar el fichero externo de estilos -->
   <link rel="stylesheet" type="text/css" href="css/about.css" />
 	<script type="text/javascript" src="./js/boton.js"></script>
-  <title>Gestión de biblioteca: Sobre Nosotros</title>
+  <title>Sobre nosotros</title>
 </head>
 
 <body>
