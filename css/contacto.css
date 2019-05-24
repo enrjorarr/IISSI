@@ -14,7 +14,6 @@ footer{
 	border-top: 5px solid brown;
 	text-align:center;
     clear: both;
-    padding-top: 1%;
 }
 ul.topnav {
     size: 10%;
@@ -48,7 +47,7 @@ ul.topnav {
     padding-left: 5%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-    background-color: mediumseagreen;
+    background-color: #19c4be;
     height: 100%;
     width: 40%;
     float: left;
