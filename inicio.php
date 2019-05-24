@@ -8,14 +8,13 @@
 
 <body>
 
-    <div class="fondo">
+    
     
 
 
 
 <?php
 	include_once("cabecera.php");
-	include_once("menu.php");
 ?>
 
 
@@ -27,6 +26,6 @@
 	include_once("pie.php");
 ?>
 
-</div>
+
 </body>
 </html>

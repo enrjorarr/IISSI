@@ -1,9 +1,12 @@
 footer{
-	border-top: 5px solid rgb(105, 216, 170);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-block-start: 5%;
+	border-top:5px solid rgb(105, 216, 170);
 	text-align:center;
     clear: both;
-    display: block;
     background-image: url("images/fondo.jpg");
-    position: relative;
-    margin-top: 90%;
+    
 }
