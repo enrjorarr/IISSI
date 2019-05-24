@@ -68,8 +68,8 @@
 	</script>
 	
 	<?php
-        include_once("include/cabecera.php");
-        include_once("include/menu.php");
+        include_once("cabecera.php");
+        include_once("menu.php");
 	?>
 	
 	<?php 
@@ -90,7 +90,7 @@
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
-			<div></div><label for="nif">NIF<em>*</em></label>
+			<div></div><label for="nif">DNI:<em>*</em></label>
 			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
 			</div>
 
@@ -102,7 +102,7 @@
 			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
 			</div>
 
-			<div><label for="fechaNacimiento">Fecha de nacimiento:</label>
+			<div><label for="fechaNacimiento">Fecha de nacimiento:<em>*</em></label>
 			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"/>
 			</div>
 
@@ -111,7 +111,7 @@
 			</div>
 
 			<div><label for="numeroTelefono">Telefono:<em>*</em></label>
-			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" value="<?php echo $formulario['numeroTelefono'];?>" required/>
+			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" pattern="^[0-9]{9}"value="<?php echo $formulario['numeroTelefono'];?>" required/>
 			</div>
 
 		</fieldset>
@@ -143,7 +143,7 @@
 	</form>
 	
 	<?php
-		include_once("include/pie.php");
+		include_once("pie.php");
 		cerrarConexionBD($conexion);
 	?>
 	

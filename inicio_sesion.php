@@ -1,8 +1,8 @@
 <?php
 	session_start();
   	
-  	include_once("include/gestionBD.php");
- 	include_once("include/gestionarUsuarios.php");
+  	include_once("gestionBD.php");
+ 	include_once("gestionarClientes.php");
 	
 	if (isset($_POST['submit'])){
 		$email= $_POST['email'];
@@ -16,7 +16,7 @@
 			$login = "error";	
 		else {
 			$_SESSION['login'] = $email;
-			Header("Location: include/index.php");
+			Header("Location: /inicio.php");
 		}	
 	}
 
@@ -27,7 +27,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/biblio.css" />
-  <title>Gestión de biblioteca: Login</title>
+  <title>Gestión de clinica: Inicio Sesión</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
 		<input type="submit" name="submit" value="submit" />
 	</form>
 		
-	<p>¿No estás registrado? <a href="form_alta_usuario.php">¡Registrate!</a></p>
+	<p>¿No estás registrado? <a href="form_alta_cliente.php">¡Registrate!</a></p>
 </main>
 
 <?php
