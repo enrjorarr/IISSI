@@ -3,6 +3,9 @@
 .cabecera{
     background-image: url("images/fondo.jpg");
     display: block;
+    height: 5%;
+    width:100%;
+    height: fit-content;
     
 }
 
