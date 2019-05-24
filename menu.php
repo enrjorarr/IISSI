@@ -1,25 +1,19 @@
 
 
 <div class = "menu">
+
 	<ul>
-		<li><a href="sobre_nosotros.php">Sobre nosotros</a></li>
-	  	<li><a href="citas.php">Citas</a></li>
-		<li><a href="contacto.php">Contacto</a></li>
-
-
-		
- 		  	
+        <li><a href="sobre_nosotros.php"><span title="Sobre nosotros">Sobre Nosotros</span></a></li>
+        <li><a href="citas.php"><span title="Citas">Citas</span></a></li>
+        <li><a href="contacto.php"><span title="Contacto">Contacto</span></a></li>
 		<li><?php if (isset($_SESSION['login'])) {	?>
-				<a href="logout.php">Desconectar</a>
+				<a href="logout.php"><span title="Desconectar">Desconectar</span></a>
 			<? }else{ ?>
-				<a href="login.php">Iniciar Sesion</a>
+				<a href="login.php"><span title="Iniciar sesion">Iniciar sesion</span></a>
 			<?php } ?>
 		</li>
-		
-		<li class="icon">
-			<a href="javascript:void(0);" onclick="myToggleMenu()">&#9776;</a>
-		</li>	
-	</ul>
+    </ul>
+
 </div>
 
 	
