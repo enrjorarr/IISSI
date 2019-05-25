@@ -7,7 +7,6 @@
 	<h1>H U E L L A S</h1>
 	</div>
 	<div class="boton1">
-	<button class="butn" href="login.php">Iniciar sesion</button>
 			<?php if (isset($_SESSION['login'])) {	?>
 				<button class="butn" href="login.php">Iniciar sesion</button>
 			<? }else{ ?>
