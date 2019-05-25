@@ -50,7 +50,9 @@ body{
     display: block;
     width: fit-content;
     height: fit-content;
-    padding-top: 20%;
+    padding-top: 12%;
+    position: fixed;
+    padding-left: 100%;
    
     
 }
