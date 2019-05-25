@@ -21,28 +21,23 @@
 <body>
 <?php	
 	include_once("cabecera.php"); 
-	include_once("menu.php");
 ?>
 <main>
 
 <div class="p">
 	<div class = "p1">
-		<div class = "p1.1">
-			<div class = "p1.1.1">
-				<div class ="lugar">
-					<h2>Contacta con nosotros</h2>
-				</div>
-				<div class = "reloj">
-					<p><img src=images/reloj-de-pared.png width="16" height="16">.  HORARIO</p>
-				</div>
+		<div class = "p11">
+			<div class ="lugar">
+				<h2>Contacta con nosotros</h2>
 			</div>
-			<div class = "p1.1.2">
-				<div class = "texto">
-					<p>De lunes a jueves</p>
-					<p>de 8:00h a 19:00h.</p>
-					<p>Viernes</p>
-					<p>de 8:00h a 19:00h.</p>
-				</div>
+			<div class = "reloj">
+				<p><img src=images/reloj-de-pared.png width="16" height="16">.  HORARIO</p>
+			</div>
+			<div class = "texto5">
+				<p>De lunes a jueves</p>
+				<p>de 8:00h a 19:00h.</p>
+				<p>Viernes</p>
+				<p>de 8:00h a 19:00h.</p>
 			</div>
 			<div class = "p1.1.2">
 				<div class = "reloj">
@@ -50,7 +45,7 @@
 				</div>
 			</div>
 			<div class = "p1.1.2">
-				<div class = "texto">
+				<div class = "texto5">
 					<p>poner aqui un email</p>
 				</div>
 			</div>
@@ -60,7 +55,7 @@
 				</div>
 			</div>
 			<div class = "p1.1.2">
-				<div class = "texto">
+				<div class = "texto5">
 					<p>Tel: 976311294320 - 234098235872</p>
 				</div>
 			</div>
@@ -70,7 +65,7 @@
 				</div>
 			</div>
 			<div class = "p1.1.2">
-				<div class = "texto">
+				<div class = "texto5">
 					<p>Urbanización parque de Roma,</p>
 					<p>bloque 45</p>
 					<p>41013 - Sevilla</p>

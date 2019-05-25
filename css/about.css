@@ -3,26 +3,17 @@ body{
     margin-left:2em;
 
 }
-header{
-    size: 20%;
-	display:block; 
-	color: blue; 
-	border-bottom:5px solid brown;
-}
-footer{
-    size: 10%;
-	border-top: 5px solid brown;
-	text-align:center;
-    clear: both;
-}
 
-.main{
+
+main{
+    padding-top: 14%;
     size: 100%;
     height: 100%;
     position: relative;
 
 }
 .tituloAbout{
+    font-family: 'ABeeZee', sans-serif;
     height: 10%;
     width: 100%;
     position: relative;
@@ -30,17 +21,21 @@ footer{
 }
 .p{
     size: 80%;
+    
     position: relative;
     padding-bottom: 4%;
     padding-left: 10%;
     padding-right: 10%;
 }
 .p1{
+    font-family: 'ABeeZee', sans-serif;
+
     height: 100%;
     width: 50%;
     float: left;
 }
 .p2{
+    padding-top: 2%;
     height: 100%;
     width: 33%; 
     margin-left: 55%;
