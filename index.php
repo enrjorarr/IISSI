@@ -1,3 +1,3 @@
 <?php
-    header("Location: consulta_libros.php");
+    header("Location: inicio.php");
 ?>

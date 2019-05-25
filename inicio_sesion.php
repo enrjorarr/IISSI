@@ -48,7 +48,7 @@
 	?>
 	
 	<!-- The HTML login form -->
-	<form action="inicio.php" method="post">
+	<form action="whoiswho.php" method="post">
 		<div><label for="email">Email: </label><input type="text" name="email" id="email" /></div>
 		<div><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
 		<input type="submit" name="submit" value="submit" />

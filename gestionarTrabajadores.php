@@ -2,15 +2,15 @@
   /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión
-     * #	de usuarios de la capa de acceso a datos
+     * #	de trabajadores de la capa de acceso a datos
      * #==========================================================#
      */
 
- function alta_clientes($conexion,$usuario) {
+ function alta_trabajador($conexion,$usuario) {
 	$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
 
 	try {
-		$consulta = "CALL ALTA_CLIENTE(:Dni,:FechaNac,:NumeroTelefono,:Pass, :Direccion,  :Email , :Nombre, :Apellidos)";
+		$consulta = "CALL ALTA_TRABAJADOR(:Dni,:FechaNac,:Sueldo,:Pass, :Direccion,  :Email , :Nombre, :Apellidos,:EsGestor,:HorasTrabajo)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':Dni',$usuario["nif"]);
 		$stmt->bindParam(':Nombre',$usuario["nombre"]);
@@ -19,7 +19,10 @@
 		$stmt->bindParam(':FechaNac',$fechaNacimiento);
 		$stmt->bindParam(':Email',$usuario["email"]);
 		$stmt->bindParam(':Pass',$usuario["pass"]);
-    $stmt->bindParam(':NumeroTelefono',$usuario["numeroTelefono"]);
+		$stmt->bindParam(':NumeroTelefono',$usuario["numeroTelefono"]);
+		$stmt->bindParam(':EsGestor',$usuario["esGestor"]);
+		$stmt->bindParam(':HorasTrabajo',$usuario["horasTrabajo"]);
+
 
 		$stmt->execute();
 		
@@ -33,7 +36,7 @@
 }
   
 function consultarUsuario($conexion,$email,$pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE EMAIL=:email AND PASS=:pass";
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM TRABAJADORES WHERE EMAIL=:email AND PASS=:pass";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':email',$email);
 	$stmt->bindParam(':pass',$pass);
