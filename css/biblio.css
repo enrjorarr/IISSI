@@ -11,25 +11,10 @@ body{
 	margin-left:2em;
 }
 
-/* Ejercicio 2 */
 
-header{
-	display:block; 
-	color: rgb(247, 0, 255); 
-	border-bottom:5px solid brown;
-}
-
-
-
-footer{
-	border-top: 5px solid brown;
-	text-align:center;
-	clear: both;
-}
 
 /* CABECERA */
-
-/* small-caps */
+ small-caps 
 
 header h1  {
 
@@ -44,7 +29,7 @@ header h1  {
 
 /* Ejercicio 4 */
 
-/* lighter */
+ lighter 
 
 header h2  {
 	font-weight: lighter;

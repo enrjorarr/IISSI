@@ -26,16 +26,15 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/biblio.css" />
+  <link rel="stylesheet" type="text/css" href="css/inicio_sesion.css" />
   <title>Gestión de clinica: Inicio Sesión</title>
+  <?php include_once("head.php")?>
 </head>
 
 <body>
 
 <?php
 	include_once("cabecera.php");
-	include_once("menu.php");
-
 
 ?>
 
@@ -49,9 +48,9 @@
 	
 	<!-- The HTML login form -->
 	<form action="whoiswho.php" method="post">
-		<div><label for="email">Email: </label><input type="text" name="email" id="email" /></div>
-		<div><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
-		<input type="submit" name="submit" value="submit" />
+		<div class = "email"><label for="email">Email: </label><input type="text" name="email" id="email" /></div>
+		<div class="pass"><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
+		<input type="submit" class ="butn" name="submit" value="submit" />
 	</form>
 		
 	<p>¿No estás registrado? <a href="form_alta_cliente.php">¡Registrate!</a></p>

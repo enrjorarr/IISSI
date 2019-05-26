@@ -39,14 +39,20 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/biblio.css" />
+  <link rel="stylesheet" type="text/css" href="css/form_alta_cliente.css" />
   <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
+  <?php include_once("head.php");?>
 </head>
 
 <body>
+
+<?php
+	include_once("cabecera.php");
+
+?>
 	<script>
 		// Inicialización de elementos y eventos cuando el documento se carga completamente
 		$(document).ready(function() {
@@ -67,10 +73,7 @@
 
 	</script>
 	
-	<?php
-        include_once("cabecera.php");
-        include_once("menu.php");
-	?>
+
 	
 	<?php 
 		// Mostrar los erroes de validación (Si los hay)
@@ -88,13 +91,13 @@
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
-		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
-		<fieldset><legend>Datos personales</legend>
-			<div></div><label for="nif">DNI:<em>*</em></label>
+		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
+		<fieldset class="datos1" ><legend>Datos personales</legend>
+			<div></div><label for="nif">DNI:<em STYLE="color:red;">*</em></label>
 			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
 			</div>
 
-			<div><label for="nombre">Nombre:<em>*</em></label>
+			<div><label for="nombre">Nombre:<em STYLE="color:red;">*</em></label>
 			<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
 			</div>
 
@@ -102,26 +105,26 @@
 			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
 			</div>
 
-			<div><label for="fechaNacimiento">Fecha de nacimiento:<em>*</em></label>
+			<div><label for="fechaNacimiento">Fecha de nacimiento:<em STYLE="color:red;">*</em></label>
 			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"/>
 			</div>
 
-			<div><label for="email">Email:<em>*</em></label>
+			<div><label for="email">Email:<em STYLE="color:red;">*</em></label>
 			<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/>
 			</div>
 
-			<div><label for="numeroTelefono">Telefono:<em>*</em></label>
+			<div><label for="numeroTelefono">Telefono:<em STYLE="color:red;">*</em></label>
 			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" pattern="^[0-9]{9}"value="<?php echo $formulario['numeroTelefono'];?>" required/>
 			</div>
 
 		</fieldset>
 
-		<fieldset><legend>Datos de cuenta</legend>
+		<fieldset class="datos2"><legend>Datos de cuenta</legend>
 			
 			<div><label for="nick">Nickname:</label>
 				<input id="nick" name="nick" type="text" size="40" value="<?php echo $formulario['email'];?>" />
 			</div>
-			<div><label for="pass">Password:<em>*</em></label>
+			<div><label for="pass">Password:<em STYLE="color:red;">*</em></label>
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 			</div>
 			<div><label for="confirmpass">Confirmar Password: </label>
@@ -129,23 +132,26 @@
 			</div>
 		</fieldset>
 
-		<fieldset>
+		<fieldset class="datos3">
 			<legend>
 				Dirección
 			</legend>
 
-			<div><label for="calle">Calle/Avda.:<em>*</em></label>
+			<div><label for="calle">Calle/Avda.:<em STYLE="color:red;">*</em></label>
 			<input id="calle" name="calle" type="text" size="80" value="<?php echo $formulario['calle'];?>" required/>
 			</div>
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" /></div>
-	</form>
-	
-	<?php
+		<div><input class="butn" type="submit" value="Enviar" /></div>
+		<?php
 		include_once("pie.php");
 		cerrarConexionBD($conexion);
 	?>
+
+	</form>
+
+
+
 	
 	</body>
 </html>
