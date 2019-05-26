@@ -9,8 +9,8 @@
  function alta_trabajador($conexion,$usuario) {
 	$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
 
-	try {
-		$consulta = "CALL ALTA_TRABAJADOR(:Dni,:FechaNac,:Sueldo,:Pass, :Direccion,  :Email , :Nombre, :Apellidos,:EsGestor,:HorasTrabajo)";
+	try { //REVISAR PARAMETROS - NumeroTelefono
+		$consulta = "CALL ALTA_TRABAJADOR(:Dni,:FechaNac,:Sueldo,:Pass, :Direccion, :NumeroTelefono, :Email , :Nombre, :Apellidos,:EsGestor,:HorasTrabajo)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':Dni',$usuario["nif"]);
 		$stmt->bindParam(':Nombre',$usuario["nombre"]);
@@ -35,7 +35,7 @@
     }
 }
   
-function consultarUsuario($conexion,$email,$pass) {
+function consultarTrabajador($conexion,$email,$pass) {
  	$consulta = "SELECT COUNT(*) AS TOTAL FROM TRABAJADORES WHERE EMAIL=:email AND PASS=:pass";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':email',$email);
