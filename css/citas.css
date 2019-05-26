@@ -3,24 +3,27 @@ body{
 
 }
 main{
-    padding-top: 15%;
-
-    size: 100%;
-    height: 100%;
-    position: relative;
+    margin-top: 15%;
+    width: 100%;
+    height: 68%;
+    position: absolute;
 
 }
 
-.p{
-    background-color: #19c4be;
-    font-family: 'ABeeZee', sans-serif;
 
-    size: 80%;
+.fondo{
+    height: 100%;
+    width: 100%;
+}
+.p{
+    
+    font-family: 'ABeeZee', sans-serif;
+    size: 100%;
     position: relative;
     padding-bottom: 8%;
     padding-left: 3%;
     padding-right: 10%;
-    padding-top: 3%;
+    padding-top: 5%;
 }
 .veterinaria{
     padding-left: 5%;
@@ -47,7 +50,7 @@ main{
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    background: #FFE43B;
+    background: rgb(46, 209, 182);
 
 }
 .movimientoNaranja{

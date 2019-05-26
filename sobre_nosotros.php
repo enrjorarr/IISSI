@@ -10,19 +10,20 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
   <link rel="stylesheet" type="text/css" href="css/about.css" />
-  <link href="https://fonts.googleapis.com/css?family=ABeeZee&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="./js/boton.js"></script>
+	
   <title>Sobre nosotros</title>
-  <?php include_once("head.php")?>
+  <?php include_once("head.php");?>
 
 </head>
 
 <body>
 <?php	
 
-	include_once("cabecera.php"); 
+include_once("cabecera.php"); 
 ?>
+
 <main>
+
 
 <div class="tituloAbout">
 	<h2>¿Quiénes somos?</h2>

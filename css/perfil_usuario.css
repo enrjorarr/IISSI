@@ -1,0 +1,38 @@
+body{
+    size: 100%;
+
+
+}
+
+.todo{
+    margin-top: 15%;
+    width: 100%;
+    height: 68%;
+    position: absolute;
+    font-family: 'ABeeZee', sans-serif;
+
+}
+
+.perfil{
+    display: block;
+    height: 120px;
+    width:120px;
+    padding-left: 30%;
+
+
+}
+
+.mascota{
+    display: block;
+    height: 120px;
+    width:120px;
+    padding-left: 30%;
+    margin-top:50px;
+
+
+}
+
+.tabla{
+
+
+}

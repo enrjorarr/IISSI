@@ -10,8 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
   <link rel="stylesheet" type="text/css" href="css/citas.css" />
-  <link href="https://fonts.googleapis.com/css?family=ABeeZee&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="./js/boton.js"></script>
+  <script type="text/javascript" src="./js/boton.js"></script>
   <title>Citas</title>
   <?php include_once("head.php")?>
 </head>
@@ -21,6 +20,7 @@
 	include_once("cabecera.php");
 ?>
 <main>
+
     <div class = "p">
         <div class = "veterinaria">
             <div class = "logoVeterinaria">
@@ -47,9 +47,10 @@
             </div>
         </div>
     </div>
-</main>
-<?php
+    <?php
 	include_once("pie.php");
 ?>
+</main>
+
 </body>
 </html>
