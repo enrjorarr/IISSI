@@ -6,34 +6,35 @@
      * #==========================================================#
      */
 
- function alta_trabajador($conexion,$usuario) {
-	$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
+ function alta_trabajador($conexion,$trabajador) {
+	$fechaNacimiento = date('d/m/Y', strtotime($trabajador["fechaNacimiento"]));
 
 	try { //REVISAR PARAMETROS - NumeroTelefono
 		$consulta = "CALL ALTA_TRABAJADOR(:Dni,:FechaNac,:Sueldo,:Pass, :Direccion, :NumeroTelefono, :Email , :Nombre, :Apellidos,:EsGestor,:HorasTrabajo)";
 		$stmt=$conexion->prepare($consulta);
-		$stmt->bindParam(':Dni',$usuario["nif"]);
-		$stmt->bindParam(':Nombre',$usuario["nombre"]);
-		$stmt->bindParam(':Apellidos',$usuario["apellidos"]);
-		$stmt->bindParam(':Direccion',$usuario["calle"]);
+		$stmt->bindParam(':Dni',$trabajador["nif"]);
+		$stmt->bindParam(':Nombre',$trabajador["nombre"]);
+		$stmt->bindParam(':Apellidos',$trabajador["apellidos"]);
+		$stmt->bindParam(':Direccion',$trabajador["calle"]);
 		$stmt->bindParam(':FechaNac',$fechaNacimiento);
-		$stmt->bindParam(':Email',$usuario["email"]);
-		$stmt->bindParam(':Pass',$usuario["pass"]);
-		$stmt->bindParam(':NumeroTelefono',$usuario["numeroTelefono"]);
-		$stmt->bindParam(':EsGestor',$usuario["esGestor"]);
-		$stmt->bindParam(':HorasTrabajo',$usuario["horasTrabajo"]);
+		$stmt->bindParam(':Email',$trabajador["email"]);
+		$stmt->bindParam(':Pass',$trabajador["pass"]);
+		$stmt->bindParam(':Sueldo',$trabajador["sueldo"]);
+		$stmt->bindParam(':NumeroTelefono',$trabajador["numeroTelefono"]);
+		$stmt->bindParam(':EsGestor',$trabajador["esGestor"]);
+		$stmt->bindParam(':HorasTrabajo',$trabajador["horasTrabajo"]);
 
 
 		$stmt->execute();
 		
 		return true;
 	} catch(PDOException $e) {
-		
+		var_dump($e->getMessage());exit();
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
 		
     }
-}
+} 
   
 function consultarTrabajador($conexion,$email,$pass) {
  	$consulta = "SELECT COUNT(*) AS TOTAL FROM TRABAJADORES WHERE EMAIL=:email AND PASS=:pass";

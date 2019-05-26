@@ -6,7 +6,7 @@
 		
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
-		$nuevoUsuario = $_SESSION["formulario"];
+		$nuevoTrabajador = $_SESSION["formulario"];
 		$_SESSION["formulario"] = null;
 		$_SESSION["errores"] = null;
 	}
@@ -26,19 +26,19 @@
 
 <body>
 	<?php
-      //  include_once("cabecera.php");
+        include_once("cabecera.php");
 	?>
 
 	<main>
-		<?php if (alta_trabajador($conexion, $nuevoUsuario)) { 
-				$_SESSION['login'] = $nuevoUsuario['email'];
+		<?php if (alta_trabajador($conexion, $nuevoTrabajador)) { 
+				$_SESSION['login'] = $nuevoTrabajador['email'];
 		?>
-				<h1><?php echo $nuevoUsuario["nombre"]; ?> ha sido registrado con exito.</h1>
+				<h1><?php echo $nuevoTrabajador["nombre"]; ?> ha sido registrado con exito.</h1>
 				<div >	
 			   		Pulsa <a href="form_alta_trabajador.php">aquí</a> para registrar un nuevo trabajador.
 				</div>
 		<?php } else { ?>
-				<h1>El usuario <?php echo $nuevoUsuario["nombre"]; ?> ya existe en la base de datos.</h1>
+				<h1>El usuario <?php echo $nuevoTrabajador["nombre"]; ?> ya existe en la base de datos.</h1>
 				<div >	
 					Pulsa <a href="form_alta_trabajador.php">aquí</a> para volver al formulario.
 				</div>
