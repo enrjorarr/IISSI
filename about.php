@@ -25,7 +25,7 @@
 <main>
 
 <div class="tituloAbout">
-	<h2>HUELLAS</h2>
+	<h2>¿Quiénes somos?</h2>
 </div>
 
 <div class="p">
