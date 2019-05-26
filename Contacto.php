@@ -37,7 +37,7 @@
 				<p>De lunes a jueves</p>
 				<p>de 8:00h a 19:00h.</p>
 				<p>Viernes</p>
-				<p>de 8:00h a 19:00h.</p>
+				<p>de 8:00h a 17:00h.</p>
 			</div>
 			<div class = "p1.1.2">
 				<div class = "reloj">
@@ -46,7 +46,7 @@
 			</div>
 			<div class = "p1.1.2">
 				<div class = "texto5">
-					<p>poner aqui un email</p>
+					<p>clinicahuellas@huellas.com</p>
 				</div>
 			</div>
 			<div class = "p1.1.2">
@@ -56,7 +56,7 @@
 			</div>
 			<div class = "p1.1.2">
 				<div class = "texto5">
-					<p>Tel: 976311294320 - 234098235872</p>
+					<p>Tel: 924844682</p>
 				</div>
 			</div>
 			<div class = "p1.1.2">
@@ -66,9 +66,9 @@
 			</div>
 			<div class = "p1.1.2">
 				<div class = "texto5">
-					<p>Urbanización parque de Roma,</p>
-					<p>bloque 45</p>
-					<p>41013 - Sevilla</p>
+					<p>Calle de San Miguel, 4,</p>
+					<p>Villanueva de la Serena</p>
+					<p>06700 - Badajoz</p>
 				</div>
 			</div>
 		</div>
