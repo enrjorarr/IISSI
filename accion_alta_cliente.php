@@ -22,12 +22,13 @@
 <head>
   <meta charset="utf-8">
   <title>Gestión de Veterinaria: Alta de Usuario realizada con éxito</title>
+  <?php include_once("head.php")?>
 </head>
 
 <body>
 	<?php
         include_once("cabecera.php");
-        include_once("menu.php");
+   
 	?>
 
 	<main>

@@ -23,9 +23,8 @@
 
 		$stmt->execute();
 		
-		return true;
+		return true;	
 	} catch(PDOException $e) {
-		
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
 		

@@ -8,9 +8,9 @@
 	</div>
 	<div class="boton1">
 			<?php if (isset($_SESSION['login'])) {	?>
-				<button class="butn" href="login.php">Iniciar sesion</button>
+				<button class="butn" href="cierre_sesion.php">Cerrar sesión</button>
 			<? }else{ ?>
-				<button class="butn" href="logout.php">Cerrar sesion</button>	
+				<button class="butn" href="inicio_sesion.php">Iniciar sesion</button>	
 			<?php } ?>
 
 			</div>
