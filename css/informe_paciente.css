@@ -16,8 +16,12 @@ main{
 
 .tratamiento{
     display:block;
-    padding-top:4%;
-    padding-bottom:4%;
+    padding-top:3%;
+    padding-bottom:3%;
+}
+.fechaConsulta{
+    display:block;
+    padding-bottom:3%;
 }
 
 .butn {
