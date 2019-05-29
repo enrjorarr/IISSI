@@ -23,8 +23,8 @@
 	<div class = "menu">
 
 	<ul>
-        <li><a href="historiales.php"><span title="Sobre nosotros">Historiales</span></a></li>
+        <li><a href="historiales.php"><span title="Historiales">Historiales</span></a></li>
         <li><a href="citas_trabajadores.php"><span title="Citas">Citas</span></a></li>
 	</ul>
-	
+	</header>
 	</div>
