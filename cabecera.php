@@ -8,20 +8,19 @@
 	</div>
 	<div class="boton1">
 			<?php if (isset($_SESSION['login'])) {	?>
-<<<<<<< HEAD
-				<button class="butn" href="cierre_sesion.php">Cerrar sesion</button>
+				<a href="/cierre_sesion.php"><button type="button" class = "butn">Cerrar Sesión</button></a>
 			<?php }else{ ?>
-=======
-				<button class="butn" href="cierre_sesion.php">Cerrar sesión</button>
-			<? }else{ ?>
->>>>>>> c5715b03e420e9403a7966c751297e14a141972d
-				<button class="butn" href="inicio_sesion.php">Iniciar sesion</button>	
-			<?php } ?>
 
+				
+				<!--<a href="inicio_sesion.php"><input type="button" class="butn" value="Inicar Sesión"></a>-->
+			
+			<?php } ?>
 			</div>
 	<div class="boton2">
 
-				<a href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil"></a> 
+		<a href="perfil_cliente.php"><img src="images/perfil_logo.png"  /></a>
+
+				
 
 	</div>
 

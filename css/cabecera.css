@@ -13,6 +13,10 @@
     
 }
 
+header{
+    height:27%;
+}
+
 .foto{
     float: left;
     height: 110px;
