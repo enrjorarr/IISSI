@@ -19,7 +19,7 @@
 		}
 		else {
 			$_SESSION['login'] = $email;
-			Header("Location: /inicio.php");
+			Header("Location: inicio.php");
         }	
         
 	}

@@ -13,10 +13,15 @@
 				<button class="butn" href="inicio_sesion.php">Iniciar sesion</button>	
 			<?php } ?>
 
+				
+				<a href="inicio_sesion.php"><input type="button" class="butn" value="Inicar Sesión"></a>
+			
+			<?php } ?>
 			</div>
 	<div class="boton2">
 
-				<a href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil"></a> 
+		<a title="Perfil" href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil" /></a>
+				
 
 	</div>
 

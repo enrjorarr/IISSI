@@ -2,7 +2,7 @@
 	session_start();
 
 	require_once("gestionBD.php");
-	require_once("gestionarTrabajadores.php"); //Completar más tarde
+	require_once("gestionarTrabajadores.php"); 
 		
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
