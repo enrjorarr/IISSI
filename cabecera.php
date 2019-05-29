@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <div class="cabecera" style="background-image: url('images/fondo4.jpg')">
 <header>
 	<div class = "foto">
@@ -8,12 +11,13 @@
 	</div>
 	<div class="boton1">
 			<?php if (isset($_SESSION['login'])) {	?>
-				<button class="butn" href="login.php">Iniciar sesion</button>
+				<h1>Hola pato</h1>
+				<button class="butn" href="inicio_sesion.php">Iniciar sesion</button>
 			<? }else{ ?>
-				<button class="butn" href="logout.php">Cerrar sesion</button>	
+				<h1>Hola pata</h1>
+				<button class="butn" href="cierre_sesion.php">Cerrar sesion</button>	
 			<?php } ?>
-
-			</div>
+	</div>
 	<div class="boton2">
 
 				<a href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil"></a> 

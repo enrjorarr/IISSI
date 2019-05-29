@@ -2,6 +2,8 @@
 	session_start();
 
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
+	require_once("gestionBD.php");
+
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
         // Recogemos los datos del formulario
@@ -54,10 +56,6 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	if($nuevoUsuario["nombre"]=="") 
         $errores[] = "<p>El nombre no puede estar vacío</p>";
         
-	// Validación de la dirección
-	if($nuevoUsuario["calle"]==""){
-		$errores[] = "<p>La dirección no puede estar vacía</p>";	
-	}
 }
 
 ?>

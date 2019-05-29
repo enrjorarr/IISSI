@@ -2,16 +2,16 @@
 	session_start();
 
 	require_once("gestionBD.php");
-	require_once("gestionarClientes.php"); //Completar más tarde
+	require_once("gestionarPacientes.php"); 
 		
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
-		$nuevoUsuario = $_SESSION["formulario"];
+		$nuevoPaciente = $_SESSION["formulario"];
 		$_SESSION["formulario"] = null;
 		$_SESSION["errores"] = null;
 	}
 	else 
-		Header("Location: form_alta_cliente.php");	
+		Header("Location: form_alta_paciente.php");	
 
 	$conexion = crearConexionBD(); 
 
@@ -21,7 +21,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Gestión de Veterinaria: Alta de Usuario realizada con éxito</title>
+  <title>Gestión de Veterinaria: Alta de paciente realizada con éxito</title>
 </head>
 
 <body>
@@ -31,17 +31,16 @@
 	?>
 
 	<main>
-		<?php if (alta_pacientes($conexion, $nuevoUsuario)) { 
-				$_SESSION['login'] = $nuevoUsuario['email'];
+		<?php if (alta_pac($conexion, $nuevoPaciente)) { 
 		?>
-				<h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
+				<h1>Se ha registrado el paciente : <?php echo $nuevoPaciente["idPaciente"]; ?></h1>
 				<div >	
 			   		Pulsa <a href="inicio_sesion.php">aquí</a> para iniciar sesión :].
 				</div>
 		<?php } else { ?>
 				<h1>El usuario ya existe en la base de datos.</h1>
 				<div >	
-					Pulsa <a href="form_alta_cliente.php">aquí</a> para volver al formulario.
+					Pulsa <a href="form_alta_paciente.php">aquí</a> para volver al formulario.
 				</div>
 		<?php } ?>
 
