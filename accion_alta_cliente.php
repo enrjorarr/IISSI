@@ -28,6 +28,10 @@
 <body>
 	<?php
         include_once("cabecera.php");
+<<<<<<< HEAD
+=======
+   
+>>>>>>> c5715b03e420e9403a7966c751297e14a141972d
 	?>
 
 	<main>
