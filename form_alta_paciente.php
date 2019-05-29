@@ -55,18 +55,6 @@
 
 ?>
 	<script>
-		// Inicialización de elementos y eventos cuando el documento se carga completamente
-		$(document).ready(function() {
-			$("#altaUsuario").on("submit", function() {
-				return validateForm();
-			});
-			
-			// EJERCICIO 2: Manejador de evento para copiar automáticamente el email como nick del usuario
-			$("#email").on("input", function(){
-				$("#nick").val($(this).val());
-			});
-
-			// EJERCICIO 3: Manejador de evento del color de la contraseña
 			$("#pass").on("keyup", function() {
 				// Calculo el color
 				passwordColor();
@@ -88,7 +76,7 @@
   		}
 	?>
 	
-	<form id="altaCliente" method="get" action="validacion_alta_paciente.php"
+	<form id="altaPaciente" method="get" action="validacion_alta_paciente.php"
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
