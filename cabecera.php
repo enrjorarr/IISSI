@@ -14,9 +14,7 @@
 			<?php } ?>
 
 				
-				<a href="inicio_sesion.php"><input type="button" class="butn" value="Inicar Sesión"></a>
-			
-			<?php } ?>
+				
 			</div>
 	<div class="boton2">
 
