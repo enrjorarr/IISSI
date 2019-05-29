@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
-  <link rel="stylesheet" type="text/css" href="css/about.css" />
+  <link rel="stylesheet" type="text/css" href="css/sobre_nosotros.css" />
 	
   <title>Sobre nosotros</title>
   <?php include_once("head.php");?>
