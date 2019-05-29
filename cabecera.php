@@ -11,11 +11,9 @@ session_start();
 	</div>
 	<div class="boton1">
 			<?php if (isset($_SESSION['login'])) {	?>
-				<h1>Hola pato</h1>
-				<button class="butn" href="inicio_sesion.php">Iniciar sesion</button>
-			<? }else{ ?>
-				<h1>Hola pata</h1>
-				<button class="butn" href="cierre_sesion.php">Cerrar sesion</button>	
+				<button class="butn" href="cierre_sesion.php">Cerrar sesion</button>
+			<?php }else{ ?>
+				<button class="butn" href="inicio_sesion.php">Iniciar sesion</button>	
 			<?php } ?>
 	</div>
 	<div class="boton2">
