@@ -11,7 +11,7 @@
 		$conexion = crearConexionBD();
 		$num_usuarios = consultarUsuario($conexion,$email,$pass);
 		cerrarConexionBD($conexion);	
-	
+		var_dump($num_usuarios);exit;
 		if ($num_usuarios == 0)
 			$login = "error";	
 		else {

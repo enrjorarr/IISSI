@@ -33,7 +33,16 @@
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
 		
-    }
+		}
+		function consultarPacientes2ID($conexion,$id) {
+			$consulta = "SELECT * FROM CLIENTES WHERE ID=:id";
+		 $stmt = $conexion->prepare($consulta);
+		 $stmt->bindParam(':id',$id);
+		 
+		 $stmt->execute();
+		 return $stmt->fetchColumn();
+	 	}
+	 
 }
 
 ?>

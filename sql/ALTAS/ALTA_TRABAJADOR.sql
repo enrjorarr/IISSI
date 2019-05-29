@@ -12,7 +12,7 @@ create or replace PROCEDURE ALTA_TRABAJADOR(
     HorasTrabajo    IN Trabajadores.HorasTrabajo%TYPE
     )IS  
 BEGIN
-    INSERT INTO Trabajadores VALUES(FechaNac,Nombre,Apellidos,Pass,Direccion,NumeroTelefono,Email,HorasTrabajo,Sueldo,EsGestor,Dni,1);
+    INSERT INTO Trabajadores VALUES(NUMEROTELEFONO,PASS,FECHANAC,NOMBRE,APELLIDOS,DIRECCION,Email,HORASTRABAJO,Sueldo,EsGestor,Dni,1);
   COMMIT WORK;
 END ALTA_TRABAJADOR;
 /

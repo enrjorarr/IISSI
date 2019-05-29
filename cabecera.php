@@ -8,13 +8,8 @@
 	</div>
 	<div class="boton1">
 			<?php if (isset($_SESSION['login'])) {	?>
-<<<<<<< HEAD
 				<button class="butn" href="cierre_sesion.php">Cerrar sesion</button>
 			<?php }else{ ?>
-=======
-				<button class="butn" href="cierre_sesion.php">Cerrar sesión</button>
-			<? }else{ ?>
->>>>>>> c5715b03e420e9403a7966c751297e14a141972d
 				<button class="butn" href="inicio_sesion.php">Iniciar sesion</button>	
 			<?php } ?>
 
