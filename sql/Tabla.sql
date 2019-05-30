@@ -148,12 +148,12 @@ CREATE TABLE Veterinarios (
     Dni  CHAR(9) NOT NULL,
     Motivo Varchar(50),
     FechaInicio DATE NOT NULL,
-    IDPaciente            CHAR(9)
+    IDPaciente            CHAR(9),
 
     PRIMARY KEY (OIDPetCita),
     FOREIGN KEY (Dni) REFERENCES Clientes,
-    CONSTRAINT ComprobarCoste CHECK(Coste>0),
-    CONSTRAINT ComprobarFechas CHECK (FechaInicio IS NULL OR FechaFin>FechaInicio)
+    FOREIGN KEY (IDPaciente) REFERENCES Pacientes
+
     );
 
 CREATE TABLE Citas (

@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="css/citas.css" />
   <script type="text/javascript" src="./js/boton.js"></script>
   <title>Citas</title>
-  <?php include_once("head.php")?>
+  <?php include_once("head_staff.php")?>
 </head>
 
 <body>
