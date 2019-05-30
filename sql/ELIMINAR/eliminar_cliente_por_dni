@@ -1,0 +1,6 @@
+create or replace PROCEDURE ELIMINAR_CLIENTE_POR_DNI(v_Dni IN Clientes.Dni%TYPE)
+IS
+BEGIN
+    DELETE FROM Clientes WHERE Dni = v_Dni;
+    COMMIT;
+END ELIMINAR_CLIENTE_POR_DNI;

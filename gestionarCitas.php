@@ -26,6 +26,17 @@ function alta_cita($conexion,$usuario) {
     }
 }
   
+function eliminar_libro($conexion,$Dni) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:OidCitas)');
+		$stmt->bindParam(':OidCitas',$OidLibro);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
+
 function consultarUsuario($conexion,$email,$pass) {
  	$consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE EMAIL=:email AND PASS=:pass";
 	$stmt = $conexion->prepare($consulta);

@@ -34,6 +34,28 @@
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
 		
     }
+} function alta_peluquero($conexion,$trabajador) {
+	try {
+		$consulta = "CALL ALTA_PELUQUERO(:OIDTrabajador)";
+		$stmt=$conexion->prepare($consulta);
+		$stmt->bindParam(':OIDTrabajador',$trabajador["OIDTrabajador"]);
+		$stmt->execute();		
+		return true;
+	} catch(PDOException $e) {
+		return false;
+		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();	
+    }
+} function alta_veterinario($conexion,$trabajador) {
+	try {
+		$consulta = "CALL ALTA_PELUQUERO(:OIDTrabajador)";
+		$stmt=$conexion->prepare($consulta);
+		$stmt->bindParam(':OIDTrabajador',$trabajador["OIDVeterinario"]);
+		$stmt->execute();		
+		return true;
+	} catch(PDOException $e) {
+		return false;
+		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();	
+    }
 } 
   
 function consultarTrabajador($conexion,$email,$pass) {
