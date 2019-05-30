@@ -4,7 +4,6 @@
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
 
-
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
 		// Recogemos los datos del formulario
@@ -18,11 +17,12 @@
 		$nuevoUsuario["calle"] = $_REQUEST["calle"];
 		$nuevoUsuario["numeroTelefono"] = $_REQUEST["numeroTelefono"];
 		
+		
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["formulario"] = $nuevoUsuario;		
 	}
 	else // En caso contrario, vamos al formulario
-		Header("Location: form_alta_cliente.php");
+		Header("Location: form_alta_cita.php");
 
 	// Validamos el formulario en servidor
 	$conexion = crearConexionBD(); 

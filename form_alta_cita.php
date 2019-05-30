@@ -96,7 +96,7 @@ Dni, OIDGestor,FechaInicio, FechaFin, DuracionMin,Coste
 			</div>
 
 			<div><label for="OIDGestor">OID del Gestor<em STYLE="color:red;">*</em></label>
-			<input id="OIDGestor" name="OIDGestor" type="number" size="40" value="<?php echo $formulario['OIDGestor'];?>" required/>
+			<input id="OIDGestor" name="OIDGestor" type="text" size="40" value="<?php echo $formulario['OIDGestor'];?>" />
 			</div>
 
 			<div><label for="fechaInicio">Fecha de inicio:<em STYLE="color:red;">*</em></label>
