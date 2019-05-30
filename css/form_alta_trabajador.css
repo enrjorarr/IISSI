@@ -1,24 +1,36 @@
-main{
+form{
     display: block;
-    padding-top: 10%;
-    padding-left: 40%;
-    margin-top: 12%;
-    height: 100%;
-    width: 59%;
+    margin-top: 15%;
+    width: 100%;
     position: absolute;
     font-family: 'ABeeZee', sans-serif;
+    margin-bottom: 0%;
 }
-
-.email{
-    display:block
+fieldset{
+    margin-left: 6%;
+    width: 80%;
+    margin-bottom: 10px;
+    
     
 
 }
+p{
+    margin-left: 6%;
 
-.pass{
-    display:block;
-    padding-top:3%;
-    padding-bottom:3%;
+}
+
+input[type=text], input[type=date],input[type=email],input[type=password] {
+	width: 200px;
+	height: 25px;
+	font-size: small;
+	background: white ;
+	padding: 6px 10px;
+	color: #000000;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #00ffff;
+	border-radius: 5px;
+	box-sizing: border-box;
 }
 
 .butn {
@@ -36,6 +48,9 @@ main{
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    margin-left: 6%;
+    margin-bottom:5%;
+
   }
   
   .butn:hover {
@@ -47,17 +62,3 @@ main{
     background-image: linear-gradient(to bottom, #37dae6, #29d9ad);
     text-decoration: none;
   }
-
-  input[type=text],input[type=password] {
-	width: 180px;
-	height: 35px;
-	font-size: small;
-	background: white ;
-	padding: 6px 10px;
-	color: #000000;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #00ffff;
-	border-radius: 5px;
-	box-sizing: border-box;
-}

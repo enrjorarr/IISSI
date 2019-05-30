@@ -10,16 +10,16 @@
 			<?php if (isset($_SESSION['login'])) {	?>
 				<a href="cierre_sesion.php"><input type="button" class="butn" value="Cerrar Sesión"></a>
 			<?php }else{ ?>
-				<a href="inicio_sesion.php"><input type="button" class="butn" value="Inicar Sesión"></a>	
+				<a href="inicio_sesion.php"><input type="button" class="butn" value="Iniciar Sesión"></a>	
 			<?php } ?>
 
 				
 				
 			</div>
 	<div class="boton2">
-
-		<a title="Perfil" href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil" /></a>
-				
+		<?php if (isset($_SESSION['login'])) {	?>		
+			<a title="Perfil" href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil" /></a>
+		<?php }?>		
 
 	</div>
 

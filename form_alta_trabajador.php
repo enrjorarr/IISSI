@@ -42,14 +42,15 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/form_alta_cliente.css" />
+  <link rel="stylesheet" type="text/css" href="css/form_alta_trabajador.css" />
+
 
   <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
 	<?php
-        include_once("head.php");
+        include_once("head_staff.php");
 	?>
 </head>
 
@@ -158,12 +159,12 @@
 		
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" /></div>
+		<div><input class="butn" type="submit" value="Enviar" /></div>
 
 		<?php
-		include_once("pie.php");
-		cerrarConexionBD($conexion);
-	?>
+			include_once("pie.php");
+			cerrarConexionBD($conexion);
+		?>
 	
 	</form>
 	
