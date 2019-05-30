@@ -10,67 +10,53 @@ main{
 
 }
 
-
-.fondo{
-    height: 100%;
-    width: 100%;
+input[type=text], input[type=date],input[type=email],input[type=password] {
+	width: 200px;
+	height: 25px;
+	font-size: small;
+	background: white ;
+	padding: 6px 10px;
+	color: #000000;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #00ffff;
+	border-radius: 5px;
+	box-sizing: border-box;
 }
+
 .p{
-    
+    width: 90%;
+    height: 90%;
+    position: absolute;
     font-family: 'ABeeZee', sans-serif;
     position: relative;
-    padding-bottom: 8%;
     padding-left: 3%;
 }
-.veterinaria{
-    padding-left: 5%;
-    height: 100%;
+.busqueda{
+    position: absolute;
+    height: 10%;
+    width: 50%;
+    float: left;
+
+}
+.tabla{
+    position: relative;
+
+    margin-top: 7%;
+    height: 60%;
     width: 40%;
     float: left;
 
 }
-.peluqueria{
-    
-    height: 100%;
-    width: 50%; 
-    margin-left: 50%;
+.informe{
+    position: absolute;
+    height: 12%;
+    width: 20%; 
+    margin-left: 80%;
 }
-.logoVeterinaria{
-    margin-left: 50%;
+.historial{
+    width: 10%;
+    padding-left: 83%;
+    padding-top: 6%;
 }
-.logoPeluqueria{
-    margin-left: 50%;
-}
-.circulo {
-    width: 100px;
-    height: 100px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    background: rgb(46, 209, 182);
 
-}
-.movimientoNaranja{
-    padding-left: 20%;
-    padding-top: 20%;
-}
-.movimientoTexto1{
-    padding-left: 8%;
-
-}
-.movimientoTexto2{
-    padding-left: 5%;
-
-}
-.movimientoTexto3{
-    padding-left: 13%;
-
-}
-.movimientoTexto4{
-    padding-left: 8%;
-
-}
-.movimientoTexto5{
-    padding-left: 4%;
-
-}

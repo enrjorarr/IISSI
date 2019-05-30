@@ -46,8 +46,6 @@
                 <div class = "id">
                     <label for="id">Busqueda por id del paciente: </label>
                     <input type="text" name="id" id="id" />
-                </div>
-                <div class="boton1">
                     <input type="submit" class ="butn" name="buscar" value="submit" />
                 </div>
             </form>
@@ -58,15 +56,13 @@
         </div>
 
         <div class="informe">
-            <?php   $p = $_SESSION["paciente"]  ;
-            ?>
             <form action="form_alta_informe.php">
-                <input type="submit" class ="butn" name="informe" value="<?=$p['OIDHistorial']?>" />
+                <input type="submit" class ="butn" name="informe" value="Añadir informe" />
             </form>            
         </div>
-        <div class="Historial">
+        <div class="historial">
             <form action="form_alta_historial.php">
-                <input type="submit" class ="butn" name="historial"/>
+                <input type="submit" class ="butn" name="historial" value="Añadir historial"/>
             </form>  
         </div>
     </div>
