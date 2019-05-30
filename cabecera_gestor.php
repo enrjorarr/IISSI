@@ -7,18 +7,13 @@
 	<h1>H U E L L A S</h1>
 	</div>
 	<div class="boton1">
-			<?php if (isset($_SESSION['login'])) {	?>
-				<button class="butn" href="login.php">Iniciar sesion</button>
-			<? }else{ ?>
-				<button class="butn" href="logout.php">Cerrar sesion</button>	
+	<?php if (isset($_SESSION['login'])) {	?>
+				<a href="cierre_sesion.php"><input type="button" class="butn" value="Cerrar Sesión"></a>
+			<?php }else{ ?>
+				<a href="inicio_sesion.php"><input type="button" class="butn" value="Iniciar Sesión"></a>	
 			<?php } ?>
 
 			</div>
-	<div class="boton2">
-
-				<a href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil"></a> 
-
-	</div>
 
 	<div class = "menu">
 
