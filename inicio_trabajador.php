@@ -17,7 +17,7 @@
 
 <body>
 <?php
-	include_once("cabecera.php");
+	include_once("cabecera_trabajadores.php");
 ?>
 <main>
 
@@ -38,11 +38,11 @@
             <div class = "logoPeluqueria">
                 <div class="circulo">
                     <div class = "movimientoNaranja">
-                        <a title="Historial" href="form_alta_cliente.php"><img src="images/carpeta.png" alt="Historial" /></a>
+                        <a title="Historial" href="historial_paciente.php"><img src="images/carpeta.png" alt="Historial" /></a>
                     </div>
                 </div>
                 <div class = "movimientoTexto4">
-                    <br><a href="form_alta_cliente.php">Historial</a>
+                    <br><a href="historial_paciente.php">Historial</a>
                 </div>
             </div>
         </div>
