@@ -12,3 +12,13 @@ create or replace PROCEDURE ALTA_CITA(
   COMMIT WORK;
 END ALTA_CITA;
 /
+create or replace PROCEDURE ALTA_PETCITA(
+    Dni  IN CitaS.Dni%TYPE,
+    FechaInicio IN CitaS.FechaInicio%TYPE,
+    )IS
+    BEGIN
+    INSERT INTO Citas VALUES(0,Dni,FechaInicio, IDPaciente);
+  COMMIT WORK;
+END ALTA_CITA;
+/
+

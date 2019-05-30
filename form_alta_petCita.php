@@ -1,5 +1,4 @@
 
-
 <?php
     session_start();
     
@@ -7,12 +6,10 @@
 
 
     if(!isset($_SESSION["formulario"])){
-        $formulario['nif'] = "";                                      //  
-		$formulario['OIDGestor'] = "";                                   //
-		$formulario['fechaInicio'] = "";                                //    
-		$formulario['fechaFin'] = "";                          //           
-		$formulario['duracionMin'] = "";                                    //
-        $formulario['coste'] = "";                                     //
+        $formulario['nif'] = "";                                                                       
+		$formulario['motivo'] = "";                                                                
+		$formulario['fecha'] = "";                                    
+        $formulario['idPaciente'] = "";                                     
         
 
         $_SESSION["formulario"] = $formulario;
@@ -85,7 +82,7 @@
   		}
 	?>
 	
-	<form id="altaCita" method="get" action="validacion_alta_cita.php"
+	<form id="petCita" method="get" action="validacion_alta_petCita.php"
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
@@ -95,24 +92,16 @@
 			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
 			</div>
 
-			<div><label for="OIDGestor">OID del Gestor<em STYLE="color:red;">*</em></label>
-			<input id="OIDGestor" name="OIDGestor" type="text" size="40" value="<?php echo $formulario['OIDGestor'];?>" />
+			<div><label for="fecha">Fecha solicitada :<em STYLE="color:red;">*</em></label>
+			<input id="fecha" name="fecha" type="date" size="80" value="<?php echo $formulario['fecha'];?>"required/>
 			</div>
 
-			<div><label for="fechaInicio">Fecha de inicio:<em STYLE="color:red;">*</em></label>
-			<input id="fechaInicio" name="fechaInicio" type="date" size="80" value="<?php echo $formulario['fechaInicio'];?>"required/>
+			<div><label for="motivo">Motivo :<em STYLE="color:red;">*</em></label>
+			<input id="motivo" name="motivo"  type="text"  value="<?php echo $formulario['motivo'];?>" required/>
 			</div>
 
-			<div><label for="fechaFin">Fecha de fin:<em STYLE="color:red;">*</em></label>
-			<input type="date" id="fechaFin" name="fechaFin" value="<?php echo $formulario['fechaFin'];?>"required/>
-			</div>
-
-			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
-			<input id="duracionMin" name="duracionMin"  type="number"  value="<?php echo $formulario['duracionMin'];?>" required/>
-			</div>
-
-			<div><label for="coste">Coste:<em STYLE="color:red;">*</em></label>
-			<input id="coste" name="coste" type="number" value="<?php echo $formulario['coste'];?>" required/>
+			<div><label for="coste">Identificacion del paciente:<em STYLE="color:red;">*</em></label>
+			<input id="idPaciente" name="idPaciente" type="text" value="<?php echo $formulario['idPaciente'];?>" required/>
 			</div>
 
 		</fieldset>

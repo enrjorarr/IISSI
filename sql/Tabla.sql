@@ -39,7 +39,7 @@ DROP TABLE Pacientes;
 
 DROP TABLE Clientes;
 
-
+DROP TABLE PeticionCitas;
 
 /*-----------------------------------CREACION DE TABLAS ANTO------------------------------------------*/
 
@@ -143,6 +143,19 @@ CREATE TABLE Veterinarios (
 
     /*-----------------------------------CREACION DE TABLAS LAU------------------------------------------*/
     
+    CREATE TABLE PeticionCitas (
+    OIDPetCita SMALLINT NOT NULL,
+    Dni  CHAR(9) NOT NULL,
+    Motivo Varchar(50),
+    FechaInicio DATE NOT NULL,
+    IDPaciente            CHAR(9)
+
+    PRIMARY KEY (OIDPetCita),
+    FOREIGN KEY (Dni) REFERENCES Clientes,
+    CONSTRAINT ComprobarCoste CHECK(Coste>0),
+    CONSTRAINT ComprobarFechas CHECK (FechaInicio IS NULL OR FechaFin>FechaInicio)
+    );
+
 CREATE TABLE Citas (
     OIDCita SMALLINT NOT NULL,
     Dni  CHAR(9) NOT NULL,
