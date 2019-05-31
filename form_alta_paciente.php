@@ -45,13 +45,13 @@
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
-  <?php include_once("head.php");?>
+  <?php include_once("head_staff.php");?>
 </head>
 
 <body>
 
 <?php
-	include_once("cabecera.php");
+	include_once("cabecera_gestor.php");
 
 ?>
 	<script>

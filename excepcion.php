@@ -15,8 +15,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/biblio.css" />
-  <title>Gestión de biblioteca: ¡Se ha producido un problema!</title>
+  <link rel="stylesheet" type="text/css" href="css/excepcion.css" />
+  <title>Gestión de veterinaria: ¡Se ha producido un problema!</title>
+  <?php include_once("head.php"); ?>
+
 </head>
 <body>	
 	
@@ -24,7 +26,7 @@
 	include_once("cabecera.php"); 
 ?>	
 
-	<div>
+	<div class="error">
 		<h2>Ups!</h2>
 		<?php if ($destino<>"") { ?>
 		<p>Ocurrió un problema durante el procesado de los datos. Pulse <a href="<?php echo $destino ?>">aquí</a> para volver a la página principal.</p>
