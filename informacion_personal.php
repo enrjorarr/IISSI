@@ -36,14 +36,46 @@ include_once("cabecera.php");
 
 <div class="p">
 	<div class = "p1">
-        <p>DNI: <?php echo $cliente['DNI'];?> </p>
-        <p>Fecha de nacimiento: <?php echo $cliente['FECHANAC'];?></p>
-        <p>Numero de teléfono: <?php echo $cliente['NUMEROTELEFONO'];?></p>
-        <p>Dirección: <?php echo $cliente['DIRECCION'];?></p>
-        <p>Email: <?php echo $cliente['EMAIL'];?></p>
-        <p>Nombre: <?php echo $cliente['NOMBRE'];?></p>
-        <p>Apellidos: <?php echo $cliente['APELLIDOS'];?></p>
-        <input class="butn" type="submit" value="Modificar" />
+    <form id="modificacionCliente" method="post" action="form_modificacion_cliente.php"
+		>
+		<!--novalidate--> 
+		<!--onsubmit="return validateForm()"-->   
+		<fieldset class="datos1" ><legend>Datos personales</legend>
+
+            <div>
+                <p>DNI: <?php echo $cliente['DNI'];?> </p>
+            </div>
+
+			<div>
+                <p>Nombre: <?php echo $cliente['NOMBRE'];?></p>
+            </div>
+
+			<div>
+                <p>Apellidos: <?php echo $cliente['APELLIDOS'];?></p>
+            </div>
+            
+            <div>
+                <p>Fecha de nacimiento: <?php echo $cliente['FECHANAC'];?></p>
+            </div>
+            
+			<div>
+                <p>Numero de teléfono: <?php echo $cliente['NUMEROTELEFONO'];?></p>
+            </div>
+
+            <div>
+                <p>Email: <?php echo $cliente['EMAIL'];?></p>
+            </div>
+
+            <div>
+                <p>Dirección: <?php echo $cliente['DIRECCION'];?></p>
+			</div>
+		</fieldset><br>
+
+		<div><input class="butn" type="submit" value="Modificar" /></div>
+		
+
+	</form>
+
 	</div>
 	<div class = "p2">
 	</div>

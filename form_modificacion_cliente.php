@@ -3,16 +3,22 @@
 	
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
-	//require_once("gestionar_direcciones.php");
-	//require_once("gestionar_generos_literarios.php");
+	require_once("gestionarClientes.php");
 	
-	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
+    // Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
+    $email = $_SESSION["login"];
+
+	$conexion = crearConexionBD(); 
+
+    $cliente = consultarUsuario2email($conexion,$email);
+    
 	if (!isset($_SESSION["formulario"])) {
+        $formulario['email'] = $email;                                   //
 		$formulario['nombre'] = "";                                   //
 		$formulario['apellidos'] = "";                                //    
-		$formulario['pass'] = "";                                     //
+        $formulario['pass'] = "";                                    //
+        $formulario['numeroTelefono'] = "";                                          
 		$formulario['calle'] = "";                                    // 
-		$formulario['numeroTelefono'] = "";                                          
                                       
 	
 		$_SESSION["formulario"] = $formulario;
@@ -28,8 +34,7 @@
 		unset($_SESSION["errores"]);
 	}
 		
-	// Creamos una conexión con la BD
-	$conexion = crearConexionBD();
+	
 ?>
 
 <!DOCTYPE html>
@@ -84,15 +89,12 @@
   		}
 	?>
 	
-	<form id="altaCliente" method="get" action="validacion_alta_cliente.php"
+	<form id="modificacionCliente" method="get" action="validacion_modificacion_cliente.php"
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
 		<fieldset class="datos1" ><legend>Datos personales</legend>
-			<div></div><label for="nif">DNI:<em STYLE="color:red;">*</em></label>
-			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
-			</div>
 
 			<div><label for="nombre">Nombre:<em STYLE="color:red;">*</em></label>
 			<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
@@ -102,25 +104,15 @@
 			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
 			</div>
 
-			<div><label for="fechaNacimiento">Fecha de nacimiento:<em STYLE="color:red;">*</em></label>
-			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"/>
-			</div>
-
-			<div><label for="email">Email:<em STYLE="color:red;">*</em></label>
-			<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/>
-			</div>
-
 			<div><label for="numeroTelefono">Telefono:<em STYLE="color:red;">*</em></label>
 			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" pattern="^[0-9]{9}"value="<?php echo $formulario['numeroTelefono'];?>" required/>
 			</div>
 
 		</fieldset>
 
-		<fieldset class="datos2"><legend>Datos de cuenta</legend>
+		<fieldset class="datos2"><legend>Contraseña</legend>
 			
-			<div><label for="nick">Nickname:</label>
-				<input id="nick" name="nick" type="text" size="40" value="<?php echo $formulario['email'];?>" />
-			</div>
+		
 			<div><label for="pass">Password:<em STYLE="color:red;">*</em></label>
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 			</div>
