@@ -33,7 +33,7 @@
 		Header('Location: form_alta_cliente.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
-		Header('Location: accion_alta_cliente.php');
+		Header('Location: accion_modificacion_cliente.php');
 
 ///////////////////////////////////////////////////////////
 // Validación en servidor del formulario de alta de usuario
