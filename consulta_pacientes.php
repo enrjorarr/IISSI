@@ -19,7 +19,7 @@ else {
 		$paginacion = $_SESSION["paginacion"];
 	
 	$pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
-	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 1);
+	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
 
 	if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
 	if ($pag_tam < 1) 		$pag_tam = 5;
@@ -96,30 +96,36 @@ include_once ("cabecera.php");
             </tr>
             </thead>
 
-	 <tfoot>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                    
+                   
+		            <div id="enlaces">
+                        <a href="#">&laquo;</a>
+			        <?php
 
-        <tr>
+				            for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
 
-		<div id="enlaces">
+					            if ( $pagina == $pagina_seleccionada) { 	?>
 
-			<?php
+                                    <span class="current"><a class="active"><?php echo $pagina; ?></a></span>
+                        
 
-				for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
+			                <?php }	else { ?>
 
-					if ( $pagina == $pagina_seleccionada) { 	?>
+						            <a class="active" href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
-						<span class="current"><td><?php echo $pagina; ?></td></span>
+			                <?php } ?>
+                            <a href="#">&raquo;</a>
+                 </div>
+                 </td>
+                </tr>
+            </tfoot>
 
-			<?php }	else { ?>
-
-						<a href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
-
-			<?php } ?>
-        </tr>
-        </div>
     
 
-
+        
 
 		<form method="get" action="consulta_pacientes.php">
 
@@ -138,8 +144,7 @@ include_once ("cabecera.php");
 			<input type="submit" value="Cambiar">
 
 		</form>
-
-    </tfoot>
+     
     
 
    
@@ -152,14 +157,8 @@ include_once ("cabecera.php");
 
     ?>
     
-                    <td><?php $fila['IDPACIENTE'] ?></td>
-                    <td><?php $fila['FECHANAC'] ?></td>
-                    <td><?php $fila['COLORPELO'] ?></td>
-                    <td><?php $fila['RAZA'] ?></td>
-                    <td><?php $fila['ESPECIE'] ?></td>
-                    <td><?php $fila['DNI'] ?></td>
-
-    </table>
+            
+    
        
 	<article class="paciente">
 
@@ -195,32 +194,26 @@ include_once ("cabecera.php");
 
 
 
-				<?php
+			
 
-					if (isset($paciente) and ($paciente["IDPACIENTE"] == $fila["IDPACIENTE"])) { ?>
-
-						<!-- Editando título -->
-
-						<h3><input id="IDPACIENTE" name="IDPACIENTE" type="text" value="<?php echo $fila["IDPACIENTE"]; ?>"/>	</h3>
-
-						<h4><?php echo $fila["RAZA"] . " " . $fila["ESPECIE"]; ?></h4>
-
-                <?php }	else { ?>
                     
                     <td><?php $fila['IDPACIENTE'] ?></td>
 
 						<!-- mostrando título -->
-                        <tbody>
+                        
 						<input id="IDPACIENTE" name="IDPACIENTE" type="hidden" value="<?php echo $fila["IDPACIENTE"]; ?>"/>
-
-						<td><?php echo $fila["IDPACIENTE"]; ?></td>
-
-                        <td><?php echo $fila["RAZA"]; ?></td>
-                        <td> <?php $fila["ESPECIE"]; ?></td>
+                        <tbody>
+                        <tr>
+                            <td><?php echo $fila["IDPACIENTE"]; ?></td>
+                            <td><?php echo $fila["FECHANAC"]; ?></td>
+                            <td><?php echo $fila["COLORPELO"]; ?></td>
+                            <td><?php echo $fila["RAZA"]; ?></td>
+                            <td> <?php echo $fila["ESPECIE"]; ?></td>
+                            <td><?php echo $fila["DNI"]; ?></td>
+                        </tr>
                         </tbody>
-				<?php } ?>
-
-				</div>
+                    
+            </div>
 
 
 
@@ -230,12 +223,15 @@ include_once ("cabecera.php");
 		</form>
 
     </article>
+  
     
     
 
 
 
-	<?php } ?>
+    <?php } ?>
+    
+    </table>
 
 </main>
 
