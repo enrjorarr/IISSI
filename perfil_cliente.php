@@ -42,9 +42,7 @@
             <a  href="perfil_mascota.php"><img src="images/mascota_logo.png" /></a>
             <br><a href="perfil_mascota.php">Mi mascota</a>
         
-        </div>
-
-        <div class="tabla">
+       
         
 
 
