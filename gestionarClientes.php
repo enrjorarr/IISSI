@@ -63,17 +63,23 @@ function existeCliente($conexion,$email,$pass) {
 }
 function modificar_cliente($conexion,$EMAIL,$NUMEROTELEFONO,$NOMBRE,$APELLIDOS,$DIRECCION,$PASS) {
 	try {
-		$stmt=$conexion->prepare('CALL MODIFICAR_CLIENTE(:OidLibro,:Email,:NumeroTelefono,:Nombre,:Apellidos,:Direccion,:Pass)');
-		$stmt->bindParam(':Email',$usuario["email"]);
-		$stmt->bindParam(':NumeroTelefono',$usuario["numeroTelefono"]);
-		$stmt->bindParam(':Nombre',$usuario["nombre"]);
-		$stmt->bindParam(':Apellidos',$usuario["apellidos"]);
-		$stmt->bindParam(':Direccion',$usuario["calle"]);
-		$stmt->bindParam(':Pass',$usuario["pass"]);
+		$stmt=$conexion->prepare('CALL MODIFICAR_CLIENTE(:Email,:NumeroTelefono,:Nombre,:Apellidos,:Direccion,:Pass)');
+		$stmt->bindParam(':Email',$EMAIL);
+		$stmt->bindParam(':NumeroTelefono',$NUMEROTELEFONO);
+		$stmt->bindParam(':Nombre',$NOMBRE);
+		$stmt->bindParam(':Apellidos',$APELLIDOS);
+		$stmt->bindParam(':Direccion',$DIRECCION);
+		$stmt->bindParam(':Pass',$PASS);
+		var_dump($EMAIL);		var_dump($NOMBRE);
+		var_dump($NUMEROTELEFONO);
+		var_dump($APELLIDOS);
+		var_dump($PASS);
 
 		$stmt->execute();
-		return "";
-	} catch(PDOException $e) {
+
+
+		return true;
+	} catch(PDOException $e) {//$e->getMessage()
 		return $e->getMessage();
     }
 }

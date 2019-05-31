@@ -14,12 +14,11 @@
 		Header("Location: form_alta_cliente.php");	
 
 	$conexion = crearConexionBD(); 
-
-    $EMAIL = $nuevoUsuario["email"];
+		$EMAIL = $_SESSION["login"];
     $NUMEROTELEFONO = $nuevoUsuario["numeroTelefono"];
     $NOMBRE = $nuevoUsuario["nombre"];
     $APELLIDOS = $nuevoUsuario["apellidos"];
-    $DIRECCION = $nuevoUsuario["calle"];
+		$DIRECCION = $nuevoUsuario["calle"];
     $PASS = $nuevoUsuario["pass"];
 
 ?>
@@ -39,7 +38,6 @@
 
 	<main>
 		<?php if (modificar_cliente($conexion,$EMAIL,$NUMEROTELEFONO,$NOMBRE,$APELLIDOS,$DIRECCION,$PASS)) { 
-				$_SESSION['login'] = $nuevoUsuario['email'];
 		?>
 				<h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
 				<div >	

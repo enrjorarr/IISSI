@@ -3,17 +3,15 @@
 	
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
-	require_once("gestionarClientes.php");
+	//require_once("gestionarClientes.php");
 	
     // Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
-    $email = $_SESSION["login"];
+    //$email = $_SESSION["login"];
 
-	$conexion = crearConexionBD(); 
 
-    $cliente = consultarUsuario2email($conexion,$email);
+    //$cliente = consultarUsuario2email($conexion,$email);
     
 	if (!isset($_SESSION["formulario"])) {
-        $formulario['email'] = $email;                                   //
 		$formulario['nombre'] = "";                                   //
 		$formulario['apellidos'] = "";                                //    
         $formulario['pass'] = "";                                    //
@@ -33,7 +31,8 @@
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);
 	}
-		
+	$conexion = crearConexionBD(); 
+
 	
 ?>
 
