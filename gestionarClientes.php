@@ -61,4 +61,34 @@ function existeCliente($conexion,$email,$pass) {
 		return true;
 	}
 }
+function modificar_cliente($conexion,$EMAIL,$NUMEROTELEFONO,$NOMBRE,$APELLIDOS,$DIRECCION,$PASS) {
+	try {
+		$stmt=$conexion->prepare('CALL MODIFICAR_CLIENTE(:OidLibro,:Email,:NumeroTelefono,:Nombre,:Apellidos,:Direccion,:Pass)');
+		$stmt->bindParam(':Email',$usuario["email"]);
+		$stmt->bindParam(':NumeroTelefono',$usuario["numeroTelefono"]);
+		$stmt->bindParam(':Nombre',$usuario["nombre"]);
+		$stmt->bindParam(':Apellidos',$usuario["apellidos"]);
+		$stmt->bindParam(':Direccion',$usuario["calle"]);
+		$stmt->bindParam(':Pass',$usuario["pass"]);
+
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
 ?>
+
+create or replace PROCEDURE MODIFICAR_CLIENTE
+(EMAIL_v IN CLIENTES.EMAIL%TYPE,
+NUMEROTELEFONO_v IN CLIENTES.NUMEROTELEFONO%TYPE,
+ NOMBRE_v IN CLIENTES.NOMBRE%TYPE,
+ APELLIDOS_v IN CLIENTES.APELLIDOS%TYPE,
+ DIRECCION_v IN CLIENTES.DIRECCION%TYPE,
+ PASS_v IN CLIENTES.PASS%TYPE) IS
+BEGIN
+  UPDATE CLIENTES
+  SET NUMEROTELEFONO = NUMEROTELEFONO_v, NOMBRE=NOMBRE_v, APELLIDOS=APELLIDOS_v, 
+	DIRECCION=DIRECCION_v,  PASS = PASS_v
+  WHERE EMAIL = EMAIL_v;
+END;
