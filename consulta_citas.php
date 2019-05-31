@@ -6,7 +6,7 @@
     require_once("paginacion_consulta.php");
 
     if (!isset($_SESSION['login']))
-	Header("Location: inicio_sesion.php");
+		Header("Location: inicio_sesion.php");
     else {
 	    if (isset($_SESSION["cita"])) {
 		    $cita = $_SESSION["cita"];
@@ -30,12 +30,12 @@
     $conexion = crearConexionBD();
     
     // La consulta que ha de paginarse
-    $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO,'
-    . 'CITAS.FECHAFIN, CITAS.DURACIONMIN,CITAS.COSTE'
-    .'FROM CITAS'
-    .'WHERE' . 'CITAS.DNI = CLIENTE.DNI'
-    .'ORDER BY FECHAINICIO';
-    
+    $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
+    . ' CITAS.FECHAFIN, CITAS.DURACIONMIN,CITAS.COSTE '
+    .' FROM CITAS, CLIENTES '
+    .'WHERE ' . 'CITAS.DNI = CLIENTES.DNI '
+    .' ORDER BY FECHAINICIO ';
+
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
 	// En caso de que no, se asume el tamaño de página propuesto, pero desde la página 1
 	$total_registros = total_consulta($conexion, $query);
@@ -64,14 +64,31 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/perfil_usuario.css" />
+  <link rel="stylesheet" type="text/css" href="css/consulta_citas_cliente.css" />
   
   <title>consulta citas</title>
-
+	<?php include_once("head.php"); ?>
   
 </head>
 
 <body>
+    <?php
+	    include_once("cabecera.php");
+    ?>
+	<div class="todo">
+
+    	<div class="perfil">
+
+            <a href="informacion_personal.php"><img src="images/perfil_logo.png"  /></a>
+            <br><a href="informacion_personal.php">Información personal</a>
+        </div>
+
+        <div class="mascota">
+
+            <a  href="perfil_mascota.php"><img src="images/mascota_logo.png" /></a>
+            <br><a href="perfil_mascota.php">Mi mascota</a>
+        
+       </div>
   
 
     <main>
@@ -80,34 +97,41 @@
 
      <thead>
     <tr>
-    <th>Cita</th>
-    <th>Fecha</th>
-    <th>Duración</th>
-    <th>Coste</th>
+    	<th>Cita</th>
+    	<th>Fecha</th>
+    	<th>Duración</th>
+    	<th>Coste</th>
     </tr>
-
+	<tfoot>
+		<tr>
+			<td colspan="4">
     
-		<div id="links">
+			<div id="enlaces">
 
-			<?php
+			<a href="#">&laquo;</a>
+			        <?php
 
-				for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
+				            for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
 
-					if ( $pagina == $pagina_seleccionada) { 	?>
+					            if ( $pagina == $pagina_seleccionada) { 	?>
 
-						<span class="current"><?php echo $pagina; ?></span>
+                                    <span class="current"><a class="active"><?php echo $pagina; ?></a></span>
+                        
 
-			<?php }	else { ?>
+			                <?php }	else { ?>
 
-						<a href="perfil_cliente_prueba.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						            <a class="active" href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
-			<?php } ?>
+			                <?php } ?>
+                            <a href="#">&raquo;</a>
+                 </div>
+                 </td>
+                </tr>
+            </tfoot>
 
-		</div>
 
 
-
-		<form method="get" action="perfil_cliente_prueba.php">
+		<form method="get" action="consulta_citas.php">
 
 			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
 
@@ -125,7 +149,7 @@
 
 		</form>
 
-	</nav>
+	
 
 
 
@@ -139,7 +163,7 @@
 
 	<article class="cita">
 
-		<form method="post" action="controlador_cita.php">
+		<form method="get" action="controlador_citas.php">
 
 			<div class="fila_cita">
 
@@ -175,41 +199,25 @@
 
 
 
-				<?php
-
-					if (isset($cita) and ($cita["OIDCITA"] == $fila["OIDCITA"])) { ?>
-
-						<!-- Editando título -->
-
-						<h3><input id="FECHAINICIO" name="FECHAINICIO" type="text" value="<?php echo $fila["FECHAINICIO"]; ?>"/>	</h3>
-
-						<h4><?php echo $fila["DURACION"] . " " . $fila["DURACION"]; ?></h4>
-
-				<?php }	else { ?>
+				
 
 						<!-- mostrando título -->
 
-						<input id="FECHAINICIO" name="FECHAINICIO" type="hidden" value="<?php echo $fila["FECHAINICIO"]; ?>"/>
+						  
+						<input id="OIDCITA" name="OIDCITA" type="hidden" value="<?php echo $fila["OIDCITA"]; ?>"/>
+                        <tbody>
+                        <tr>
+                            <td><?php echo $fila["OIDCITA"]; ?></td>
+                            <td><?php echo $fila["FECHAINICIO"]; ?></td>
+                            <td><?php echo $fila["DURACION"]; ?></td>
+                            <td><?php echo $fila["COSTE"]; ?></td>
 
-						<div class="fechaInicio"><b><?php echo $fila["FECHAINICIO"]; ?></b></div>
+                        </tr>
+                        </tbody>
+				</div>		
+				
 
-						<div class="DURACION">By <em><?php echo $fila["DURACION"] . " " . $fila["DURACION"]; ?></em></div>
-                        
-                        <BR><div class="COSTE">By <em><?php echo $fila["COSTE"] . " " . $fila["COSTE"]; ?></em></div>
-
-				<?php } ?>
-
-				</div>
-                    
-                    <div id="botones_fila">
-
-                    <button id="borrar" name="borrar" type="submit" class="editar_fila">
-
-						<img src="images/remove_menuito.bmp" class="editar_fila" alt="Borrar libro">
-
-					</button>
-
-				</div>
+				
 
 			</div>
 
@@ -220,8 +228,14 @@
 
 
 	<?php } ?>
+		</table>
 
 </main>
+
+
+<?php
+	include_once("pie.php");
+?>
 
 
 

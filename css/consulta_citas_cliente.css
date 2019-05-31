@@ -1,0 +1,106 @@
+body{
+    size: 100%;
+
+
+}
+
+.todo{
+    margin-top: 15%;
+    width: 100%;
+    height: 68%;
+    position: absolute;
+    font-family: 'ABeeZee', sans-serif;
+
+}
+
+.perfil{
+    display: block;
+    height: 120px;
+    width:120px;
+    padding-left: 30%;
+
+
+}
+
+.mascota{
+    display: block;
+    height: 120px;
+    width:120px;
+    padding-left: 30%;
+    margin-top:50px;
+
+
+}
+
+
+
+
+
+main{
+
+    margin-top: -20%;
+    position: absolute;
+    margin-left: 55%;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+table.consulta {
+    border: 4px solid #94FFF3;
+    background-color: #8BFCE9;
+    width: 350px;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  table.consulta td, table.consulta th {
+    border: 1px solid #FFFFFF;
+    padding: 10px 10px;
+  }
+  table.consulta tbody td {
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+  }
+  table.consulta tr:nth-child(even) {
+    background: #8BFCE9;
+  }
+  table.consulta td:nth-child(even) {
+    background: #8BFCE9;
+  }
+  table.consulta thead {
+    background: #24B4AE;
+    border-bottom: 4px solid #94FFF3;
+  }
+  table.consulta thead th {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+    border-left: 2px solid #94FFF3;
+  }
+  table.consulta thead th:first-child {
+    border-left: none;
+  }
+  
+  table.consulta tfoot {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #E7FCF1;
+    background: -moz-linear-gradient(top, #edfdf4 0%, #e9fcf2 66%, #E7FCF1 100%);
+    background: -webkit-linear-gradient(top, #edfdf4 0%, #e9fcf2 66%, #E7FCF1 100%);
+    background: linear-gradient(to bottom, #edfdf4 0%, #e9fcf2 66%, #E7FCF1 100%);
+    border-top: 5px solid #8BFCE9;
+  }
+  table.consulta tfoot td {
+    font-size: 13px;
+  }
+  table.consulta tfoot .enlaces {
+    text-align: right;
+  }
+  table.consulta tfoot .enlaces a{
+    display: inline-block;
+    background: #18B599;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }

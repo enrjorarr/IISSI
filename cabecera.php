@@ -18,7 +18,7 @@
 			</div>
 	<div class="boton2">
 		<?php if (isset($_SESSION['login'])) {	?>		
-			<a title="Perfil" href="perfil_cliente.php"><img src="images/profile_icon.png" alt="Perfil" /></a>
+			<a title="Perfil" href="consulta_citas.php"><img src="images/profile_icon.png" alt="Perfil" /></a>
 		<?php }?>		
 
 	</div>

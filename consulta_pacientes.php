@@ -197,7 +197,7 @@ include_once ("cabecera.php");
 			
 
                     
-                    <td><?php $fila['IDPACIENTE'] ?></td>
+                   
 
 						<!-- mostrando título -->
                         

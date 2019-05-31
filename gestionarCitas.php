@@ -1,4 +1,15 @@
 <?php
+
+
+
+function consultarCitasCliente($conexion) {
+	$consulta = "SELECT * FROM CITAS"
+		. " WHERE (CITAS.DNI=CLIENTES.DNI)"
+		. " ORDER BY FECHAINICIO";
+		return $conexion->query($consulta);
+}
+
+
 function alta_cita($conexion,$usuario) {
     $fecha = date('d/m/Y', strtotime($usuario["fecha"]));
 
