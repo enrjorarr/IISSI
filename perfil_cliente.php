@@ -1,17 +1,6 @@
 <?php
     session_start();
 
-    require_once ("gestionBD.php");
-    require_once ("gestionarPacientes.php");
-
-    function consultarPacientesPorCliente($conexion,$dni) {
-        $consulta = "SELECT * FROM Pacientes WHERE DNI=:dni";
-        $stmt = $conexion->prepare($consulta);
-        $stmt->bindParam(':dni',$dni);
-        
-        $stmt->execute();
-        return $stmt->fetch();
-        }
 
     
 ?>
@@ -61,25 +50,6 @@
 
     </div>
 
-    <div>
-        <!--<table>
-            <thead>
-            <tr>
-                <td>ID Paciente</td>
-                <td>Fecha de nacimiento</td>
-                <td>Color de pelo</td>
-                <td>Raza</td>
-                <td>Especie</td>
-                <td>DNI</td>
-
-            </tr>
-            </thead>
-
-
-        </table>-->
-
-
-    </div>
 
 
 

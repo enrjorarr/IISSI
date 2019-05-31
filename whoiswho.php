@@ -19,7 +19,7 @@
         }elseif(existeTrabajador($conexion,$email,$pass)){
 			$miscojones = consultarTrabajador2email($conexion,$email);
 			$vergota = $miscojones["ESGESTOR"];
-			if($vergota == "s"){
+			if($vergota == "si"){
 				$_SESSION['loginGestor'] = $email;
 				Header("Location: inicio_gestor.php");
 			}else{

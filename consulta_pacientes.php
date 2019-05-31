@@ -83,7 +83,22 @@ include_once ("cabecera.php");
 
 <main>
 
-	 <nav>
+        <table class="consulta">
+            <thead>
+            <tr>
+                <th>ID Paciente</th>
+                <th>Fecha de nacimiento</th>
+                <th>Color de pelo</th>
+                <th>Raza</th>
+                <th>Especie</th>
+                <th>DNI</th>
+
+            </tr>
+            </thead>
+
+	 <tfoot>
+
+        <tr>
 
 		<div id="enlaces">
 
@@ -93,15 +108,16 @@ include_once ("cabecera.php");
 
 					if ( $pagina == $pagina_seleccionada) { 	?>
 
-						<span class="current"><?php echo $pagina; ?></span>
+						<span class="current"><td><?php echo $pagina; ?></td></span>
 
 			<?php }	else { ?>
 
 						<a href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
 			<?php } ?>
-
-		</div>
+        </tr>
+        </div>
+    
 
 
 
@@ -123,7 +139,10 @@ include_once ("cabecera.php");
 
 		</form>
 
-	</nav>
+    </tfoot>
+    
+
+   
 
 
 
@@ -131,10 +150,17 @@ include_once ("cabecera.php");
 
 		foreach($filas as $fila) {
 
-	?>
+    ?>
+    
+                    <td><?php $fila['IDPACIENTE'] ?></td>
+                    <td><?php $fila['FECHANAC'] ?></td>
+                    <td><?php $fila['COLORPELO'] ?></td>
+                    <td><?php $fila['RAZA'] ?></td>
+                    <td><?php $fila['ESPECIE'] ?></td>
+                    <td><?php $fila['DNI'] ?></td>
 
-
-
+    </table>
+       
 	<article class="paciente">
 
 		<form method="get" action="controlador_pacientes.php">
@@ -179,16 +205,19 @@ include_once ("cabecera.php");
 
 						<h4><?php echo $fila["RAZA"] . " " . $fila["ESPECIE"]; ?></h4>
 
-				<?php }	else { ?>
+                <?php }	else { ?>
+                    
+                    <td><?php $fila['IDPACIENTE'] ?></td>
 
 						<!-- mostrando título -->
-
+                        <tbody>
 						<input id="IDPACIENTE" name="IDPACIENTE" type="hidden" value="<?php echo $fila["IDPACIENTE"]; ?>"/>
 
-						<div class="titulo"><b><?php echo $fila["IDPACIENTE"]; ?></b></div>
+						<td><?php echo $fila["IDPACIENTE"]; ?></td>
 
-						<div class="autor">By <em><?php echo $fila["RAZA"] . " " . $fila["ESPECIE"]; ?></em></div>
-
+                        <td><?php echo $fila["RAZA"]; ?></td>
+                        <td> <?php $fila["ESPECIE"]; ?></td>
+                        </tbody>
 				<?php } ?>
 
 				</div>
@@ -200,7 +229,9 @@ include_once ("cabecera.php");
 
 		</form>
 
-	</article>
+    </article>
+    
+    
 
 
 
