@@ -33,10 +33,35 @@
 	?>
 
 	<main>
-		<?php if (alta_trabajador($conexion, $nuevoTrabajador)) { 
+		<?php 
+		
+			if (alta_trabajador($conexion, $nuevoTrabajador)) { 
 				$_SESSION['login'] = $nuevoTrabajador['email'];
+				$email = $nuevoTrabajador['email'];
+				$trabajador = consultarTrabajador2email($conexion,$email);
+
+				if($nuevoTrabajador["esGestor"] == "si"){
+					$juan = alta_gestor($conexion, $trabajador);
+						if($nuevoTrabajador["tipoTrabajador"] == "veterinario"){
+							alta_veterinario($conexion, $trabajador);
+
+						}else{
+							alta_peluquero($conexion, $trabajador);
+
+						}
+				}else{
+					if($nuevoTrabajador["tipoTrabajador"] == "veterinario"){
+						alta_veterinario($conexion, $trabajador);
+
+					}else{
+						alta_peluquero($conexion, $trabajador);
+
+					}
+				}
+
 		?>
-				<h1><?php echo $nuevoTrabajador["nombre"]; ?> ha sido registrado con exito.</h1>
+		
+				<h1><?php echo $juan; ?> ha sido registrado con exito.</h1>
 				<div >	
 			   		Pulsa <a href="form_alta_trabajador.php">aquí</a> para registrar un nuevo trabajador.
 				</div>

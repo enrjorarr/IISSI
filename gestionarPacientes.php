@@ -43,12 +43,13 @@
 		
 		}
 		function consultarPacientes2ID($conexion,$id) {
-			$consulta = "SELECT * FROM CLIENTES WHERE ID=:id";
-		 $stmt = $conexion->prepare($consulta);
-		 $stmt->bindParam(':id',$id);
-		 
-		 $stmt->execute();
-		 return $stmt->fetchColumn();
+			$consulta = "SELECT * FROM Pacientes WHERE IDPaciente=:id";
+			$stmt = $conexion->prepare($consulta);
+			$stmt->bindParam(':id',$id);
+			
+			$stmt->execute();
+			return $stmt->fetch();
+			}
 	 	}
 	 
 }

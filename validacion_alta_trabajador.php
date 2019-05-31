@@ -19,7 +19,9 @@
         $nuevoUsuario["numeroTelefono"] = $_REQUEST["numeroTelefono"];
         $nuevoUsuario["sueldo"] = $_REQUEST["sueldo"];
         $nuevoUsuario["esGestor"] = $_REQUEST["esGestor"];
-        $nuevoUsuario["horasTrabajo"] = $_REQUEST["horasTrabajo"];
+		$nuevoUsuario["horasTrabajo"] = $_REQUEST["horasTrabajo"];
+		$nuevoUsuario["tipoTrabajador"] = $_REQUEST["tipoTrabajador"];
+
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["formulario"] = $nuevoUsuario;		

@@ -32,6 +32,19 @@ input[type=text], input[type=date],input[type=email],input[type=password] {
 	border-radius: 5px;
 	box-sizing: border-box;
 }
+select{
+    width: 200px;
+	height: 25px;
+	font-size: small;
+	background: white ;
+	padding: 6px 10px;
+	color: #000000;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #00ffff;
+	border-radius: 5px;
+	box-sizing: border-box; 
+}
 
 .butn {
     background: #34d9d9;

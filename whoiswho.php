@@ -10,42 +10,35 @@
 		$pass = $_POST['pass'];
 
 		$conexion = crearConexionBD();
-		$num_usuarios = consultarUsuario($conexion,$email,$pass);
-		cerrarConexionBD($conexion);	
+
+		if(existeCliente($conexion,$email,$pass)){
+			cerrarConexionBD($conexion);	
 	
-		if ($num_usuarios == 0){
-			$login = "error";	
-			//Header("Location: inicio.php");
-		}
-		else {
 			$_SESSION['login'] = $email;
 			Header("Location: inicio.php");
-        }	
-        
-	}
-	elseif (isset($_POST['submit'])){
+        }elseif(existeTrabajador($conexion,$email,$pass)){
+			$miscojones = consultarTrabajador2email($conexion,$email);
+			$vergota = $miscojones["ESGESTOR"];
+			if($vergota == "s"){
+				$_SESSION['loginGestor'] = $email;
+				Header("Location: inicio_gestor.php");
+			}else{
+				$_SESSION['loginTrabajador'] = $email;
+				Header("Location: inicio_trabajador.php");
+			}
 
-        $email= $_POST['email'];
-		$pass = $_POST['pass'];
-
-		$conexion = crearConexionBD();
-		$num_usuarios = consultarTrabajadores($conexion,$email,$pass);
-		cerrarConexionBD($conexion);
+			cerrarConexionBD($conexion);	
+	
 			
-        if ($num_usuarios == 0){
-			$login = "error";	
-		}	
-        else {
-            $_SESSION['login'] = $email;
-            Header("Location: index_trabajador.php");}
-	}
-	else{
-        if ($num_usuarios == 0)
-            $login = "error";	
-        else {
-             $_SESSION['login'] = $email;
-             Header("Location: inicio_sesion.php");
-	}
+        }	
+		else{
+        	if ($num_usuarios == 0)
+            	$login = "error";	
+        	else {
+            	$_SESSION['login'] = $email;
+				 Header("Location: inicio_sesion.php");
+			}
+		}
     }
 
 ?>

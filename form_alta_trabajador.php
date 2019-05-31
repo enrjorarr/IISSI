@@ -15,10 +15,12 @@
 		$formulario['email'] = "";                                    //
 		$formulario['pass'] = "";                                     //
 		$formulario['calle'] = "";                                    // 
-    $formulario['numeroTelefono'] = "";    
-    $formulario['esGestor'] = "";
-    $formulario['horasTrabajo'] = "";
-    $formulario['sueldo'] = "";                                       
+    	$formulario['numeroTelefono'] = "";    
+    	$formulario['esGestor'] = "";
+    	$formulario['horasTrabajo'] = "";
+		$formulario['sueldo'] = "";  
+		$formulario['tipoTrabajador'] = "";
+                                     
                                       
 	
 		$_SESSION["formulario"] = $formulario;
@@ -121,6 +123,13 @@
 			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" pattern="^[0-9]{9}"value="<?php echo $formulario['numeroTelefono'];?>" required/>
 			</div>
 
+			<div><label for="tipoTrabajador">Tipo de trabajador:<em>*</em></label>
+			<select name="tipoTrabajador">
+    			<option value="veterinario">Veterinario</option>
+    			<option value="peluquero">Peluquero</option>
+  			</select>
+  			</div>
+
 		</fieldset>
 
 		<fieldset><legend>Datos de cuenta.</legend>
@@ -153,11 +162,16 @@
 			<input id="sueldo" name="sueldo" type="text"  pattern="^[0-9]{6}"value="<?php echo $formulario['sueldo'];?>" required/>
 			</div>
 
-			<div><label for="sueldo">Es gestor:<em>*</em></label>
-			<input id="esGestor" name="esGestor" type="text"  value="<?php echo $formulario['esGestor'];?>" required/>
-			</div>
+			<div><label for="esGestor">Es gestor:<em>*</em></label>
+			<select name="esGestor">
+    			<option value="si">Si</option>
+    			<option value="no">No</option>
+  			</select>
+  			</div>
 		
 		</fieldset>
+
+		
 
 		<div><input class="butn" type="submit" value="Enviar" /></div>
 

@@ -7,7 +7,7 @@
 	<h1>H U E L L A S</h1>
 	</div>
 	<div class="boton1">
-			<?php if (isset($_SESSION['login'])) {	?>
+			<?php if (isset($_SESSION['loginTrabajador'])) {	?>
 				<a href="cierre_sesion.php"><input type="button" class="butn" value="Cerrar Sesión"></a>
 			<?php }else{ ?>
 				<a href="inicio_sesion.php"><input type="button" class="butn" value="Iniciar Sesión"></a>	

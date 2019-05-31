@@ -40,4 +40,17 @@ function consultarUsuario($conexion,$email,$pass) {
 	return $stmt->fetchColumn();
 }
 
+function existeCliente($conexion,$email,$pass) {
+	$consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE EMAIL=:email AND PASS=:pass";
+ $stmt = $conexion->prepare($consulta);
+ $stmt->bindParam(':email',$email);
+ $stmt->bindParam(':pass',$pass);
+ $stmt->execute();
+ $boolean = $stmt->fetchColumn();
+	if( $boolean == 0){
+	return false;
+	}else{
+		return true;
+	}
+}
 ?>
