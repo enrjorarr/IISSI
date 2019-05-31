@@ -33,8 +33,8 @@
 
         <div class="perfil">
 
-            <a href="perfil_personal_cliente.php"><img src="images/perfil_logo.png"  /></a>
-            <br><a href="perfil_personal_cliente.php">Información personal</a>
+            <a href="informacion_personal.php"><img src="images/perfil_logo.png"  /></a>
+            <br><a href="informacion_personal.php">Información personal</a>
         </div>
 
         <div class="mascota">

@@ -40,6 +40,14 @@ function consultarUsuario($conexion,$email,$pass) {
 	return $stmt->fetchColumn();
 }
 
+function consultarUsuario2email($conexion,$email) {
+	$consulta = "SELECT * FROM CLIENTES WHERE EMAIL=:email";
+ $stmt = $conexion->prepare($consulta);
+ $stmt->bindParam(':email',$email);
+ $stmt->execute();
+ return $stmt->fetch();
+}
+
 function existeCliente($conexion,$email,$pass) {
 	$consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE EMAIL=:email AND PASS=:pass";
  $stmt = $conexion->prepare($consulta);
