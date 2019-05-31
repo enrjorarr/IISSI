@@ -45,6 +45,7 @@
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Biblioteca: Alta de Usuarios</title>
+  <?php include_once("head.php"); ?>
 </head>
 
 <body>
