@@ -7,10 +7,9 @@ body{
 
 main{
     margin-top: 14%;
-    
-    size: 100%;
-    height: 100%;
-    position: relative;
+    width: 100%;
+    height: 60%;
+    position: absolute;
     display:block;
 
 }
@@ -18,6 +17,8 @@ main{
 .p{
     height: 100%;    
     position: relative;
+    padding-top: 4%;
+
     padding-bottom: 4%;
     padding-left: 10%;
     padding-right: 10%;
