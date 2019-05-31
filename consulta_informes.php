@@ -31,16 +31,16 @@
     $conexion = crearConexionBD();
     
     // La consulta que ha de paginarse
-    $query = 'SELECT INFORME.FECHACONSULTA, INFORME.MOTIVO, INFORME.TRATAMIENTO, INFORME.OIDINFORME,'
-    .'FROM INFORME'
+    $query = ' SELECT INFORME.FECHACONSULTA, INFORME.MOTIVO, INFORME.TRATAMIENTO, INFORME.OIDINFORME,'
+    .' FROM INFORME '
     .'ORDER BY FECHACONSULTA';
 
 
-    $query1 = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO,'
-    . 'CITAS.FECHAFIN, CITAS.DURACIONMIN,CITAS.COSTE'
-    .'FROM CITAS'
-    .'WHERE' . 'CITAS.DNI = CLIENTE.DNI'
-    .'ORDER BY FECHAINICIO';
+    $query1 = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
+    . 'CITAS.FECHAFIN, CITAS.DURACIONMIN,CITAS.COSTE '
+    .' FROM CITAS '
+    .' WHERE ' . ' CITAS.DNI = CLIENTE.DNI '
+    .' ORDER BY FECHAINICIO ';
     
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
 	// En caso de que no, se asume el tamaño de página propuesto, pero desde la página 1
