@@ -19,7 +19,7 @@ else {
 		$paginacion = $_SESSION["paginacion"];
 	
 	$pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
-	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
+	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 1);
 
 	if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
 	if ($pag_tam < 1) 		$pag_tam = 5;
@@ -30,11 +30,11 @@ else {
 	$conexion = crearConexionBD();
 
 	// La consulta que ha de paginarse
-    $query = 'SELECT CLIENTES.DNI'
-    .'PACIENTES.IDPACIENTE,PACIENTES.FECHANAC,PACIENTES.COLORPELO,PACIENTES.RAZA,PACIENTES.ESPECIE'
-    .'FROM CLIENTES, PACIENTES'
-    .'WHERE'.'CLIENTES.DNI = PACIENTES.DNI'
-    .'ORFER BY DNI,IDPACIENTE';
+    $query = 'SELECT CLIENTES.DNI, '
+    .'PACIENTES.IDPACIENTE,PACIENTES.FECHANAC,PACIENTES.COLORPELO,PACIENTES.RAZA,PACIENTES.ESPECIE '
+    .'FROM CLIENTES, PACIENTES '
+    .'WHERE '.' CLIENTES.DNI = PACIENTES.DNI '
+    .' ORDER BY IDPACIENTE ';
     
     
 
@@ -65,7 +65,7 @@ else {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
-    <link rel="stylesheet" type="text/css" href="css/biblio.css" />
+    <link rel="stylesheet" type="text/css" href="css/consulta_pacientes.css" />
 	<script type="text/javascript" src="./js/boton.js"></script>
   <?php include_once("head.php"); ?>
   <title>Gestión de veterinaria:pacientes</title>
@@ -137,7 +137,7 @@ include_once ("cabecera.php");
 
 	<article class="paciente">
 
-		<form method="post" action="controlador_pacientes.php">
+		<form method="get" action="controlador_pacientes.php">
 
 			<div class="fila_paciente">
 

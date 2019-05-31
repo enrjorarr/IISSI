@@ -6,6 +6,14 @@
      * #==========================================================#
      */
 
+
+
+	function consultarTodosPacientes($conexion) {
+			$consulta = "SELECT * FROM PACIENTES"
+				. " WHERE (CLIENTES.DNI=PACIENTES.DNI)"
+				. " ORDER BY IDPACIENTE";
+				return $conexion->query($consulta);
+	}
  function alta_pac($conexion,$usuario) {
 	$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
 
