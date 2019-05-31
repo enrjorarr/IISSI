@@ -9,7 +9,7 @@
  function alta_trabajador($conexion,$trabajador) {
 	$fechaNacimiento = date('d/m/Y', strtotime($trabajador["fechaNacimiento"]));
 
-	try { //REVISAR PARAMETROS - NumeroTelefono
+	try { 
 		$consulta = "CALL ALTA_TRABAJADOR(:Dni,:FechaNac,:Sueldo,:Pass, :Direccion, :NumeroTelefono, :Email , :Nombre, :Apellidos,:EsGestor,:HorasTrabajo)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':Dni',$trabajador["nif"]);
@@ -99,4 +99,25 @@ function consultarTrabajador2email($conexion,$email) {
  $stmt->execute();
  return $stmt->fetch();
  }
+
+ function eliminar_veterinario($conexion,$OIDTrabajador) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_VETERINARIO(:OidTrabajador)');
+		$stmt->bindParam(':OidTrabajador',$OIDTrabajador);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
+function eliminar_peluquero($conexion,$OIDTrabajador) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERO(:OidPeluquero)');
+		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
 ?>

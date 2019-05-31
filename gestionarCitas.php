@@ -45,4 +45,24 @@ function consultarUsuario($conexion,$email,$pass) {
 	$stmt->execute();
 	return $stmt->fetchColumn();
 }
+function eliminar_consulta2Cita($conexion,$OIDTrabajador) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_CONSULTA_POR_CITA(:OidPeluquero)');
+		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
+function eliminar_peluqueria2Cita($conexion,$OIDTrabajador) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:OidPeluquero)');
+		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
 ?>
