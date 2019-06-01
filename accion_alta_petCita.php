@@ -35,14 +35,14 @@
 		<?php if (alta_petCita($conexion, $nuevoUsuario,$tipo)) { 
 
 		?>
-				<h1>La cita con OID = <?php echo $nuevoUsuario["motivo"]; ?>,se ha registrado satisfactoriamente</h1>
+				<h1>Se ha relizado una peticion para citas, en breve se le proporcionara una respuesta, recuerde revisar amenudo su perfil.</h1>
 				<div >	
-			   		Pulsa <a href="inicio_sesion.php">aquí</a> para iniciar sesión :].
+			   		¿Quieres volver a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } else { ?>
-				<h1>El usuario ya existe en la base de datos.</h1>
+				<h1>Esa petición ya esta en curso, recuerda mirar a menudo en tu perfil.</h1>
 				<div >	
-					Pulsa <a href="form_alta_cliente.php">aquí</a> para volver al formulario.
+				   ¿Quieres volver a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } ?>
 

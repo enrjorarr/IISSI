@@ -61,14 +61,14 @@
 
 		?>
 		
-				<h1><?php echo $boolean; ?> ha sido registrado con exito.</h1>
+				<h1>El trabajador ha sido registrado con exito como <?php echo $nuevoTrabajador["tipoTrabajador"] ?>.</h1>
 				<div >	
 			   		Pulsa <a href="form_alta_trabajador.php">aquí</a> para registrar un nuevo trabajador.
 				</div>
 		<?php } else { ?>
-				<h1>El usuario <?php echo $nuevoTrabajador["nombre"]; ?> ya existe en la base de datos.</h1>
+				<h1>El trabajador <?php echo $nuevoTrabajador["nombre"]; ?> ya existe en la base de datos.</h1>
 				<div >	
-					Pulsa <a href="form_alta_trabajador.php">aquí</a> para volver al formulario.
+				Pulsa <a href="form_alta_trabajador.php">aquí</a> para registrar un nuevo trabajador.
 				</div>
 		<?php } ?>
 
