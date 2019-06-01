@@ -20,7 +20,7 @@
 		$_SESSION["trabajador"] = $trabajador;
 			
 	 
-	 if (isset($_REQUEST["borrar"]))  Header("Location: accion_borrar_cita.php"); 
+	 if (isset($_REQUEST["borrar"]))  Header("Location: accion_borrar_trabajador.php"); 
 	}else {Header("Location: consulta_trabajadores.php");}
 
 ?>

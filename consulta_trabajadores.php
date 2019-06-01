@@ -5,7 +5,7 @@
     require_once("gestionarTrabajadores.php");
     require_once("paginacion_consulta.php");
 
-    if (!isset($_SESSION['login']))
+    if (!isset($_SESSION['logintrabajador']))
 		Header("Location: inicio_sesion.php");
     else {
 	    if (isset($_SESSION["trabajador"])) {
@@ -87,8 +87,15 @@
     	<th>OID Trabajador</th>
 		<th>Nombre</th>
 		<th>Apellidos</th>
-    	<th></th>
-    	<th>Coste</th>
+    	<th>Horas de trabajo</th>
+        <th>Sueldo</th>
+        <th>DNI</th>
+        <th>Email</th>
+        <th>Despedir</th>
+
+
+
+
     </tr>
 	<tfoot>
 		<tr>
@@ -149,42 +156,60 @@
 
 
 
-	<article class="cita">
+	<article class="trabajador">
 
-		<form method="get" action="controlador_citas.php">
+		<form method="get" action="controlador_trabajadores.php">
 
-			<div class="fila_cita">
+			<div class="fila_trabajador">
 
-				<div class="datos_cita">
+				<div class="datos_trabajador">
 
-					<input id="OIDCITA" name="OIDCITA"
+					<input id="OIDTRABAJADOR" name="OIDTRABAJADOR"
 
-						type="hidden" value="<?php echo $fila["OIDCITA"]; ?>"/>
+						type="hidden" value="<?php echo $fila["OIDTRABAJADOR"]; ?>"/>
 
-					<input id="DNI" name="DNI"
+					<input id="NUMEROTELEFONO" name="NUMEROTELEFONO"
 
-						type="hidden" value="<?php echo $fila["DNI"]; ?>"/>
+						type="hidden" value="<?php echo $fila["NUMEROTELEFONO"]; ?>"/>
 
-					<input id="OIDGESTOR" name="OIDGESTOR"
+					<input id="PASS" name="PASS"
 
-						type="hidden" value="<?php echo $fila["OIDGESTOR"]; ?>"/>
+						type="hidden" value="<?php echo $fila["PASS"]; ?>"/>
 
-					<input id="FECHAINICIO" name="FECHAINICIO"
+					<input id="FECHANAC" name="FECHANAC"
 
-						type="hidden" value="<?php echo $fila["FECHAINICIO"]; ?>"/>
+						type="hidden" value="<?php echo $fila["FECHANAC"]; ?>"/>
 
-					<input id="HORAINICIO" name="HORAINICIO"
+					<input id="NOMBRE" name="NOMBRE"
 
-						type="hidden" value="<?php echo $fila["HORAINICIO"]; ?>"/>
+						type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
-                    <input id="DURACIONMIN" name="DURACIONMIN"
+                    <input id="APELLIDOS" name="APELLIDOS"
 
-                        type="hidden" value="<?php echo $fila["DURACIONFIN"]; ?>"/>
+                        type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
                     
-                    <input id="COSTE" name="COSTE"
+                    <input id="DIRECCION" name="DIRECCION"
 
-                                type="hidden" value="<?php echo $fila["COSTE"]; ?>"/>
+                                type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
+                    <input id="EMAIL" name="EMAIL"
 
+                                type="hidden" value="<?php echo $fila["EMAIL"]; ?>"/>
+                    
+                    <input id="HORASTRABAJO" name="HORASTRABAJO"
+
+                                type="hidden" value="<?php echo $fila["HORASTRABAJO"]; ?>"/>
+
+                    <input id="SUELDO" name="SUELDO"
+
+                                type="hidden" value="<?php echo $fila["SUELDO"]; ?>"/>
+
+                    <input id="ESGESTOR" name="ESGESTOR"
+
+                                type="hidden" value="<?php echo $fila["ESGESTOR"]; ?>"/>
+
+                    <input id="DNI" name="DNI"
+
+                                type="hidden" value="<?php echo $fila["DNI"]; ?>"/>
 
 
 				
@@ -192,14 +217,23 @@
 						<!-- mostrando título -->
 
 						  
-						<input id="OIDCITA" name="OIDCITA" type="hidden" value="<?php echo $fila["OIDCITA"]; ?>"/>
+						<input id="OIDTRABAJADOR" name="OIDTRABAJADOR" type="hidden" value="<?php echo $fila["OIDTRABAJADOR"]; ?>"/>
                         <tbody>
                         <tr>
-                            <td><?php echo $fila["OIDCITA"]; ?></td>
-							<td><?php echo $fila["FECHAINICIO"]; ?></td>
-							<td><?php echo $fila["HORAINICIO"]; ?></td>
-							<td><?php echo $fila["DURACION"]; ?></td>
-                            <td><?php echo $fila["COSTE"]; ?></td>
+	
+                            <td><?php echo $fila["OIDTRABAJADOR"]; ?></td>
+							<td><?php echo $fila["NOMBRE"]; ?></td>
+							<td><?php echo $fila["APELLIDOS"]; ?></td>
+							<td><?php echo $fila["HORASTRABAJO"]; ?></td>
+                            <td><?php echo $fila["SUELDO"]; ?></td>
+                            <td><?php echo $fila["DNI"]; ?></td>
+                            <td><?php echo $fila["EMAIL"]; ?></td>
+
+                            <td>
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar ">
+                                </button>
+                            </td>
 
                         </tr>
                         </tbody>
@@ -217,7 +251,11 @@
 
 
 	<?php } ?>
-		</table>
+        </table>
+        
+        <div class="botoncillo1">    
+            <a href="form_alta_trabajador.php"><input type="button" class="butn" value="Contratar"></a>
+        </div>
 
 </main>
 

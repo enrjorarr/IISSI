@@ -100,6 +100,21 @@ function consultarTrabajador2email($conexion,$email) {
  return $stmt->fetch();
  }
 
+ function esVeterinario($conexion,$oidtrabajador) {
+	$consulta = "SELECT COUNT(*) AS TOTAL FROM VETERINARIOS WHERE OIDTRABAJADOR=:oidtrabajador";
+ $stmt = $conexion->prepare($consulta);
+ $stmt->bindParam(':oidtrabajador',$oidtrabajador);
+ $stmt->execute();
+ $boolean = $stmt->fetchColumn();
+	if( $boolean == 0){
+	return false;
+	}else{
+		return true;
+	}
+ 	return $stmt->fetch();
+ }
+
+
  function eliminar_veterinario($conexion,$OIDTrabajador) {
 	try {
 		$stmt=$conexion->prepare('CALL ELIMINAR_VETERINARIO(:OidTrabajador)');

@@ -200,7 +200,7 @@
                             <td><?php echo $fila["IDPACIENTE"]; ?></td>
                             <td>
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
-                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar libro">
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar">
                                 </button>
                             </td>
                             <td>
