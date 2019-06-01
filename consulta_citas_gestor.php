@@ -48,7 +48,7 @@
     // La consulta que ha de paginarse
     $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS, CLIENTES '
+    .' FROM CITAS'
     .' ORDER BY FECHAINICIO ';
 
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
@@ -213,7 +213,7 @@
                             <td><?php echo $fila["OIDCITA"]; ?></td>
                             <td><?php echo $fila["FECHAINICIO"]; ?></td>
                             <td><?php echo $fila["HORAINICIO"]; ?></td>
-                            <td><?php echo $fila["DURACION"]; ?></td>
+                            <td><?php echo $fila["DURACIONMIN"]; ?></td>
                             <td><?php echo $fila["COSTE"]; ?></td>
 
                             <td>

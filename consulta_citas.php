@@ -187,7 +187,7 @@
 
 	<article class="cita">
 
-		<form method="get" action="controlador_citas.php">
+		<form method="post" action="controlador_citas.php">
 
 			<div class="fila_cita">
 

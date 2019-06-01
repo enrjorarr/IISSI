@@ -216,7 +216,9 @@
 				
 
 			</div>
-
+				Coste               :<input type="number" id = "Coste" name="Coste" > <br/>
+			    Hora de inicio      :<input type="text" id = "HoraInicio" name="HoraInicio" ><br/>
+				Duracion en minutos :  <input type= "number" id = "DuracionMin"  name = "DuracionMin">
 		</form>
 
     </article>
