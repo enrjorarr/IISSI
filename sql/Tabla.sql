@@ -17,11 +17,13 @@ DROP TABLE Informes;
 
 DROP TABLE Historiales;
 
+DROP TABLE PeticionCitas;
+
 DROP TABLE Pacientes;
 
 DROP TABLE Clientes;
 
-DROP TABLE PeticionCitas;
+
 
 
 
@@ -49,8 +51,7 @@ CREATE TABLE Pacientes(
     Especie               VARCHAR2(50),
     Dni                   CHAR(9),
 
-    CONSTRAINT COMPROBAR_DNI2 CHECK (REGEXP_LIKE(DNI, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]')),
-    CONSTRAINT COMPROBAR_IDPACIENTE CHECK (REGEXP_LIKE(IDPaciente, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')),
+    CONSTRAINT COMPROBAR_IDPACIENTE CHECK (REGEXP_LIKE(IDPaciente, '[0-9]{9}')),
     PRIMARY KEY(IDPaciente),
     FOREIGN KEY(Dni)    REFERENCES     Clientes 
 );
@@ -59,7 +60,7 @@ CREATE TABLE Historiales(
     OIDHistorial          SMALLINT,
     IDPaciente            CHAR(9),
 
-    CONSTRAINT COMPROBAR_IDPACIENTE2 CHECK (REGEXP_LIKE(IDPaciente, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')),
+    CONSTRAINT COMPROBAR_IDPACIENTE2 CHECK (REGEXP_LIKE(IDPaciente, '[0-9]{5}')),
     PRIMARY KEY(OIDHistorial),
     FOREIGN KEY(IDPaciente)    REFERENCES    Pacientes 
 );
@@ -170,4 +171,5 @@ CREATE TABLE Peluquerias(
     FOREIGN KEY (OIDPeluquero) REFERENCES Peluqueros,
     FOREIGN KEY (OIDCita) REFERENCES Citas
     );
+
 
