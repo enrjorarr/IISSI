@@ -7,6 +7,17 @@ function consultarPeticiones($conexion) {
 		return $conexion->query($consulta);
 }
 
+function eliminarPeticion($conexion,$OIDPetCita){
+	try{
+		$stmt=$conexion->prepare('CALL ELIMINAR_PETCITA(:OIDPetCita)');
+		$stmt->bindParam(':OIDPetCita',$OIDPetCita);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+
+	}
+}
 
 function alta_petCita($conexion,$usuario,$tipoCita) {
     $fechaIni = date('d/m/Y', strtotime($usuario["fecha"]));

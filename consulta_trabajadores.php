@@ -2,15 +2,15 @@
     session_start();
 
     require_once("gestionBD.php");
-    require_once("gestionarCitas.php");
+    require_once("gestionarTrabajadores.php");
     require_once("paginacion_consulta.php");
 
     if (!isset($_SESSION['login']))
 		Header("Location: inicio_sesion.php");
     else {
-	    if (isset($_SESSION["cita"])) {
-		    $cita = $_SESSION["cita"];
-		    unset($_SESSION["cita"]);
+	    if (isset($_SESSION["trabajador"])) {
+		    $trabajador = $_SESSION["trabajador"];
+		    unset($_SESSION["trabajador"]);
         }
         
     	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
@@ -30,11 +30,10 @@
     $conexion = crearConexionBD();
     
     // La consulta que ha de paginarse
-    $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
-    . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS, TRABAJADORES , PELUQUEROS '
-    .'WHERE ' . 'CITAS.OIDCITA = CLIENTES.DNI '
-    .' ORDER BY FECHAINICIO ';
+    $query = 'SELECT TRABAJADORES.OIDTRABAJADOR, TRABAJADORES.PASS,TRABAJADORES.FECHANAC,'
+    .'TRABAJADORES.NOMBRE, TRABAJADORES.APELLIDOS, TRABAJADORES.DIRECCION,TRABAJADORES.EMAIL,'
+    .'TRABAJADORES.HORASTRABAJO,TRABAJADORES.SUELDO,TRABAJADORES.ESGESTOR, TRABAJADORES.DNI'
+    .' FROM TRABAJADORES, PELUQUEROS, VETERINARIOS ';
 
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
 	// En caso de que no, se asume el tamaño de página propuesto, pero desde la página 1
@@ -67,15 +66,17 @@
   <link rel="stylesheet" type="text/css" href="css/consulta_citas_cliente.css" />
   
   <title>consulta citas</title>
-	<?php include_once("head.php"); ?>
+	<?php include_once("head_staff.php"); ?>
   
 </head>
 
 <body>
     <?php
-	    include_once("cabecera.php");
+	    include_once("cabecera_gestor.php");
     ?>
-	
+	<div class="todo">
+
+  
 
     <main>
 
@@ -83,11 +84,11 @@
 
      <thead>
     <tr>
-    	<th>Cita</th>
-    	<th>Fecha</th>
-    	<th>Duración</th>
-		<th>Coste</th>
-		<th>Eliminar</th>
+    	<th>OID Trabajador</th>
+		<th>Nombre</th>
+		<th>Apellidos</th>
+    	<th></th>
+    	<th>Coste</th>
     </tr>
 	<tfoot>
 		<tr>
@@ -172,9 +173,9 @@
 
 						type="hidden" value="<?php echo $fila["FECHAINICIO"]; ?>"/>
 
-					<input id="FECHAFIN" name="FECHAFIN"
+					<input id="HORAINICIO" name="HORAINICIO"
 
-						type="hidden" value="<?php echo $fila["FECHAFIN"]; ?>"/>
+						type="hidden" value="<?php echo $fila["HORAINICIO"]; ?>"/>
 
                     <input id="DURACIONMIN" name="DURACIONMIN"
 
@@ -195,14 +196,10 @@
                         <tbody>
                         <tr>
                             <td><?php echo $fila["OIDCITA"]; ?></td>
-                            <td><?php echo $fila["FECHAINICIO"]; ?></td>
-                            <td><?php echo $fila["DURACION"]; ?></td>
-							<td><?php echo $fila["COSTE"]; ?></td>
-							<td>
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
-                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar cita">
-                                </button>
-                            </td>
+							<td><?php echo $fila["FECHAINICIO"]; ?></td>
+							<td><?php echo $fila["HORAINICIO"]; ?></td>
+							<td><?php echo $fila["DURACION"]; ?></td>
+                            <td><?php echo $fila["COSTE"]; ?></td>
 
                         </tr>
                         </tbody>

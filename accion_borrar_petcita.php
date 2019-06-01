@@ -2,14 +2,14 @@
 	session_start();	
 	
 	if (isset($_SESSION["petcita"])) {
-		$cita = $_SESSION["petcita"];
+		$petcita = $_SESSION["petcita"];
 		unset($_SESSION["petcita"]);
 		
 		require_once("gestionBD.php");
 		require_once("gestionarPetCitas.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = quitar_libro($conexion,$cita["OIDPETCITA"]);
+		$excepcion = eliminarPeticion($conexion,$petcita["OIDPETCITA"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {
