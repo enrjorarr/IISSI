@@ -8,7 +8,14 @@ function consultarCitasCliente($conexion) {
 		. " ORDER BY FECHAINICIO";
 		return $conexion->query($consulta);
 }
-
+function consultarCitasPorDNI($conexion,$nif) {
+	$consulta = "SELECT * FROM CITAS WHERE DNI=:nif";
+	$stmt = $conexion->prepare($consulta);
+	$stmt->bindParam(':nif',$nif);
+	
+	$stmt->execute();
+	return $stmt->fetch();
+	}
 
 function alta_cita($conexion,$usuario) {
     $fecha = date('d/m/Y', strtotime($usuario["fecha"]));
