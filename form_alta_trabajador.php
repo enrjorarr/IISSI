@@ -164,8 +164,8 @@
 
 			<div><label for="esGestor">Es gestor:<em>*</em></label>
 			<select name="esGestor">
-    			<option value="si">Si</option>
-    			<option value="no">No</option>
+    			<option value="s">Si</option>
+    			<option value="n">No</option>
   			</select>
   			</div>
 		
