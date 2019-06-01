@@ -19,9 +19,14 @@
 
 			$email = $_SESSION['loginTrabajador'];
 
-			$usuario = consultarUsuario2email($conexion,$email);
+			$trabajador = consultarTrabajador2email($conexion,$email);
 
-			$dni = $usuario["DNI"];
+			$oidtrabajador=$trabajador["OIDTRABAJADOR"];
+
+			if(esVeterinario($conexion,$oidtrabajador)){
+
+
+			}
 
 			
 		}	
@@ -48,7 +53,7 @@
     // La consulta que ha de paginarse
     $query1 = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS,CONSULTAS '
+    .' FROM CITAS '
 	.' WHERE ' . 'CITAS.OIDCITA  IN 
 	  (SELECT CONSULTAS.OIDCITA FROM CONSULTAS WHERE OIDVETERINARIO= :oidveterinario)'
 	.' ORDER BY FECHAINICIO ';
