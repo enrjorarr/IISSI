@@ -2,8 +2,11 @@
     session_start();
 
     require_once("gestionBD.php");
-    require_once("gestionarCitas.php");
-    require_once("paginacion_consulta.php");
+	require_once("gestionarCitas.php");
+	require_once("gestionarClientes.php");
+	require_once("paginacion_consulta.php");
+	
+	$conexion = crearConexionBD();
 
     if (!isset($_SESSION['login']))
 		Header("Location: inicio_sesion.php");
@@ -12,7 +15,27 @@
 		    $cita = $_SESSION["cita"];
 		    unset($_SESSION["cita"]);
         }
-        
+	
+		if (isset($_SESSION['login']))	{
+
+			$email = $_SESSION['login'];
+
+			$usuario = consultarUsuario2email($conexion,$email);
+
+			$dni = $usuario["DNI"];
+
+			
+		}
+
+
+	
+
+
+
+
+
+
+
     	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
 	// ¿Hay una sesión activa?
 	if (isset($_SESSION["paginacion"]))
@@ -27,13 +50,13 @@
     	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
 	unset($_SESSION["paginacion"]);
 
-    $conexion = crearConexionBD();
-    $nif = $_SESSION[''];
+    
+
     // La consulta que ha de paginarse
     $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
     .' FROM CITAS, CLIENTES '
-    .'WHERE ' . 'CITAS.DNI = CLIENTES.DNI '
+    .'WHERE ' . 'CITAS.DNI = :dniConsultaCita '
     .' ORDER BY FECHAINICIO ';
 
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.

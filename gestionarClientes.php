@@ -30,15 +30,7 @@
 		
     }
 }
-  
-function consultarUsuario($conexion,$email,$pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE EMAIL=:email AND PASS=:pass";
-	$stmt = $conexion->prepare($consulta);
-	$stmt->bindParam(':email',$email);
-	$stmt->bindParam(':pass',$pass);
-	$stmt->execute();
-	return $stmt->fetchColumn();
-}
+
 
 function consultarUsuario2email($conexion,$email) {
 	$consulta = "SELECT * FROM CLIENTES WHERE EMAIL=:email";
