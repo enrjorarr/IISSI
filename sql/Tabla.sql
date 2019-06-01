@@ -161,7 +161,7 @@ CREATE TABLE Citas (
     Dni  CHAR(9) NOT NULL,
     OIDGestor SMALLINT NOT NULL,
     FechaInicio DATE NOT NULL,
-    FechaFin DATE NOT NULL,
+    HoraInicio Varchar2 NOT NULL,
     DuracionMin NUMBER(4) NOT NULL,
     Coste NUMBER(4,2) NOT NULL,
     
