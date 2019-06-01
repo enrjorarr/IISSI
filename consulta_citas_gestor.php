@@ -47,7 +47,7 @@
     
     // La consulta que ha de paginarse
     $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
-    . ' CITAS.FECHAFIN, CITAS.DURACIONMIN,CITAS.COSTE '
+    . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
     .' FROM CITAS, CLIENTES '
     .' ORDER BY FECHAINICIO ';
 
@@ -99,9 +99,11 @@
      <thead>
     <tr>
     	<th>Cita</th>
-    	<th>Fecha</th>
+        <th>Fecha</th>
+        <th>Hora</th>
     	<th>Duración</th>
-    	<th>Coste</th>
+        <th>Coste</th>
+        <th>Eliminar</th>
     </tr>
 	<tfoot>
 		<tr>
@@ -186,9 +188,9 @@
 
 						type="hidden" value="<?php echo $fila["FECHAINICIO"]; ?>"/>
 
-					<input id="FECHAFIN" name="FECHAFIN"
+					<input id="HORAINICIO" name="HORAINICIO"
 
-						type="hidden" value="<?php echo $fila["FECHAFIN"]; ?>"/>
+						type="hidden" value="<?php echo $fila["HORAINICIO"]; ?>"/>
 
                     <input id="DURACIONMIN" name="DURACIONMIN"
 
@@ -210,8 +212,15 @@
                         <tr>
                             <td><?php echo $fila["OIDCITA"]; ?></td>
                             <td><?php echo $fila["FECHAINICIO"]; ?></td>
+                            <td><?php echo $fila["HORAINICIO"]; ?></td>
                             <td><?php echo $fila["DURACION"]; ?></td>
                             <td><?php echo $fila["COSTE"]; ?></td>
+
+                            <td>
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar libro">
+                                </button>
+                            </td>
 
                         </tr>
                         </tbody>
@@ -231,8 +240,12 @@
 	<?php } ?>
         </table>
         
-        <div class="botoncillo">    
+        <div class="botoncillo1">    
             <a href="form_alta_cita.php"><input type="button" class="butn" value="Crear cita"></a>
+        </div>
+
+        <div class = "botoncillo2">
+            <a href="consulta_petcitas.php"><input type="button" class="butn" value="Peticiones"></a>
         </div>
 </main>
 

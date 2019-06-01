@@ -86,7 +86,8 @@
     	<th>Cita</th>
     	<th>Fecha</th>
     	<th>Duración</th>
-    	<th>Coste</th>
+		<th>Coste</th>
+		<th>Eliminar</th>
     </tr>
 	<tfoot>
 		<tr>
@@ -196,7 +197,12 @@
                             <td><?php echo $fila["OIDCITA"]; ?></td>
                             <td><?php echo $fila["FECHAINICIO"]; ?></td>
                             <td><?php echo $fila["DURACION"]; ?></td>
-                            <td><?php echo $fila["COSTE"]; ?></td>
+							<td><?php echo $fila["COSTE"]; ?></td>
+							<td>
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar cita">
+                                </button>
+                            </td>
 
                         </tr>
                         </tbody>

@@ -3,12 +3,12 @@ create or replace PROCEDURE ALTA_CITA(
     OIDGestor IN CitaS.OIDGestor%TYPE,
     Dni  IN CitaS.Dni%TYPE,
     FechaInicio IN CitaS.FechaInicio%TYPE,
-    FechaFin IN CitaS.FechaFin%TYPE,
+    HoraInicio IN CitaS.HoraInicio%TYPE,
     DuracionMin IN CitaS.DuracionMin%TYPE,
     Coste IN CitaS.Coste%TYPE
     )IS
     BEGIN
-    INSERT INTO Citas VALUES(0,Dni, OIDGestor,FechaInicio, FechaFin, DuracionMin,Coste);
+    INSERT INTO Citas VALUES(0,Dni, OIDGestor,FechaInicio, HoraInicio, DuracionMin,Coste);
   COMMIT WORK;
 END ALTA_CITA;
 /
@@ -17,7 +17,7 @@ create or replace PROCEDURE ALTA_CLIENTE(
     Dni                  IN     Clientes.Dni%TYPE,
     FechaNac             IN     Clientes.FechaNac%TYPE,
     NumeroTelefono       IN     Clientes.NumeroTelefono%TYPE,
-    Pass             IN     Clientes.Pass%TYPE,
+    Pass                 IN     Clientes.Pass%TYPE,
     Direccion            IN     Clientes.Direccion%TYPE,
     Email                IN     Clientes.Email%TYPE,
     Nombre               IN     Clientes.Nombre%TYPE,
@@ -82,10 +82,12 @@ create or replace PROCEDURE ALTA_PETCITA(
     Dni  IN PeticionCitas.Dni%TYPE,
     Motivo IN PeticionCitas.Motivo%TYPE,
     FechaInicio IN PeticionCitas.FechaInicio%TYPE,
-    IDPaciente IN PeticionCitas.IDPaciente%TYPE
+    IDPaciente IN PeticionCitas.IDPaciente%TYPE,
+    TipoCita IN PeticionCitas.TipoCita%TYPE
+
     )IS
     BEGIN
-    INSERT INTO PeticionCitas VALUES(0,Dni,Motivo,FechaInicio, IDPaciente);
+    INSERT INTO PeticionCitas VALUES(0,Dni,Motivo,FechaInicio, IDPaciente, TipoCita);
   COMMIT WORK;
 END ALTA_PETCITA;
 /
@@ -103,7 +105,8 @@ create or replace PROCEDURE ALTA_TRABAJADOR(
     HorasTrabajo    IN Trabajadores.HorasTrabajo%TYPE
     )IS  
 BEGIN
-    INSERT INTO Trabajadores VALUES(NUMEROTELEFONO,PASS,FECHANAC,NOMBRE,APELLIDOS,DIRECCION,Email,HORASTRABAJO,Sueldo,EsGestor,Dni,1);
+    INSERT INTO Trabajadores VALUES(NUMEROTELEFONO,PASS,FECHANAC,NOMBRE,APELLIDOS,DIRECCION,
+    EMAIL,HORASTRABAJO,SUELDO,ESGESTOR,DNI,1);
   COMMIT WORK;
 END ALTA_TRABAJADOR;
 /

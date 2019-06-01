@@ -5,7 +5,8 @@
 		$cita["OIDCITA"] = $_REQUEST["OIDCITA"];
 		$cita["DNI"] = $_REQUEST["DNI"];
 		$cita["OIDGESTOR"] = $_REQUEST["OIDGESTOR"];
-		$cita["FECHA"] = $_REQUEST["FECHA"];
+		$cita["FECHAINICIO"] = $_REQUEST["FECHAINICIO"];
+		$cita["HORAINICIO"] = $_REQUEST["HORAINICIO"];
 		$cita["DURACIONMIN"] = $_REQUEST["DURACION"];
 		$cita["COSTE"] = $_REQUEST["COSTE"];
 		

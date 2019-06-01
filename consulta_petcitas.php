@@ -60,23 +60,38 @@
 ?>
 
 
-
-
 <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/consulta_petcitas.css" />
+  
+  <title>consulta citas</title>
+	<?php include_once("head_staff.php"); ?>
+  
+</head>
 
 <body>
-
+    <?php
+	    include_once("cabecera_gestor.php");
+    ?>
+	
 
     <main>
 
-	 <table class="consulta">
+
+
+
+
+ <table class="consulta">
 
      <thead>
     <tr>
     	<th>Petición</th>
     	<th>DNI</th>
     	<th>Fecha</th>
-    	<th>ID Paciente</th>
+        <th>ID Paciente</th>
+        <th>Eliminar</th>
     </tr>
 	<tfoot>
 		<tr>
@@ -137,7 +152,7 @@
 
 
 
-	<article class="ptcita">
+	<article class="petcita">
 
 		<form method="get" action="controlador_petcitas.php">
 
@@ -180,7 +195,11 @@
                             <td><?php echo $fila["DNI"]; ?></td>
                             <td><?php echo $fila["FECHAINICIO"]; ?></td>
                             <td><?php echo $fila["IDPACIENTE"]; ?></td>
-
+                            <td>
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar libro">
+                                </button>
+                            </td>
                         </tr>
                         </tbody>
 				</div>		
@@ -192,23 +211,27 @@
 
 		</form>
 
-	</article>
+    </article>
+    
 
 
 
 	<?php } ?>
         </table>
-        
-        <div class="botoncillo">    
-            <a href="form_alta_cita.php"><input type="button" class="butn" value="Crear cita"></a>
+
+        <div class="botoncillo1">    
+            <a href="consulta_citas_gestor.php"><input type="button" class="butn" value="Atrás"></a>
         </div>
-</main>
+ </main>
 
 
+<?php
+	include_once("pie.php");
+?>
 
 
 
   
 
 </body>
-</html>
+        

@@ -23,12 +23,12 @@ function alta_cita($conexion,$usuario) {
    
     
 	try {
-		$consulta = "CALL ALTA_CITA(:Dni, :OIDGestor,:FechaInicio, :FechaFin, :DuracionMin, :Coste)";
+		$consulta = "CALL ALTA_CITA(:Dni, :OIDGestor,:FechaInicio, :HoraInicio, :DuracionMin, :Coste)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':Dni',$usuario["nif"]);
 		$stmt->bindParam(':OIDGestor',$usuario["IdPaciente"]);
 		$stmt->bindParam(':FechaInicio',$fecha);
-		$stmt->bindParam(':FechaFin',$fechaFin);
+		$stmt->bindParam(':HoraInicio',$horaInicio);
 		$stmt->bindParam(':DuracionMin',$usuario["duracionMin"]);
 		$stmt->bindParam(':Coste',$usuario["coste"]);
    
