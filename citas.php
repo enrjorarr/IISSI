@@ -1,5 +1,12 @@
 <?php
-	session_start();
+    session_start();
+    
+
+
+ //   if (!isset($_SESSION['login']))
+	//Header("Location: inicio_sesion.php");
+
+
 ?>
 
 
@@ -20,13 +27,18 @@
 	include_once("cabecera.php");
 ?>
 <main>
-
+   <?php if (isset($_SESSION['login'])){?>
+  
     <div class = "p">
         <div class = "veterinaria">
             <div class = "logoVeterinaria">
                 <div class="circulo" >
                     <div class = "movimientoNaranja">
-                        <a title="Consulta" href="form_alta_cliente.php"><img src="images/estetoscopio.png" alt="Consulta" /></a>
+                    <form action = "form_alta_petCita.php" method = "POST" name="formulario">
+                      
+                        <input type="image" src="images/estetoscopio.png"/>
+                        <input type="hidden" id="code" name="code" value="CITA">
+                    </form>
                     </div>
                 </div>
                 <div class = "movimientoTexto1">
@@ -38,7 +50,7 @@
             <div class = "logoPeluqueria">
                 <div class="circulo">
                     <div class = "movimientoNaranja">
-                        <a title="Peluquería" href="form_alta_cliente.php"><img src="images/secador-de-pelo.png" alt="Peluquería" /></a>
+                        <a title="Peluquería" href="form_alta_petCita.php"><img src="images/secador-de-pelo.png" alt="Peluquería" /></a>
                     </div>
                 </div>
                 <div class = "movimientoTexto2">
@@ -47,6 +59,33 @@
             </div>
         </div>
     </div>
+   <?php }else{ ?>     
+       <div class = "veterinaria">
+            <div class = "logoVeterinaria">
+                <div class="circulo" >
+                    <div class = "movimientoNaranja">
+                        <a title="Consulta" href="inicio_sesion.php"><img src="images/estetoscopio.png" alt="Consulta" /></a>
+                    </div>
+                </div>
+                <div class = "movimientoTexto1">
+                    <br><a href="inicio_sesion.php">Consulta</a>
+                </div>            
+              </div>
+            </div>
+            <div class = "peluqueria">
+            <div class = "logoPeluqueria">
+                <div class="circulo">
+                    <div class = "movimientoNaranja">
+                        <a title="Peluquería" href="inicio_sesion.php"><img src="images/secador-de-pelo.png" alt="Peluquería" /></a>
+                    </div>
+                </div>
+                <div class = "movimientoTexto2">
+                    <br><a href="inicio_sesion.php">Peluquería</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   <?php } ?>    
     <?php
 	include_once("pie.php");
 ?>

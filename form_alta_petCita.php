@@ -3,6 +3,9 @@
     session_start();
     
     require_once("gestionBD.php");
+	if(isset($_POST["code"])){
+		$code  = $_POST["code"];
+	}
 
 
     if(!isset($_SESSION["formulario"])){
@@ -10,7 +13,7 @@
 		$formulario['motivo'] = "";                                                                
 		$formulario['fecha'] = "";                                    
         $formulario['idPaciente'] = "";                                     
-        
+        $formulario["tipoCita"]= $code;
 
         $_SESSION["formulario"] = $formulario;
     }

@@ -11,8 +11,8 @@
 	    if (isset($_SESSION["informe"])) {
 		    $informe = $_SESSION["informe"];
 		    unset($_SESSION["informe"]);
-	}
-
+	    }
+    }
     if (isset($_POST['submit'])){
 		$id= $_POST['id'];
 		$conexion = crearConexionBD();
