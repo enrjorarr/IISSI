@@ -7,6 +7,7 @@
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
 		$nuevoUsuario = $_SESSION["formulario"];
+		$tipo = $nuevoUsuario["tipoCita"];
 		$_SESSION["formulario"] = null;
 		$_SESSION["errores"] = null;
 	}
@@ -31,7 +32,7 @@
 	?>
 
 	<main>
-		<?php if (alta_petCita($conexion, $nuevoUsuario)) { 
+		<?php if (alta_petCita($conexion, $nuevoUsuario,$tipo)) { 
 
 		?>
 				<h1>La cita con OID = <?php echo $nuevoUsuario["motivo"]; ?>,se ha registrado satisfactoriamente</h1>

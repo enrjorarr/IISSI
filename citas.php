@@ -50,7 +50,12 @@
             <div class = "logoPeluqueria">
                 <div class="circulo">
                     <div class = "movimientoNaranja">
-                        <a title="Peluquería" href="form_alta_petCita.php"><img src="images/secador-de-pelo.png" alt="Peluquería" /></a>
+
+                    <form action = "form_alta_petCita.php" method = "POST" name="formulario">
+                        <input type="image" src="images/secador-de-pelo.png"/>
+                        <input type="hidden" id="code" name="code" value="CONSULTA">
+                    </form>
+                                            
                     </div>
                 </div>
                 <div class = "movimientoTexto2">
