@@ -5,7 +5,7 @@
     require_once("gestionarTrabajadores.php");
     require_once("paginacion_consulta.php");
 
-    if (!isset($_SESSION['logintrabajador']))
+    if (!isset($_SESSION['loginGestor']))
 		Header("Location: inicio_sesion.php");
     else {
 	    if (isset($_SESSION["trabajador"])) {
@@ -63,7 +63,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/consulta_citas_cliente.css" />
+  <link rel="stylesheet" type="text/css" href="css/consulta_trabajadores.css" />
   
   <title>consulta citas</title>
 	<?php include_once("head_staff.php"); ?>

@@ -26,7 +26,7 @@
             <div class = "logoVeterinaria">
                 <div class="circulo" >
                     <div class = "movimientoNaranja">
-                        <a title="Cita" href="form_alta_cliente.php"><img src="images/fecha_cita.png" alt="Cita" /></a>
+                        <a title="Cita" href="consulta_citas_trabajadores.php"><img src="images/fecha_cita.png" alt="Cita" /></a>
                     </div>
                 </div>
                 <div class = "movimientoTexto3">

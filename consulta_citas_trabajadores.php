@@ -3,15 +3,31 @@
 
     require_once("gestionBD.php");
     require_once("gestionarCitas.php");
-    require_once("paginacion_consulta.php");
+	require_once("paginacion_consulta.php");
+	require_once("paginacion_trabajadores.php");
 
-    if (!isset($_SESSION['login']))
+
+    if (!isset($_SESSION['loginTrabajador']))
 		Header("Location: inicio_sesion.php");
     else {
 	    if (isset($_SESSION["cita"])) {
 		    $cita = $_SESSION["cita"];
 		    unset($_SESSION["cita"]);
-        }
+		}
+		$conexion = crearConexionBD();
+		if (isset($_SESSION['loginTrabajador']))	{
+
+			$email = $_SESSION['loginTrabajador'];
+
+			$usuario = consultarUsuario2email($conexion,$email);
+
+			$dni = $usuario["DNI"];
+
+			
+		}	
+
+	
+
         
     	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
 	// ¿Hay una sesión activa?
@@ -27,20 +43,20 @@
     	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
 	unset($_SESSION["paginacion"]);
 
-    $conexion = crearConexionBD();
+   
     
     // La consulta que ha de paginarse
     $query1 = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS,CONSULTAS, VETERINARIOS '
-	.'WHERE ' . 'CITAS.OIDCITA  IN 
+    .' FROM CITAS,CONSULTAS '
+	.' WHERE ' . 'CITAS.OIDCITA  IN 
 	  (SELECT CONSULTAS.OIDCITA FROM CONSULTAS WHERE OIDVETERINARIO= :oidveterinario)'
 	.' ORDER BY FECHAINICIO ';
 	
 	$query2='SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS,PELUQUERIAS, PELUQUEROS '
-	.'WHERE ' . 'CITAS.OIDCITA  IN 
+    .' FROM CITAS,PELUQUERIAS'
+	.' WHERE ' . 'CITAS.OIDCITA  IN 
 	  (SELECT PELUQUERIAS.OIDCITA FROM PELUQUERIAS WHERE OIDPELUQUERO = :oidpeluquero)'
 	.' ORDER BY FECHAINICIO ';
 

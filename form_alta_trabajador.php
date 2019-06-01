@@ -78,7 +78,7 @@
 	</script>
 	
 	<?php
-        include_once("cabecera_trabajadores.php");
+        include_once("cabecera_gestor.php");
 	?>
 	
 	<?php 
