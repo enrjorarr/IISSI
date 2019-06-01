@@ -5,7 +5,7 @@
     require_once("gestionarPetCitas.php");
     require_once("paginacion_consulta.php");
 
-    if (!isset($_SESSION['login']))
+    if (!isset($_SESSION['loginGestor']))
 		Header("Location: inicio_sesion.php");
     else {
 	    if (isset($_SESSION["petcita"])) {
