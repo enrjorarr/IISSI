@@ -18,7 +18,14 @@
     $id = $nuevoUsuario["idPaciente"];
 
 	$conexion = crearConexionBD(); 
-   
+	if (eliminarPacientes2ID($conexion,$id)) {
+		Header("Location: consulta_pacientes.php");	
+
+
+	}else{
+		Header("Location: excepcion.php");	
+
+	}
 
 ?>
 
