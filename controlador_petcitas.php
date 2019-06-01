@@ -2,11 +2,11 @@
 	session_start();
 	
 	if (isset($_REQUEST["OIDPETCITA"])){
-		$cita["DNI"] = $_REQUEST["DNI"];
-		$cita["MOTIVO"] = $_REQUEST["MOTIVO"];
-		$cita["FECHAINICIO"] = $_REQUEST["FECHAINICIO"];
-		$cita["IDPACIENTE"] = $_REQUEST["IDPACIENTE"];
-		
+		$petcita["DNI"] = $_REQUEST["DNI"];
+		$petcita["MOTIVO"] = $_REQUEST["MOTIVO"];
+		$petcita["FECHAINICIO"] = $_REQUEST["FECHAINICIO"];
+		$petcita["IDPACIENTE"] = $_REQUEST["IDPACIENTE"];
+		$petcita["OIDPETCITA"] =$_REQUEST["OIDPETCITA"];
 		$_SESSION["petcita"] = $petcita;
 			
 	 

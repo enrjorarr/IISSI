@@ -11,13 +11,13 @@
 		$conexion = crearConexionBD();		
 		$excepcion = eliminarPeticion($conexion,$petcita["OIDPETCITA"]);
 		cerrarConexionBD($conexion);
-			
+		
 		if ($excepcion<>"") {
 			$_SESSION["excepcion"] = $excepcion;
-			$_SESSION["destino"] = "consulta_citas_gestor.php";
+			$_SESSION["destino"] = "consulta_petcitas.php";
 			Header("Location: excepcion.php");
 		}
-		else Header("Location: consulta_citas_gestor.php");
+		else Header("Location: consulta_petcitas.php");
 	}
-	else Header("Location: consulta_citas_gestor.php"); // Se ha tratado de acceder directamente a este PHP
+	else Header("Location: consulta_petcitas.php"); // Se ha tratado de acceder directamente a este PHP
 ?>
