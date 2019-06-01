@@ -28,7 +28,7 @@
 	unset($_SESSION["paginacion"]);
 
     $conexion = crearConexionBD();
-    
+    $nif = $_SESSION[''];
     // La consulta que ha de paginarse
     $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '

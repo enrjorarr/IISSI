@@ -91,7 +91,10 @@
     	<th>DNI</th>
     	<th>Fecha</th>
         <th>ID Paciente</th>
-        <th>Eliminar</th>
+        <th>Rechazar</th>
+        <th>Aceptar</th>
+
+
     </tr>
 	<tfoot>
 		<tr>
@@ -198,6 +201,11 @@
                             <td>
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar libro">
+                                </button>
+                            </td>
+                            <td>
+                                <button id="aceptar" name="aceptar" type="submit" class="editar_fila">
+                                    <img src="images/aceptar.jpg" class="editar_fila" alt="Aceptar">
                                 </button>
                             </td>
                         </tr>
