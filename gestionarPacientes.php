@@ -34,14 +34,25 @@
 		
 		var_dump($e->getMessage());exit;
 
-
-
-
-
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
+	}
+}	
+		function eliminarPacientes2ID($conexion,$id) {
+			try {
+				$consulta = "CALL ELIMINAR_PACIENTE_POR_ID(:IDPaciente)";
+				$stmt = $conexion->prepare($consulta);
+				$stmt->bindParam(':IDPaciente',$id);
+			
+				$stmt->execute();
+				return TRUE;
+			} catch (PDOException $e) {
+				return false;
+			}
+			
+		 }
+		 
 		
-		}
 		function consultarPacientes2ID($conexion,$id) {
 			$consulta = "SELECT * FROM Pacientes WHERE IDPaciente=:id";
 			$stmt = $conexion->prepare($consulta);
@@ -50,8 +61,8 @@
 			$stmt->execute();
 			return $stmt->fetch();
 			
-	 	}
+		 }
+		 
 	 
-}
 
 ?>

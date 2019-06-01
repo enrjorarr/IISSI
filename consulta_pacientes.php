@@ -5,6 +5,24 @@ require_once ("gestionBD.php");
 require_once ("gestionarPacientes.php");
 require_once ("paginacion_consulta.php");
 
+if (!isset($_SESSION["formulario"])) {
+                                // 
+	$formulario['idPaciente'] = "";                                          
+								  
+
+	$_SESSION["formulario"] = $formulario;
+}
+else{
+	
+	$formulario = $_SESSION["formulario"];
+}		
+if (isset($_SESSION["errores"])){
+	$errores = $_SESSION["errores"];
+	unset($_SESSION["errores"]);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////7
 if (!isset($_SESSION['login']))
 	Header("Location: inicio_sesion.php");
 else {
@@ -12,7 +30,7 @@ else {
 		$paciente = $_SESSION["paciente"];
 		unset($_SESSION["paciente"]);
 	}
-
+ 
 	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
 	// ¿Hay una sesión activa?
 	if (isset($_SESSION["paginacion"]))
@@ -232,6 +250,21 @@ include_once ("cabecera.php");
     <?php } ?>
     
     </table>
+	<div class="anadirpaciente">
+		<form id="altaPaciente" method="post" action="form_alta_paciente.php">
+			<input class="butn" type="submit" value="Añadir mascota" />
+		</form>
+	</div>
+	<div class="eliminarpaciente">
+		<form id="formulario" name="formulario" action="validacion_eliminar_paciente.php" method="post">
+            <div class = "eliminarPaciente">
+				<h3>Puede eliminar su mascota si aún no ha sido atendida en consulta</h3>
+                <label for="eliminarPaciente">Insertar id del paciente: </label>
+				<input type="text" name="id" id="id" pattern="^[0-9]{9}"/>
+                <input type="submit" class ="butn" name="Eliminar mascota" value="Eliminar mascota" />
+            </div>
+        </form>
+	</div>
 
 </main>
 

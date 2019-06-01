@@ -9,9 +9,7 @@
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION["formulario"])) {
 
-		$formulario['nif'] = "";                                      //  
-		$formulario['nombre'] = "";                                   //
-		$formulario['apellidos'] = "";                                //    
+		$formulario['nif'] = "";                                      //   
 		$formulario['fechaNacimiento'] = "";                          //           
 		$formulario['colorPelo'] = "";                                    //
 		$formulario['especie'] = "";                                     //
@@ -84,13 +82,6 @@
 		<fieldset class="datos1" ><legend>Datos del Cliente:</legend>
 			<div></div><label for="nif">DNI del Cliente:<em STYLE="color:red;">*</em></label>
 			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
-			</div>
-			<div><label for="nombre">Nombre:<em STYLE="color:red;">*</em></label>
-			<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
-			</div>
-			<div><label for="apellidos">Apellidos:</label>
-			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
-			</div>
 		</fieldset>
 
 		<fieldset class="datos2"><legend>Datos del paciente</legend>

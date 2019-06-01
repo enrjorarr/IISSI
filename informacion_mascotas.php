@@ -2,7 +2,7 @@
     session_start();
 
     require_once("gestionBD.php");
-    require_once("gestionarCitas.php");
+    require_once("gestionarPacientes.php");
     require_once("paginacion_consulta.php");
 
     if (!isset($_SESSION['login']))
@@ -12,6 +12,22 @@
 		    $cita = $_SESSION["cita"];
 		    unset($_SESSION["cita"]);
         }
+
+
+    if (isset($_POST['submit'])){
+            $nif= $_POST['nif'];
+            $conexion = crearConexionBD();
+            $paciente = consultarPacientes2ID($conexion,$id);
+            cerrarConexionBD($conexion);	
+            
+    if ($cita == null)
+                $login = "error";	
+     else {
+            
+                $_SESSION['cita'] = $cita;
+                Header("Location: consulta_citas_gestor.php");
+        }	
+    }
         
     	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
 	// ¿Hay una sesión activa?
@@ -33,7 +49,6 @@
     $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.FECHAFIN, CITAS.DURACIONMIN,CITAS.COSTE '
     .' FROM CITAS, CLIENTES '
-    .'WHERE ' . 'CITAS.DNI = CLIENTES.DNI '
     .' ORDER BY FECHAINICIO ';
 
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
@@ -64,7 +79,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/consulta_citas_cliente.css" />
+  <link rel="stylesheet" type="text/css" href="css/consulta_citas_gestor.css" />
   
   <title>consulta citas</title>
 	<?php include_once("head.php"); ?>
@@ -75,21 +90,7 @@
     <?php
 	    include_once("cabecera.php");
     ?>
-	<div class="todo">
-
-    	<div class="perfil">
-
-            <a href="informacion_personal.php"><img src="images/perfil_logo.png"  /></a>
-            <br><a href="informacion_personal.php">Información personal</a>
-        </div>
-
-        <div class="mascota">
-
-            <a  href="consulta_pacientes.php"><img src="images/mascota_logo.png" /></a>
-            <br><a href="consulta_pacientes.php">Mi mascota</a>
-        
-       </div>
-  
+	
 
     <main>
 
@@ -191,7 +192,7 @@
 
                     <input id="DURACIONMIN" name="DURACIONMIN"
 
-                        type="hidden" value="<?php echo $fila["DURACIONFIN"]; ?>"/>
+                        type="hidden" value="<?php echo $fila["DURACIONMIN"]; ?>"/>
                     
                     <input id="COSTE" name="COSTE"
 
@@ -228,8 +229,11 @@
 
 
 	<?php } ?>
-		</table>
-
+        </table>
+        
+        <div class="botoncillo">    
+            <a href="form_alta_cita.php"><input type="button" class="butn" value="Crear cita"></a>
+        </div>
 </main>
 
 

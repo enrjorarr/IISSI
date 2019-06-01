@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Inicio</title>
-  <?php include_once("head.php")?>
+  <?php include_once("head_staff.php")?>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 <main>
 
     
-    <div style= "margin-top: 12%;">
+    <div style= "margin-top: 16%;">
         <form action ="form_alta_trabajador.php" method = "get">
             <input class="butn" type="submit" value="añadir trabajador" />
         </form>
@@ -32,7 +32,7 @@
 </main>
 
 
-
+ 
 
 <?php
 	include_once("pie.php");

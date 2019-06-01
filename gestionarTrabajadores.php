@@ -112,8 +112,8 @@ function consultarTrabajador2email($conexion,$email) {
 }
 function eliminar_peluquero($conexion,$OIDTrabajador) {
 	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERO(:OidPeluquero)');
-		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
+		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERO(:OidTrabajador)');
+		$stmt->bindParam(':OidTrabajador',$OIDTrabajador);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {

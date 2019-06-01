@@ -38,11 +38,11 @@
             <div class = "logoPeluqueria">
                 <div class="circulo">
                     <div class = "movimientoNaranja">
-                        <a title="Empleados" href="form_alta_cliente.php"><img src="images/empleado.png" alt="Empleados" /></a>
+                        <a title="Empleados" href="gestor_trabajadores.php"><img src="images/empleado.png" alt="Empleados" /></a>
                     </div>
                 </div>
                 <div class = "movimientoTexto5">
-                    <br><a href="form_alta_cliente.php">Empleados</a>
+                    <br><a href="gestor_trabajadores.php">Empleados</a>
                 </div>
             </div>
         </div>

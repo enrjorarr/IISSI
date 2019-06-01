@@ -1,12 +1,14 @@
 main{
-
-    margin-top:20%;
+    height: 60%;
+    width: 90%;
+    margin-top:16%;
     position: absolute;
-    margin-left:25%;
+    padding-left:5%;
     font-family: 'ABeeZee', sans-serif;
 
 }
 table.consulta {
+    float: left;
     border: 4px solid #94FFF3;
     background-color: #8BFCE9;
     width: 350px;
@@ -65,4 +67,12 @@ table.consulta {
     color: #FFFFFF;
     padding: 2px 8px;
     border-radius: 5px;
+  }
+  .anadirpaciente{
+    padding-left: 80%;
+  }
+
+  .eliminarpaciente{
+    padding-left: 80%;
+    padding-top: 5%;
   }

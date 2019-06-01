@@ -39,8 +39,8 @@
 
         <div class="mascota">
 
-            <a  href="perfil_mascota.php"><img src="images/mascota_logo.png" /></a>
-            <br><a href="perfil_mascota.php">Mi mascota</a>
+            <a  href="informacion_mascotas.php"><img src="images/mascota_logo.png" /></a>
+            <br><a href="informacion_mascotas.php">Mi mascota</a>
         
        
         
