@@ -14,6 +14,13 @@
 		Header("Location: form_alta_paciente.php");	
 
 	$conexion = crearConexionBD(); 
+	if (alta_pac($conexion, $nuevoPaciente)) { 
+		Header("Location: consulta_pacientes.php");	
+
+	}else{
+		Header("Location: form_alta_paciente.php");	
+
+	}
 
 ?>
 
