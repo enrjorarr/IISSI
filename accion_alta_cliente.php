@@ -22,6 +22,8 @@
 <head>
   <meta charset="utf-8">
   <title>Gestión de Veterinaria: Alta de Usuario realizada con éxito</title>
+  <link rel="stylesheet" type="text/css" href="css/accion_alta_cliente.css" />
+
   <?php include_once("head.php")?>
 </head>
 

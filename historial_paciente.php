@@ -79,8 +79,6 @@
 	$filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
     var_dump($filas);
 	cerrarConexionBD($conexion);
-}
-
 ?>
 
 

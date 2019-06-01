@@ -31,7 +31,7 @@
     
     // La consulta que ha de paginarse
     $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
-    . ' CITAS.FECHAFIN, CITAS.DURACIONMIN,CITAS.COSTE '
+    . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
     .' FROM CITAS, CLIENTES '
     .'WHERE ' . 'CITAS.DNI = CLIENTES.DNI '
     .' ORDER BY FECHAINICIO ';
@@ -85,8 +85,8 @@
 
         <div class="mascota">
 
-            <a  href="consulta_pacientes.php"><img src="images/mascota_logo.png" /></a>
-            <br><a href="consulta_pacientes.php">Mi mascota</a>
+            <a  href="perfil_mascota.php"><img src="images/mascota_logo.png" /></a>
+            <br><a href="perfil_mascota.php">Mi mascota</a>
         
        </div>
   
@@ -98,7 +98,8 @@
      <thead>
     <tr>
     	<th>Cita</th>
-    	<th>Fecha</th>
+		<th>Fecha</th>
+		<th>Hora</th>
     	<th>Duración</th>
     	<th>Coste</th>
     </tr>
@@ -185,9 +186,9 @@
 
 						type="hidden" value="<?php echo $fila["FECHAINICIO"]; ?>"/>
 
-					<input id="FECHAFIN" name="FECHAFIN"
+					<input id="HORAINICIO" name="HORAINICIO"
 
-						type="hidden" value="<?php echo $fila["FECHAFIN"]; ?>"/>
+						type="hidden" value="<?php echo $fila["HORAINICIO"]; ?>"/>
 
                     <input id="DURACIONMIN" name="DURACIONMIN"
 
@@ -208,8 +209,9 @@
                         <tbody>
                         <tr>
                             <td><?php echo $fila["OIDCITA"]; ?></td>
-                            <td><?php echo $fila["FECHAINICIO"]; ?></td>
-                            <td><?php echo $fila["DURACION"]; ?></td>
+							<td><?php echo $fila["FECHAINICIO"]; ?></td>
+							<td><?php echo $fila["HORAINICIO"]; ?></td>
+							<td><?php echo $fila["DURACION"]; ?></td>
                             <td><?php echo $fila["COSTE"]; ?></td>
 
                         </tr>
