@@ -1,4 +1,13 @@
 <?php
+
+
+function consultarPeticiones($conexion) {
+	$consulta = "SELECT * FROM PETICIONCITAS "
+		. " ORDER BY FECHAINICIO";
+		return $conexion->query($consulta);
+}
+
+
 function alta_petCita($conexion,$usuario) {
     $fechaIni = date('d/m/Y', strtotime($usuario["fecha"]));
 
