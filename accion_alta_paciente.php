@@ -19,13 +19,7 @@
 	else 
 		Header("Location: form_alta_paciente.php");	
 
-	if (alta_pac($conexion, $nuevoPaciente)) { 
-		Header("Location: consulta_pacientes.php");	
 
-	}else{
-		Header("Location: form_alta_paciente.php");	
-
-	}
 
 ?>
 
@@ -34,28 +28,28 @@
 <head>
   <meta charset="utf-8">
   <title>Gestión de Veterinaria: Alta de paciente realizada con éxito</title>
-  <link rel="stylesheet" type="text/css" href="css/accion_alta_trabajador.css" />
+  <link rel="stylesheet" type="text/css" href="css/accion_alta_petCita.css" />
 
-  <?php include_once("head_staff.php");?>
+  <?php include_once("head.php");?>
 </head>
 
 <body>
 	<?php
-        include_once("cabecera_gestor.php");
+        include_once("cabecera.php");
        
 	?>
-
+ 
 	<main>
 		<?php if (alta_pac($conexion, $nuevoPaciente)) { 
 		?>
-				<h1>Se ha registrado el paciente : <?php echo $nuevoPaciente["idPaciente"]; ?></h1>
+				<h1>Su mascota ha sido registrada correctamente.</h1>
 				<div >	
-			   		Pulsa <a href="inicio_sesion.php">aquí</a> para iniciar sesión :].
+					¿Quieres volver a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } else { ?>
-				<h1>El usuario ya existe en la base de datos.</h1>
+				<h1>Su mascota ya se encuentra en la base de datos.</h1>
 				<div >	
-					Pulsa <a href="form_alta_paciente.php">aquí</a> para volver al formulario.
+					¿Quieres volver a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } ?>
 

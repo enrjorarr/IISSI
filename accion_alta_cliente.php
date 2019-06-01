@@ -14,13 +14,7 @@
 		Header("Location: form_alta_cliente.php");	
 
 	$conexion = crearConexionBD(); 
-	if (alta_clientes($conexion, $nuevoUsuario)) { 
-		Header("Location: inicio.php");	
 
-	}else{
-		Header("Location: form_alta_cliente.php");	
-
-	}
 
 ?>
 
@@ -29,7 +23,7 @@
 <head>
   <meta charset="utf-8">
   <title>Gestión de Veterinaria: Alta de Usuario realizada con éxito</title>
-  <link rel="stylesheet" type="text/css" href="css/accion_alta_cliente.css" />
+  <link rel="stylesheet" type="text/css" href="css/accion_alta_petCita.css" />
 
   <?php include_once("head.php")?>
 </head>
@@ -45,7 +39,7 @@
 		?>
 				<h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
 				<div >	
-			   		Pulsa <a href="inicio_sesion.php">aquí</a> para iniciar sesión :].
+					¿Quieres ir a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } else { ?>
 				<h1>El usuario ya existe en la base de datos.</h1>

@@ -32,7 +32,6 @@
 		return true;
 	} catch(PDOException $e) {
 		
-		var_dump($e->getMessage());exit;
 
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
@@ -45,7 +44,7 @@
 				$stmt->bindParam(':IDPaciente',$id);
 			
 				$stmt->execute();
-				
+
 				return true;
 			} catch (PDOException $e) {
 				return false;

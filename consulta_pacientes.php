@@ -1,9 +1,15 @@
 <?php
-session_start();
+	session_start();
 
-require_once ("gestionBD.php");
-require_once ("gestionarPacientes.php");
-require_once ("paginacion_consulta.php");
+
+
+	require_once ("gestionBD.php");
+	require_once ("gestionarPacientes.php");
+	require_once ("paginacion_consulta.php");
+	require_once("gestionarClientes.php");
+	
+	$conexion = crearConexionBD();
+
 
 if (!isset($_SESSION["formulario"])) {
                                 // 
@@ -13,7 +19,7 @@ if (!isset($_SESSION["formulario"])) {
 	$_SESSION["formulario"] = $formulario;
 }
 else{
-	
+	 
 	$formulario = $_SESSION["formulario"];
 }		
 if (isset($_SESSION["errores"])){
@@ -30,7 +36,15 @@ else {
 		$paciente = $_SESSION["paciente"];
 		unset($_SESSION["paciente"]);
 	}
- 
+	if (isset($_SESSION['login']))	{
+
+		$email = $_SESSION['login'];
+
+		$usuario = consultarUsuario2email($conexion,$email);
+
+		$dni = $usuario["DNI"];
+	}
+
 	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
 	// ¿Hay una sesión activa?
 	if (isset($_SESSION["paginacion"]))
@@ -45,13 +59,11 @@ else {
 	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
 	unset($_SESSION["paginacion"]);
 
-	$conexion = crearConexionBD();
 
 	// La consulta que ha de paginarse
-    $query = 'SELECT CLIENTES.DNI, '
-    .'PACIENTES.IDPACIENTE,PACIENTES.FECHANAC,PACIENTES.COLORPELO,PACIENTES.RAZA,PACIENTES.ESPECIE '
-    .'FROM CLIENTES, PACIENTES '
-    .'WHERE '.' CLIENTES.DNI = PACIENTES.DNI '
+    $query = 'SELECT PACIENTES.IDPACIENTE,PACIENTES.FECHANAC,PACIENTES.COLORPELO,PACIENTES.RAZA,PACIENTES.ESPECIE '
+    .'FROM PACIENTES '
+    .'WHERE '.' PACIENTES.DNI = :dniConsultaCita '
     .' ORDER BY IDPACIENTE ';
     
     
@@ -188,7 +200,7 @@ include_once ("cabecera.php");
 
 					<input id="DNI" name="DNI"
 
-						type="hidden" value="<?php echo $fila["DNI"]; ?>"/>
+						type="hidden" value="<?php echo $dni; ?>"/>
 
 					<input id="IDPACIENTE" name="IDPACIENTE"
 
@@ -227,7 +239,7 @@ include_once ("cabecera.php");
                             <td><?php echo $fila["COLORPELO"]; ?></td>
                             <td><?php echo $fila["RAZA"]; ?></td>
                             <td> <?php echo $fila["ESPECIE"]; ?></td>
-                            <td><?php echo $fila["DNI"]; ?></td>
+                            <td><?php echo $dni; ?></td>
                         </tr>
                         </tbody>
                     

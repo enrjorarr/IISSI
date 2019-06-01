@@ -35,12 +35,15 @@
 	<?php
         include_once("cabecera.php");
 	?>
-
+ 
 	<main>
 		<?php if (eliminarPacientes2ID($conexion,$id)) { 
 		?>
+			<?php Header("Location: consulta_pacientes.php");	?>
+
 				<h1>Su mascota ha sido eliminada correctamente.</h1>
 				<div >	
+
 					¿Quieres volver a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } else { ?>
