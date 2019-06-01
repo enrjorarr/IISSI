@@ -3,19 +3,26 @@
 
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
+	require_once("gestionarClientes.php"); 
 
+	$email = $_SESSION["login"];
+
+	$conexion = crearConexionBD(); 
+
+    $cliente = consultarUsuario2email($conexion,$email);
 
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
         // Recogemos los datos del formulario
-        $nuevoUsuario["nif"] = $_REQUEST["nif"];
+		$nuevoUsuario["nif"] = $cliente['DNI'];
 		$nuevoUsuario['fecha'] = $_REQUEST["fecha"];;
 		$nuevoUsuario['motivo'] = $_REQUEST["motivo"];
 		$nuevoUsuario['idPaciente'] = $_REQUEST["idPaciente"];
 		
-		
 		// Guardar la variable local con los datos del formulario en la sesión.
-		$_SESSION["formulario"] = $nuevoUsuario;		
+		$_SESSION["formulario"] = $nuevoUsuario;	
+		$_SESSION["tipoCita"] = $_SESSION["tipoCita"];
+	
 	}
 	else // En caso contrario, vamos al formulario
 		Header("Location: form_alta_petCita.php");

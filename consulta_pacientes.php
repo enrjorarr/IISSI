@@ -258,7 +258,7 @@ include_once ("cabecera.php");
 	<div class="eliminarpaciente">
 		<form id="formulario" name="formulario" action="validacion_eliminar_paciente.php" method="post">
             <div class = "eliminarPaciente">
-				<h3>Puede eliminar su mascota si aún no ha sido atendida en consulta</h3>
+				<h3>Puede eliminar su mascota si aún no ha reservado o ha sido atendida en consulta</h3>
                 <label for="eliminarPaciente">Insertar id del paciente: </label>
 				<input type="text" name="id" id="id" pattern="^[0-9]{9}"/>
                 <input type="submit" class ="butn" name="Eliminar mascota" value="Eliminar mascota" />

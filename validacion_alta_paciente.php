@@ -3,14 +3,20 @@
 
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
+	require_once("gestionarClientes.php"); 
 
+	$email = $_SESSION["login"];
+
+	$conexion = crearConexionBD(); 
+
+    $cliente = consultarUsuario2email($conexion,$email);
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
         // Recogemos los datos del formulario
         
 
-
-        $nuevoUsuario['nif']               =             $_REQUEST["nif"];
+ 
+        $nuevoUsuario['nif']               =             $cliente['DNI'];
         $nuevoUsuario['nombre']            =             $_REQUEST["nombre"];
         $nuevoUsuario['apellidos']         =             $_REQUEST["apellidos"];
         $nuevoUsuario['fechaNacimiento']   =             $_REQUEST["fechaNacimiento"];

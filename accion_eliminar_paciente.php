@@ -18,14 +18,7 @@
     $id = $nuevoUsuario["idPaciente"];
 
 	$conexion = crearConexionBD(); 
-	if (eliminarPacientes2ID($conexion,$id)) {
-		Header("Location: consulta_pacientes.php");	
-
-
-	}else{
-		Header("Location: excepcion.php");	
-
-	}
+	
 
 ?>
 
@@ -33,7 +26,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Gestión de Veterinaria: Alta de Usuario realizada con éxito</title>
+  <link rel="stylesheet" type="text/css" href="css/accion_alta_petCita.css" />
+  <title>Mascota eliminada</title>
   <?php include_once("head.php")?>
 </head>
 
@@ -45,14 +39,14 @@
 	<main>
 		<?php if (eliminarPacientes2ID($conexion,$id)) { 
 		?>
-				<h1>Hola <?php echo $nuevoUsuario["idPaciente"]; ?>, ha sido eliminado</h1>
+				<h1>Su mascota ha sido eliminada correctamente.</h1>
 				<div >	
-			   		Pulsa <a href="inicio_sesion.php">aquí</a> para iniciar sesión :].
+					¿Quieres volver a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } else { ?>
-				<h1>El usuario ya existe en la base de datos.</h1>
+					<h1>Parece que su mascota tiene una cita pendiente o ya ha sido atendida.</h1>
 				<div >	
-					Pulsa <a href="form_alta_cliente.php">aquí</a> para volver al formulario.
+					¿Quieres volver a tu perfil? Pulsa  <a href="consulta_citas.php">aquí</a>.
 				</div>
 		<?php } ?>
 

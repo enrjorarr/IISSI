@@ -45,7 +45,8 @@
 				$stmt->bindParam(':IDPaciente',$id);
 			
 				$stmt->execute();
-				return TRUE;
+				
+				return true;
 			} catch (PDOException $e) {
 				return false;
 			}

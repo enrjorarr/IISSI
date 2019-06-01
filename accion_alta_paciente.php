@@ -3,6 +3,12 @@
 
 	require_once("gestionBD.php");
 	require_once("gestionarPacientes.php"); 
+	require_once("gestionarClientes.php"); 
+
+
+
+	$conexion = crearConexionBD(); 
+
 		
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
@@ -13,7 +19,6 @@
 	else 
 		Header("Location: form_alta_paciente.php");	
 
-	$conexion = crearConexionBD(); 
 	if (alta_pac($conexion, $nuevoPaciente)) { 
 		Header("Location: consulta_pacientes.php");	
 

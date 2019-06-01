@@ -7,19 +7,18 @@
 		$code  = $_POST["code"];
 	}
 
-
     if(!isset($_SESSION["formulario"])){
         $formulario['nif'] = "";                                                                       
 		$formulario['motivo'] = "";                                                                
 		$formulario['fecha'] = "";                                    
         $formulario['idPaciente'] = "";                                     
-        $formulario["tipoCita"]= $code;
 
-        $_SESSION["formulario"] = $formulario;
+		$_SESSION["formulario"] = $formulario;
+		$_SESSION["tipoCita"] = $code;
     }
 
     else{
-
+		
         $formulario=$_SESSION["formulario"];
 
     }
@@ -91,9 +90,6 @@
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
 		<fieldset class="datos1" ><legend>Datos de la cita</legend>
-			<div></div><label for="nif">DNI del cliente:<em STYLE="color:red;">*</em></label>
-			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
-			</div>
 
 			<div><label for="fecha">Fecha solicitada :<em STYLE="color:red;">*</em></label>
 			<input id="fecha" name="fecha" type="date" size="80" value="<?php echo $formulario['fecha'];?>"required/>
@@ -106,6 +102,9 @@
 			<div><label for="coste">Identificacion del paciente:<em STYLE="color:red;">*</em></label>
 			<input id="idPaciente" name="idPaciente" type="text" value="<?php echo $formulario['idPaciente'];?>" required/>
 			</div>
+
+
+
 
 		</fieldset>
 

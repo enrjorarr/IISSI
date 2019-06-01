@@ -14,6 +14,13 @@
 		Header("Location: form_alta_cita.php");	
 
 	$conexion = crearConexionBD(); 
+	if (alta_cita($conexion, $nuevoUsuario)) { 
+		Header("Location: inicio.php");	
+
+	}else{
+		Header("Location: form_alta_cita.php");	
+
+	}
 
 ?>
 

@@ -11,7 +11,7 @@
 		$_SESSION["errores"] = null;
 	}
 	else 
-		Header("Location: form_alta_cliente.php");	
+		Header("Location: informacion_personal.php");	
 
 	$conexion = crearConexionBD(); 
 		$EMAIL = $_SESSION["login"];
@@ -19,7 +19,16 @@
     $NOMBRE = $nuevoUsuario["nombre"];
     $APELLIDOS = $nuevoUsuario["apellidos"];
 		$DIRECCION = $nuevoUsuario["calle"];
-    $PASS = $nuevoUsuario["pass"];
+		$PASS = $nuevoUsuario["pass"];
+		
+		if (modificar_cliente($conexion,$EMAIL,$NUMEROTELEFONO,$NOMBRE,$APELLIDOS,$DIRECCION,$PASS)) {
+			Header("Location: informacion_personal.php");	
+
+		}else{
+			Header("Location: form_modificacion_cliente.php");	
+
+		}
+
 
 ?>
 

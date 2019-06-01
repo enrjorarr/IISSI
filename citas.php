@@ -37,12 +37,12 @@
                     <form action = "form_alta_petCita.php" method = "POST" name="formulario">
                       
                         <input type="image" src="images/estetoscopio.png"/>
-                        <input type="hidden" id="code" name="code" value="CITA">
+                        <input type="hidden" id="code" name="code" value="CONSULTA">
                     </form>
                     </div>
                 </div>
                 <div class = "movimientoTexto1">
-                    <br><a href="form_alta_cliente.php">Consulta</a>
+                    <br><a href="form_alta_petCita.php">Consulta</a>
                 </div>            
             </div>
         </div>
@@ -53,13 +53,13 @@
 
                     <form action = "form_alta_petCita.php" method = "POST" name="formulario">
                         <input type="image" src="images/secador-de-pelo.png"/>
-                        <input type="hidden" id="code" name="code" value="CONSULTA">
+                        <input type="hidden" id="code" name="code" value="PELUQUERIA">
                     </form>
                                             
                     </div>
                 </div>
                 <div class = "movimientoTexto2">
-                    <br><a href="form_alta_cliente.php">Peluquería</a>
+                    <br><a href="form_alta_petCita.php">Peluquería</a>
                 </div>
             </div>
         </div>

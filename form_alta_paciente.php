@@ -3,6 +3,10 @@
 	
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
+	require_once("gestionarClientes.php"); 
+
+
+
 	//require_once("gestionar_direcciones.php");
 	//require_once("gestionar_generos_literarios.php");
 	
@@ -42,14 +46,14 @@
   <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
-  <?php include_once("head_staff.php");?>
+  <title>Gestión de Clinica Veterinaria: Alta Paciente</title>
+  <?php include_once("head.php");?>
 </head>
 
 <body>
 
 <?php
-	include_once("cabecera_gestor.php");
+	include_once("cabecera.php");
 
 ?>
 	<script>
@@ -79,10 +83,6 @@
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
-		<fieldset class="datos1" ><legend>Datos del Cliente:</legend>
-			<div></div><label for="nif">DNI del Cliente:<em STYLE="color:red;">*</em></label>
-			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
-		</fieldset>
 
 		<fieldset class="datos2"><legend>Datos del paciente</legend>
             <div><label for="fechaNacimiento">Fecha de nacimiento:<em STYLE="color:red;">*</em></label>
@@ -95,10 +95,10 @@
 			<input id="especie" name="especie" type="text" size="40" value="<?php echo $formulario['especie'];?>" required/>
 			</div>
             <div><label for="raza">Raza:</label>
-			<input id="raza" name="raza" type="raza" size="40" value="<?php echo $formulario['raza'];?>" required/>
+			<input id="raza" name="raza" type="text" size="40" value="<?php echo $formulario['raza'];?>" required/>
 			</div>
             <div><label for="idPaciente">ID del Paciente:<em STYLE="color:red;">*</em></label>
-			<input id="idPaciente" name="idPaciente" type="text" size="40" value="<?php echo $formulario['idPaciente'];?>" required/>
+			<input id="idPaciente" name="idPaciente" type="text" pattern="^[0-9]{9}" value="<?php echo $formulario['idPaciente'];?>" required/>
 			</div>
 
 		</fieldset>

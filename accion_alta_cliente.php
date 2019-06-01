@@ -14,6 +14,13 @@
 		Header("Location: form_alta_cliente.php");	
 
 	$conexion = crearConexionBD(); 
+	if (alta_clientes($conexion, $nuevoUsuario)) { 
+		Header("Location: inicio.php");	
+
+	}else{
+		Header("Location: form_alta_cliente.php");	
+
+	}
 
 ?>
 
