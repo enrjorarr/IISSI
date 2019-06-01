@@ -86,7 +86,7 @@
         <div class="mascota">
 
             <a  href="perfil_mascota.php"><img src="images/mascota_logo.png" /></a>
-            <br><a href="perfil_mascota.php">Mi mascota</a>
+            <br><a href="consulta_pacientes.php">Mi mascota</a>
         
        </div>
   
