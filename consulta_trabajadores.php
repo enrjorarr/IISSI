@@ -22,7 +22,7 @@
     $pag_tam = 3 ;
 
     if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
-    if ($pag_tam < 1) 		$pag_tam = 5;
+    if ($pag_tam < 1) 		$pag_tam = 3;
 
     	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
 	unset($_SESSION["paginacion"]);
