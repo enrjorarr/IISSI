@@ -135,6 +135,7 @@
                 <th>ID Paciente</th>
                 <th>OID INFORME</th>
                 <th>Fecha de consulta</th>
+                <th>Motivo</th>
                 <th>Tratamiento</th>
                 <th>OIDHistorial</th>
 
@@ -227,7 +228,11 @@
 
 					<input id="TRATAMIENTO" name="TRATAMIENTO"
 
-						type="hidden" value="<?php echo $fila["TRATAMIENTO"]; ?>"/>
+                        type="hidden" value="<?php echo $fila["TRATAMIENTO"]; ?>"/>
+                    
+                    <input id="MOTIVOCONSULTA" name="MOTIVOCONSULTA"
+
+                            type="hidden" value="<?php echo $fila["MOTIVOCONSULTA"]; ?>"/>
 
 					<input id="OIDHISTORIAL" name="OIDHISTORIAL"
 
@@ -243,6 +248,7 @@
                             <td><?php echo $fila["OIDINFORME"]; ?></td>
                             <td><?php echo $fila["FECHACONSULTA"]; ?></td>
                             <td><?php echo $fila["TRATAMIENTO"]; ?></td>
+                            <td><?php echo $fila["MOTIVOCONSULTA"]; ?></td>
                             <td> <?php echo $fila["OIDHISTORIAL"]; ?></td>
                         </tr>
                         </tbody>
