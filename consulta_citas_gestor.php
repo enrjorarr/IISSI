@@ -123,7 +123,7 @@
 
 			                <?php }	else { ?>
 
-						            <a class="active" href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						            <a class="active" href="consulta_citas_gestor.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
 			                <?php } ?>
                             <a href="#">&raquo;</a>
@@ -134,7 +134,7 @@
 
 
 
-		<form method="get" action="consulta_citas.php">
+		<form method="get" action="consulta_citas_gestor.php">
 
 			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
 
