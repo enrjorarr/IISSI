@@ -1,5 +1,8 @@
-body{
-    size: 100%;
+
+
+
+html,body{
+    height: 100%;
 
 }
 main{
@@ -117,4 +120,16 @@ table.consulta {
     padding: 2px 8px;
     border-radius: 5px;
   }
-
+  * {
+    margin: 0;
+    }
+  
+    .wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4em;
+    }
+   .push {
+    height: 4em;
+    }

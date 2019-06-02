@@ -3,16 +3,21 @@
 <?php
     session_start();
     
-    require_once("gestionBD.php");
+	require_once("gestionBD.php");
+	require_once("gestionarCitas.php");
+	require_once("gestionarTrabajadores.php");
+
 
 
     if(!isset($_SESSION["formulario"])){
         $formulario['nif'] = "";                                      //  
 		$formulario['OIDGestor'] = "";                                   //
 		$formulario['fechaInicio'] = "";                                //    
-		$formulario['fechaFin'] = "";                          //           
+		$formulario['horaInicio'] = "";                          //           
 		$formulario['duracionMin'] = "";                                    //
-        $formulario['coste'] = "";                                     //
+		$formulario['coste'] = ""; 
+		$formulario['oidTrabajador'] = "";                                     //
+		//
         
 
         $_SESSION["formulario"] = $formulario;
@@ -27,9 +32,33 @@
     if(isset($_SESSION["errores"])){
         $errores = $_session["errores"];
         unset($_SESSION["errores"]);
-    }
+	}
+	
 
-    $conexion = crearConexionBD();
+
+	$conexion = crearConexionBD();
+
+	
+	
+	if (isset($_POST['oidTrabajador'])){
+		$oidTrabajador= $_POST['oidTrabajador'];
+		$conexion = crearConexionBD();
+
+		if(esVeterinario($conexion,$oidTrabajador)===TRUE){
+			
+		}
+
+        $paciente = consultarPacientes2ID($conexion,$id);
+		cerrarConexionBD($conexion);	
+        
+		if ($paciente == null)
+			$login = "error";	
+		else {
+        
+			$_SESSION['paciente'] = $paciente;
+			Header("Location: historial_paciente.php");
+		}	
+    }
     ?>
 
 <!DOCTYPE html>
@@ -95,16 +124,15 @@
 			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
 			</div>
 
-			<div><label for="OIDGestor">OID del Gestor<em STYLE="color:red;">*</em></label>
-			<input id="OIDGestor" name="OIDGestor" type="text" size="40" value="<?php echo $formulario['OIDGestor'];?>" />
-			</div>
+			<input id="OIDGestor" name="OIDGestor" type="hidden" size="40" value="<?php echo $formulario['OIDGestor'];?>" />
+			
 
 			<div><label for="fechaInicio">Fecha de inicio:<em STYLE="color:red;">*</em></label>
 			<input id="fechaInicio" name="fechaInicio" type="date" size="80" value="<?php echo $formulario['fechaInicio'];?>"required/>
 			</div>
 
-			<div><label for="fechaFin">Fecha de fin:<em STYLE="color:red;">*</em></label>
-			<input type="date" id="fechaFin" name="fechaFin" value="<?php echo $formulario['fechaFin'];?>"required/>
+			<div><label for="horaInicio">Fecha de fin:<em STYLE="color:red;">*</em></label>
+			<input type="date" id="horaInicio" name="horaInicio" value="<?php echo $formulario['horaInicio'];?>"required/>
 			</div>
 
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
@@ -115,17 +143,21 @@
 			<input id="coste" name="coste" type="number" value="<?php echo $formulario['coste'];?>" required/>
 			</div>
 
+			<div><label for="oidTrabajador">OID Trabajador:<em STYLE="color:red;">*</em></label>
+			<input id="oidTrabajador" name="oidTrabajador" type="number" value="<?php echo $formulario['oidTrabajador'];?>" required/>
+			</div>
+
 		</fieldset>
 
 		
 		<div><input class="butn" type="submit" value="Crear" /></div>
-		<?php
+	
+	</form>
+
+	<?php
 		include_once("pie.php");
 		cerrarConexionBD($conexion);
 	?>
-
-	</form>
-
 
 
 	

@@ -1,6 +1,20 @@
 <?php
 
 
+function esConsulta($conexion,$oidcita) {
+	$consulta = "SELECT COUNT(*) AS TOTAL FROM CONSULTAS WHERE OIDCITA=:oidcita";
+ $stmt = $conexion->prepare($consulta);
+ $stmt->bindParam(':oidcita',$oidcita);
+ $stmt->execute();
+ $boolean = $stmt->fetchColumn();
+	if( $boolean == 0){
+	return false;
+	}else{
+		return true;
+	}
+ 	return $stmt->fetch();
+ }
+
 
 function consultarCitasCliente($conexion) {
 	$consulta = "SELECT * FROM CITAS"
@@ -43,16 +57,30 @@ function alta_cita($conexion,$usuario) {
     }
 }
   
-function eliminar_libro($conexion,$Dni) {
+function eliminar_peluqueria_por_cita($conexion,$oidcita) {
 	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:OidCitas)');
-		$stmt->bindParam(':OidCitas',$OidLibro);
+		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:oidcita)');
+		$stmt->bindParam(':oidcita',$oidcita);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {
 		return $e->getMessage();
     }
 }
+
+function eliminar_consulta_por_cita($conexion,$oidcita) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_CONSULTA_POR_CITA(:oidcita)');
+		$stmt->bindParam(':oidcita',$oidcita);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
+
+
+
 
 function consultarUsuario($conexion,$email,$pass) {
  	$consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE EMAIL=:email AND PASS=:pass";

@@ -92,7 +92,9 @@
   <?php include_once("head_staff.php")?>
 </head>
 
+
 <body>
+<div class="wrapper">
 <?php
 	include_once("cabecera_trabajadores.php");
 ?>
@@ -267,9 +269,15 @@
     </div>
     
 </main>
-<?php
-	include_once("pie.php");
-?>
+
+<div class="push"></div>
+       </div>
+       <div class="footer">
+            <?php
+	            include_once("pie.php");
+            ?>
+       </div>
+
 
 </body>
 </html>

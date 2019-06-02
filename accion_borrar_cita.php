@@ -7,10 +7,26 @@
 		
 		require_once("gestionBD.php");
 		require_once("gestionarCitas.php");
-		
-		$conexion = crearConexionBD();		
-		$excepcion = quitar_libro($conexion,$cita["OIDCITA"]);
 		cerrarConexionBD($conexion);
+
+		$conexion = crearConexionBD();		
+
+		if(esConsulta($conexion,$oidcita)===TRUE){
+
+			$excepcion = eliminar_consulta_por_cita($conexion,$oidcita);
+
+			cerrarConexionBD($conexion);
+
+		}else{
+
+			$excepcion = eliminar_peluqueria_por_cita($conexion,$oidcita);
+
+			cerrarConexionBD($conexion);
+
+
+		}
+		
+		
 			
 		if ($excepcion<>"") {
 			$_SESSION["excepcion"] = $excepcion;

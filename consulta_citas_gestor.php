@@ -218,7 +218,7 @@
 
                             <td>
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
-                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar libro">
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar cita">
                                 </button>
                             </td>
 

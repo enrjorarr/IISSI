@@ -14,6 +14,7 @@
 			
 	 
 	
-	Header("Location: consulta_citas.php");}
-
+	
+    if (isset($_REQUEST["borrar"]))  Header("Location: accion_borrar_cita.php"); 
+}else {Header("Location: consulta_citas_gestor.php");}
 ?>
