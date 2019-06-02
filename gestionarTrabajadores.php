@@ -93,11 +93,10 @@ function existeTrabajador($conexion,$email,$pass) {
 }
 function consultarTrabajador2email($conexion,$email) {
 	$consulta = "SELECT * FROM TRABAJADORES WHERE EMAIL=:email";
- $stmt = $conexion->prepare($consulta);
- $stmt->bindParam(':email',$email);
- 
- $stmt->execute();
- return $stmt->fetch();
+ 	$stmt = $conexion->prepare($consulta);
+	$stmt->bindParam(':email',$email);
+	$stmt->execute();
+ 	return $stmt->fetch();
  }
  function consultarGestor2OIDTrabajador($conexion,$oidTrabajador) {
 	$consulta = "SELECT * FROM GESTORES WHERE OIDTRABAJADOR=:oidtrabajador";
@@ -123,6 +122,15 @@ function consultarTrabajador2email($conexion,$email) {
  $stmt->execute();
  return $stmt->fetch();
  }
+ function consultarTrabajador2OidTrabajador($conexion,$oidTrabajador) {
+	$consulta = "SELECT * FROM TRABAJADORES WHERE OIDTRABAJADOR=:oidtrabajador";
+ $stmt = $conexion->prepare($consulta);
+ $stmt->bindParam(':oidtrabajador',$oidTrabajador);
+ 
+ $stmt->execute();
+ return $stmt->fetch();
+ }
+ 
 
  function esVeterinario($conexion,$oidtrabajador) {
 	$consulta = "SELECT COUNT(*) AS TOTAL FROM VETERINARIOS WHERE OIDTRABAJADOR=:oidtrabajador";
@@ -135,7 +143,22 @@ function consultarTrabajador2email($conexion,$email) {
 	}else{
 		return true;
 	}
- 	return $stmt->fetch();
+ 
+ }
+
+ function esPeluquero($conexion,$oidtrabajador) {
+ $consulta = "SELECT COUNT(*) AS TOTAL FROM PELUQUEROS WHERE OIDTRABAJADOR=:oidtrabajador";
+ $stmt = $conexion->prepare($consulta);
+ $stmt->bindParam(':oidtrabajador',$oidtrabajador);
+ $stmt->execute();
+ $boolean = $stmt->fetchColumn();
+ var_dump($boolean);exit;
+	if( $boolean == 0){
+	return false;
+	}else{
+		return true;
+	}
+
  }
 
 
