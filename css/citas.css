@@ -3,7 +3,7 @@ body{
 
 }
 main{
-    margin-top: 12%;
+    margin-top: 15%;
     width: 100%;
     height: 60%;
 
@@ -29,22 +29,21 @@ main{
     height: 50%;
     width: 40%;
     float: left;
-    margin-top:3%;
+    margin-top:2%;
 
 }
 .peluqueria{
     
     height: 50%;
-    width: 50%; 
-    margin-left: 45%;
-    margin-top:3%;
+    width: 34%;
+    margin-left: 66%;
 
 }
 .logoVeterinaria{
     margin-left: 50%;
 }
 .logoPeluqueria{
-    margin-left: 50%;
+    padding-top: 6%;
 }
 .circulo {
     width: 100px;

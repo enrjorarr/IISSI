@@ -35,10 +35,10 @@
     $paginacion = $_SESSION["paginacion"];
 
     $pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
-    $pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
+    $pag_tam =3;
 
     if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
-    if ($pag_tam < 1) 		$pag_tam = 5;
+    if ($pag_tam < 1) 		$pag_tam = 3;
 
     	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
 	unset($_SESSION["paginacion"]);
@@ -123,7 +123,7 @@
 
 			                <?php }	else { ?>
 
-						            <a class="active" href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						            <a class="active" href="consulta_citas_gestor.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
 			                <?php } ?>
                             <a href="#">&raquo;</a>
@@ -134,7 +134,7 @@
 
 
 
-		<form method="get" action="consulta_citas.php">
+		<form method="get" action="consulta_citas_gestor.php">
 
 			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
 
@@ -142,7 +142,7 @@
 
 			<input id="PAG_TAM" name="PAG_TAM" type="number"
 
-				min="1" max="<?php echo $total_registros; ?>"
+				min="1" max="3"
 
 				value="<?php echo $pag_tam?>" autofocus="autofocus" />
 

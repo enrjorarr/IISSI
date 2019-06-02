@@ -34,7 +34,7 @@
 		$paginacion = $_SESSION["paginacion"];
 	
 	$pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
-	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
+	$pag_tam = 3;
 
 	if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
 	if ($pag_tam < 1) 		$pag_tam = 5;
@@ -105,8 +105,8 @@
             <form action="historial_paciente.php" method="post">
                 <div class = "id">
                     <label for="id">Busqueda por id del paciente: </label>
-                    <input type="text" name="id" id="id" />
-                    <input type="submit" class ="butn" name="buscar" value="submit" />
+                    <input type="text" name="id" id="id" pattern="^[0-9]{9}" />
+                    <input type="submit" class ="butn" name="buscar" value="buscar" />
                 </div>
             </form>
         </div>
@@ -180,7 +180,7 @@
 
 			<input id="PAG_TAM" name="PAG_TAM" type="number"
 
-				min="1" max="<?php echo $total_registros; ?>"
+				min="1" max="3"
 
 				value="<?php echo $pag_tam?>" autofocus="autofocus" />
 
