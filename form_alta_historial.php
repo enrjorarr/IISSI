@@ -68,7 +68,7 @@
             
                 <div class = "IDPaciente">
                     <label for="IDPaciente">ID del paciente:</label>
-			        <input type="text" id="IDPaciente" name="IDPaciente" value="<?php echo $formulario['IDPaciente'];?>"/>
+			        <input type="text" id="IDPaciente" name="IDPaciente" pattern="^[0-9]{9}" value="<?php echo $formulario['IDPaciente'];?>"/>
                 </div>
                 
                 
