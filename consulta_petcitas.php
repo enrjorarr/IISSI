@@ -22,10 +22,10 @@
     $paginacion = $_SESSION["paginacion"];
 
     $pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
-    $pag_tam =3;
+    $pag_tam =1;
 
     if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
-    if ($pag_tam < 1) 		$pag_tam = 3;
+    if ($pag_tam < 1) 		$pag_tam = 1;
 
     	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
 	unset($_SESSION["paginacion"]);
@@ -133,7 +133,7 @@
 
 			<input id="PAG_TAM" name="PAG_TAM" type="number"
 
-				min="1" max="3"
+				min="1" max="1"
 
 				value="<?php echo $pag_tam?>" autofocus="autofocus" />
 
