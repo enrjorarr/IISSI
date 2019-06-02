@@ -55,7 +55,7 @@
     // La consulta que ha de paginarse
     $query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
     . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS, CLIENTES '
+    .' FROM CITAS '
     .'WHERE ' . 'CITAS.DNI = :dniConsultaCita '
     .' ORDER BY FECHAINICIO ';
 
@@ -215,7 +215,7 @@
 
                     <input id="DURACIONMIN" name="DURACIONMIN"
 
-                        type="hidden" value="<?php echo $fila["DURACIONFIN"]; ?>"/>
+                        type="hidden" value="<?php echo $fila["DURACIONMIN"]; ?>"/>
                     
                     <input id="COSTE" name="COSTE"
 
@@ -234,7 +234,7 @@
                             <td><?php echo $fila["OIDCITA"]; ?></td>
 							<td><?php echo $fila["FECHAINICIO"]; ?></td>
 							<td><?php echo $fila["HORAINICIO"]; ?></td>
-							<td><?php echo $fila["DURACION"]; ?></td>
+							<td><?php echo $fila["DURACIONMIN"]; ?></td>
                             <td><?php echo $fila["COSTE"]; ?></td>
 
                         </tr>

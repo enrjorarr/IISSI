@@ -52,7 +52,6 @@
         .' HISTORIALES.IDPACIENTE '
         .' FROM INFORMES, HISTORIALES '
         .' WHERE '.' INFORMES.OIDHISTORIAL IN (SELECT HISTORIALES.OIDHISTORIAL FROM HISTORIALES WHERE IDPACIENTE= :paciente)';
-        //var_dump($query);exit;
     } else {
     
         $query = 'SELECT INFORMES.OIDINFORME, INFORMES.FECHACONSULTA, INFORMES.TRATAMIENTO, INFORMES.OIDHISTORIAL, '
@@ -77,7 +76,6 @@
 	$_SESSION["paginacion"] = $paginacion;
 
 	$filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
-    var_dump($filas);
 	cerrarConexionBD($conexion);
 ?>
 
