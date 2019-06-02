@@ -21,11 +21,11 @@
 			//Busqueda oid_veterinario
 			
 			$veterinario = consultarVeterinario2OIDTrabajador($conexion,$oidtrabajador);
-			$oidveterinario = $veterinario["OIDPELUQUERO"];
+			$oidveterinario = $veterinario["OIDVETERINARIO"];
 
 			//Busqueda OIDCitas
 
-			$consulta = consultarVeterinario2OIDVeterinario($conexion,$oidveterinario);
+			$consulta = consultarVeterinario2OIDTrabajador($conexion,$oidveterinario);
 			$oidcita = $consulta["OIDCITA"];
 
 			$excepcion = eliminar_veterinario($conexion,$oidtrabajador,$oidveterinario,$oidcita);

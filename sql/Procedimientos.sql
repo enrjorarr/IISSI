@@ -225,3 +225,17 @@ DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
     COMMIT;
 END ELIMINAR_PELUQUERO;
 /
+create or replace PROCEDURE ELIMINAR_VETERINARIO(
+v_OIDTrabajador IN VETERINARIOS.oidtrabajador%TYPE,
+v_OIDVeterinario IN VETERINARIOS.oidveterinario%TYPE,
+v_OIDCita IN CONSULTAS.oidcita%TYPE)
+ IS 
+BEGIN
+
+DELETE FROM CONSULTAS WHERE oidveterinario = v_OIDVeterinario;
+DELETE FROM CITAS WHERE oidcita = v_OIDCita;
+DELETE FROM VETERINARIOS WHERE oidtrabajador = v_oidtrabajador;
+DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
+
+    COMMIT;
+END ELIMINAR_VETERINARIO;
