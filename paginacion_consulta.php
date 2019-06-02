@@ -27,6 +27,34 @@ function consulta_paginada( $conn, $query, $pag_num, $pag_size )
 	
 			$stmt->bindParam(":dniConsultaCita",$dni);
 		}
+		if(!(strpos($query,":oidveterinario")===FALSE) and (isset($_SESSION['loginTrabajador']))){
+			
+			$email = $_SESSION['loginTrabajador'];
+
+			$usuario = consultarTrabajador2email($conexion,$email);
+
+			$oidtrabajador = $usuario["OIDTRABAJADOR"];
+
+			$veterinario=consultarVeterinario2OIDTrabajador($conexion,$oidtrabajador);
+
+			$oidveterinario = $veterinario["OIDVETERINARIO"];
+
+		$stmt->bindParam(":oidveterinario",$oidveterinario);
+		}
+		if(!(strpos($query,":oidpeluquero")===FALSE) and (isset($_SESSION['loginTrabajador']))){
+			
+			$email = $_SESSION['loginTrabajador'];
+
+			$usuario = consultarTrabajador2email($conexion,$email);
+
+			$oidtrabajador = $usuario["OIDTRABAJADOR"];
+
+			$veterinario=consultarPeluquero2OIDTrabajador($conexion,$oidtrabajador);
+
+			$oidveterinario = $veterinario["OIDPELUQUERO"];
+
+		$stmt->bindParam(":oidpeluquero",$oidveterinario);
+		}
 		$stmt->bindParam( ':ultima',  $ultima  );
 		//var_dump($_POST["id"]);exit;
 		$stmt->execute();
@@ -58,6 +86,34 @@ function total_consulta( $conn, $query )
 			$dni = $usuario["DNI"];
 
 		$stmt->bindParam(":dniConsultaCita",$dni);
+		}
+		if(!(strpos($query,":oidveterinario")===FALSE) and (isset($_SESSION['loginTrabajador']))){
+			
+			$email = $_SESSION['loginTrabajador'];
+
+			$usuario = consultarTrabajador2email($conexion,$email);
+
+			$oidtrabajador = $usuario["OIDTRABAJADOR"];
+
+			$veterinario=consultarVeterinario2OIDTrabajador($conexion,$oidtrabajador);
+
+			$oidveterinario = $veterinario["OIDVETERINARIO"];
+
+		$stmt->bindParam(":oidveterinario",$oidveterinario);
+		}
+		if(!(strpos($query,":oidpeluquero")===FALSE) and (isset($_SESSION['loginTrabajador']))){
+			
+			$email = $_SESSION['loginTrabajador'];
+
+			$usuario = consultarTrabajador2email($conexion,$email);
+
+			$oidtrabajador = $usuario["OIDTRABAJADOR"];
+
+			$veterinario=consultarPeluquero2OIDTrabajador($conexion,$oidtrabajador);
+
+			$oidveterinario = $veterinario["OIDPELUQUERO"];
+
+		$stmt->bindParam(":oidpeluquero",$oidveterinario);
 		}
 		$stmt->execute();
 		$result = $stmt->fetch();

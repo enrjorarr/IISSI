@@ -2,9 +2,9 @@
     session_start();
 
     require_once("gestionBD.php");
-    require_once("gestionarCitas.php");
+	require_once("gestionarCitas.php");
+	require_once("gestionarTrabajadores.php");
 	require_once("paginacion_consulta.php");
-	require_once("paginacion_trabajadores.php");
 
 
     if (!isset($_SESSION['loginTrabajador']))
@@ -25,6 +25,22 @@
 
 			if(esVeterinario($conexion,$oidtrabajador)){
 
+				$query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
+				. ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
+				.' FROM CITAS '
+				.' WHERE ' . 'CITAS.OIDCITA  IN 
+				  (SELECT CONSULTAS.OIDCITA FROM CONSULTAS WHERE OIDVETERINARIO= :oidveterinario)'
+				.' ORDER BY FECHAINICIO ';
+				
+				
+			}else{
+
+				$query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
+				. ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
+				.' FROM CITAS'
+				.' WHERE ' . 'CITAS.OIDCITA  IN 
+				  (SELECT PELUQUERIAS.OIDCITA FROM PELUQUERIAS WHERE OIDPELUQUERO = :oidpeluquero)'
+				.' ORDER BY FECHAINICIO ';
 
 			}
 
@@ -51,19 +67,7 @@
    
     
     // La consulta que ha de paginarse
-    $query1 = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
-    . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS '
-	.' WHERE ' . 'CITAS.OIDCITA  IN 
-	  (SELECT CONSULTAS.OIDCITA FROM CONSULTAS WHERE OIDVETERINARIO= :oidveterinario)'
-	.' ORDER BY FECHAINICIO ';
-	
-	$query2='SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
-    . ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-    .' FROM CITAS,PELUQUERIAS'
-	.' WHERE ' . 'CITAS.OIDCITA  IN 
-	  (SELECT PELUQUERIAS.OIDCITA FROM PELUQUERIAS WHERE OIDPELUQUERO = :oidpeluquero)'
-	.' ORDER BY FECHAINICIO ';
+    
 
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
 	// En caso de que no, se asume el tamaño de página propuesto, pero desde la página 1
@@ -96,13 +100,13 @@
   <link rel="stylesheet" type="text/css" href="css/consulta_citas_cliente.css" />
   
   <title>consulta citas</title>
-	<?php include_once("head.php"); ?>
+	<?php include_once("head_staff.php"); ?>
   
 </head>
 
 <body>
     <?php
-	    include_once("cabecera.php");
+	    include_once("cabecera_trabajadores.php");
     ?>
 	
 
