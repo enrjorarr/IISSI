@@ -109,9 +109,9 @@
             </form>
         </div>
 
-        <div class="tabla">
+       
             
-        </div>
+       
 
         <div class="informe">
             <form action="form_alta_informe.php">
@@ -126,6 +126,7 @@
     </div>
 
     <!-- LO DE LA TABLA-->
+    <div class="tabla">
     <table class="consulta">
             <thead>
             <tr>
@@ -261,13 +262,14 @@
 
 
     <?php } ?>
-    
+        
     </table>
-
-    <?php
+    </div>
+    
+</main>
+<?php
 	include_once("pie.php");
 ?>
-</main>
 
 </body>
 </html>

@@ -18,7 +18,7 @@
 	<div class = "menu">
 
 	<ul>
-		<li><a href="citas_trabajadores.php"><span title="Citas">Citas</span></a></li>
+		<li><a href="consulta_citas_trabajadores.php"><span title="Citas">Citas</span></a></li>
         <li><a href="historial_paciente.php"><span title="Historial">Historial</span></a></li>
 	</ul>
 	</header>
