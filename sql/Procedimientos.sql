@@ -210,6 +210,13 @@ BEGIN
     COMMIT;
 END ELIMINAR_PETCITA;
 /
+create or replace PROCEDURE ELIMINAR_TRABAJADOR_POR_DNI(v_Dni IN Trabajadores.Dni%TYPE)
+IS
+BEGIN
+    DELETE FROM Trabajadores WHERE Dni = v_Dni;
+    COMMIT;
+END ELIMINAR_TRABAJADOR_POR_DNI;
+/
 create or replace PROCEDURE ELIMINAR_PELUQUERO(
 v_OIDTrabajador IN PELUQUEROS.oidtrabajador%TYPE,
 v_OIDPeluquero IN PELUQUEROS.oidpeluquero%TYPE,

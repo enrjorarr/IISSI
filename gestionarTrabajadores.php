@@ -29,7 +29,7 @@
 		
 		return true;
 	} catch(PDOException $e) {
-		var_dump($e->getMessage());exit();
+
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
 		
@@ -152,7 +152,6 @@ function consultarTrabajador2email($conexion,$email) {
  $stmt->bindParam(':oidtrabajador',$oidtrabajador);
  $stmt->execute();
  $boolean = $stmt->fetchColumn();
- var_dump($boolean);exit;
 	if( $boolean == 0){
 	return false;
 	}else{
@@ -172,6 +171,16 @@ function consultarTrabajador2email($conexion,$email) {
 		return "";
 	} catch(PDOException $e) {
 		return $e->getMessage();
+    }
+}
+function eliminar_trabajador($conexion,$dni) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_TRABAJADOR_POR_DNI(:dni)');
+		$stmt->bindParam(':dni',$dni);
+		$stmt->execute();
+		return true;
+	} catch(PDOException $e) {
+		return false;
     }
 }
 function eliminar_peluquero($conexion,$OIDTrabajador,$OIDPeluquero,$OIDCita) {

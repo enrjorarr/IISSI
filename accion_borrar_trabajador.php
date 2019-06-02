@@ -5,7 +5,8 @@
 
         $trabajador = $_SESSION["trabajador"];
         
-        $oidtrabajador = $trabajador["OIDTRABAJADOR"];
+		$oidtrabajador = $trabajador["OIDTRABAJADOR"];
+		$dni = $trabajador["DNI"];
 
         unset($_SESSION["trabajador"]);
 		
@@ -15,44 +16,48 @@
 
         $conexion = crearConexionBD();	
 	
+		if(eliminar_trabajador($conexion,$dni)){
+			
+			Header("Location: consulta_trabajadores.php");
 
-        if(esVeterinario($conexion,$oidtrabajador)===TRUE){
+		}
+ //       if(esVeterinario($conexion,$oidtrabajador)===TRUE){
 
 			//Busqueda oid_veterinario
 			
-			$veterinario = consultarVeterinario2OIDTrabajador($conexion,$oidtrabajador);
-			$oidveterinario = $veterinario["OIDVETERINARIO"];
+	//		$veterinario = consultarVeterinario2OIDTrabajador($conexion,$oidtrabajador);
+	//		$oidveterinario = $veterinario["OIDVETERINARIO"];
 
 			//Busqueda OIDCitas
 
-			$consulta = consultarVeterinario2OIDTrabajador($conexion,$oidveterinario);
-			$oidcita = $consulta["OIDCITA"];
+	//		$consulta = consultarVeterinario2OIDTrabajador($conexion,$oidveterinario);
+	//		$oidcita = $consulta["OIDCITA"];
 
-			$excepcion = eliminar_veterinario($conexion,$oidtrabajador,$oidveterinario,$oidcita);
+	//		$excepcion = eliminar_veterinario($conexion,$oidtrabajador,$oidveterinario,$oidcita);
 
 			
 			
-		    cerrarConexionBD($conexion);
-        }else{
+	//	    cerrarConexionBD($conexion);
+      //  }else{
 
 			//Busqueda oid_peluquero
 
-			$peluquero = consultarPeluquero2OIDTrabajador($conexion,$oidtrabajador);
-			$oidpelquero = $peluquero["OIDPELUQUERO"];
+		//	$peluquero = consultarPeluquero2OIDTrabajador($conexion,$oidtrabajador);
+		//	$oidpelquero = $peluquero["OIDPELUQUERO"];
 
 			//Busqueda OIDCitas
 
-			$peluqueria = consultarPeluqueria2OIDPeluquero($conexion,$oidpeluquero);
-			$oidcita = $peluqueria["OIDCITA"];
+		//	$peluqueria = consultarPeluqueria2OIDPeluquero($conexion,$oidpeluquero);
+		//	$oidcita = $peluqueria["OIDCITA"];
 
 
 
 
 
-			$excepcion = eliminar_peluquero($conexion,$oidtrabajador,$oidpelquero,$oidcita);
+		//	$excepcion = eliminar_peluquero($conexion,$oidtrabajador,$oidpelquero,$oidcita);
 			
-            cerrarConexionBD($conexion);
-        }
+          //  cerrarConexionBD($conexion);
+        //}
 			
 		if ($excepcion<>"") {
 			$_SESSION["excepcion"] = $excepcion;

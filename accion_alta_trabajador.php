@@ -37,27 +37,27 @@
 		
 			if (alta_trabajador($conexion, $nuevoTrabajador)) { 
 				$_SESSION['login'] = $nuevoTrabajador['email'];
-				$email = $nuevoTrabajador['email'];
-				$trabajador = consultarTrabajador2email($conexion,$email);
+			//	$email = $nuevoTrabajador['email'];
+			//	$trabajador = consultarTrabajador2email($conexion,$email);
 
-				if($nuevoTrabajador["esGestor"] == "s"){
-					$boolean = alta_gestor($conexion, $trabajador);
-						if($nuevoTrabajador["tipoTrabajador"] == "veterinario"){
-							alta_veterinario($conexion, $trabajador);
+			//	if($nuevoTrabajador["esGestor"] == "s"){
+			//		$boolean = alta_gestor($conexion, $trabajador);
+			//			if($nuevoTrabajador["tipoTrabajador"] == "veterinario"){
+			//				alta_veterinario($conexion, $trabajador);
 
-						}else{
-							alta_peluquero($conexion, $trabajador);
+			//			}else{
+			//				alta_peluquero($conexion, $trabajador);
 
-						}
-				}else{
-					if($nuevoTrabajador["tipoTrabajador"] == "veterinario"){
-						alta_veterinario($conexion, $trabajador);
-
-					}else{
-						alta_peluquero($conexion, $trabajador);
-
-					}
-				}
+//						}
+//				}else{
+//					if($nuevoTrabajador["tipoTrabajador"] == "veterinario"){
+//						alta_veterinario($conexion, $trabajador);
+//
+//					}else{
+//						alta_peluquero($conexion, $trabajador);
+//
+//					}
+//				}
 
 		?>
 		
@@ -66,7 +66,7 @@
 			   		Pulsa <a href="form_alta_trabajador.php">aquí</a> para registrar un nuevo trabajador.
 				</div>
 		<?php } else { ?>
-				<h1>El trabajador <?php echo $nuevoTrabajador["nombre"]; ?> ya existe en la base de datos.</h1>
+				<h1>Un trabajador con ese DNI o ese email ya se encuentra en la base de datos.</h1>
 				<div >	
 				Pulsa <a href="form_alta_trabajador.php">aquí</a> para registrar un nuevo trabajador.
 				</div>

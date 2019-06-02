@@ -4,11 +4,10 @@
 	if (isset($_REQUEST["INFORME"])){
 		$informe["OIDINFORME"] = $_REQUEST["OIDINFORME"];
 		$informe["FECHACONSULTA"] = $_REQUEST["FECHACONSULTA"];
-		$informe["MOTIVO"] = $_REQUEST["MOTIVO"];
+		$informe["MOTIVOCONSULTA"] = $_REQUEST["MOTIVOCONSULTA"];
 		$informe["TRATAMIENTO"] = $_REQUEST["TRATAMIENTO"];
 		$informe["OIDHISTORIAL"] = $_REQUEST["OIDHISTORIAL"];
 
-		
 		$_SESSION["INFORME"] = $informe;
 			
 	/*	if (isset($_REQUEST["editar"])) Header("Location: consulta_citas.php"); 

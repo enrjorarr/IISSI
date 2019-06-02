@@ -104,11 +104,11 @@
 			</div>
 
 			<div><label for="nombre">Nombre:<em>*</em></label>
-			<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
+			<input id="nombre" name="nombre" type="text" size="40" pattern="[A-Za-z]+" value="<?php echo $formulario['nombre'];?>" required/>
 			</div>
 
-			<div><label for="apellidos">Apellidos:</label>
-			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
+			<div><label for="apellidos">Apellidos:<em>*</em></label>
+			<input id="apellidos" name="apellidos" type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['apellidos'];?>"required/>
 			</div>
 
 			<div><label for="fechaNacimiento">Fecha de nacimiento:<em>*</em></label>
@@ -151,15 +151,15 @@
 			</legend>
 
 			<div><label for="calle">Calle/Avda.:<em>*</em></label>
-			<input id="calle" name="calle" type="text" size="80" value="<?php echo $formulario['calle'];?>" required/>
+			<input id="calle" name="calle" type="text" size="80" pattern="[A-Za-z]+"value="<?php echo $formulario['calle'];?>" required/>
 			</div>
 
       <div><label for="horasTrabajo">Horas de trabajo semanal:<em>*</em></label>
-			<input id="horasTrabajo" name="horasTrabajo"  type="text"  value="<?php echo $formulario['horasTrabajo'];?>" required/>
+			<input id="horasTrabajo" name="horasTrabajo"  type="text" pattern="^[0-9]{2}" value="<?php echo $formulario['horasTrabajo'];?>" required/>
 			</div>
 
 			<div><label for="sueldo">Salario mensual:<em>*</em></label>
-			<input id="sueldo" name="sueldo" type="text"  pattern="^[0-9]{6}"value="<?php echo $formulario['sueldo'];?>" required/>
+			<input id="sueldo" name="sueldo" type="text"  pattern="^[0-9]{4}"value="<?php echo $formulario['sueldo'];?>" required/>
 			</div>
 
 			<div><label for="esGestor">Es gestor:<em>*</em></label>

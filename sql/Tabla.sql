@@ -31,9 +31,9 @@ CREATE TABLE Clientes (
     Dni                   CHAR(9)          NOT NULL,
     FechaNac              DATE             NOT NULL,         
     NumeroTelefono        CHAR(9),
-    Pass                  VARCHAR2(10)     NOT NULL,
+    Pass                  VARCHAR2(30)     NOT NULL,
     Direccion             VARCHAR2(50)     NOT NULL,
-    Email                 VARCHAR2(50)     NOT NULL,
+    Email                 VARCHAR2(50)     NOT NULL UNIQUE,
     Nombre                VARCHAR2(50)     NOT NULL,
     Apellidos             VARCHAR2(50),
 
@@ -80,12 +80,12 @@ CREATE TABLE Informes (
 
 CREATE TABLE Trabajadores (
     NumeroTelefono        CHAR(9),
-    Pass       VARCHAR2(10) NOT NULL,
+    Pass       VARCHAR2(30) NOT NULL,
     FechaNac        DATE        NOT NULL,
     Nombre          VARCHAR2(50) NOT NULL,
     Apellidos       VARCHAR2(50) NOT NULL,
     Direccion       VARCHAR2(50),
-    Email           Varchar2(50) NOT NULL,
+    Email           Varchar2(50) NOT NULL UNIQUE,
     HorasTrabajo    VARCHAR2(50),
     Sueldo          NUMBER(12,2) NOT NULL,
     EsGestor        CHAR(1),    

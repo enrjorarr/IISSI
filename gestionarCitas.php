@@ -105,7 +105,6 @@ function eliminar_peluqueria2Cita($conexion,$OIDTrabajador) {
 				$stmt->execute();		
 				return true;
 				} catch(PDOException $e) {
-					var_dump($e);exit;
 				 return false;
 				}				
 					

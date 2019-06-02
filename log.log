@@ -1,0 +1,191 @@
+* 'cambios form'
+* '3 y citas bien puesto'
+* 'tablas bien estructuradas'
+* 'cambios'
+* 'referencias done'
+* 'altas , controladores y pie'
+* 'cambios procedimientos'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'historial paciente done'
+* | 'Commit completo'
+|/  
+* 'Eliminacion de trabajadores-pel/vet-ccons/pel-citas'
+* 'Cambios href'
+* 'cambios css'
+* 'tabla historial paciente bien'
+* 'Eliminacion del var_dump() de testeo'
+* 'Fixeada columna tabla y quitado eliminacion'
+* 'im blue'
+* 'espera que hay mas'
+* 'bua tio que de cosas'
+* 'Parte cliente terminada'
+* 'Aceptar cita creado'
+* 'parte cliente casi terminada'
+* 'mas cositas'
+* 'Solucionado problema en query de consultas clientes y finalizacion de esta'
+* 'querys preparadas'
+* 'Solucionado eliminacion de pagina de peticiones'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'Actualización de las acciones'
+* | 'lo de petcitas'
+|/  
+* ' Commit de citas 2'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'cambios accion'
+* | 'Reajuste de peticiones de citas'
+|/  
+* 'Revert "redireccion"'
+* 'redireccion'
+* 'citas cambiado en todos lados, secuencias y triggers cambiados y eso'
+* 'cambio consulta paciente'
+* 'procedimientos y paginacion guay'
+* 'Correccion tablas'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'Avance petcita'
+* | 'Todos los procedimientos y tablas usados y depurados.'
+|/  
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'citas gestor casi'
+* | 'Actualizacion de tablas'
+|/  
+* 'Introduccion de procedures de eliminación'
+* 'Reajuste de wiw'
+* 'form alta trabajador'
+* 'COSITAS'
+* 'madificacion cliente terminado'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'Modificacion Cliente'
+* | 'CONSULTA_CITAS FUNCIONaAaAAAAAAAa'
+|/  
+* 'historial paciente'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| *   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+| |\  
+| * | 'tabla de paciente hecha'
+* | | 'Validacion cliente'
+| |/  
+|/|   
+* |   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\ \  
+| * | 'Recolocados metodos y creacion de Modificaciones'
+* | | 'modificar cliente'
+|/ /  
+* | 'Informacion personal'
+* | 'Añadidos los metodos de Eliminacion de Consulta,Veterinario,Peluqueria,Peluquero'
+|/  
+* 'cambios de mierda'
+* 'alta todos los trabajadores'
+* 'la consulta paginada furulaaaa'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'cabeceras y consulta historial y paciente mal hecho'
+* | 'Introduccion de datos'
+|/  
+* 'Metodos de citas y trabajadores'
+* 'continuación historial informes'
+* 'controlador citas'
+* 'paginacion'
+* 'historial trabajador'
+* 'Peticion de reserva de citas'
+* 'cabecera gestor'
+* 'historial paciente'
+* 'pruebas de contratacion y cabeceras nuevas'
+* 'cabeceras y mas css'
+* 'Alta_Citas'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'muchas cosas'
+* | 'cabecera bien de verdad'
+|/  
+*   'merge'
+|\  
+| * 'lo de la cabecera bien hecho'
+| * 'botones mal'
+* | ' ALTAS'
+|/  
+*   ' --'
+|\  
+| *   'no se'
+| |\  
+| * | 'botones'
+* | | 'Fixeado el problema de inicio sesion y botones'
+| |/  
+|/|   
+* |   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\ \  
+| |/  
+| * 'vista informe_paciente y cambio cabecera'
+* | 'Alta paciente'
+|/  
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'Puesta a punto'
+* | 'cabeceras , historiales y citas vacio'
+|/  
+* 'form alta cita'
+* 'mas vistas'
+* 'perfil usuario'
+* 'contacto e inicio sesion terminados'
+* 'Correcion en Alta_Trabajadores'
+* 'contacto,pie y cabecera listo'
+* 'Commit'
+* 'cambios contacto'
+* 'pie sin fixed'
+* 'whoiswho'
+* 'LO DEL LOGIN NIÑO'
+* 'a ver la cabecera'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| * 'Integracion WhoISWho'
+* | 'cabecera terminada'
+|/  
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| *   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+| |\  
+| * | 'menu en proceso'
+* | | 'Ajustes de base de datos'
+| |/  
+|/|   
+* | 'Eliminación SQL'
+* |   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\ \  
+| |/  
+| * 'mas css'
+* | 'css contacto'
+|/  
+* 'mas css'
+* 'reorganizacion'
+*   ' Form'
+|\  
+| * 'vista contacto'
+| * 'menu'
+| * 'no se'
+| * 'about done'
+* | 'Form'
+* | 'Vista contacto'
+|/  
+* 'Vista contacto.php'
+* 'include'
+*   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+|\  
+| *   'Merge branch 'master' of https://github.com/laubezque/ClinicaVeterinaria'
+| |\  
+| * | 'php'
+* | | 'Modificación y testeo de conexión'
+| |/  
+|/|   
+* | 'Delete Nuevo.odt'
+* | 'Hola'
+|/  
+* 'im blue dabadidabada'
+* 'Proyecto Inicial'
+* 'Delete ola.txt.txt'
+* 'Primer commit'
