@@ -76,7 +76,7 @@
 	<form action="inicio_sesion.php" method="post">
 		<div class = "email"><label for="email">Email: </label><input type="text" name="email" id="email" /></div>
 		<div class="pass"><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
-		<input type="submit" class ="butn" name="submit" value="submit" />
+		<input type="submit" class ="butn" name="submit" value="iniciar sesión" />
 	</form>
 		
 	<p>¿No estás registrado? <a href="form_alta_cliente.php">¡Registrate!</a></p>

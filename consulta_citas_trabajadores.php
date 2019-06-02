@@ -97,7 +97,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/consulta_citas_cliente.css" />
+  <link rel="stylesheet" type="text/css" href="css/consultar_citas_trabajadores.css" />
   
   <title>consulta citas</title>
 	<?php include_once("head_staff.php"); ?>

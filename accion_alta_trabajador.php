@@ -22,7 +22,7 @@
 <head>
   <meta charset="utf-8">
   <title>Gestión de Clinica Veterinaria: Alta de TRABAJADOR realizada con éxito</title>
-  <link rel="stylesheet" type="text/css" href="css/accion_alta_trabajador.css" />
+  <link rel="stylesheet" type="text/css" href="css/accion_alta_petCita.css" />
 
   <?php include_once("head_staff.php"); ?>
 </head>
