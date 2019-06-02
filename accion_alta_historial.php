@@ -22,7 +22,7 @@
 <head>
   <meta charset="utf-8">
   <title>Alta informe</title>
-  <link rel="stylesheet" type="text/css" href="css/citas.css" />
+  <link rel="stylesheet" type="text/css" href="css/accion_alta_petCita.css" />
 
   <?php include_once("head_staff.php")?>
 </head>
@@ -37,12 +37,12 @@
 		<?php if (alta_informes($conexion, $nuevoUsuario)) { 
 				$_SESSION['login'] = $nuevoUsuario['IDPaciente'];
 		?>
-				<h1>Hola <?php echo $nuevoUsuario["IDPaciente"]; ?>, el informe se ha creado correctamente</h1>
+				<h1>El informe se ha creado correctamente.</h1>
 				<div >	
-			   		Pulsa <a href="inicio_sesion.php">aquí</a> para iniciar sesión :].
+			   		Pulsa <a href="historial_paciente.php">aquí</a> para volver.
 				</div>
 		<?php } else { ?>
-				<h1>El usuario ya existe en la base de datos.</h1>
+				<h1>Parece que el paciente ya tiene un historial.</h1>
 				<div >	
 					Pulsa <a href="form_alta_historial.php">aquí</a> para volver al formulario.
 				</div>

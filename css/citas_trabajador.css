@@ -1,0 +1,81 @@
+body{
+    size: 100%;
+
+}
+main{
+    margin-top: 14%;
+    width: 100%;
+    height: 60%;
+
+}
+
+
+.fondo{
+    height: 100%;
+    width: 100%;
+}
+.p{
+    
+    font-family: 'ABeeZee', sans-serif;
+    size: 100%;
+    position: relative;
+    padding-bottom: 8%;
+    padding-left: 3%;
+    padding-right: 10%;
+    padding-top: 5%;
+}
+.veterinaria{
+    padding-left: 5%;
+    height: 50%;
+    width: 40%;
+    float: left;
+    margin-top:3%;
+
+}
+.peluqueria{
+    
+    height: 50%;
+    width: 50%; 
+    margin-left: 45%;
+    margin-top:3%;
+
+}
+.logoVeterinaria{
+    margin-left: 50%;
+}
+.logoPeluqueria{
+    margin-left: 50%;
+}
+.circulo {
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: rgb(46, 209, 182);
+
+}
+.movimientoNaranja{
+    padding-left: 20%;
+    padding-top: 20%;
+}
+.movimientoTexto1{
+    padding-left: 8%;
+
+}
+.movimientoTexto2{
+    padding-left: 5%;
+
+}
+.movimientoTexto3{
+    padding-left: 13%;
+
+}
+.movimientoTexto4{
+    padding-left: 8%;
+
+}
+.movimientoTexto5{
+    padding-left: 4%;
+
+}

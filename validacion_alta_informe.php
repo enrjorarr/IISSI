@@ -10,7 +10,7 @@
 		$nuevoUsuario["fechaConsulta"] = $_REQUEST["fechaConsulta"];
 		$nuevoUsuario["motivo"] = $_REQUEST["motivo"];
 		$nuevoUsuario["tratamiento"] = $_REQUEST["tratamiento"];
-	//	$nuevoUsuario["OIDHistorial"] = $_REQUEST["OIDHistorial"];
+		$nuevoUsuario["OIDHistorial"] = $_REQUEST["OIDHistorial"];
 	
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
@@ -47,7 +47,8 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	if($nuevoUsuario["tratamiento"]=="") 
         $errores[] = "<p>El tratamiento no puede estar vacío</p>";
 
-	
+	if($nuevoUsuario["OIDHistorial"]=="") 
+		$errores[] = "<p>El OIDHistorial no puede estar vacío</p>";
 }
 
 ?>

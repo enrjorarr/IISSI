@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
-  <link rel="stylesheet" type="text/css" href="css/citas.css" />
+  <link rel="stylesheet" type="text/css" href="css/citas_trabajador.css" />
   <script type="text/javascript" src="./js/boton.js"></script>
   <title>Citas</title>
   <?php include_once("head_staff.php")?>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class = "movimientoTexto3">
-                    <br><a href="form_alta_cliente.php">Cita</a>
+                    <br><a href="consulta_citas_gestor.php">Cita</a>
                 </div>            
             </div>
         </div>

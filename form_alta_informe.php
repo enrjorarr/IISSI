@@ -83,6 +83,11 @@
 		        <div class="tratamiento">
                     <label for="tratamiento">Tratamiento: </label>
                     <input type="text" name="tratamiento" id="tratamiento" style="width:22%" value="<?php echo $formulario['tratamiento'];?>" required/>
+				</div>
+				
+				<div class="OIDHistorial">
+                    <label for="OIDHistorial">OIDHistorial: </label>
+                    <input type="text" name="OIDHistorial" id="OIDHistorial" style="width:22%" value="<?php echo $formulario['OIDHistorial'];?>" required/>
                 </div>
 
                 

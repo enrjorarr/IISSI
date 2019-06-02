@@ -144,7 +144,7 @@
 
 			                <?php }	else { ?>
 
-						            <a class="active" href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						            <a class="active" href="consulta_citas.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
 			                <?php } ?>
                             <a href="#">&raquo;</a>

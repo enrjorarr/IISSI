@@ -18,8 +18,8 @@
 	<div class = "menu">
 
 	<ul>
-        <li><a href="citas_gestor.php"><span title="Citas">Citas</span></a></li>
-        <li><a href="empleados.php"><span title="Empleados">Empleados</span></a></li>
+        <li><a href="consulta_citas_gestor.php"><span title="Citas">Citas</span></a></li>
+        <li><a href="consulta_trabajadores.php"><span title="Empleados">Empleados</span></a></li>
 	</ul>
 			</header>
 
