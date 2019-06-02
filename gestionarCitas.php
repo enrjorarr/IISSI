@@ -80,6 +80,26 @@ function eliminar_peluqueria2Cita($conexion,$OIDTrabajador) {
 		return "";
 	} catch(PDOException $e) {
 		return $e->getMessage();
-    }
+		}
+		
+
+
+		function consultarConsulta2OIDVeterinario($conexion,$oidVeterinario) {
+			$consulta = "SELECT * FROM CONSULTAS WHERE OIDVETERINARIO=:oidVeterinario";
+			$stmt = $conexion->prepare($consulta);
+			$stmt->bindParam(':oidVeterinario',$oidVeterinario);
+			
+			$stmt->execute();
+			return $stmt->fetch();
+			}
+
+			function consultarPeluqueria2OIDPeluquero($conexion,$oidPeluquero) {
+				$consulta = "SELECT * FROM PELUQUERIAS WHERE OIDPELUQUERO=:oidPeluquero";
+				$stmt = $conexion->prepare($consulta);
+				$stmt->bindParam(':oidPeluquero',$oidPeluquero);
+				
+				$stmt->execute();
+				return $stmt->fetch();
+				}
 }
 ?>

@@ -22,6 +22,7 @@
 		$petcita["DURACIONMIN"] = $_REQUEST["DuracionMin"];
 		$petcita["COSTE"] = $_REQUEST["Coste"];
 		$_SESSION["petcita"] = $petcita;
+		
 		Header("Location: accion_aceptar_petcita.php");
 	 }
 	}else {Header("Location: consulta_petcitas.php");}

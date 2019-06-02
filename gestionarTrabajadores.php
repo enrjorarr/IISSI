@@ -139,24 +139,57 @@ function consultarTrabajador2email($conexion,$email) {
  }
 
 
- function eliminar_veterinario($conexion,$OIDTrabajador) {
+ function eliminar_veterinario($conexion,$OIDTrabajador,$OIDPeluquero,$OIDCita) {
 	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_VETERINARIO(:OidTrabajador)');
+		$stmt=$conexion->prepare('CALL ELIMINAR_VETERINARIO(:OidTrabajador,:OidVeterinario,:OidCita)');
 		$stmt->bindParam(':OidTrabajador',$OIDTrabajador);
+		$stmt->bindParam(':OidVeterinario',$OIDPeluquero);
+		$stmt->bindParam(':OidCita',$OIDCita);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {
 		return $e->getMessage();
     }
 }
-function eliminar_peluquero($conexion,$OIDTrabajador) {
+function eliminar_peluquero($conexion,$OIDTrabajador,$OIDPeluquero,$OIDCita) {
 	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERO(:OidTrabajador)');
+		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERO(:OidTrabajador,:OidPeluquero,:OidCita)');
+
 		$stmt->bindParam(':OidTrabajador',$OIDTrabajador);
+		$stmt->bindParam(':OidPeluquero',$OIDPeluquero);
+		$stmt->bindParam(':OidCita',$OIDCita);
 		$stmt->execute();
+		
 		return "";
 	} catch(PDOException $e) {
 		return $e->getMessage();
-    }
+		}
+	}		
+
+function consultarConsulta2OIDVeterinario($conexion,$oidVeterinario) {
+	$consulta = "SELECT * FROM CONSULTAS WHERE OIDVETERINARIO=:oidVeterinario";
+	$stmt = $conexion->prepare($consulta);
+	$stmt->bindParam(':oidVeterinario',$oidVeterinario);
+			
+	$stmt->execute();
+	return $stmt->fetch();
 }
+
+function consultarPeluqueria2OIDPeluquero($conexion,$oidPeluquero) {
+	$consulta = "SELECT * FROM PELUQUERIAS WHERE OIDPELUQUERO=:oidPeluquero";
+	$stmt = $conexion->prepare($consulta);
+	$stmt->bindParam(':oidPeluquero',$oidPeluquero);
+				
+	$stmt->execute();
+	return $stmt->fetch();
+}		
+
+
+
+
+
+
+
+
+
 ?>

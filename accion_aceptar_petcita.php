@@ -29,6 +29,7 @@
 
         $excepcion1 = alta_cita($conexion,$usuario);
         
+        
         if($excepcion1){
             $excepcion = eliminarPeticion($conexion,$petcita["OIDPETCITA"]);
         }

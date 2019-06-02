@@ -2,6 +2,7 @@
 	session_start();	
 	
 	if (isset($_SESSION["trabajador"])) {
+
         $trabajador = $_SESSION["trabajador"];
         
         $oidtrabajador = $trabajador["OIDTRABAJADOR"];
@@ -9,14 +10,47 @@
         unset($_SESSION["trabajador"]);
 		
 		require_once("gestionBD.php");
-        require_once("gestionarTrabajadores.php");
-        $conexion = crearConexionBD();	
+		require_once("gestionarTrabajadores.php");
+	
 
-        if(esVeterinario($conexion,$oidtrabajador)){
-            $excepcion = eliminar_veterinario($conexion,$trabajador["OIDTRABAJADOR"]);
+        $conexion = crearConexionBD();	
+	
+
+        if(esVeterinario($conexion,$oidtrabajador)===TRUE){
+
+			//Busqueda oid_veterinario
+			
+			$veterinario = consultarVeterinario2OIDTrabajador($conexion,$oidtrabajador);
+			$oidveterinario = $peluquero["OIDPELUQUERO"];
+
+			//Busqueda OIDCitas
+
+			$consulta = consultarVeterinario2OIDVeterinario($conexion,$oidveterinario);
+			$oidcita = $peluqueria["OIDCITA"];
+
+			$excepcion = eliminar_veterinario($conexion,$oidtrabajador,$oidveterinario,$oidcita);
+
+			
+			
 		    cerrarConexionBD($conexion);
         }else{
-            $excepcion = eliminar_peluquero($conexion,$trabajador["OIDTRABAJADOR"]);
+
+			//Busqueda oid_peluquero
+
+			$peluquero = consultarPeluquero2OIDTrabajador($conexion,$oidtrabajador);
+			$oidpelquero = $peluquero["OIDPELUQUERO"];
+
+			//Busqueda OIDCitas
+
+			$peluqueria = consultarPeluqueria2OIDPeluquero($conexion,$oidpeluquero);
+			$oidcita = $peluqueria["OIDCITA"];
+
+
+
+
+
+			$excepcion = eliminar_peluquero($conexion,$oidtrabajador,$oidpelquero,$oidcita);
+			
             cerrarConexionBD($conexion);
         }
 			

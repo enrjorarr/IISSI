@@ -33,7 +33,7 @@
     $query = 'SELECT TRABAJADORES.OIDTRABAJADOR, TRABAJADORES.PASS,TRABAJADORES.FECHANAC,'
     .'TRABAJADORES.NOMBRE, TRABAJADORES.APELLIDOS, TRABAJADORES.DIRECCION,TRABAJADORES.EMAIL,'
     .'TRABAJADORES.HORASTRABAJO,TRABAJADORES.SUELDO,TRABAJADORES.ESGESTOR, TRABAJADORES.DNI'
-    .' FROM TRABAJADORES, PELUQUEROS, VETERINARIOS ';
+    .' FROM TRABAJADORES';
 
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
 	// En caso de que no, se asume el tamaño de página propuesto, pero desde la página 1
@@ -115,7 +115,7 @@
 
 			                <?php }	else { ?>
 
-						            <a class="active" href="consulta_pacientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						            <a class="active" href="consulta_trabajadores.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
 			                <?php } ?>
                             <a href="#">&raquo;</a>
@@ -126,7 +126,7 @@
 
 
 
-		<form method="get" action="consulta_citas.php">
+		<form method="get" action="consulta_trabajadores.php">
 
 			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
 
@@ -167,10 +167,6 @@
 					<input id="OIDTRABAJADOR" name="OIDTRABAJADOR"
 
 						type="hidden" value="<?php echo $fila["OIDTRABAJADOR"]; ?>"/>
-
-					<input id="NUMEROTELEFONO" name="NUMEROTELEFONO"
-
-						type="hidden" value="<?php echo $fila["NUMEROTELEFONO"]; ?>"/>
 
 					<input id="PASS" name="PASS"
 
