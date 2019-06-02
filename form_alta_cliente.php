@@ -98,7 +98,7 @@
 			</div>
 
 			<div><label for="nombre">Nombre:<em STYLE="color:red;">*</em></label>
-			<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
+			<input id="nombre" name="nombre" type="text" size="80" value="<?php echo $formulario['nombre'];?>" required/>
 			</div>
 
 			<div><label for="apellidos">Apellidos:</label>

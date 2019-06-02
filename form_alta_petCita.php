@@ -35,7 +35,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/form_alta_cita.css" />
+  <link rel="stylesheet" type="text/css" href="css/form_alta_petCitas.css" />
   <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
@@ -96,11 +96,11 @@
 			</div>
 
 			<div><label for="motivo">Motivo :<em STYLE="color:red;">*</em></label>
-			<input id="motivo" name="motivo"  type="text"  value="<?php echo $formulario['motivo'];?>" required/>
+			<input id="motivo" name="motivo"  type="text" size="80" value="<?php echo $formulario['motivo'];?>" required/>
 			</div>
 
 			<div><label for="coste">Identificacion del paciente:<em STYLE="color:red;">*</em></label>
-			<input id="idPaciente" name="idPaciente" type="text" value="<?php echo $formulario['idPaciente'];?>" required/>
+			<input id="idPaciente" name="idPaciente" type="text" pattern="^[0-9]{9}" value="<?php echo $formulario['idPaciente'];?>" required/>
 			</div>
 
 
