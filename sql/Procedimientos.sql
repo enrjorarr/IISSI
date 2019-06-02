@@ -209,3 +209,19 @@ BEGIN
 
     COMMIT;
 END ELIMINAR_PETCITA;
+/
+create or replace PROCEDURE ELIMINAR_PELUQUERO(
+v_OIDTrabajador IN PELUQUEROS.oidtrabajador%TYPE,
+v_OIDPeluquero IN PELUQUEROS.oidpeluquero%TYPE,
+v_OIDCita IN PELUQUERIAS.oidcita%TYPE)
+ IS 
+BEGIN
+
+DELETE FROM PELUQUERIAS WHERE oidpeluquero = v_OIDPeluquero;
+DELETE FROM CITAS WHERE oidcita = v_OIDCita;
+DELETE FROM PELUQUEROS WHERE oidtrabajador = v_oidtrabajador;
+DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
+
+    COMMIT;
+END ELIMINAR_PELUQUERO;
+/
