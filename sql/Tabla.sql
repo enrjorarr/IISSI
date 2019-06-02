@@ -28,14 +28,14 @@ DROP TABLE Clientes;
 
 
 CREATE TABLE Clientes (
-    Dni                   CHAR(9)         NOT NULL,
-    FechaNac              DATE            NOT NULL,         
+    Dni                   CHAR(9)          NOT NULL,
+    FechaNac              DATE             NOT NULL,         
     NumeroTelefono        CHAR(9),
-    Pass                  VARCHAR2(10)    NOT NULL,
+    Pass                  VARCHAR2(10)     NOT NULL,
     Direccion             VARCHAR2(50)     NOT NULL,
     Email                 VARCHAR2(50)     NOT NULL,
     Nombre                VARCHAR2(50)     NOT NULL,
-    Apellidos                VARCHAR2(50),
+    Apellidos             VARCHAR2(50),
 
     PRIMARY KEY(DNI),
     CONSTRAINT COMPROBAR_DNI CHECK (REGEXP_LIKE(Dni, '[0-9]{8}[A-Z]')),
@@ -144,7 +144,9 @@ CREATE TABLE Citas (
     FechaInicio DATE NOT NULL,
     HoraInicio Varchar2(5) NOT NULL,
     DuracionMin NUMBER(4) NOT NULL,
-    Coste NUMBER(4,2) NOT NULL,
+    Coste NUMBER(4,2) NOT NULL
+
+
     
     PRIMARY KEY (OIDCita),
     FOREIGN KEY (Dni) REFERENCES Clientes,

@@ -98,11 +98,11 @@
 			</div>
 
 			<div><label for="nombre">Nombre:<em STYLE="color:red;">*</em></label>
-			<input id="nombre" name="nombre" type="text" size="80" value="<?php echo $formulario['nombre'];?>" required/>
+			<input id="nombre" name="nombre" type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['nombre'];?>" required/>
 			</div>
 
 			<div><label for="apellidos">Apellidos:</label>
-			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
+			<input id="apellidos" name="apellidos" type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['apellidos'];?>"/>
 			</div>
 
 			<div><label for="fechaNacimiento">Fecha de nacimiento:<em STYLE="color:red;">*</em></label>
@@ -119,11 +119,9 @@
 
 		</fieldset>
 
-		<fieldset class="datos2"><legend>Datos de cuenta</legend>
+		<fieldset class="datos2"><legend>Contraseña</legend>
 			
-			<div><label for="nick">Nickname:</label>
-				<input id="nick" name="nick" type="text" size="40" value="<?php echo $formulario['email'];?>" />
-			</div>
+			
 			<div><label for="pass">Password:<em STYLE="color:red;">*</em></label>
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 			</div>
@@ -138,7 +136,7 @@
 			</legend>
 
 			<div><label for="calle">Calle/Avda.:<em STYLE="color:red;">*</em></label>
-			<input id="calle" name="calle" type="text" size="80" value="<?php echo $formulario['calle'];?>" required/>
+			<input id="calle" name="calle" type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['calle'];?>" required/>
 			</div>
 		</fieldset>
 

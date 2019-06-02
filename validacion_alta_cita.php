@@ -1,29 +1,43 @@
 <?php
 	session_start();
-
+	
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
-
-
+	require_once("gestionarTrabajadores.php");
+	$conexion = crearConexionBD(); 
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
-        // Recogemos los datos del formulario
+		// Recogemos los datos del formulario
+		
+		$emailGestor=$_SESSION["loginGestor"];
+	
+		$trabajador = consultarTrabajador2email($conexion,$emailGestor);
+		
+		$oidTrabajador = $trabajador["OIDTRABAJADOR"];
+		$gestor = consultarGestor2OIDTrabajador($conexion,$oidTrabajador);
+
+		$oidGestor = $gestor["OIDGESTOR"];
+
+
+		$nuevoUsuario["OIDGestor"] = $oidGestor;
         $nuevoUsuario["nif"] = $_REQUEST["nif"];
-		$nuevoUsuario['OIDGestor'] = $_REQUEST["OIDGestor"];
 		$nuevoUsuario['fechaInicio'] = $_REQUEST["fechaInicio"];
-		$nuevoUsuario['fechaFin'] = $_REQUEST["fechaFin"];
+		$nuevoUsuario['horaInicio'] = $_REQUEST["horaInicio"];
 		$nuevoUsuario['duracionMin'] = $_REQUEST["duracionMin"];
 		$nuevoUsuario['coste'] = $_REQUEST["coste"];
+		$nuevoUsuario["OIDTrabajador"] =  $_REQUEST["oidTrabajador"];
 		
 		
-		// Guardar la variable local con los datos del formulario en la sesión.
-		$_SESSION["formulario"] = $nuevoUsuario;		
+
+		$_SESSION["formulario"] = $nuevoUsuario;
+
+		
 	}
 	else // En caso contrario, vamos al formulario
 		Header("Location: form_alta_cliente.php");
 
 	// Validamos el formulario en servidor
-	$conexion = crearConexionBD(); 
+	
 	$errores = validarDatosUsuario($conexion, $nuevoUsuario);
 	cerrarConexionBD($conexion);
 	
@@ -33,7 +47,7 @@
 		$_SESSION["errores"] = $errores;
 		Header('Location: form_alta_cita.php');
 	} else
-		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
+		
 		Header('Location: accion_alta_cita.php');
 
 ///////////////////////////////////////////////////////////
@@ -49,8 +63,8 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	}
 
 	// Validación del gestor			
-//	if($nuevoUsuario["OIDGestor"]=="") 
-//		$errores[] = "<p>Debe introducirse el OID del gestor</p>";
+	if($nuevoUsuario["OIDGestor"]=="") 
+		$errores[] = "<p>Debe introducirse el OID del gestor</p>";
 	
 	// Validación de la fecha inicio
 	if($nuevoUsuario["fechaInicio"]==""){ 

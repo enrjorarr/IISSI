@@ -105,8 +105,8 @@
             <form action="historial_paciente.php" method="post">
                 <div class = "id">
                     <label for="id">Busqueda por id del paciente: </label>
-                    <input type="text" name="id" id="id" />
-                    <input type="submit" class ="butn" name="buscar" value="submit" />
+                    <input type="text" name="id" id="id" pattern="^[0-9]{9}" />
+                    <input type="submit" class ="butn" name="buscar" value="buscar" />
                 </div>
             </form>
         </div>

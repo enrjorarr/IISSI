@@ -1,20 +1,6 @@
 <?php
 
 
-function esConsulta($conexion,$oidcita) {
-	$consulta = "SELECT COUNT(*) AS TOTAL FROM CONSULTAS WHERE OIDCITA=:oidcita";
- $stmt = $conexion->prepare($consulta);
- $stmt->bindParam(':oidcita',$oidcita);
- $stmt->execute();
- $boolean = $stmt->fetchColumn();
-	if( $boolean == 0){
-	return false;
-	}else{
-		return true;
-	}
- 	return $stmt->fetch();
- }
-
 
 function consultarCitasCliente($conexion) {
 	$consulta = "SELECT * FROM CITAS"
@@ -32,7 +18,7 @@ function consultarCitasPorDNI($conexion,$nif) {
 	}
 
 function alta_cita($conexion,$usuario) {
-    $fecha = date('d/m/Y', strtotime($usuario["fecha"]));
+    $fecha = date('d/m/Y', strtotime($usuario["fechaInicio"]));
 
    
     
@@ -45,7 +31,7 @@ function alta_cita($conexion,$usuario) {
 		$stmt->bindParam(':HoraInicio',$usuario["horaInicio"]);
 		$stmt->bindParam(':DuracionMin',$usuario["duracionMin"]);
 		$stmt->bindParam(':Coste',$usuario["coste"]);
-   
+		
 		$stmt->execute();
 		
 		return true;	
@@ -57,30 +43,16 @@ function alta_cita($conexion,$usuario) {
     }
 }
   
-function eliminar_peluqueria_por_cita($conexion,$oidcita) {
+function eliminar_libro($conexion,$Dni) {
 	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:oidcita)');
-		$stmt->bindParam(':oidcita',$oidcita);
+		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:OidCitas)');
+		$stmt->bindParam(':OidCitas',$OidLibro);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {
 		return $e->getMessage();
     }
 }
-
-function eliminar_consulta_por_cita($conexion,$oidcita) {
-	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_CONSULTA_POR_CITA(:oidcita)');
-		$stmt->bindParam(':oidcita',$oidcita);
-		$stmt->execute();
-		return "";
-	} catch(PDOException $e) {
-		return $e->getMessage();
-    }
-}
-
-
-
 
 function consultarUsuario($conexion,$email,$pass) {
  	$consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE EMAIL=:email AND PASS=:pass";
@@ -109,25 +81,33 @@ function eliminar_peluqueria2Cita($conexion,$OIDTrabajador) {
 	} catch(PDOException $e) {
 		return $e->getMessage();
 		}
-		
-
-
-		function consultarConsulta2OIDVeterinario($conexion,$oidVeterinario) {
-			$consulta = "SELECT * FROM CONSULTAS WHERE OIDVETERINARIO=:oidVeterinario";
-			$stmt = $conexion->prepare($consulta);
-			$stmt->bindParam(':oidVeterinario',$oidVeterinario);
-			
-			$stmt->execute();
-			return $stmt->fetch();
-			}
-
-			function consultarPeluqueria2OIDPeluquero($conexion,$oidPeluquero) {
-				$consulta = "SELECT * FROM PELUQUERIAS WHERE OIDPELUQUERO=:oidPeluquero";
-				$stmt = $conexion->prepare($consulta);
-				$stmt->bindParam(':oidPeluquero',$oidPeluquero);
-				
-				$stmt->execute();
-				return $stmt->fetch();
+	}
+		function alta_peluqueria($conexion,$OIDPeluquero,$OIDCita) {
+			try {
+				$consulta = "CALL ALTA_PELUQUERIAS(:OIDPeluquero,:OIDCita)";
+				$stmt=$conexion->prepare($consulta);
+				$stmt->bindParam(':OIDPeluquero',$OIDPeluquero);
+				$stmt->bindParam(':OIDCita',$OIDCita);
+				$stmt->execute();		
+				return true;
+			} catch(PDOException $e) {
+				return false;
+				// Si queremos visualizar la excepción durante la depuración: $e->getMessage();	
 				}
-}
+			}
+		function alta_consulta($conexion,$OIDPeluquero,$OIDCita) {
+			try {
+				$consulta = "CALL ALTA_CONSULTA(:OIDVeterinario,:OIDCita)";
+				$stmt=$conexion->prepare($consulta);
+				$stmt->bindParam(':OIDVeterinario',$OIDPeluquero);
+				$stmt->bindParam(':OIDCita',$OIDCita);
+
+				$stmt->execute();		
+				return true;
+				} catch(PDOException $e) {
+					var_dump($e);exit;
+				 return false;
+				}				
+					
+			}
 ?>

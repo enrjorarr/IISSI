@@ -3,10 +3,13 @@
 
 	require_once("gestionBD.php");
 	require_once("gestionarCitas.php");
+	require_once("gestionarTrabajadores.php");
 		
+	
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
-		$nuevoUsuario = $_SESSION["formulario"];
+		$gestor = $_SESSION["formulario"];
+		
 		$_SESSION["formulario"] = null;
 		$_SESSION["errores"] = null;
 	}
@@ -14,10 +17,31 @@
 		Header("Location: form_alta_cita.php");	
 
 	$conexion = crearConexionBD(); 
-	if (alta_cita($conexion, $nuevoUsuario)) { 
-		Header("Location: inicio.php");	
+	
+	$oidTrabajador = $gestor["OIDTrabajador"];
 
-	}else{
+	$trabajador = consultarTrabajador2OidTrabajador($conexion,$oidTrabajador) ;
+
+	
+
+
+	
+	if (esVeterinario($conexion,$oidTrabajador)) { 
+		alta_cita($conexion, $gestor);
+
+		
+
+		
+		Header("Location: form_alta_cita.php");	
+
+	}
+	if (esPeluquero($conexion,$oidTrabajador)) {		
+		alta_cita($conexion, $gestor);
+		
+		
+		Header("Location: form_alta_cita.php");	
+	}
+	else{
 		Header("Location: form_alta_cita.php");	
 
 	}

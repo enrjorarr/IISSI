@@ -10,14 +10,14 @@
 
 
     if(!isset($_SESSION["formulario"])){
-        $formulario['nif'] = "";                                      //  
-		$formulario['OIDGestor'] = "";                                   //
-		$formulario['fechaInicio'] = "";                                //    
-		$formulario['horaInicio'] = "";                          //           
-		$formulario['duracionMin'] = "";                                    //
+        $formulario['nif'] = "";                                     
+		$formulario['OIDGestor'] = "";                                   
+		$formulario['fechaInicio'] = "";                                   
+		$formulario['horaInicio'] = "";                                     
+		$formulario['duracionMin'] = "";                                    
 		$formulario['coste'] = ""; 
-		$formulario['oidTrabajador'] = "";                                     //
-		//
+		$formulario['oidTrabajador'] = "";                                     
+		
         
 
         $_SESSION["formulario"] = $formulario;
@@ -39,26 +39,7 @@
 	$conexion = crearConexionBD();
 
 	
-	
-	if (isset($_POST['oidTrabajador'])){
-		$oidTrabajador= $_POST['oidTrabajador'];
-		$conexion = crearConexionBD();
 
-		if(esVeterinario($conexion,$oidTrabajador)===TRUE){
-			
-		}
-
-        $paciente = consultarPacientes2ID($conexion,$id);
-		cerrarConexionBD($conexion);	
-        
-		if ($paciente == null)
-			$login = "error";	
-		else {
-        
-			$_SESSION['paciente'] = $paciente;
-			Header("Location: historial_paciente.php");
-		}	
-    }
     ?>
 
 <!DOCTYPE html>
@@ -124,15 +105,12 @@
 			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
 			</div>
 
-			<input id="OIDGestor" name="OIDGestor" type="hidden" size="40" value="<?php echo $formulario['OIDGestor'];?>" />
-			
-
 			<div><label for="fechaInicio">Fecha de inicio:<em STYLE="color:red;">*</em></label>
 			<input id="fechaInicio" name="fechaInicio" type="date" size="80" value="<?php echo $formulario['fechaInicio'];?>"required/>
 			</div>
 
-			<div><label for="horaInicio">Fecha de fin:<em STYLE="color:red;">*</em></label>
-			<input type="date" id="horaInicio" name="horaInicio" value="<?php echo $formulario['horaInicio'];?>"required/>
+			<div><label for="horaInicio">Hora de Inicio:<em STYLE="color:red;">*</em></label>
+			<input type="text" id="horaInicio" name="horaInicio" value="<?php echo $formulario['horaInicio'];?>"required/>
 			</div>
 
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
@@ -146,6 +124,8 @@
 			<div><label for="oidTrabajador">OID Trabajador:<em STYLE="color:red;">*</em></label>
 			<input id="oidTrabajador" name="oidTrabajador" type="number" value="<?php echo $formulario['oidTrabajador'];?>" required/>
 			</div>
+
+			
 
 		</fieldset>
 

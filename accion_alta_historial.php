@@ -42,7 +42,7 @@
 			   		Pulsa <a href="historial_paciente.php">aquí</a> para volver.
 				</div>
 		<?php } else { ?>
-				<h1>Parece que el paciente ya tiene un historial.</h1>
+				<h1>Parece que el paciente ya tiene un historial o no existe un paciente con ese id.</h1>
 				<div >	
 					Pulsa <a href="form_alta_historial.php">aquí</a> para volver al formulario.
 				</div>
