@@ -14,38 +14,8 @@
 		    $cita = $_SESSION["cita"];
 		    unset($_SESSION["cita"]);
 		}
-		$conexion = crearConexionBD();
-		if (isset($_SESSION['loginTrabajador']))	{
-
-			$email = $_SESSION['loginTrabajador'];
-
-			$trabajador = consultarTrabajador2email($conexion,$email);
-
-			$oidtrabajador=$trabajador["OIDTRABAJADOR"];
-
-			if(esVeterinario($conexion,$oidtrabajador)){
-
-				$query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
-				. ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-				.' FROM CITAS '
-				.' WHERE ' . 'CITAS.OIDCITA  IN 
-				  (SELECT CONSULTAS.OIDCITA FROM CONSULTAS WHERE OIDVETERINARIO= :oidveterinario)'
-				.' ORDER BY FECHAINICIO ';
-				
-				
-			}else{
-
-				$query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
-				. ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
-				.' FROM CITAS'
-				.' WHERE ' . 'CITAS.OIDCITA  IN 
-				  (SELECT PELUQUERIAS.OIDCITA FROM PELUQUERIAS WHERE OIDPELUQUERO = :oidpeluquero)'
-				.' ORDER BY FECHAINICIO ';
-
-			}
-
-			
-		}	
+		
+	
 
 	
 
@@ -63,6 +33,14 @@
 
     	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
 	unset($_SESSION["paginacion"]);
+
+	$conexion = crearConexionBD();
+	
+
+			$query = 'SELECT CITAS.OIDCITA, CITAS.DNI, CITAS.OIDGESTOR,CITAS.FECHAINICIO, '
+			. ' CITAS.HORAINICIO, CITAS.DURACIONMIN,CITAS.COSTE '
+			.' FROM CITAS'
+			.' ORDER BY FECHAINICIO ';
 
    
     
@@ -117,9 +95,11 @@
      <thead>
     <tr>
     	<th>Cita</th>
-    	<th>Fecha</th>
+        <th>Fecha</th>
+        <th>Hora</th>
     	<th>Duración</th>
-		<th>Coste</th>
+        <th>Coste</th>
+       
     </tr>
 	<tfoot>
 		<tr>
@@ -204,13 +184,13 @@
 
 						type="hidden" value="<?php echo $fila["FECHAINICIO"]; ?>"/>
 
-					<input id="FECHAFIN" name="FECHAFIN"
+					<input id="HORAINICIO" name="HORAINICIO"
 
-						type="hidden" value="<?php echo $fila["FECHAFIN"]; ?>"/>
+						type="hidden" value="<?php echo $fila["HORAINICIO"]; ?>"/>
 
                     <input id="DURACIONMIN" name="DURACIONMIN"
 
-                        type="hidden" value="<?php echo $fila["DURACIONFIN"]; ?>"/>
+                        type="hidden" value="<?php echo $fila["DURACIONMIN"]; ?>"/>
                     
                     <input id="COSTE" name="COSTE"
 
@@ -228,8 +208,10 @@
                         <tr>
                             <td><?php echo $fila["OIDCITA"]; ?></td>
                             <td><?php echo $fila["FECHAINICIO"]; ?></td>
+                            <td><?php echo $fila["HORAINICIO"]; ?></td>
                             <td><?php echo $fila["DURACIONMIN"]; ?></td>
-							<td><?php echo $fila["COSTE"]; ?></td>
+                            <td><?php echo $fila["COSTE"]; ?></td>
+
 
                         </tr>
                         </tbody>
@@ -247,18 +229,19 @@
 
 
 	<?php } ?>
-		</table>
+        </table>
+        
 
-</main>
+	</main>
 
 
-<?php
-	include_once("pie.php");
-?>
+	<?php
+		include_once("pie.php");
+	?>	
 
 
 
   
 
-</body>
+	</body>
 </html>
