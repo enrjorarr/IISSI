@@ -96,11 +96,11 @@
 		<fieldset class="datos1" ><legend>Datos personales</legend>
 
 			<div><label for="nombre">Nombre:<em STYLE="color:red;">*</em></label>
-			<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
+			<input id="nombre" name="nombre" type="text" size="40" pattern="[A-Za-z]+" value="<?php echo $formulario['nombre'];?>" required/>
 			</div>
 
 			<div><label for="apellidos">Apellidos:</label>
-			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
+			<input id="apellidos" name="apellidos" type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['apellidos'];?>"/>
 			</div>
 
 			<div><label for="numeroTelefono">Telefono:<em STYLE="color:red;">*</em></label>
@@ -126,7 +126,7 @@
 			</legend>
 
 			<div><label for="calle">Calle/Avda.:<em STYLE="color:red;">*</em></label>
-			<input id="calle" name="calle" type="text" size="80" value="<?php echo $formulario['calle'];?>" required/>
+			<input id="calle" name="calle" type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['calle'];?>" required/>
 			</div>
 		</fieldset>
 

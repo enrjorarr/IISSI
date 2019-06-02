@@ -96,7 +96,7 @@
 			</div>
 
 			<div><label for="motivo">Motivo :<em STYLE="color:red;">*</em></label>
-			<input id="motivo" name="motivo"  type="text" size="80" value="<?php echo $formulario['motivo'];?>" required/>
+			<input id="motivo" name="motivo"  type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['motivo'];?>" required/>
 			</div>
 
 			<div><label for="coste">Identificacion del paciente:<em STYLE="color:red;">*</em></label>
