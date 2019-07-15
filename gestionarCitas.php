@@ -36,7 +36,7 @@ function alta_cita($conexion,$usuario) {
 		
 		return true;	
 	} catch(PDOException $e) {
-      
+      var_dump($e);exit;
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
 		

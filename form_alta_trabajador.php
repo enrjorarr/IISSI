@@ -94,8 +94,8 @@
 	?>
 	
 	<form id="altaTrabajador" method="post" action="validacion_alta_trabajador.php"
-		>
-		<!--novalidate--> 
+		novalidate>
+		
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales.</legend>
@@ -104,11 +104,11 @@
 			</div>
 
 			<div><label for="nombre">Nombre:<em>*</em></label>
-			<input id="nombre" name="nombre" type="text" size="40" pattern="[A-Za-z]+" value="<?php echo $formulario['nombre'];?>" required/>
+			<input id="nombre" name="nombre" type="text" size="40" pattern="[A-Za-z\s]+" value="<?php echo $formulario['nombre'];?>" required/>
 			</div>
 
 			<div><label for="apellidos">Apellidos:<em>*</em></label>
-			<input id="apellidos" name="apellidos" type="text" size="80" pattern="[A-Za-z]+" value="<?php echo $formulario['apellidos'];?>"required/>
+			<input id="apellidos" name="apellidos" type="text" size="80" pattern="[A-Za-z\s]+" value="<?php echo $formulario['apellidos'];?>"required/>
 			</div>
 
 			<div><label for="fechaNacimiento">Fecha de nacimiento:<em>*</em></label>
@@ -151,7 +151,7 @@
 			</legend>
 
 			<div><label for="calle">Calle/Avda.:<em>*</em></label>
-			<input id="calle" name="calle" type="text" size="80" pattern="[A-Za-z]+"value="<?php echo $formulario['calle'];?>" required/>
+			<input id="calle" name="calle" type="text" size="80" pattern="[A-Za-z\s]+"value="<?php echo $formulario['calle'];?>" required/>
 			</div>
 
       <div><label for="horasTrabajo">Horas de trabajo semanal:<em>*</em></label>

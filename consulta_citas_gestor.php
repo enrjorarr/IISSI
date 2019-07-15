@@ -103,7 +103,7 @@
         <th>Hora</th>
     	<th>Duración</th>
         <th>Coste</th>
-        <th>Eliminar</th>
+      <!--  <th>Eliminar</th>-->
     </tr>
 	<tfoot>
 		<tr>
@@ -216,11 +216,11 @@
                             <td><?php echo $fila["DURACIONMIN"]; ?></td>
                             <td><?php echo $fila["COSTE"]; ?></td>
 
-                            <td>
+                         <!--   <td>
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar cita">
                                 </button>
-                            </td>
+                            </td> -->
 
                         </tr>
                         </tbody>

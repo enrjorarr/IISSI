@@ -20,7 +20,7 @@
 
         $usuario["OIDGestor"]=$trabajador["OIDGESTOR"];
         $usuario["nif"]=$petcita["DNI"];
-        $usuario["fecha"]=$petcita["FECHAINICIO"];
+        $usuario["fechaInicio"]=$petcita["FECHAINICIO"];
         $usuario["horaInicio"]=$petcita["HORAINICIO"];
         $usuario["duracionMin"]=$petcita["DURACIONMIN"];
         $usuario["coste"]=$petcita["COSTE"];

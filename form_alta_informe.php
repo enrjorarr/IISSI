@@ -77,12 +77,12 @@
                 
                 <div class = "motivo">
                     <label for="motivo">Motivo: </label>
-                    <input type="text" name="motivo" id="motivo" style="width:25%"  pattern="[A-Za-z]+" value="<?php echo $formulario['motivo'];?>" required/>
+                    <input type="text" name="motivo" id="motivo" style="width:25%"  pattern="[A-Za-z\s]+" value="<?php echo $formulario['motivo'];?>" required/>
                 </div>
 
 		        <div class="tratamiento">
                     <label for="tratamiento">Tratamiento: </label>
-                    <input type="text" name="tratamiento" id="tratamiento" style="width:22%" pattern="[A-Za-z]+" value="<?php echo $formulario['tratamiento'];?>" required/>
+                    <input type="text" name="tratamiento" id="tratamiento" style="width:22%" pattern="[A-Za-z\s]+" value="<?php echo $formulario['tratamiento'];?>" required/>
 				</div>
 				
 				<div class="OIDHistorial">

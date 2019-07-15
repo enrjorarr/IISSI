@@ -7,7 +7,6 @@
 		
 		require_once("gestionBD.php");
 		require_once("gestionarCitas.php");
-		cerrarConexionBD($conexion);
 
 		$conexion = crearConexionBD();		
 
