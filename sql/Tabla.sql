@@ -75,8 +75,7 @@ CREATE TABLE Informes (
     PRIMARY KEY(OIDInforme),
     FOREIGN KEY(OIDHistorial) REFERENCES Historiales
 );
-            
-  /*-----------------------------------CREACION DE TABLAS EL HARTO SOPA------------------------------------------*/
+
 
 CREATE TABLE Trabajadores (
     NumeroTelefono        CHAR(9),
@@ -144,10 +143,8 @@ CREATE TABLE Citas (
     FechaInicio DATE NOT NULL,
     HoraInicio Varchar2(5) NOT NULL,
     DuracionMin NUMBER(4) NOT NULL,
-    Coste NUMBER(4,2) NOT NULL
+    Coste NUMBER(4,2) NOT NULL,
 
-
-    
     PRIMARY KEY (OIDCita),
     FOREIGN KEY (Dni) REFERENCES Clientes,
     FOREIGN KEY (OIDGestor) REFERENCES Gestores,
@@ -173,5 +170,3 @@ CREATE TABLE Peluquerias(
     FOREIGN KEY (OIDPeluquero) REFERENCES Peluqueros,
     FOREIGN KEY (OIDCita) REFERENCES Citas
     );
-
-
