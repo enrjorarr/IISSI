@@ -5,6 +5,7 @@
 	require_once("gestionBD.php");
 
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
+	
 	if (isset($_SESSION["formulario"])) {
 		// Recogemos los datos del formulario
 		$nuevoUsuario["nif"] = $_REQUEST["nif"];
@@ -19,30 +20,34 @@
 		
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
-		$_SESSION["formulario"] = $nuevoUsuario;		
+		$_SESSION["formulario"] = $nuevoUsuario;	
+		
 	}
 	else // En caso contrario, vamos al formulario
-		Header("Location: form_alta_cita.php");
+		Header("Location: form_alta_cliente.php");
 
 	// Validamos el formulario en servidor
 	$conexion = crearConexionBD(); 
 	$errores = validarDatosUsuario($conexion, $nuevoUsuario);
+	
 	cerrarConexionBD($conexion);
 	
 	// Si se han detectado errores
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
+		//var_dump(count($errores));exit;
 		Header('Location: form_alta_cliente.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_alta_cliente.php');
-
+		
 ///////////////////////////////////////////////////////////
 // Validación en servidor del formulario de alta de usuario
 ///////////////////////////////////////////////////////////
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
+//	var_dump($errores);exit;
 	// Validación del NIF
 	if($nuevoUsuario["nif"]=="") 
 		$errores[] = "<p>El NIF no puede estar vacío</p>";
@@ -79,6 +84,10 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["nif"])){
 		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
 	}
+
+	
+
+	return $errores;
 }
 
 ?>
