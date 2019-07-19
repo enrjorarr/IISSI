@@ -30,7 +30,7 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: form_alta_cliente.php');
+		Header('Location: form_modificacion_cliente.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_modificacion_cliente.php');
@@ -40,13 +40,6 @@
 ///////////////////////////////////////////////////////////
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
-	// Validación del NIF
-	if($nuevoUsuario["nif"]=="") 
-		$errores[] = "<p>El NIF no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
-	}
-
 	// Validación del Nombre			
 	if($nuevoUsuario["nombre"]=="") 
 		$errores[] = "<p>El nombre no puede estar vacío</p>";
@@ -65,11 +58,13 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	if($nuevoUsuario["calle"]==""){
 		$errores[] = "<p>La dirección no puede estar vacía</p>";	
 	}
+	// Validación del número de telefono
 	if($nuevoUsuario["numeroTelefono"]==""){
 		$errores[] = "<p>El telefono no puede estar vacío</p>";	
 	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
+		$errores[] = "<p>El número de telefono debe contener 9 números." . $nuevoUsuario["numeroTelefono"]. "</p>";
 	}
+	return $errores;
 }
 
 ?>

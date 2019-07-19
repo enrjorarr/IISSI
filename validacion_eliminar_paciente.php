@@ -40,7 +40,7 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["idPaciente"])){
 		$errores[] = "<p>El idPaciente debe contener 9 números: " . $nuevoUsuario["idPaciente"]. "</p>";
 	}
-
+	return $errores;
 	
 }
 
