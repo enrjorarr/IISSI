@@ -60,7 +60,9 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 
 	// Validación del Nombre			
 	if($nuevoUsuario["nombre"]=="") 
-        $errores[] = "<p>El nombre no puede estar vacío</p>";
+		$errores[] = "<p>El nombre no puede estar vacío</p>";
+		
+	return $errores;
         
 }
 

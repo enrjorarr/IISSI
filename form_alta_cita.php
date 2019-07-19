@@ -28,7 +28,7 @@
         $formulario=$_SESSION["formulario"];
 
     }
-
+	$errores = array();
     if(isset($_SESSION["errores"])){
         $errores = $_session["errores"];
         unset($_SESSION["errores"]);
@@ -110,7 +110,7 @@
 			</div>
 
 			<div><label for="horaInicio">Hora de Inicio:<em STYLE="color:red;">*</em></label>
-			<input type="text" id="horaInicio" name="horaInicio" value="<?php echo $formulario['horaInicio'];?>"required/>
+			<input type="text" id="horaInicio" name="horaInicio" pattern = '/^([0-1][0-9]|2[0-3])(:)([0-5][0-9])$/' value="<?php echo $formulario['horaInicio'];?>"required/>
 			</div>
 
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
