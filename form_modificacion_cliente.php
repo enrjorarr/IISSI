@@ -25,7 +25,8 @@
 	else{
 		
 		$formulario = $_SESSION["formulario"];
-	}		
+	}	
+	$errores = array();	
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
@@ -88,8 +89,7 @@
   		}
 	?>
 	
-	<form id="modificacionCliente" method="get" action="validacion_modificacion_cliente.php"
-		>
+	<form id="modificacionCliente" method="get" action="validacion_modificacion_cliente.php" >
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
