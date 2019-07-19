@@ -31,6 +31,9 @@
 		$formulario = $_SESSION["formulario"];
 	}		
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
+	
+	$errores=array();
+	
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);

@@ -47,11 +47,11 @@
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
 	// Validación del NIF
-	if($nuevoUsuario["nif"]=="") 
-		$errores[] = "<p>El NIF no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
-	}
+	//if($nuevoUsuario["nif"]=="") 
+	//	$errores[] = "<p>El NIF no puede estar vacío</p>";
+	//else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
+	//	$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
+	//}
 
 	// Validación del gestor			
 //	if($nuevoUsuario["OIDGestor"]=="") 
@@ -66,6 +66,14 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	if($nuevoUsuario["motivo"]==""){
 		$errores[] = "<p>Por favor indique una breve descripcion del problema de su animal.</p>";	
 	}
+
+	if($nuevoUsuario["idPaciente"]==""){
+		$errores[]="<p>El id del paciente debe estar rellenado </p>";
+	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["idPaciente"]))
+		$errores[]="<p>El id del paciente debe estar compuesto por 9 números </p>";
+	
+
+	return $errores;
 }
 
 ?>

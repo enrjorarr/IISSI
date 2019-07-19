@@ -81,9 +81,11 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	}
 	if($nuevoUsuario["numeroTelefono"]==""){
 		$errores[] = "<p>El telefono no puede estar vacío</p>";	
-	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
+	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["numeroTelefono"])){
+		$errores[] = "<p>El número de teléfono es incorrecto: " . $nuevoUsuario["numeroTelefono"]. "</p>";
 	}
+
+	return $errores;
 }
 
 ?>

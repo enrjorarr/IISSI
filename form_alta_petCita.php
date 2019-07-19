@@ -21,10 +21,12 @@
 		
         $formulario=$_SESSION["formulario"];
 
-    }
+	}
+	
+	$errores=array();
 
     if(isset($_SESSION["errores"])){
-        $errores = $_session["errores"];
+        $errores = $_SESSION["errores"];
         unset($_SESSION["errores"]);
     }
 
@@ -85,8 +87,8 @@
 	?>
 	
 	<form id="petCita" method="get" action="validacion_alta_petCita.php"
-		>
-		<!--novalidate--> 
+	novalidate>
+		
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
 		<fieldset class="datos1" ><legend>Datos de la cita</legend>
