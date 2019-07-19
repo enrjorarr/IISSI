@@ -39,10 +39,15 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 
 	// Validación del motivo			
 	if($nuevoUsuario["IDPaciente"]=="") 
-		$errores[] = "<p>El motivo no puede estar vacío</p>";
-    
+		$errores[] = "<p>El id no puede estar vacío</p>";
+	else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["IDPaciente"])){
+		$errores[] = "<p>El id debe contener 9 números: " . $nuevoUsuario["IDPaciente"]. "</p>";
+	}
+	return $errores;
+
+    }
 	
-}
+
 
 ?>
 

@@ -21,8 +21,24 @@
 	else{
 		
 		$formulario = $_SESSION["formulario"];
-	}		
+	}	
+
+	function diaActual(){
+
+		$fecha = new Date();
+		$y = fecha.getFullYear();
+		$m = fecha.getMonth();
+		$d = fecha.getDate();
+
+		$today = y + '-' + m '-' + d;
+		return $today;
+	}
+	$hoy = diaActual();
+	
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
+	$errores = array();
+
+	
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);
@@ -72,7 +88,7 @@
             
                 <div class = "fechaConsulta">
                     <label for="fechaConsulta">Fecha de Consulta:</label>
-			        <input type="date" id="fechaConsulta" name="fechaConsulta" value="<?php echo $formulario['fechaConsulta'];?>"/>
+			        <input type="date" id="fechaConsulta" name="fechaConsulta" min=$hoy value="<?php echo $formulario['fechaConsulta'];?>"/>
                 </div>
                 
                 <div class = "motivo">
