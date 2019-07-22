@@ -6,7 +6,7 @@
 	// Importar librerías necesarias para gestionar direcciones y géneros literarios
 	require_once("gestionBD.php");
 
-
+	
 	
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
@@ -26,6 +26,7 @@
 		$nuevoUsuario["tipoTrabajador"] = $_REQUEST["tipoTrabajador"];
 
 		
+	 
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["formulario"] = $nuevoUsuario;		
 	}
@@ -55,6 +56,7 @@
 // Validación en servidor del formulario de alta de usuario
 ///////////////////////////////////////////////////////////
 function validarDatosTrabajador($conexion, $nuevoUsuario){
+	$fecha = $nuevoUsuario["fechaNacimiento"];
 	$errores=array();
 	// Validación del NIF
 	if($nuevoUsuario["nif"]=="") 
@@ -84,14 +86,17 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	}
 
 	// Validación fecha de nacimiento
-	if($nuevoUsuario["fechaNacimiento"]=""){
+
+	if($nuevoUsuario["fechaNacimiento"]==""){
 		$errores[]="<p> La fecha de nacimiento debe estar rellenada </p>";
 	}else if(getAge($fecha)<18){
-		$error[]="<p> El trabajador debe ser mayor de edad </p>";
+
+		$errores[]="<p> El trabajador debe ser mayor de edad </p>";
 	}
 	
 	// Validación de la dirección
 	if($nuevoUsuario["calle"]==""){
+
 		$errores[] = "<p>La dirección no puede estar vacía</p>";	
 	}
 	if($nuevoUsuario["numeroTelefono"]==""){
@@ -103,12 +108,9 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	return $errores;
 }
 function getAge($fecha){
-
+	
 	$birthdayDate = $fecha;
-
-	var_dump($fecha);exit;
-
-	$dob = strtotime(str_replace("/","-",$birthdayDate));   ;
+	$dob = strtotime($birthdayDate);   
 
 	       
 	$tdate = time();
@@ -118,7 +120,7 @@ function getAge($fecha){
 	{
     	++$age;
 	}
-	
+
 	return $age;
 }
 
