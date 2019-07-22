@@ -115,7 +115,7 @@
 			</div>
 
 			<div><label for="fechaNacimiento">Fecha de nacimiento:<em>*</em></label>
-			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"/>
+			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"required/>
 			</div>
 
 			<div><label for="email">Email:<em>*</em></label>
