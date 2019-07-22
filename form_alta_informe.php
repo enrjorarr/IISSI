@@ -23,18 +23,38 @@
 		$formulario = $_SESSION["formulario"];
 	}	
 
-	function diaActual(){
-
-		$fecha = new Date();
-		$y = fecha.getFullYear();
-		$m = fecha.getMonth();
-		$d = fecha.getDate();
-
-		$today = y + '-' + m '-' + d;
-		return $today;
-	}
-	$hoy = diaActual();
 	
+	
+	function hoyFecha(){
+		$aux = getdate();
+		//var_dump($aux);exit;
+
+		$dd = $aux["mday"];
+		//$dd = (string)$dd;
+
+
+		$mm = $aux["mon"];
+		//$mm = (string)$mm;
+
+		$yyyy = $aux["year"];
+		//$yyyy = (string)$yyyy;
+	 
+		$dd=addZero($dd);
+		$mm=addZero($mm);
+
+			return $yyyy . '-' . $mm . '-' . $dd;
+	}
+
+
+	function addZero($i) {
+		if ($i < 10) {
+			$i = '0' . $i;
+		}
+		return $i;
+	}
+	$hoy = hoyFecha();
+	//var_dump($hoy);exit;
+
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	$errores = array();
 
@@ -69,6 +89,7 @@
 
 	
 	<?php 
+	
 		// Mostrar los erroes de validación (Si los hay)
 		if (isset($errores) && count($errores)>0) { 
 	    	echo "<div id=\"div_errores\" class=\"error\">";
@@ -79,16 +100,18 @@
     		echo "</div>";
   		}
 	?>
+	
 	<main>
-
+		  
 	    <form id="altaInforme" method="get" action="validacion_alta_informe.php"
 		    >
 		    <!--novalidate--> 
             <!--onsubmit="return validateForm()"--> 
             
                 <div class = "fechaConsulta">
+		  			
                     <label for="fechaConsulta">Fecha de Consulta:</label>
-			        <input type="date" id="fechaConsulta" name="fechaConsulta" min=$hoy value="<?php echo $formulario['fechaConsulta'];?>"/>
+			        <input type="date" id="fechaConsulta" name="fechaConsulta" max=<?php echo $hoy;?> value="<?php echo $formulario['fechaConsulta'];?>"/>
                 </div>
                 
                 <div class = "motivo">
