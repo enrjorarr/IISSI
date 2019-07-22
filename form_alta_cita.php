@@ -8,7 +8,6 @@
 	require_once("gestionarTrabajadores.php");
 
 
-
     if(!isset($_SESSION["formulario"])){
         $formulario['nif'] = "";                                     
 		$formulario['OIDGestor'] = "";                                   
@@ -84,6 +83,7 @@
 
 	
 	<?php 
+	    
 		// Mostrar los erroes de validación (Si los hay)
 		if (isset($errores) && count($errores)>0) { 
 	    	echo "<div id=\"div_errores\" class=\"error\">";
@@ -95,7 +95,7 @@
   		}
 	?>
 	
-	<form id="altaCita" method="get" action="validacion_alta_cita.php"
+	<form id="altaCita" method="get" action="validacion_alta_cita.php" 
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   

@@ -51,7 +51,7 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	// Validación del NIF
 	if($nuevoUsuario["nif"]=="") 
 		$errores[] = "<p>El NIF no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
+	else if(!preg_match("/^[0-9]{8}[A-Z]{1}$/", $nuevoUsuario["nif"])){
 		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
 	}
 
@@ -72,7 +72,7 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 		!preg_match("/[A-Z]+/", $nuevoUsuario["pass"]) || !preg_match("/[0-9]+/", $nuevoUsuario["pass"])){
 		$errores[] = "<p>Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos</p>";
 	}else if($nuevoUsuario["pass"] != $nuevoUsuario["confirmpass"]){
-		$errores[] = "<p>La confirmación de contraseña no coincide con la contraseña</p>";
+		$errores[] = "<p>Las contraseñas no coinciden</p>";
 	}
 	
 	// Validación de la dirección
@@ -81,8 +81,8 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	}
 	if($nuevoUsuario["numeroTelefono"]==""){
 		$errores[] = "<p>El telefono no puede estar vacío</p>";	
-	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
+	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["numeroTelefono"])){
+		$errores[] = "<p>El numero de telefono debe contener 9 : " . $nuevoUsuario["nif"]. "</p>";
 	}
 
 	

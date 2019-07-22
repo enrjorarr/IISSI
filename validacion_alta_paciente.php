@@ -52,17 +52,24 @@
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
 	// Validación del NIF
-	if($nuevoUsuario["nif"]=="") 
-		$errores[] = "<p>El NIF no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
-	}
+	if($nuevoUsuario["idPaciente"]=="") 
+		$errores[] = "<p>El IDPaciente no puede estar vacío</p>";
+	else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["idPaciente"])){
+		$errores[] = "<p>El NIF debe contener 9 números : " . $nuevoUsuario["idPaciente"]. "</p>";
+	}		
+	if($nuevoUsuario["especie"]=="") 
+		$errores[] = "<p>La especie no puede estar vacío</p>";
 
-	// Validación del Nombre			
-	if($nuevoUsuario["nombre"]=="") 
-		$errores[] = "<p>El nombre no puede estar vacío</p>";
-		
+	if($nuevoUsuario["colorPelo"]=="") 
+		$errores[] = "<p>El color de pelo no puede estar vacío</p>";	
+	
+	if($nuevoUsuario["fechaNacimiento"]=="") 
+		$errores[] = "<p>La fecha de nacimiento no puede estar vacío</p>";	
+
+	if($nuevoUsuario["raza"]=="") 
+		$errores[] = "<p>La raza no puede estar vacía</p>";
 	return $errores;
+
         
 }
 
