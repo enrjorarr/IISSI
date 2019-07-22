@@ -29,7 +29,7 @@
     }
 	$errores = array();
     if(isset($_SESSION["errores"])){
-        $errores = $_session["errores"];
+        $errores =  $_SESSION["errores"];
         unset($_SESSION["errores"]);
 	}
 	
@@ -60,25 +60,7 @@
 	include_once("cabecera_gestor.php");
 
 ?>
-	<script>
-		// Inicialización de elementos y eventos cuando el documento se carga completamente
-		$(document).ready(function() {
-			$("#altaUsuario").on("submit", function() {
-				return validateForm();
-			});
-			
-			// EJERCICIO 2: Manejador de evento para copiar automáticamente el email como nick del usuario
-			$("#email").on("input", function(){
-				$("#nick").val($(this).val());
-			});
 
-			// EJERCICIO 3: Manejador de evento del color de la contraseña
-			$("#pass").on("keyup", function() {
-				// Calculo el color
-				passwordColor();
-			});
-
-	</script>
 	
 
 	
@@ -95,7 +77,7 @@
   		}
 	?>
 	
-	<form id="altaCita" method="get" action="validacion_alta_cita.php" 
+	<form id="altaCita" method="get" action="validacion_alta_cita.php"  novalidate
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
@@ -108,9 +90,9 @@
 			<div><label for="fechaInicio">Fecha de inicio:<em STYLE="color:red;">*</em></label>
 			<input id="fechaInicio" name="fechaInicio" type="date" size="80" value="<?php echo $formulario['fechaInicio'];?>"required/>
 			</div>
-
+		
 			<div><label for="horaInicio">Hora de Inicio:<em STYLE="color:red;">*</em></label>
-			<input type="text" id="horaInicio" name="horaInicio" pattern = '/^([0-1][0-9]|2[0-3])(:)([0-5][0-9])$/' value="<?php echo $formulario['horaInicio'];?>"required/>
+			<input type="text" id="horaInicio" name="horaInicio" pattern = "/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/" value="<?php echo $formulario['horaInicio'];?>"required/>
 			</div>
 
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>

@@ -62,24 +62,24 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
 	}
 
-	$regexFecha = '/^([0-1][0-9]|2[0-3])(:)([0-5][0-9])$/';
+	
 
 	// Validación del gestor			
-	if($nuevoUsuario["OIDGestor"]=="") 
-		$errores[] = "<p>Debe introducirse el OID del gestor</p>";
+	if($nuevoUsuario["OIDTrabajador"]=="") 
+		$errores[] = "<p>Debe introducirse el OID del trabajador</p>";
 	
 	// Validación de la fecha inicio
-	if($nuevoUsuario["fechaInicio"]==""){ 
+	if($nuevoUsuario["horaInicio"]==""){ 
 		$errores[] = "<p>La fecha de inicio no puede estar vacío</p>";
-	}else if ( !preg_match($regexFecha, $fecha, $matchFecha) ) {
-		$errores[] = "<p>La fecha de inicio debe cumplir el siguiente pattern : 2000-01-01 23:59 </p>";
+	}else if ( !preg_match("/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/",$nuevoUsuario["horaInicio"]))  {
+		$errores[] = "<p>La fecha de inicio debe cumplir el siguiente pattern : 23:59 </p>";
 	}
 	
 	// Validación del numero de la feccha de fin
 	if($nuevoUsuario["duracionMin"]==""){
 		$errores[] = "<p>La fecha de fin no puede estar vacía</p>";	
-	}else if(!preg_match("/^[0-5][0-9]$/", $nuevoUsuario["duracionMin"])){
-		$errores[] = "<p>Laa consultas no deben durar más de 59 minutos";
+	}else if(!preg_match("/^[0-5][0-9]|[6][0]$/", $nuevoUsuario["duracionMin"])){
+		$errores[] = "<p>Las consultas no deben durar más de 60 minutos";
 	}
 	return $errores;
 }
