@@ -1,3 +1,5 @@
+
+
 <?php
 	session_start();
 
@@ -5,6 +7,7 @@
 	require_once("gestionBD.php");
 
 
+	
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
 		// Recogemos los datos del formulario
@@ -26,13 +29,18 @@
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["formulario"] = $nuevoUsuario;		
 	}
+
 	else // En caso contrario, vamos al formulario
 		Header("Location: form_alta_trabajador.php");
 
 	// Validamos el formulario en servidor
 	$conexion = crearConexionBD(); 
 	$errores = validarDatosTrabajador($conexion, $nuevoUsuario);
+	$fecha = $nuevoUsuario["fechaNacimiento"];
+
+
 	cerrarConexionBD($conexion);
+
 	
 	// Si se han detectado errores
 	if (count($errores)>0) {
@@ -63,7 +71,7 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	if($nuevoUsuario["email"]==""){ 
 		$errores[] = "<p>El email no puede estar vacío</p>";
 	}else if(!filter_var($nuevoUsuario["email"], FILTER_VALIDATE_EMAIL)){
-		$errores[] = "<p>El email es incorrecto: " . $nuevoUsuario["email"]. "</p>";
+		$errores[] = "<p>El email es incorrecto:</p>";
 	}	
 	// Validación de la contraseña
 	if(!isset($nuevoUsuario["pass"]) || strlen($nuevoUsuario["pass"])<8){
@@ -74,6 +82,13 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	}else if($nuevoUsuario["pass"] != $nuevoUsuario["confirmpass"]){
 		$errores[] = "<p>La confirmación de contraseña no coincide con la contraseña</p>";
 	}
+
+	// Validación fecha de nacimiento
+	if($nuevoUsuario["fechaNacimiento"]=""){
+		$errores[]="<p> La fecha de nacimiento debe estar rellenada </p>";
+	}else if(getAge($fecha)<18){
+		$error[]="<p> El trabajador debe ser mayor de edad </p>";
+	}
 	
 	// Validación de la dirección
 	if($nuevoUsuario["calle"]==""){
@@ -82,10 +97,29 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	if($nuevoUsuario["numeroTelefono"]==""){
 		$errores[] = "<p>El telefono no puede estar vacío</p>";	
 	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["numeroTelefono"])){
-		$errores[] = "<p>El número de teléfono es incorrecto: " . $nuevoUsuario["numeroTelefono"]. "</p>";
+		$errores[] = "<p>El número de teléfono es incorrecto</p>";
 	}
 
 	return $errores;
+}
+function getAge($fecha){
+
+	$birthdayDate = $fecha;
+
+	var_dump($fecha);exit;
+
+	$dob = strtotime(str_replace("/","-",$birthdayDate));   ;
+
+	       
+	$tdate = time();
+
+	$age = 0;
+	while( $tdate > $dob = strtotime('+1 year', $dob))
+	{
+    	++$age;
+	}
+	
+	return $age;
 }
 
 ?>
