@@ -47,6 +47,7 @@
 ///////////////////////////////////////////////////////////
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
+	$fecha = $nuevoUsuario["fechaNacimiento"];
 //	var_dump($errores);exit;
 	// Validación del NIF
 	if($nuevoUsuario["nif"]=="") 
@@ -64,7 +65,15 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 		$errores[] = "<p>El email no puede estar vacío</p>";
 	}else if(!filter_var($nuevoUsuario["email"], FILTER_VALIDATE_EMAIL)){
 		$errores[] = "<p>El email es incorrecto: " . $nuevoUsuario["email"]. "</p>";
-	}	
+	}
+
+	//validacion fecha de nacimiento
+	if($nuevoUsuario["fechaNacimiento"]==""){
+		$errores[] = "<p>La fecha de nacimiento no puede estar vacía</p>";	
+	}else if(getAge($fecha)<18){
+		$errores[] = "<p> El cliente debe ser mayor de edad </p>";
+	}
+
 	// Validación de la contraseña
 	if(!isset($nuevoUsuario["pass"]) || strlen($nuevoUsuario["pass"])<8){
 		$errores [] = "<p>Contraseña no válida: debe tener al menos 8 caracteres</p>";
@@ -79,6 +88,8 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	if($nuevoUsuario["calle"]==""){
 		$errores[] = "<p>La dirección no puede estar vacía</p>";	
 	}
+
+	//Validacion numero telefono
 	if($nuevoUsuario["numeroTelefono"]==""){
 		$errores[] = "<p>El telefono no puede estar vacío</p>";	
 	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["numeroTelefono"])){
@@ -88,6 +99,23 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	
 
 	return $errores;
+}
+
+function getAge($fecha){
+	
+	$birthdayDate = $fecha;
+	$dob = strtotime($birthdayDate);   
+
+	       
+	$tdate = time();
+
+	$age = 0;
+	while( $tdate > $dob = strtotime('+1 year', $dob))
+	{
+    	++$age;
+	}
+
+	return $age;
 }
 
 ?>
