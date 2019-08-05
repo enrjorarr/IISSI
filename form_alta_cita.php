@@ -26,7 +26,38 @@
 
         $formulario=$_SESSION["formulario"];
 
-    }
+	}
+	
+	function hoyFecha(){
+		$aux = getdate();
+		//var_dump($aux);exit;
+
+		$dd = $aux["mday"];
+		//$dd = (string)$dd;
+
+
+		$mm = $aux["mon"];
+		//$mm = (string)$mm;
+
+		$yyyy = $aux["year"];
+		//$yyyy = (string)$yyyy;
+	 
+		$dd=addZero($dd);
+		$mm=addZero($mm);
+
+			return $yyyy . '-' . $mm . '-' . $dd;
+	}
+
+	function addZero($i) {
+		if ($i < 10) {
+			$i = '0' . $i;
+		}
+		return $i;
+	}
+
+	$hoy = hoyFecha();
+
+
 	$errores = array();
     if(isset($_SESSION["errores"])){
         $errores =  $_SESSION["errores"];
@@ -88,7 +119,7 @@
 			</div>
 
 			<div><label for="fechaInicio">Fecha de inicio:<em STYLE="color:red;">*</em></label>
-			<input id="fechaInicio" name="fechaInicio" type="date" size="80" value="<?php echo $formulario['fechaInicio'];?>"required/>
+			<input id="fechaInicio" name="fechaInicio" type="date" size="80" min=<?php echo $hoy;?> value="<?php echo $formulario['fechaInicio'];?>"required/>
 			</div>
 		
 			<div><label for="horaInicio">Hora de Inicio:<em STYLE="color:red;">*</em></label>
