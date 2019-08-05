@@ -10,7 +10,8 @@
 		 $pass = $_POST['pass'];
 		 $num_usuarios = 0;
 		 $conexion = crearConexionBD();
- 
+
+		 
 		 if(existeCliente($conexion,$email,$pass)){
  
 				 
@@ -22,8 +23,10 @@
  
 			 $miscojones = consultarTrabajador2email($conexion,$email);
 			 $vergota = $miscojones["ESGESTOR"];
+			
  
 				 if($vergota == "s"){
+					 
 					 $_SESSION['loginGestor'] = $email;
 					 Header("Location: inicio_gestor.php");
 				 }else{

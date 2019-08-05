@@ -5,7 +5,10 @@
 	require_once("gestionBD.php");
 	//require_once("gestionar_direcciones.php");
 	//require_once("gestionar_generos_literarios.php");
+	if(!isset($_SESSION["loginGestor"])){
+		Header("Location: inicio.php");
 	
+	}
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION["formulario"])) {
 		$formulario['nif'] = "";                                      //  
