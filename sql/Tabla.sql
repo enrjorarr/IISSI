@@ -1,13 +1,5 @@
 
-DROP TABLE Peluquerias;
-
-DROP TABLE Consultas;
-
 DROP TABLE Citas;
-
-DROP TABLE Veterinarios;
-
-DROP TABLE Peluqueros;
 
 DROP TABLE Gestores;
 
@@ -89,6 +81,7 @@ CREATE TABLE Trabajadores (
     Sueldo          NUMBER(12,2) NOT NULL,
     EsGestor        CHAR(1),    
     DNI             CHAR(9)     NOT NULL,
+    TipoTrabajador  CHAR(1)     NOT NULL,
     OIDTrabajador   SMALLINT    NOT NULL,
 
     CONSTRAINT COMPROBAR_DNI3 CHECK (REGEXP_LIKE(DNI, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]')),
@@ -103,25 +96,7 @@ CREATE TABLE Gestores (
     FOREIGN KEY (OIDTrabajador)  REFERENCES Trabajadores,
     PRIMARY KEY (OIDGestor)
 );
-
-CREATE TABLE Peluqueros (
-    OIDPeluquero    SMALLINT    NOT NULL,
-    OIDTrabajador   SMALLINT    NOT NULL,
-
-    PRIMARY KEY (OIDPeluquero),
-    FOREIGN KEY (OIDTrabajador)  REFERENCES Trabajadores
-);
-
-CREATE TABLE Veterinarios (
-    OIDVeterinario  SMALLINT    NOT NULL,
-    OIDTrabajador   SMALLINT    NOT NULL,
-
-    PRIMARY KEY (OIDVeterinario),
-    FOREIGN KEY (OIDTrabajador)  REFERENCES Trabajadores
-);
-
-
-   
+  
     
 CREATE TABLE PeticionCitas (
     OIDPetCita SMALLINT NOT NULL,
@@ -129,7 +104,7 @@ CREATE TABLE PeticionCitas (
     Motivo Varchar(50),
     FechaInicio DATE NOT NULL,
     IDPaciente CHAR(9),
-    TipoCita Varchar2(10),
+    TipoCita CHAR(1),
 
     PRIMARY KEY (OIDPetCita),
     FOREIGN KEY (Dni) REFERENCES Clientes,
@@ -144,29 +119,17 @@ CREATE TABLE Citas (
     HoraInicio Varchar2(5) NOT NULL,
     DuracionMin NUMBER(4) NOT NULL,
     Coste NUMBER(4,2) NOT NULL,
+    TipoCita CHAR(1) NOT NULL,
+    OIDTrabajador SMALLINT NOT NULL,
 
     PRIMARY KEY (OIDCita),
     FOREIGN KEY (Dni) REFERENCES Clientes,
     FOREIGN KEY (OIDGestor) REFERENCES Gestores,
+    FOREIGN KEY (OIDTrabajador) REFERENCES Trabajadores,
     CONSTRAINT ComprobarCoste CHECK(Coste>0)
     );
-    
-CREATE TABLE Consultas(
-    OIDConsulta                  SMALLINT NOT NULL,
-    OIDVeterinario               SMALLINT NOT NULL,
-    OIDCita                      SMALLINT,
-            
-    PRIMARY KEY (OIDConsulta),
-    FOREIGN KEY (OIDCita) REFERENCES Citas,
-    FOREIGN KEY (OIDVeterinario) REFERENCES Veterinarios
-    );
-  
-CREATE TABLE Peluquerias(
-    OIDPeluqueria            SMALLINT NOT NULL,
-    OIDPeluquero            SMALLINT NOT NULL,
-    OIDCita                  SMALLINT,
 
-    PRIMARY KEY (OIDPeluqueria),
-    FOREIGN KEY (OIDPeluquero) REFERENCES Peluqueros,
-    FOREIGN KEY (OIDCita) REFERENCES Citas
-    );
+
+ 
+
+    

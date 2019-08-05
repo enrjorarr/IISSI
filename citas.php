@@ -37,7 +37,7 @@
                     <form action = "form_alta_petCita.php" method = "POST" name="formulario">
                       
                         <input type="image" src="images/estetoscopio.png"/>
-                        <input type="hidden" id="code" name="code" value="CONSULTA">
+                        <input type="hidden" id="code" name="code" value="c">
                     </form>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
 
                     <form action = "form_alta_petCita.php" method = "POST" name="formulario">
                         <input type="image" src="images/secador-de-pelo.png"/>
-                        <input type="hidden" id="code" name="code" value="PELUQUERIA">
+                        <input type="hidden" id="code" name="code" value="p">
                     </form>
                                             
                     </div>

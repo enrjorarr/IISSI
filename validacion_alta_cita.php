@@ -25,6 +25,7 @@
 		$nuevoUsuario['horaInicio'] = $_REQUEST["horaInicio"];
 		$nuevoUsuario['duracionMin'] = $_REQUEST["duracionMin"];
 		$nuevoUsuario['coste'] = $_REQUEST["coste"];
+		$nuevoUsuario["TipoCita"] = $_REQUEST["TipoCita"];
 		$nuevoUsuario["OIDTrabajador"] =  $_REQUEST["oidTrabajador"];
 		
 		

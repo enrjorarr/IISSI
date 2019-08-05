@@ -34,7 +34,7 @@ input[type=text], input[type=date],input[type=email],input[type=password] {
 }
 select{
     width: 200px;
-	height: 25px;
+	height: 28px;
 	font-size: small;
 	background: white ;
 	padding: 6px 10px;

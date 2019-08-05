@@ -103,36 +103,36 @@
 		novalidate>
 		
 		<!--onsubmit="return validateForm()"-->   
-		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
+		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
 		<fieldset><legend>Datos personales.</legend>
-			<div></div><label for="nif">DNI:<em>*</em></label>
+			<div></div><label for="nif">DNI:<em STYLE="color:red;">*</em></label>
 			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
 			</div>
 
-			<div><label for="nombre">Nombre:<em>*</em></label>
+			<div><label for="nombre">Nombre:<em STYLE="color:red;">*</em></label>
 			<input id="nombre" name="nombre" type="text" size="40" pattern="[A-Za-z\s]+" value="<?php echo $formulario['nombre'];?>" required/>
 			</div>
 
-			<div><label for="apellidos">Apellidos:<em>*</em></label>
+			<div><label for="apellidos">Apellidos:<em STYLE="color:red;">*</em></label>
 			<input id="apellidos" name="apellidos" type="text" size="80" pattern="[A-Za-z\s]+" value="<?php echo $formulario['apellidos'];?>"required/>
 			</div>
 
-			<div><label for="fechaNacimiento">Fecha de nacimiento:<em>*</em></label>
+			<div><label for="fechaNacimiento">Fecha de nacimiento:<em STYLE="color:red;">*</em></label>
 			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"required/>
 			</div>
 
-			<div><label for="email">Email:<em>*</em></label>
+			<div><label for="email">Email:<em STYLE="color:red;">*</em></label>
 			<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/>
 			</div>
 
-			<div><label for="numeroTelefono">Telefono:<em>*</em></label>
+			<div><label for="numeroTelefono">Telefono:<em STYLE="color:red;">*</em></label>
 			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" pattern="^[0-9]{9}"value="<?php echo $formulario['numeroTelefono'];?>" required/>
 			</div>
 
-			<div><label for="tipoTrabajador">Tipo de trabajador:<em>*</em></label>
+			<div><label for="tipoTrabajador">Tipo de trabajador:<em STYLE="color:red;">*</em></label>
 			<select name="tipoTrabajador">
-    			<option value="veterinario">Veterinario</option>
-    			<option value="peluquero">Peluquero</option>
+    			<option value="v">Veterinario</option>
+    			<option value="p">Peluquero</option>
   			</select>
   			</div>
 
@@ -140,10 +140,10 @@
 
 		<fieldset><legend>Datos de cuenta.</legend>
 			
-			<div><label for="nick">Nickname:</label>
+			<div><label for="nick">Nickname:<em STYLE="color:red;">*</em></label>
 				<input id="nick" name="nick" type="text" size="40" value="<?php echo $formulario['email'];?>" />
 			</div>
-			<div><label for="pass">Password:<em>*</em></label>
+			<div><label for="pass">Password:<em STYLE="color:red;">*</em></label>
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 			</div>
 			<div><label for="confirmpass">Confirmar Password:<em>*</em> </label>
@@ -156,19 +156,19 @@
 				Dirección y detalles laborales.
 			</legend>
 
-			<div><label for="calle">Calle/Avda.:<em>*</em></label>
+			<div><label for="calle">Calle/Avda.:<em STYLE="color:red;">*</em></label>
 			<input id="calle" name="calle" type="text" size="80" pattern="[A-Za-z\s]+"value="<?php echo $formulario['calle'];?>" required/>
 			</div>
 
-      <div><label for="horasTrabajo">Horas de trabajo semanal:<em>*</em></label>
+      <div><label for="horasTrabajo">Horas de trabajo semanal:<em STYLE="color:red;">*</em></label>
 			<input id="horasTrabajo" name="horasTrabajo"  type="text" pattern="^[0-9]{2}" value="<?php echo $formulario['horasTrabajo'];?>" required/>
 			</div>
 
-			<div><label for="sueldo">Salario mensual:<em>*</em></label>
+			<div><label for="sueldo">Salario mensual:<em STYLE="color:red;">*</em></label>
 			<input id="sueldo" name="sueldo" type="text"  pattern="^[0-9]{4}"value="<?php echo $formulario['sueldo'];?>" required/>
 			</div>
 
-			<div><label for="esGestor">Es gestor:<em>*</em></label>
+			<div><label for="esGestor">Es gestor:<em STYLE="color:red;">*</em></label>
 			<select name="esGestor">
     			<option value="s">Si</option>
     			<option value="n">No</option>

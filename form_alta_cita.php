@@ -58,12 +58,14 @@
 	$hoy = hoyFecha();
 
 	//___________________________________________________________________________________________________________________
-
+	$conexion = crearConexionBD();
 	$emailTrabajador=$_SESSION["loginGestor"];
-	$trabajador = consultarTrabajador2email($conexion,$email);
-	$oidTrabajador = $trabajador["OIDTrabajador"];
+	$trabajador = consultarTrabajador2email($conexion,$emailTrabajador);
+
+	$oidTrabajador = $trabajador["OIDTRABAJADOR"];
 	$gestor = consultarGestor2OIDTrabajador($conexion,$oidTrabajador);
-	$OIDGestor = $trabajador["OIDGestor"];
+	$OIDGestor = $gestor["OIDGESTOR"];
+	
 
 	//___________________________________________________________________________________________________________________
 	$errores = array();
@@ -74,7 +76,7 @@
 	
 
 
-	$conexion = crearConexionBD();
+
 
 	
 
@@ -137,6 +139,13 @@
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
 			<input id="duracionMin" name="duracionMin"  type="number"  value="<?php echo $formulario['duracionMin'];?>" required/>
 			</div>
+
+			<div><label for="TipoCita">Tipo de Cita:<em STYLE="color:red;">*</em></label>
+			<select name="TipoCita">
+                <option value="c">Consulta</option>
+                <option value="p">Peluquería</option>
+        	</select>
+            </div>
 
 			<div><label for="coste">Coste:<em STYLE="color:red;">*</em></label>
 			<input id="coste" name="coste" type="number" value="<?php echo $formulario['coste'];?>" required/>

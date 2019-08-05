@@ -5,10 +5,12 @@ create or replace PROCEDURE ALTA_CITA(
     FechaInicio IN CitaS.FechaInicio%TYPE,
     HoraInicio IN CitaS.HoraInicio%TYPE,
     DuracionMin IN CitaS.DuracionMin%TYPE,
-    Coste IN CitaS.Coste%TYPE
+    Coste IN CitaS.Coste%TYPE,
+    OIDTrabajador IN CitaS.OIDTrabajador%TYPE,
+    TipoCita IN CitaS.TipoCita%TYPE
     )IS
     BEGIN
-    INSERT INTO Citas VALUES(0,Dni, OIDGestor,FechaInicio, HoraInicio, DuracionMin,Coste);
+    INSERT INTO Citas VALUES(0,Dni, OIDGestor,FechaInicio, HoraInicio, DuracionMin,Coste,OIDTrabajad);
   COMMIT WORK;
 END ALTA_CITA;
 /
@@ -59,25 +61,6 @@ BEGIN
   COMMIT WORK;
 END ALTA_PACIENTE;
 /
-create or replace PROCEDURE ALTA_PELUQUERIA(
-    OIDPeluquero IN peluquerias.oidpeluquero%TYPE,
-    OIDCita IN peluquerias.oidcita%TYPE
-   
-    )IS
-    BEGIN
-    INSERT INTO Peluquerias VALUES(0,OIDPeluquero,OIDCita);
-  COMMIT WORK;
-END ALTA_PELUQUERIA;
-/
-create or replace PROCEDURE ALTA_PELUQUERO(
-    OIDTrabajador   IN trabajadores.Oidtrabajador%TYPE
-   
-    )IS  
-BEGIN
-    INSERT INTO Peluqueros VALUES(0,OIDTrabajador);
-  COMMIT WORK;
-END ALTA_PELUQUERO;
-/
 create or replace PROCEDURE ALTA_PETCITA(
     Dni  IN PeticionCitas.Dni%TYPE,
     Motivo IN PeticionCitas.Motivo%TYPE,
@@ -102,31 +85,16 @@ create or replace PROCEDURE ALTA_TRABAJADOR(
     Nombre          IN Trabajadores.Nombre%TYPE,
     Apellidos       IN Trabajadores.Apellidos%TYPE,
     EsGestor        IN Trabajadores.EsGestor%TYPE,
-    HorasTrabajo    IN Trabajadores.HorasTrabajo%TYPE
+    HorasTrabajo    IN Trabajadores.HorasTrabajo%TYPE,
+    TipoTrabajador IN Trabajadores.TipoTrabajador%TYPE
     )IS  
 BEGIN
     INSERT INTO Trabajadores VALUES(NUMEROTELEFONO,PASS,FECHANAC,NOMBRE,APELLIDOS,DIRECCION,
-    EMAIL,HORASTRABAJO,SUELDO,ESGESTOR,DNI,1);
+    EMAIL,HORASTRABAJO,SUELDO,ESGESTOR,DNI,TIPOTRABAJADOR,1);
   COMMIT WORK;
 END ALTA_TRABAJADOR;
 /
-create or replace PROCEDURE ALTA_VETERINARIO(
-   OIDTrabajador in Veterinarios.OIDTrabajador%TYPE
-    )IS  
-BEGIN
-    INSERT INTO Veterinarios VALUES(0,OIDTrabajador);
-  COMMIT WORK;
-END ALTA_VETERINARIO;
-/
-create or replace PROCEDURE ALTA_CONSULTA(
-    OIDVeterinario     IN Consultas.OIDVeterinario%TYPE,
-    OIDCita            IN Citas.OIDCita%TYPE
-    )IS
-    BEGIN
-    INSERT INTO Consultas VALUES(0,OIDVeterinario,OIDCita);
-  COMMIT WORK;
-END ALTA_CONSULTA;
-/
+
 create or replace PROCEDURE ELIMINAR_CLIENTE_POR_DNI(v_Dni IN Clientes.Dni%TYPE)
 IS
 BEGIN
@@ -141,15 +109,7 @@ BEGIN
     COMMIT;
 END ELIMINAR_PACIENTE_POR_ID;
 /
-create or replace PROCEDURE ELIMINAR_CONSULTA_POR_CITA (v_OIDCitas IN Citas.OIDCita%TYPE)
-IS
-BEGIN
-    DELETE FROM Consultas WHERE OIDCita = v_OIDCitas;
-    DELETE FROM CITAS WHERE OIDCita = v_OIDCitas;
 
-    COMMIT;
-END ELIMINAR_CONSULTA_POR_CITA;
-/
 create or replace PROCEDURE ELIMINAR_GESTOR(
 v_OIDTrabajador IN veterinarios.oidtrabajador%TYPE)
  IS 
@@ -160,34 +120,7 @@ DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
     COMMIT;
 END ELIMINAR_GESTOR;
 /
-create or replace PROCEDURE ELIMINAR_PELUQUERIA_POR_CITA (v_OIDCitas IN Citas.OIDCita%TYPE)
-IS
-BEGIN
-    DELETE FROM Peluquerias WHERE OIDCita = v_OIDCitas;
-    DELETE FROM citas WHERE OIDCita = v_OIDCitas;
 
-    COMMIT;
-END ELIMINAR_PELUQUERIA_POR_CITA;
-/
-create or replace PROCEDURE ELIMINAR_PELUQUERO(
-v_OIDTrabajador IN PELUQUEROS.oidtrabajador%TYPE)
- IS 
-BEGIN
-DELETE FROM PELUQUEROS WHERE oidtrabajador = v_oidtrabajador;
-DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
-
-    COMMIT;
-END ELIMINAR_PELUQUERO;
-/
-create or replace PROCEDURE ELIMINAR_VETERINARIO(
-v_OIDTrabajador IN veterinarios.oidtrabajador%TYPE)
- IS 
-BEGIN
-    DELETE FROM VETERINARIOS WHERE oidtrabajador = v_oidtrabajador;
-    DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
-    COMMIT;
-END ELIMINAR_VETERINARIO;
-/
 create or replace PROCEDURE MODIFICAR_CLIENTE
 (EMAIL_v IN CLIENTES.EMAIL%TYPE,
 NUMEROTELEFONO_v IN CLIENTES.NUMEROTELEFONO%TYPE,
@@ -210,50 +143,18 @@ BEGIN
     COMMIT;
 END ELIMINAR_PETCITA;
 /
+create or replace PROCEDURE ELIMINAR_CITA (v_OIDCITA IN CITAS.OIDCITA%TYPE)
+IS
+BEGIN
+    DELETE FROM CITAS WHERE OIDCITA = v_OIDCITA;
+
+    COMMIT;
+END ELIMINAR_CITA;
+
+/
 create or replace PROCEDURE ELIMINAR_TRABAJADOR_POR_DNI(v_Dni IN Trabajadores.Dni%TYPE)
 IS
 BEGIN
     DELETE FROM Trabajadores WHERE Dni = v_Dni;
     COMMIT;
 END ELIMINAR_TRABAJADOR_POR_DNI;
-/
-create or replace PROCEDURE ELIMINAR_PELUQUERO(
-v_OIDTrabajador IN PELUQUEROS.oidtrabajador%TYPE,
-v_OIDPeluquero IN PELUQUEROS.oidpeluquero%TYPE,
-v_OIDCita IN PELUQUERIAS.oidcita%TYPE)
- IS 
-BEGIN
-
-DELETE FROM PELUQUERIAS WHERE oidpeluquero = v_OIDPeluquero;
-DELETE FROM CITAS WHERE oidcita = v_OIDCita;
-DELETE FROM PELUQUEROS WHERE oidtrabajador = v_oidtrabajador;
-DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
-
-    COMMIT;
-END ELIMINAR_PELUQUERO;
-/
-create or replace PROCEDURE ELIMINAR_VETERINARIO(
-v_OIDTrabajador IN VETERINARIOS.oidtrabajador%TYPE,
-v_OIDVeterinario IN VETERINARIOS.oidveterinario%TYPE,
-v_OIDCita IN CONSULTAS.oidcita%TYPE)
- IS 
-BEGIN
-
-DELETE FROM CONSULTAS WHERE oidveterinario = v_OIDVeterinario;
-DELETE FROM CITAS WHERE oidcita = v_OIDCita;
-DELETE FROM VETERINARIOS WHERE oidtrabajador = v_oidtrabajador;
-DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
-
-    COMMIT;
-END ELIMINAR_VETERINARIO;
-/
-create or replace PROCEDURE ALTA_PELUQUERIA(
-    OIDPeluquero IN peluquerias.oidpeluquero%TYPE,
-    OIDCita IN peluquerias.oidcita%TYPE
-   
-    )IS
-    BEGIN
-    INSERT INTO Peluquerias VALUES(0,OIDPeluquero,OIDCita);
-  COMMIT WORK;
-END ALTA_PELUQUERIA;
-/
