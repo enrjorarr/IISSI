@@ -57,7 +57,15 @@
 
 	$hoy = hoyFecha();
 
+	//___________________________________________________________________________________________________________________
 
+	$emailTrabajador=$_SESSION["loginGestor"];
+	$trabajador = consultarTrabajador2email($conexion,$email);
+	$oidTrabajador = $trabajador["OIDTrabajador"];
+	$gestor = consultarGestor2OIDTrabajador($conexion,$oidTrabajador);
+	$OIDGestor = $trabajador["OIDGestor"];
+
+	//___________________________________________________________________________________________________________________
 	$errores = array();
     if(isset($_SESSION["errores"])){
         $errores =  $_SESSION["errores"];
@@ -135,7 +143,11 @@
 			</div>
 
 			<div><label for="oidTrabajador">OID Trabajador:<em STYLE="color:red;">*</em></label>
-			<input id="oidTrabajador" name="oidTrabajador" type="number" value="<?php echo $formulario['oidTrabajador'];?>" required/>
+			<input id="oidTrabajador" name="oidTrabajador" type="number" value="<?php echo $formulario['OIDTrabajador'];?>" required/>
+			</div>
+
+			<div>
+				<input id="OIDGestor" name="OIDGestor" type="hidden" value="<?php echo $formulario['OIDGestor'];?>" required/>
 			</div>
 
 			
