@@ -28,6 +28,37 @@
 		
 		$formulario = $_SESSION["formulario"];
 	}		
+
+	
+	function hoyFecha(){
+		$aux = getdate();
+		//var_dump($aux);exit;
+
+		$dd = $aux["mday"];
+		//$dd = (string)$dd;
+
+
+		$mm = $aux["mon"];
+		//$mm = (string)$mm;
+
+		$yyyy = $aux["year"];
+		//$yyyy = (string)$yyyy;
+	 
+		$dd=addZero($dd);
+		$mm=addZero($mm);
+
+			return $yyyy . '-' . $mm . '-' . $dd;
+	}
+
+
+	function addZero($i) {
+		if ($i < 10) {
+			$i = '0' . $i;
+		}
+		return $i;
+	}
+	$hoy = hoyFecha();
+	
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	$errores = array();
 	if (isset($_SESSION["errores"])){
@@ -79,7 +110,7 @@
   		}
 	?>
 	
-	<form id="altaPaciente" method="get" action="validacion_alta_paciente.php"
+	<form id="altaPaciente" method="get" action="validacion_alta_paciente.php" 
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
@@ -87,7 +118,7 @@
 
 		<fieldset class="datos2"><legend>Datos del paciente</legend>
             <div><label for="fechaNacimiento">Fecha de nacimiento:<em STYLE="color:red;">*</em></label>
-			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"/>
+			<input type="date" id="fechaNacimiento" name="fechaNacimiento" max=<?php echo $hoy;?> value="<?php echo $formulario['fechaNacimiento'];?>"/>
 			</div>
 			<div><label for="colorPelo">Color de pelo.:<em STYLE="color:red;">*</em></label>
 			<input id="colorPelo" name="colorPelo" type="text" size="40" pattern="[A-Za-z\s]+" value="<?php echo $formulario['colorPelo'];?>" required/>

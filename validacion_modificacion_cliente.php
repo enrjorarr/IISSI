@@ -30,7 +30,7 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: form_modificacion_cliente.php');
+		Header('Location: erroresValidacion.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_modificacion_cliente.php');
@@ -41,8 +41,11 @@
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
 	// Validación del Nombre			
-	if($nuevoUsuario["nombre"]=="") 
+	if($nuevoUsuario["nombre"]=="") {
 		$errores[] = "<p>El nombre no puede estar vacío</p>";
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["nombre"])){
+		$errores[] = "<p>El nombre debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["nombre"]. "</p>";
+	}
 		
 	// Validación de la contraseña
 	if(!isset($nuevoUsuario["pass"]) || strlen($nuevoUsuario["pass"])<8){
@@ -57,6 +60,8 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	// Validación de la dirección
 	if($nuevoUsuario["calle"]==""){
 		$errores[] = "<p>La dirección no puede estar vacía</p>";	
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["calle"])){
+		$errores[] = "<p>La dirección debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["calle"]. "</p>";
 	}
 	// Validación del número de telefono
 	if($nuevoUsuario["numeroTelefono"]==""){

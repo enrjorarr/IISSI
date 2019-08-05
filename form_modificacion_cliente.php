@@ -89,7 +89,7 @@
   		}
 	?>
 	
-	<form id="modificacionCliente" method="get" action="validacion_modificacion_cliente.php" >
+	<form id="modificacionCliente" method="get" action="validacion_modificacion_cliente.php">
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>

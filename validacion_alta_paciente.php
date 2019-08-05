@@ -41,7 +41,7 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: form_alta_paciente.php');
+		Header('Location: erroresValidacion.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_alta_paciente.php');
@@ -57,17 +57,29 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["idPaciente"])){
 		$errores[] = "<p>El NIF debe contener 9 números : " . $nuevoUsuario["idPaciente"]. "</p>";
 	}		
-	if($nuevoUsuario["especie"]=="") 
+	if($nuevoUsuario["especie"]=="") {
 		$errores[] = "<p>La especie no puede estar vacío</p>";
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["especie"])){
+		$errores[] = "<p>La especie debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["especie"]. "</p>";
+	}
 
-	if($nuevoUsuario["colorPelo"]=="") 
+	if($nuevoUsuario["colorPelo"]=="") {
 		$errores[] = "<p>El color de pelo no puede estar vacío</p>";	
-	
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["colorPelo"])){
+		$errores[] = "<p>El color de pelo debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["colorPelo"]. "</p>";
+	}
+
+
 	if($nuevoUsuario["fechaNacimiento"]=="") 
 		$errores[] = "<p>La fecha de nacimiento no puede estar vacío</p>";	
+		
 
-	if($nuevoUsuario["raza"]=="") 
+	if($nuevoUsuario["raza"]=="") {
 		$errores[] = "<p>La raza no puede estar vacía</p>";
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["raza"])){
+		$errores[] = "<p>El color de pelo debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["raza"]. "</p>";
+	}
+
 	return $errores;
 
         
