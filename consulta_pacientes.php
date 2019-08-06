@@ -122,6 +122,8 @@ include_once ("cabecera.php");
                 <th>Raza</th>
                 <th>Especie</th>
                 <th>DNI</th>
+				<th>Eliminar</th>
+
 
             </tr>
             </thead>
@@ -222,7 +224,7 @@ include_once ("cabecera.php");
 
 						type="hidden" value="<?php echo $fila["ESPECIE"]; ?>"/>
 
-
+ 
 
 			
 
@@ -240,6 +242,11 @@ include_once ("cabecera.php");
                             <td><?php echo $fila["RAZA"]; ?></td>
                             <td> <?php echo $fila["ESPECIE"]; ?></td>
                             <td><?php echo $dni; ?></td>
+							<td>
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar">
+                                </button>
+                            </td>
                         </tr>
                         </tbody>
                     
@@ -267,16 +274,16 @@ include_once ("cabecera.php");
 			<input class="butn" type="submit" value="Añadir mascota" />
 		</form>
 	</div>
-	<div class="eliminarpaciente">
-		<form id="formulario" name="formulario" action="validacion_eliminar_paciente.php" method="post">
-            <div class = "eliminarPaciente">
-				<h3>Puede eliminar su mascota si aún no ha reservado o ha sido atendida en consulta</h3>
-                <label for="eliminarPaciente">Insertar id del paciente: </label>
-				<input type="text" name="id" id="id" pattern="^[0-9]{9}"/>
-                <input type="submit" class ="butn" name="Eliminar mascota" value="Eliminar mascota" />
+	<!-- <div class="eliminarpaciente"> -->
+		<!-- <form id="formulario" name="formulario" action="validacion_eliminar_paciente.php" method="post"> -->
+            <!-- <div class = "eliminarPaciente"> -->
+				<!-- <h3>Puede eliminar su mascota si aún no ha reservado o ha sido atendida en consulta</h3> -->
+                <!-- <label for="eliminarPaciente">Insertar id del paciente: </label> -->
+				<!-- <input type="text" name="id" id="id" pattern="^[0-9]{9}"/> -->
+                <!-- <input type="submit" class ="butn" name="Eliminar mascota" value="Eliminar mascota" />
             </div>
         </form>
-	</div>
+	</div> -->
 
 </main>
 

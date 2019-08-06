@@ -13,11 +13,15 @@
         
 		
 		$_SESSION["paciente"] = $paciente;
-			
 		/*if (isset($_REQUEST["editar"])) Header("Location: consulta_pacientes.php"); 
 		/*else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_libro.php");
 		else /* if (isset($_REQUEST["borrar"])) *//* Header("Location: accion_borrar_libro.php"); */
 
-		Header("Location: consulta_pacientes.php");
-
+		if (isset($_REQUEST["borrar"])){
+			
+			Header("Location: accion_eliminar_paciente.php");
+		}else{
+			Header("Location: consulta_pacientes.php");
+		}
+	}
 ?>

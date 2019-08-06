@@ -23,6 +23,37 @@
 
 	}
 	
+
+
+	function hoyFecha(){
+		$aux = getdate();
+		//var_dump($aux);exit;
+
+		$dd = $aux["mday"];
+		//$dd = (string)$dd;
+
+
+		$mm = $aux["mon"];
+		//$mm = (string)$mm;
+
+		$yyyy = $aux["year"];
+		//$yyyy = (string)$yyyy;
+	 
+		$dd=addZero($dd);
+		$mm=addZero($mm);
+
+			return $yyyy . '-' . $mm . '-' . $dd;
+	}
+
+
+	function addZero($i) {
+		if ($i < 10) {
+			$i = '0' . $i;
+		}
+		return $i;
+	}
+	$hoy = hoyFecha();
+
 	$errores=array();
 
     if(isset($_SESSION["errores"])){
@@ -94,7 +125,7 @@
 		<fieldset class="datos1" ><legend>Datos de la cita</legend>
 
 			<div><label for="fecha">Fecha solicitada :<em STYLE="color:red;">*</em></label>
-			<input id="fecha" name="fecha" type="date" size="80" value="<?php echo $formulario['fecha'];?>"required/>
+			<input id="fecha" name="fecha" type="date" size="80" min="<?php echo $hoy;?>" value="<?php echo $formulario['fecha'];?>"required/>
 			</div>
 
 			<div><label for="motivo">Motivo :<em STYLE="color:red;">*</em></label>

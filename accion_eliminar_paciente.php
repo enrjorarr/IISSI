@@ -5,21 +5,23 @@
 	require_once("gestionarPacientes.php"); //Completar más tarde
 		
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
-	if (isset($_SESSION["formulario"])) {
-		$nuevoUsuario = $_SESSION["formulario"];
-		$_SESSION["formulario"] = null;
-        $_SESSION["errores"] = null;
-	}
-    else {
-        
 
-        Header("Location: consulta_pacientes.php");	
-    }
-    $id = $nuevoUsuario["idPaciente"];
-
-	$conexion = crearConexionBD(); 
 	
 
+
+	$conexion = crearConexionBD();	
+
+
+	if (isset($_SESSION["paciente"])) {
+
+        $paciente = $_SESSION["paciente"];
+        
+		$idpaciente = $paciente["IDPACIENTE"];
+
+        unset($_SESSION["paciente"]);
+
+
+		}
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +37,9 @@
 	<?php
         include_once("cabecera.php");
 	?>
- 
+  
 	<main>
-		<?php if (eliminarPacientes2ID($conexion,$id)) { 
+		<?php if (eliminarPacientes2ID($conexion,$idpaciente)) { 
 		?>
 			<?php Header("Location: consulta_pacientes.php");	?>
 
