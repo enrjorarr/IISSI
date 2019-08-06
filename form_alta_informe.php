@@ -103,7 +103,7 @@
 	
 	<main>
 		  
-	    <form id="altaInforme" method="get" action="validacion_alta_informe.php"
+	    <form id="altaInforme" method="get" action="validacion_alta_informe.php" novalidate
 		    >
 		    <!--novalidate--> 
             <!--onsubmit="return validateForm()"--> 

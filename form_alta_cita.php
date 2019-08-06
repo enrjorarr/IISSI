@@ -139,7 +139,7 @@
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
 			<input id="duracionMin" name="duracionMin"  type="number"  value="<?php echo $formulario['duracionMin'];?>" required/>
 			</div>
-
+ 
 			<div><label for="TipoCita">Tipo de Cita:<em STYLE="color:red;">*</em></label>
 			<select name="TipoCita">
                 <option value="c">Consulta</option>

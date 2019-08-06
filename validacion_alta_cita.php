@@ -46,7 +46,7 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: form_alta_cita.php');
+		Header('Location: erroresValidacion.php');
 	} else
 		
 		Header('Location: accion_alta_cita.php');
@@ -71,17 +71,39 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	
 	// Validación de la fecha inicio
 	if($nuevoUsuario["horaInicio"]==""){ 
-		$errores[] = "<p>La fecha de inicio no puede estar vacío</p>";
+		$errores[] = "<p>La hora de inicio no puede estar vacío</p>";
 	}else if ( !preg_match("/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/",$nuevoUsuario["horaInicio"]))  {
-		$errores[] = "<p>La fecha de inicio debe cumplir el siguiente pattern : 23:59 </p>";
+		$errores[] = "<p>La hora de inicio debe cumplir el siguiente pattern : 23:59 </p>";
 	}
 	
 	// Validación del numero de la feccha de fin
 	if($nuevoUsuario["duracionMin"]==""){
-		$errores[] = "<p>La fecha de fin no puede estar vacía</p>";	
+		$errores[] = "<p>La duración no puede estar vacía</p>";	
 	}else if(!preg_match("/^[0-5][0-9]|[6][0]$/", $nuevoUsuario["duracionMin"])){
-		$errores[] = "<p>Las consultas no deben durar más de 60 minutos";
+		$errores[] = "<p>Las citas no deben durar más de 60 minutos";
 	}
+
+
+	if($nuevoUsuario["fechaNacimiento"]==""){
+		$errores[] = "<p>La fecha de nacimiento no puede estar vacía</p>";	
+	}
+
+	if($nuevoUsuario["TipoCita"]==""){
+		$errores[] = "<p>La fecha de nacimiento no puede estar vacía</p>";	
+	}
+
+	if($nuevoUsuario["OIDTrabajador"]=="") 
+		$errores[] = "<p>El oid no puede estar vacío</p>";
+	else if($nuevoUsuario["OIDTrabajador"] > 999){
+		$errores[] = "<p>El oid no puede contener mas de 3 cifras: " . $nuevoUsuario["OIDTrabajador"]. "</p>";
+	}
+
+	if($nuevoUsuario["coste"]=="") 
+		$errores[] = "<p>El coste no puede estar vacío</p>";
+	else if(!preg_match("/^[0-9]{2}$/", $nuevoUsuario["coste"])){
+		$errores[] = "<p>El coste debe contener 2 cifras: " . $nuevoUsuario["coste"]. "</p>";
+	}
+
 	return $errores;
 }
 

@@ -28,7 +28,7 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: form_alta_informe.php');
+		Header('Location: erroresValidacion.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_alta_informe.php');
@@ -59,6 +59,10 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 		$errores[] = "<p>El id puede contener un maximo de 4 números: " . $nuevoUsuario["OIDHistorial"]. "</p>";
 	}
 
+
+	if($nuevoUsuario["fechaNacimiento"]==""){
+		$errores[] = "<p>La fecha de nacimiento no puede estar vacía</p>";	
+	}
 
 
 	return $errores;
