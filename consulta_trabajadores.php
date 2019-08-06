@@ -32,7 +32,7 @@
     // La consulta que ha de paginarse
     $query = 'SELECT TRABAJADORES.OIDTRABAJADOR, TRABAJADORES.PASS,TRABAJADORES.FECHANAC,'
     .'TRABAJADORES.NOMBRE, TRABAJADORES.APELLIDOS, TRABAJADORES.DIRECCION,TRABAJADORES.EMAIL,'
-    .'TRABAJADORES.HORASTRABAJO,TRABAJADORES.SUELDO,TRABAJADORES.ESGESTOR, TRABAJADORES.DNI'
+    .'TRABAJADORES.HORASTRABAJO,TRABAJADORES.SUELDO,TRABAJADORES.ESGESTOR, TRABAJADORES.DNI, TRABAJADORES.TIPOTRABAJADOR'
     .' FROM TRABAJADORES';
 
     // Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
@@ -87,6 +87,7 @@
     	<th>OID Trabajador</th>
 		<th>Nombre</th>
 		<th>Apellidos</th>
+		<th>Función</th>
     	<th>Horas de trabajo</th>
         <th>Sueldo</th>
         <th>DNI</th>
@@ -206,6 +207,11 @@
                     <input id="DNI" name="DNI"
 
                                 type="hidden" value="<?php echo $fila["DNI"]; ?>"/>
+								
+					<input id="TIPOTRABAJADOR" name="TIPOTRABAJADOR"
+
+								type="hidden" value="<?php echo $fila["TIPOTRABAJADOR"]; ?>"/>
+
 
 
 				
@@ -220,10 +226,12 @@
                             <td><?php echo $fila["OIDTRABAJADOR"]; ?></td>
 							<td><?php echo $fila["NOMBRE"]; ?></td>
 							<td><?php echo $fila["APELLIDOS"]; ?></td>
+							<td><?php echo $fila["TIPOTRABAJADOR"]; ?></td>
 							<td><?php echo $fila["HORASTRABAJO"]; ?></td>
                             <td><?php echo $fila["SUELDO"]; ?></td>
                             <td><?php echo $fila["DNI"]; ?></td>
                             <td><?php echo $fila["EMAIL"]; ?></td>
+							
 
                             <td>
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
