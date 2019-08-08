@@ -1,5 +1,5 @@
 create or replace PROCEDURE ELIMINAR_GESTOR(
-v_OIDTrabajador IN veterinarios.oidtrabajador%TYPE)
+v_OIDTrabajador IN trabajadores.oidtrabajador%TYPE)
  IS 
 BEGIN
 DELETE FROM Gestores WHERE oidtrabajador = v_oidtrabajador;
