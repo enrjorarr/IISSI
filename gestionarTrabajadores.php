@@ -6,7 +6,7 @@
      * #==========================================================#
      */
 
- function alta_trabajador($conexion,$trabajador) {
+function alta_trabajador($conexion,$trabajador) {
 	$fechaNacimiento = date('d/m/Y', strtotime($trabajador["fechaNacimiento"]));
 
 	try { 
@@ -37,31 +37,7 @@
     }
 } 
 
-// function alta_peluquero($conexion,$trabajador) {
-// 	try {
-// 		$consulta = "CALL ALTA_PELUQUERO(:OIDTrabajador)";
-// 		$stmt=$conexion->prepare($consulta);
-// 		$stmt->bindParam(':OIDTrabajador',$trabajador["OIDTRABAJADOR"]);
-// 		$stmt->execute();		
-// 		return true;
-// 	} catch(PDOException $e) {
-// 		return false;
-// 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();	
-//     }
-// } 
-//function alta_veterinario($conexion,$trabajador) {
-// 	try {
-// 		$consulta = "CALL ALTA_VETERINARIO(:OIDTrabajador)";
-// 		$stmt=$conexion->prepare($consulta);
-// 		$stmt->bindParam(':OIDTrabajador',$trabajador["OIDTRABAJADOR"]);
-// 		$stmt->execute();		
-// 		return true;
-// 	} catch(PDOException $e) {
-// 		return false;
-// 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();	
-//     }
-//}
- function alta_gestor($conexion,$trabajador) {
+function alta_gestor($conexion,$trabajador) {
 	try {
 		$consulta = "CALL ALTA_GESTOR(:OIDTrabajador)";
 		$stmt=$conexion->prepare($consulta);
@@ -96,88 +72,35 @@ function existeTrabajador($conexion,$email,$pass) {
 		return true;
 	}
 }
+
 function consultarTrabajador2email($conexion,$email) {
 	$consulta = "SELECT * FROM TRABAJADORES WHERE EMAIL=:email";
  	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':email',$email);
 	$stmt->execute();
  	return $stmt->fetch();
- }
- function consultarGestor2OIDTrabajador($conexion,$oidTrabajador) {
-	$consulta = "SELECT * FROM GESTORES WHERE OIDTRABAJADOR=:oidtrabajador";
+}
+
+
+function consultarGestor2OIDTrabajador($conexion,$oidTrabajador) {
+
+ $consulta = "SELECT * FROM GESTORES WHERE OIDTRABAJADOR=:oidtrabajador";
  $stmt = $conexion->prepare($consulta);
  $stmt->bindParam(':oidtrabajador',$oidTrabajador);
  
  $stmt->execute();
  return $stmt->fetch();
- }
- function consultarVeterinario2OIDTrabajador($conexion,$oidTrabajador) {
-	$consulta = "SELECT * FROM Veterinarios WHERE OIDTRABAJADOR=:oidtrabajador";
+}
+
+function consultarTrabajador2OidTrabajador($conexion,$oidTrabajador) {
+ $consulta = "SELECT * FROM TRABAJADORES WHERE OIDTRABAJADOR=:oidtrabajador";
  $stmt = $conexion->prepare($consulta);
  $stmt->bindParam(':oidtrabajador',$oidTrabajador);
  
  $stmt->execute();
  return $stmt->fetch();
- }
- function consultarPeluquero2OIDTrabajador($conexion,$oidTrabajador) {
-	$consulta = "SELECT * FROM PELUQUEROS WHERE OIDTRABAJADOR=:oidtrabajador";
- $stmt = $conexion->prepare($consulta);
- $stmt->bindParam(':oidtrabajador',$oidTrabajador);
- 
- $stmt->execute();
- return $stmt->fetch();
- }
- function consultarTrabajador2OidTrabajador($conexion,$oidTrabajador) {
-	$consulta = "SELECT * FROM TRABAJADORES WHERE OIDTRABAJADOR=:oidtrabajador";
- $stmt = $conexion->prepare($consulta);
- $stmt->bindParam(':oidtrabajador',$oidTrabajador);
- 
- $stmt->execute();
- return $stmt->fetch();
- }
- 
+}
 
-//  function esVeterinario($conexion,$oidtrabajador) {
-// 	$consulta = "SELECT COUNT(*) AS TOTAL FROM VETERINARIOS WHERE OIDTRABAJADOR=:oidtrabajador";
-//  $stmt = $conexion->prepare($consulta);
-//  $stmt->bindParam(':oidtrabajador',$oidtrabajador);
-//  $stmt->execute();
-//  $boolean = $stmt->fetchColumn();
-// 	if( $boolean == 0){
-// 	return false;
-// 	}else{
-// 		return true;
-// 	}
- 
-//  }
-
-//  function esPeluquero($conexion,$oidtrabajador) {
-//  $consulta = "SELECT COUNT(*) AS TOTAL FROM PELUQUEROS WHERE OIDTRABAJADOR=:oidtrabajador";
-//  $stmt = $conexion->prepare($consulta);
-//  $stmt->bindParam(':oidtrabajador',$oidtrabajador);
-//  $stmt->execute();
-//  $boolean = $stmt->fetchColumn();
-// 	if( $boolean == 0){
-// 	return false;
-// 	}else{
-// 		return true;
-// 	}
-
-//  }
-
-
-//  function eliminar_veterinario($conexion,$OIDTrabajador,$OIDPeluquero,$OIDCita) {
-// 	try {
-// 		$stmt=$conexion->prepare('CALL ELIMINAR_VETERINARIO(:OidTrabajador,:OidVeterinario,:OidCita)');
-// 		$stmt->bindParam(':OidTrabajador',$OIDTrabajador);
-// 		$stmt->bindParam(':OidVeterinario',$OIDPeluquero);
-// 		$stmt->bindParam(':OidCita',$OIDCita);
-// 		$stmt->execute();
-// 		return "";
-// 	} catch(PDOException $e) {
-// 		return $e->getMessage();
-//     }
-// }
 function eliminar_trabajador($conexion,$dni) {
 	try {
 		$stmt=$conexion->prepare('CALL ELIMINAR_TRABAJADOR_POR_DNI(:dni)');
@@ -188,45 +111,5 @@ function eliminar_trabajador($conexion,$dni) {
 		return false;
     }
 }
-// function eliminar_peluquero($conexion,$OIDTrabajador,$OIDPeluquero,$OIDCita) {
-// 	try {
-// 		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERO(:OidTrabajador,:OidPeluquero,:OidCita)');
-
-// 		$stmt->bindParam(':OidTrabajador',$OIDTrabajador);
-// 		$stmt->bindParam(':OidPeluquero',$OIDPeluquero);
-// 		$stmt->bindParam(':OidCita',$OIDCita);
-// 		$stmt->execute();
 		
-// 		return "";
-// 	} catch(PDOException $e) {
-// 		return $e->getMessage();
-// 		}
-// 	}		
-
-// function consultarConsulta2OIDVeterinario($conexion,$oidVeterinario) {
-// 	$consulta = "SELECT * FROM CONSULTAS WHERE OIDVETERINARIO=:oidVeterinario";
-// 	$stmt = $conexion->prepare($consulta);
-// 	$stmt->bindParam(':oidVeterinario',$oidVeterinario);
-			
-// 	$stmt->execute();
-// 	return $stmt->fetch();
-// }
-
-// function consultarPeluqueria2OIDPeluquero($conexion,$oidPeluquero) {
-// 	$consulta = "SELECT * FROM PELUQUERIAS WHERE OIDPELUQUERO=:oidPeluquero";
-// 	$stmt = $conexion->prepare($consulta);
-// 	$stmt->bindParam(':oidPeluquero',$oidPeluquero);
-				
-// 	$stmt->execute();
-// 	return $stmt->fetch();
-// }		
-
-
-
-
-
-
-
-
-
 ?>
