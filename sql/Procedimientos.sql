@@ -1,3 +1,6 @@
+
+
+
 create or replace PROCEDURE ALTA_CITA(
     
     OIDGestor IN CitaS.OIDGestor%TYPE,
@@ -10,7 +13,7 @@ create or replace PROCEDURE ALTA_CITA(
     TipoCita IN CitaS.TipoCita%TYPE
     )IS
     BEGIN
-    INSERT INTO Citas VALUES(0,Dni, OIDGestor,FechaInicio, HoraInicio, DuracionMin,Coste,OIDTrabajad);
+    INSERT INTO Citas VALUES(0,Dni, OIDGestor,FechaInicio, HoraInicio, DuracionMin,Coste,OIDTrabajador,TipoCita);
   COMMIT WORK;
 END ALTA_CITA;
 /
@@ -111,7 +114,7 @@ END ELIMINAR_PACIENTE_POR_ID;
 /
 
 create or replace PROCEDURE ELIMINAR_GESTOR(
-v_OIDTrabajador IN veterinarios.oidtrabajador%TYPE)
+v_OIDTrabajador IN Gestores.oidtrabajador%TYPE)
  IS 
 BEGIN
 DELETE FROM Gestores WHERE oidtrabajador = v_oidtrabajador;
