@@ -5,15 +5,7 @@ BEGIN
     COMMIT;
 END ELIMINAR_CLIENTE_POR_DNI;
 /
-create or replace PROCEDURE ELIMINAR_CONSULTA_POR_CITA (v_OIDCitas IN Citas.OIDCita%TYPE)
-IS
-BEGIN
-    DELETE FROM Consultas WHERE OIDCita = v_OIDCitas;
-    DELETE FROM CITAS WHERE OIDCita = v_OIDCitas;
 
-    COMMIT;
-END ELIMINAR_CONSULTA_POR_CITA;
-/
 create or replace PROCEDURE ELIMINAR_GESTOR(
 v_OIDTrabajador IN veterinarios.oidtrabajador%TYPE)
  IS 
@@ -24,31 +16,38 @@ DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
     COMMIT;
 END ELIMINAR_GESTOR;
 /
-create or replace PROCEDURE ELIMINAR_PELUQUERIA_POR_CITA (v_OIDCitas IN Citas.OIDCita%TYPE)
+create or replace PROCEDURE ELIMINAR_CITA_POR_OIDTRABAJADOR (v_OIDTrabajador IN Citas.OIDTrabajador%TYPE)
 IS
 BEGIN
-    DELETE FROM Peluquerias WHERE OIDCita = v_OIDCitas;
-    DELETE FROM citas WHERE OIDCita = v_OIDCitas;
+    DELETE FROM CITAS WHERE OIDTrabajador = v_OIDTrabajador;
+   
 
     COMMIT;
-END ELIMINAR_PELUQUERIA_POR_CITA;
+END ELIMINAR_CITA_POR_OIDTRABAJADOR;
 /
-create or replace PROCEDURE ELIMINAR_PELUQUERO(
-v_OIDTrabajador IN PELUQUEROS.oidtrabajador%TYPE)
- IS 
+create or replace PROCEDURE ELIMINAR_CITA (v_OIDCITA IN CITAS.OIDCITA%TYPE)
+IS
 BEGIN
-DELETE FROM PELUQUEROS WHERE oidtrabajador = v_oidtrabajador;
-DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
+
+    DELETE FROM CITAS WHERE OIDCITA= v_OIDCITA;
+   
 
     COMMIT;
-END ELIMINAR_PELUQUERO;
+END ELIMINAR_CITA;
 /
-create or replace PROCEDURE ELIMINAR_VETERINARIO(
-v_OIDTrabajador IN veterinarios.oidtrabajador%TYPE)
+create or replace PROCEDURE ELIMINAR_PETCITA (v_OIDPETCITA IN PETICIONCITAS.OIDPETCITA%TYPE)
+IS
+BEGIN
+    DELETE FROM PETICIONCITAS WHERE OIDPETCITA = v_OIDPETCITA;
+
+    COMMIT;
+END ELIMINAR_PETCITA;
+/
+create or replace PROCEDURE ELIMINAR_TRABAJADOR(
+v_OIDTrabajador IN trabajadores.oidtrabajador%TYPE)
  IS 
 BEGIN
-    DELETE FROM VETERINARIOS WHERE oidtrabajador = v_oidtrabajador;
     DELETE FROM Trabajadores WHERE oidtrabajador = v_oidtrabajador;
     COMMIT;
-END ELIMINAR_VETERINARIO;
+END ELIMINAR_TRABAJADOR;
 /

@@ -23,7 +23,7 @@ function alta_cita($conexion,$usuario) {
    
     
 	try {
-		$consulta = "CALL ALTA_CITA( :OIDGestor,:Dni,:FechaInicio, :HoraInicio, :DuracionMin, :Coste)";
+		$consulta = "CALL ALTA_CITA( :OIDGestor,:Dni,:FechaInicio, :HoraInicio, :DuracionMin, :Coste, :TipoCita)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':Dni',$usuario["nif"]);
 		$stmt->bindParam(':OIDGestor',$usuario["OIDGestor"]);
@@ -31,6 +31,7 @@ function alta_cita($conexion,$usuario) {
 		$stmt->bindParam(':HoraInicio',$usuario["horaInicio"]);
 		$stmt->bindParam(':DuracionMin',$usuario["duracionMin"]);
 		$stmt->bindParam(':Coste',$usuario["coste"]);
+		$stmt->bindParam(':TipoCita',$usuario["tipoCita"]);
 		
 		$stmt->execute();
 		
@@ -43,10 +44,21 @@ function alta_cita($conexion,$usuario) {
     }
 }
   
-function eliminar_libro($conexion,$Dni) {
+function eliminar_cita($conexion,$OIDCita) {
 	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:OidCitas)');
-		$stmt->bindParam(':OidCitas',$OidLibro);
+		$stmt=$conexion->prepare('CALL ELIMINAR_CITA(:OidCita)');
+		$stmt->bindParam(':OidCita',$OIDCita);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
+
+function eliminar_cita_por_oidtrabajador($conexion,$OIDTrabajador) {
+	try {
+		$stmt=$conexion->prepare('CALL ELIMINAR_CITA_POR_OIDTRABAJADOR(:OidTrabajador)');
+		$stmt->bindParam(':OidTrabajador',$OIDTrabajador);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {
@@ -62,51 +74,51 @@ function consultarUsuario($conexion,$email,$pass) {
 	$stmt->execute();
 	return $stmt->fetchColumn();
 }
-function eliminar_consulta2Cita($conexion,$OIDTrabajador) {
-	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_CONSULTA_POR_CITA(:OidPeluquero)');
-		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
-		$stmt->execute();
-		return "";
-	} catch(PDOException $e) {
-		return $e->getMessage();
-    }
-}
-function eliminar_peluqueria2Cita($conexion,$OIDTrabajador) {
-	try {
-		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:OidPeluquero)');
-		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
-		$stmt->execute();
-		return "";
-	} catch(PDOException $e) {
-		return $e->getMessage();
-		}
-	}
-		function alta_peluqueria($conexion,$OIDPeluquero,$OIDCita) {
-			try {
-				$consulta = "CALL ALTA_PELUQUERIAS(:OIDPeluquero,:OIDCita)";
-				$stmt=$conexion->prepare($consulta);
-				$stmt->bindParam(':OIDPeluquero',$OIDPeluquero);
-				$stmt->bindParam(':OIDCita',$OIDCita);
-				$stmt->execute();		
-				return true;
-			} catch(PDOException $e) {
-				return false;
-				// Si queremos visualizar la excepción durante la depuración: $e->getMessage();	
-				}
-			}
-		function alta_consulta($conexion,$OIDPeluquero,$OIDCita) {
-			try {
-				$consulta = "CALL ALTA_CONSULTA(:OIDVeterinario,:OIDCita)";
-				$stmt=$conexion->prepare($consulta);
-				$stmt->bindParam(':OIDVeterinario',$OIDPeluquero);
-				$stmt->bindParam(':OIDCita',$OIDCita);
+// function eliminar_consulta2Cita($conexion,$OIDTrabajador) {
+// 	try {
+// 		$stmt=$conexion->prepare('CALL ELIMINAR_CONSULTA_POR_CITA(:OidPeluquero)');
+// 		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
+// 		$stmt->execute();
+// 		return "";
+// 	} catch(PDOException $e) {
+// 		return $e->getMessage();
+//     }
+// }
+// function eliminar_peluqueria2Cita($conexion,$OIDTrabajador) {
+// 	try {
+// 		$stmt=$conexion->prepare('CALL ELIMINAR_PELUQUERIA_POR_CITA(:OidPeluquero)');
+// 		$stmt->bindParam(':OidPeluquero',$OIDTrabajador);
+// 		$stmt->execute();
+// 		return "";
+// 	} catch(PDOException $e) {
+// 		return $e->getMessage();
+// 		}
+// 	}
+// 		function alta_peluqueria($conexion,$OIDPeluquero,$OIDCita) {
+// 			try {
+// 				$consulta = "CALL ALTA_PELUQUERIAS(:OIDPeluquero,:OIDCita)";
+// 				$stmt=$conexion->prepare($consulta);
+// 				$stmt->bindParam(':OIDPeluquero',$OIDPeluquero);
+// 				$stmt->bindParam(':OIDCita',$OIDCita);
+// 				$stmt->execute();		
+// 				return true;
+// 			} catch(PDOException $e) {
+// 				return false;
+// 				// Si queremos visualizar la excepción durante la depuración: $e->getMessage();	
+// 				}
+// 			}
+// 		function alta_consulta($conexion,$OIDPeluquero,$OIDCita) {
+// 			try {
+// 				$consulta = "CALL ALTA_CONSULTA(:OIDVeterinario,:OIDCita)";
+// 				$stmt=$conexion->prepare($consulta);
+// 				$stmt->bindParam(':OIDVeterinario',$OIDPeluquero);
+// 				$stmt->bindParam(':OIDCita',$OIDCita);
 
-				$stmt->execute();		
-				return true;
-				} catch(PDOException $e) {
-				 return false;
-				}				
+// 				$stmt->execute();		
+// 				return true;
+// 				} catch(PDOException $e) {
+// 				 return false;
+// 				}				
 					
-			}
+// 			}
 ?>

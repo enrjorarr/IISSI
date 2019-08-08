@@ -1,0 +1,25 @@
+create or replace PROCEDURE ELIMINAR_CITA (v_OIDCITA IN CITAS.OIDCITA%TYPE)
+IS
+BEGIN
+
+    DELETE FROM CITAS WHERE OIDCITA= v_OIDCITA;
+   
+
+    COMMIT;
+END ELIMINAR_CITA;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
