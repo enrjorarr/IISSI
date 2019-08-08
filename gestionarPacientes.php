@@ -8,14 +8,15 @@
 
 
 
-	function consultarTodosPacientes($conexion) {
-			$consulta = "SELECT * FROM PACIENTES"
+function consultarTodosPacientes($conexion) {
+	$consulta = "SELECT * FROM PACIENTES"
 				. " WHERE (CLIENTES.DNI=PACIENTES.DNI)"
 				. " ORDER BY IDPACIENTE";
-				return $conexion->query($consulta);
-	}
- function alta_pac($conexion,$usuario) {
-	$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
+	return $conexion->query($consulta);
+}
+
+function alta_pac($conexion,$usuario) {
+ $fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
 
 	try {
 		$consulta = "CALL ALTA_PACIENTE(:IDPaciente,:FechaNac,:ColorPelo,:Raza,:Especie,:Dni)";
@@ -29,39 +30,36 @@
 		
 		$stmt->execute();
 		
-		return true;
-	} catch(PDOException $e) {
+ return true;
+ } catch(PDOException $e) {
 		
 
-		return false;
-		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
+ return false;
 	}
 }	
-		function eliminarPacientes2ID($conexion,$id) {
-			try {
-				$consulta = "CALL ELIMINAR_PACIENTE_POR_ID(:IDPaciente)";
-				$stmt = $conexion->prepare($consulta);
-				$stmt->bindParam(':IDPaciente',$id);
-			
-				$stmt->execute();
 
-				return true;
-			} catch (PDOException $e) {
-				return false;
-			}
+function eliminarPacientes2ID($conexion,$id) {
+	try {
+		$consulta = "CALL ELIMINAR_PACIENTE_POR_ID(:IDPaciente)";
+		$stmt = $conexion->prepare($consulta);
+		$stmt->bindParam(':IDPaciente',$id);	
+		$stmt->execute();
+
+		return true;
+		} catch (PDOException $e) {
+			return false;
+		}
 			
-		 }
-		 
-		
-		function consultarPacientes2ID($conexion,$id) {
-			$consulta = "SELECT * FROM Pacientes WHERE IDPaciente=:id";
-			$stmt = $conexion->prepare($consulta);
-			$stmt->bindParam(':id',$id);
+}
+		 		
+function consultarPacientes2ID($conexion,$id) {
+	$consulta = "SELECT * FROM Pacientes WHERE IDPaciente=:id";
+	$stmt = $conexion->prepare($consulta);
+	$stmt->bindParam(':id',$id);		
+	$stmt->execute();
+	return $stmt->fetch();
 			
-			$stmt->execute();
-			return $stmt->fetch();
-			
-		 }
+}
 		 
 	 
 

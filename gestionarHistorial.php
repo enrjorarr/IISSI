@@ -7,13 +7,10 @@
      */
 
  function alta_informes($conexion,$usuario) {
-
-
 	try {
 		$consulta = "CALL ALTA_HISTORIAL(:IDPaciente)";
-        $stmt=$conexion->prepare($consulta);
+    $stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':IDPaciente',$usuario["IDPaciente"]);
-
 		$stmt->execute();
 		
 		return true;	
