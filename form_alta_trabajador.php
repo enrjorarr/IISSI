@@ -140,9 +140,6 @@
 
 		<fieldset><legend>Datos de cuenta.</legend>
 			
-			<div><label for="nick">Nickname:<em STYLE="color:red;">*</em></label>
-				<input id="nick" name="nick" type="text" size="40" value="<?php echo $formulario['email'];?>" />
-			</div>
 			<div><label for="pass">Password:<em STYLE="color:red;">*</em></label>
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 			</div>

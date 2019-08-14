@@ -47,7 +47,7 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: form_alta_trabajador.php');
+		Header('Location: erroresValidacion.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_alta_trabajador.php');
@@ -66,15 +66,26 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	}
 
 	// Validación del Nombre			
-	if($nuevoUsuario["nombre"]=="") 
+	if($nuevoUsuario["nombre"]=="") {
 		$errores[] = "<p>El nombre no puede estar vacío</p>";
-	
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["nombre"])){
+		$errores[] = "<p>El nombre debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["nombre"]. "</p>";
+	}
+
+	// Validación del Apellidos			
+	if($nuevoUsuario["apellidos"]=="") {
+		$errores[] = "<p>El apellido no puede estar vacío</p>";
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["apellidos"])){
+		$errores[] = "<p>El apellido debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["apellidos"]. "</p>";
+	}
+
 	// Validación del email
 	if($nuevoUsuario["email"]==""){ 
 		$errores[] = "<p>El email no puede estar vacío</p>";
 	}else if(!filter_var($nuevoUsuario["email"], FILTER_VALIDATE_EMAIL)){
 		$errores[] = "<p>El email es incorrecto:</p>";
 	}	
+
 	// Validación de la contraseña
 	if(!isset($nuevoUsuario["pass"]) || strlen($nuevoUsuario["pass"])<8){
 		$errores [] = "<p>Contraseña no válida: debe tener al menos 8 caracteres</p>";
@@ -98,11 +109,37 @@ function validarDatosTrabajador($conexion, $nuevoUsuario){
 	if($nuevoUsuario["calle"]==""){
 
 		$errores[] = "<p>La dirección no puede estar vacía</p>";	
+	}else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["calle"])){
+		$errores[] = "<p>La calle debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["calle"]. "</p>";
 	}
+
+	//Validación número de teléfono
 	if($nuevoUsuario["numeroTelefono"]==""){
 		$errores[] = "<p>El telefono no puede estar vacío</p>";	
 	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["numeroTelefono"])){
 		$errores[] = "<p>El número de teléfono es incorrecto</p>";
+	}
+
+	//Validación horas de trabajo semanal
+	if($nuevoUsuario["horasTrabajo"]==""){
+		$errores[] = "<p>Las horas de trabajo no pueden estar vacías</p>";	
+	}else if($nuevoUsuario["horasTrabajo"] > 40 && $nuevoUsuario["horasTrabajo"] > 0){
+		$errores[] = "<p>Las horas de trabajo no pueden superar las 40</p>";
+	}
+
+	//Validación salario
+	if($nuevoUsuario["sueldo"]==""){
+		$errores[] = "<p>El sueldo no puede estar vacío</p>";	
+	}else if($nuevoUsuario["sueldo"] < 0){
+		$errores[] = "<p>El sueldo debe ser mayor que 0</p>";
+	}
+	
+	if($nuevoUsuario["esGestor"]==""){
+		$errores[] = "<p>Es necesario especificar si es gestor</p>";	
+	}
+
+	if($nuevoUsuario["tipoTrabajador"]==""){
+		$errores[] = "<p>El tipo de trabajador no puede estar vacío</p>";	
 	}
 
 	return $errores;
