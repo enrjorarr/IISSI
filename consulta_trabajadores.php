@@ -62,6 +62,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<script src="js\jquery-3.1.1.min.js"></script>
+
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/consulta_trabajadores.css" />
   
@@ -69,6 +71,8 @@
 	<?php include_once("head_staff.php"); ?>
   
 </head>
+
+
 
 <body>
     <?php
@@ -232,7 +236,7 @@
                             <td><?php echo $fila["DNI"]; ?></td>
                             <td><?php echo $fila["EMAIL"]; ?></td>
 							
-
+							
                             <td>
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar ">
@@ -273,4 +277,14 @@
   
 
 </body>
+<script type = "text/javascript">
+
+                              $(document).ready(function(){
+                                $("#borrar").click(function(){
+                                    alert("Está seguro de que quiere despedir a ?> ");
+                                });
+
+                             });
+
+</script> 
 </html>
