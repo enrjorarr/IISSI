@@ -238,8 +238,9 @@
 							
 							
                             <td>
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
-                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar ">
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila" >
+								
+                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar">
                                 </button>
                             </td>
 
@@ -279,12 +280,22 @@
 </body>
 <script type = "text/javascript">
 
-                              $(document).ready(function(){
-                                $("#borrar").click(function(){
-                                    alert("Está seguro de que quiere despedir a ?> ");
-                                });
+ $("img").click(function(){
+	
+    var r = confirm("Está seguro de que quiere despedir");
+	
+	if(r == FALSE){
+		var res = FALSE;
+		document.getElementById(
+			"borrar").innerHTML = res;
+	}
+	else{
+		var res = TRUE;
+		document.getElementById(
+			"borrar").innerHTML = res;
+	}
+    });
 
-                             });
 
 </script> 
 </html>
