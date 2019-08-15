@@ -64,3 +64,7 @@ input[type=text], input[type=date],input[type=email],input[type=password] {
     background-image: linear-gradient(to bottom, #37dae6, #29d9ad);
     text-decoration: none;
   }
+
+  .error{
+    color:red;
+  }
