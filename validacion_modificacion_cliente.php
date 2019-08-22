@@ -66,7 +66,7 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	// Validación del número de telefono
 	if($nuevoUsuario["numeroTelefono"]==""){
 		$errores[] = "<p>El telefono no puede estar vacío</p>";	
-	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["nif"])){
+	}else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["numeroTelefono"])){
 		$errores[] = "<p>El número de telefono debe contener 9 números." . $nuevoUsuario["numeroTelefono"]. "</p>";
 	}
 	return $errores;

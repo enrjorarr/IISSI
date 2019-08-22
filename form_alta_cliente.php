@@ -206,7 +206,6 @@
 					rules:{
 						nif:{
 							required:true,
-							nifES:true
 						},
 
 						nombre:{
@@ -244,7 +243,7 @@
 						nif:{
 	
 							required:"Por favor introduzca su nif",
-							nifEs:"formato incorrecto de nif"
+
 						
 						},
 
