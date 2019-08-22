@@ -67,7 +67,7 @@
 	<script language="JavaScript" type="text/javascript">
 	$(document).ready(function(){
     	$("a.borrar").click(function(e){
-       	 if(!confirm('Are you sure?')){
+       	 if(!confirm('¿Estás seguro?')){
             e.preventDefault();
             return false;
         }
@@ -251,8 +251,8 @@
 							
                             <td>
 								<a id="borrar" name="borrar" class="borrar"
-								 href="accion_borrar_trabajador.php" ><input type=submit id="borrar" name="borrar"></a>
-								 <!-- onclick="return confirm('¿Estás seguro?')" -->
+								 href="accion_borrar_trabajador.php" ><input type=submit id="borrar" name="borrar" value="Borrar"></a>
+								<!-- onclick="return confirm('¿Estás seguro?')" -->
 								<!-- <input id="borrar" name="borrar" onClick="" type="submit"> -->
                                 <!-- <button id="borrar" name="borrar" type=submit class="editar_fila" onclick="pregunta()" value="exy">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar">
