@@ -78,6 +78,19 @@
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Alta Informe</title>
   <?php include_once("head_staff.php");?>
+
+  <!--include jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -143,4 +156,66 @@
 	    ?>
 	
 	</body>
+	<script type = "text/javascript">
+
+		$(function(){
+
+			$("#altaInforme").validate(
+				{
+					rules:{
+						fechaConsulta:{
+							required:true
+
+						},
+
+						motivo:{
+							required:true
+						 },
+
+						 tratamiento:{
+							required:true
+						},
+						
+						OIDHistorial:{
+							required:true,
+							maxlength:1,
+							minlength:1
+						}
+					
+					},
+					messages:{
+						fechaConsulta:{
+							required:"Debe insertar la fecha de la consulta"
+
+						},
+
+						motivo:{
+							required:"Introduzca el motivo"
+						 },
+
+						 especie:{
+							required:"Introduzca la especie"
+						},
+						
+						tratamiento:{
+							required:"Introduzca el tratamiento",
+						},
+						OIDHistorial:{
+							required:"El id debe contener 1 dígito",
+							maxlength:"El número debe estar compuesto de 1 dígito",
+							minlength:"El número debe estar compuesto de 1 dígito"
+
+						}
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
+
 </html>

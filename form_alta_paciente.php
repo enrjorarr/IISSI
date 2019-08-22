@@ -80,6 +80,19 @@
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta Paciente</title>
   <?php include_once("head.php");?>
+
+  <!--include jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -147,4 +160,69 @@
 
 	
 	</body>
+	<script type = "text/javascript">
+
+		$(function(){
+
+			$("#altaPaciente").validate(
+				{
+					rules:{
+						fechaNacimiento:{
+							required:true
+
+						},
+
+						colorPelo:{
+							required:true
+						 },
+
+						 especie:{
+							required:true
+						},
+						
+						raza:{
+							required:true,
+						},
+						idPaciente:{
+							required:true,
+							maxlength:9,
+							minlength:9
+						}
+					
+					},
+					messages:{
+						fechaNacimiento:{
+							required:"Debe insertar su fecha de nacimiento"
+
+						},
+
+						colorPelo:{
+							required:"Introduzca el color de pelo"
+						 },
+
+						 especie:{
+							required:"Introduzca la especie"
+						},
+						
+						raza:{
+							required:"Introduzca la raza",
+						},
+						idPaciente:{
+							required:"El id debe contener 9 dígitos",
+							maxlength:"El número debe estar compuesto de 9 dígitos",
+							minlength:"El número debe estar compuesto de 9 dígitos"
+
+						}
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
+
 </html>

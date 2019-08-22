@@ -56,6 +56,19 @@
   <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+
+  	<!--include jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
+
   <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
 	<?php
         include_once("head_staff.php");
@@ -158,11 +171,12 @@
 			</div>
 
       <div><label for="horasTrabajo">Horas de trabajo semanal:<em STYLE="color:red;">*</em></label>
-			<input id="horasTrabajo" name="horasTrabajo"  type="text" pattern="^[0-9]{2}" value="<?php echo $formulario['horasTrabajo'];?>" required/>
+			<input id="horasTrabajo" name="horasTrabajo"  type="text" pattern="^[0-9]{2}" title ="No puede trabajar menos de 10 horas semanales"
+				 value="<?php echo $formulario['horasTrabajo'];?>" required/>
 			</div>
 
 			<div><label for="sueldo">Salario mensual:<em STYLE="color:red;">*</em></label>
-			<input id="sueldo" name="sueldo" type="text"  pattern="^[0-9]{4}"value="<?php echo $formulario['sueldo'];?>" required/>
+			<input id="sueldo" name="sueldo" type="text"  pattern="^[0-9]{4}" title = "El salario mínimo es de 1000 eu" value="<?php echo $formulario['sueldo'];?>" required/>
 			</div>
 
 			<div><label for="esGestor">Es gestor:<em STYLE="color:red;">*</em></label>
@@ -188,4 +202,123 @@
 	
 	
 	</body>
+
+	<script type = "text/javascript">
+
+		$(function(){
+
+			$("#altaTrabajador").validate(
+				{
+					rules:{
+						nif:{
+							required:true,
+							nifES:true
+						},
+
+						nombre:{
+							required:true
+						 },
+
+						apellidos:{
+							required:true
+						},
+						fechaNacimiento:{
+							required:true
+
+						},
+						email:{
+							required:true,
+							email:true
+						},
+						numeroTelefono:{
+							required:true,
+							maxlength:9,
+							minlength:9
+						},
+						pass:{
+							required:true
+						},
+						confirmpass:{
+							required:true,
+							equalTo:"#pass"
+						},
+						calle:{
+							required:true
+						},
+						
+						horasTrabajo:{
+							required:true,
+							max:40
+
+						},
+
+						sueldo:{
+							required:true,
+							min:1000
+						}
+
+					},
+					messages:{
+						nif:{
+	
+							required:"Por favor introduzca su nif",
+							nifEs:"formato incorrecto de nif"
+						
+						},
+
+						nombre:{
+							required:"Introduzca su nombre"
+						 },
+
+						apellidos:{
+							required:"Introduzca su apellido"
+						},
+						fechaNacimiento:{
+							required:"Debe insertar su fecha de nacimiento"
+
+						},
+						email:{
+							required:"Esta casilla debe estar completada",
+							email:"Debe completar esta casilla con un email"
+						},
+						numeroTelefono:{
+							required:"Esta casilla debe estar completada",
+							maxlength:"El número debe estar compuesto de 9 dígitos",
+							minlength:"El número debe estar compuesto de 9 dígitos"
+
+						},
+						pass:{
+							required:"Esta casilla debe estar completada"
+						},
+						confirmpass:{
+							required:"Esta casilla debe estar completada",
+							equalTo:"Ambas contraseñas deben ser iguales"
+						},
+						calle:{
+							required:"Esta casilla debe estar completada"
+						},
+
+						horasTrabajo:{
+							required:"Esta casilla debe estar completada",
+							max:"No puede trabajar más de 40 horas semanales"
+
+						},
+
+						sueldo:{
+							required:"Esta casilla debe estar completada",
+							min:"El salario mínimo es de 1000 eu"
+						}
+
+
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
 </html>

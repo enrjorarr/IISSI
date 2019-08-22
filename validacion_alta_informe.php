@@ -55,12 +55,12 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 
 	if($nuevoUsuario["OIDHistorial"]=="") 
 		$errores[] = "<p>El OIDHistorial no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]{4}$/", $nuevoUsuario["OIDHistorial"])){
+	else if(!preg_match("/^[0-9]$/", $nuevoUsuario["OIDHistorial"])){
 		$errores[] = "<p>El id puede contener un maximo de 4 números: " . $nuevoUsuario["OIDHistorial"]. "</p>";
 	}
 
 
-	if($nuevoUsuario["fechaNacimiento"]==""){
+	if($nuevoUsuario["fechaConsulta"]==""){
 		$errores[] = "<p>La fecha de nacimiento no puede estar vacía</p>";	
 	}
 

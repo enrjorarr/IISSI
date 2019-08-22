@@ -74,6 +74,20 @@
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta de Cita</title>
   <?php include_once("head.php");?>
+
+  	<!--include jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
+
+
 </head>
 
 
@@ -132,8 +146,9 @@
 			<input id="motivo" name="motivo"  type="text" size="80" pattern="[A-Za-z\s]+" value="<?php echo $formulario['motivo'];?>" required/>
 			</div>
 
-			<div><label for="coste">Identificacion del paciente:<em STYLE="color:red;">*</em></label>
-			<input id="idPaciente" name="idPaciente" type="text" pattern="^[0-9]{9}" value="<?php echo $formulario['idPaciente'];?>" required/>
+			<div><label for="idPaciente">Identificacion del paciente:<em STYLE="color:red;">*</em></label>
+			<input id="idPaciente" name="idPaciente" type="text" pattern="^[0-9]{9}" title="Formato incorrecto, debe componerse de 9 dígitos"
+				 value="<?php echo $formulario['idPaciente'];?>" required/>
 			</div>
 
 
@@ -154,5 +169,54 @@
 
 	
 	</body>
+
+	<script type = "text/javascript">
+
+		$(function(){
+
+			$("#petCita").validate(
+				{
+					rules:{
+						fecha:{
+							required:true
+
+						},
+						motivo:{
+							required:true,
+							maxlength:250
+						},
+						idPaciente:{
+							required:true,
+							maxlength:9,
+							minlength:9
+						}
+					},
+					messages:{
+
+						fecha:{
+							required:"Esta casilla debe estar rellenada"
+
+						},
+						motivo:{
+							required:"Esta casilla debe estar rellenada",
+							maxlength:250
+						},
+						idPaciente:{
+							required:"Esta casilla debe estar rellenada",
+							maxlength:"Formato incorrecto, debe componerse de 9 dígitos",
+							minlength:"Formato incorrecto, debe componerse de 9 dígitos"
+						}
+						
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
 </html>
 
