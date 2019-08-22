@@ -64,3 +64,7 @@ p{
     background-image: linear-gradient(to bottom, #37dae6, #29d9ad);
     text-decoration: none;
   }
+
+  .error{
+    color:red;
+  }
