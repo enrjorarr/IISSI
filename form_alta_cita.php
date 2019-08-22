@@ -92,6 +92,19 @@
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta de Cita</title>
   <?php include_once("head_staff.php");?>
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
+		
 </head>
 
 
@@ -118,7 +131,7 @@
   		}
 	?>
 	
-	<form id="altaCita" method="get" action="validacion_alta_cita.php"  novalidate
+	<form id="altaCita" method="get" action="validacion_alta_cita.php" 
 		>
 		<!--novalidate--> 
 		<!--onsubmit="return validateForm()"-->   
@@ -133,7 +146,7 @@
 			</div>
 		
 			<div><label for="horaInicio">Hora de Inicio:<em STYLE="color:red;">*</em></label>
-			<input type="text" id="horaInicio" name="horaInicio" pattern = "/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/" value="<?php echo $formulario['horaInicio'];?>"required/>
+			<input type="text" id="horaInicio" name="horaInicio" pattern = "/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/"  title="Debe con usarse el siguiente formato HH:mm "value="<?php echo $formulario['horaInicio'];?>"required/>
 			</div>
 
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
@@ -176,5 +189,81 @@
 
 	
 	</body>
+
+	<script type = "text/javascript">
+
+		$(function(){
+
+			$("#altaCita").validate(
+				{
+					rules:{
+						nif:{
+							required:true,
+							nifES:true
+						},
+
+						fechaInicio:{
+							required:true
+						 },
+
+						horaInicio:{
+							required:true
+						},
+
+						duracionMin:{
+							required:true,
+							min:15,
+							max:59
+						},
+						coste:{
+							required:true,
+						min:0	
+						},
+						oidTrabajador:{
+							required:true,
+							maxlength:9,
+							minlength:9
+						}
+					},
+					messages:{
+						nif:{
+							required:"Por favor introduzca su nif",
+							nifEs:"formato incorrecto de nif"
+						},
+
+						horaInicio:{
+							required:"Este campo debe estar completo"
+						 },
+
+						fechaInicio:{
+							required:"Este campo debe estar completo"
+						},
+						duracionMin:{
+							required:true,
+							min:"La duración minima es de 15 minutos",
+							max:"La duración maxima es de 59 minutos"
+						},
+						oidTrabajador:{
+							required:"Esta casilla debe estar completada",
+							maxlength:"El número debe estar compuesto de 9 dígitos",
+							minlength:"El número debe estar compuesto de 9 dígitos"
+
+						},
+						coste:{
+							required:"Este campo debe estar completo",
+							min:"No se admiten precios negativos"	
+						},
+
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
 </html>
 
