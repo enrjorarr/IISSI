@@ -251,7 +251,7 @@
 							
                             <td>
 								<a id="borrar" name="borrar" class="borrar"
-								 href="accion_borrar_trabajador.php" >Borrar</a>
+								 href="accion_borrar_trabajador.php" ><input type=submit id="borrar" name="borrar"></a>
 								 <!-- onclick="return confirm('¿Estás seguro?')" -->
 								<!-- <input id="borrar" name="borrar" onClick="" type="submit"> -->
                                 <!-- <button id="borrar" name="borrar" type=submit class="editar_fila" onclick="pregunta()" value="exy">
