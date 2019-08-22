@@ -40,6 +40,17 @@
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Alta Informe</title>
   <?php include_once("head_staff.php");?>
+
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
 </head>
 
 <body>
@@ -64,7 +75,7 @@
 	<main>
 
 	    <form id="altaHistorial" method="get" action="validacion_alta_Historial.php"
-		novalidate
+		
 		    >
 		    <!--novalidate--> 
             <!--onsubmit="return validateForm()"--> 
@@ -87,4 +98,36 @@
 	    ?>
 	
 	</body>
+
+
+	<script type = "text/javascript">
+
+		$(function(){
+
+			$("#altaHistorial").validate(
+				{
+					rules:{
+						IDPaciente:{
+							required:true,
+							maxlength:9,
+							minlength:9
+						}
+					},
+					messages:{
+						IDPaciente:{
+							required:"Esta casilla debe estar completada",
+						 	maxlength:"El número debe estar compuesto de 9 dígitos",
+						 	minlength:"El número debe estar compuesto de 9 dígitos"
+						}
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
 </html>

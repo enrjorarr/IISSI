@@ -47,6 +47,19 @@
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
   <?php include_once("head.php");?>
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -138,7 +151,84 @@
 
 	</form>
 
+<script type = "text/javascript">
 
+		$(function(){
+
+			$("#modificacionCliente").validate(
+				{
+					rules:{
+						
+						nombre:{
+							required:true
+						 },
+
+						apellidos:{
+							required:true
+						},
+						email:{
+							required:true,
+							email:true
+						},
+						numeroTelefono:{
+							required:true,
+							maxlength:9,
+							minlength:9
+						},
+						pass:{
+							required:true
+						},
+						confirmpass:{
+							required:true,
+							equalTo:"#pass"
+						},
+						calle:{
+							required:true
+						}
+					},
+					messages:{
+						nombre:{
+							required:"Introduzca su nombre"
+						 },
+
+						apellidos:{
+							required:"Introduzca su apellido"
+						},
+						fechaNacimiento:{
+							required:"Debe insertar su fecha de nacimiento"
+
+						},
+						email:{
+							required:"Esta casilla debe estar completada",
+							email:"Debe completar esta casilla con un email"
+						},
+						numeroTelefono:{
+							required:"Esta casilla debe estar completada",
+							maxlength:"El número debe estar compuesto de 9 dígitos",
+							minlength:"El número debe estar compuesto de 9 dígitos"
+
+						},
+						pass:{
+							required:"Esta casilla debe estar completada"
+						},
+						confirmpass:{
+							required:"Esta casilla debe estar completada",
+							equalTo:"Ambas contraseñas deben ser iguales"
+						},
+						calle:{
+							required:"Esta casilla debe estar completada"
+						}
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
 
 	
 	</body>
