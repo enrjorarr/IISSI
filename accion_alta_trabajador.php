@@ -36,7 +36,7 @@
 		<?php 
 		
 			if (alta_trabajador($conexion, $nuevoTrabajador)) { 
-				$_SESSION['login'] = $nuevoTrabajador['email'];
+			//	$_SESSION['login'] = $nuevoTrabajador['email'];
 			//	$email = $nuevoTrabajador['email'];
 			//	$trabajador = consultarTrabajador2email($conexion,$email);
 

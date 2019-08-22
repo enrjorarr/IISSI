@@ -207,79 +207,78 @@
 						nif:{
 							required:true,
 							nifES:true
+						},
+
+						nombre:{
+							required:true
+						 },
+
+						apellidos:{
+							required:true
+						},
+						fechaNacimiento:{
+							required:true
+
+						},
+						email:{
+							required:true,
+							email:true
+						},
+						numeroTelefono:{
+							required:true,
+							maxlength:9,
+							minlength:9
+						},
+						pass:{
+							required:true
+						},
+						confirmpass:{
+							required:true,
+							equalTo:"#pass"
+						},
+						calle:{
+							required:true
 						}
-
-						// },
-
-						// nombre:{
-						// 	required:true
-						//  },
-
-						// apellidos:{
-						// 	required:true
-						// },
-						// fechaNacimiento:{
-						// 	required:true
-
-						// },
-						// email:{
-						// 	required:true,
-						// 	email:true
-						// },
-						// numeroTelefono:{
-						// 	required:true
-						// 	maxlength:9,
-						// 	minlength:9
-						// },
-						// pass:{
-						// 	required:true
-						// },
-						// confirmpass:{
-						// 	required:true,
-						// 	equalTo:"#pass"
-						// },
-						// calle:{
-						// 	required:true
-						// }
 					},
 					messages:{
 						nif:{
 	
-							required:"Por favor introduzca su nif"
+							required:"Por favor introduzca su nif",
+							nifEs:"formato incorrecto de nif"
+						
+						},
+
+						nombre:{
+							required:"Introduzca su nombre"
+						 },
+
+						apellidos:{
+							required:"Introduzca su apellido"
+						},
+						fechaNacimiento:{
+							required:"Debe insertar su fecha de nacimiento"
+
+						},
+						email:{
+							required:"Esta casilla debe estar completada",
+							email:"Debe completar esta casilla con un email"
+						},
+						numeroTelefono:{
+							required:"Esta casilla debe estar completada",
+							maxlength:"El número debe estar compuesto de 9 dígitos",
+							minlength:"El número debe estar compuesto de 9 dígitos"
+
+						},
+						pass:{
+							required:"Esta casilla debe estar completada"
+						},
+						confirmpass:{
+							required:"Esta casilla debe estar completada",
+							equalTo:"Ambas contraseñas deben ser iguales"
+						},
+						calle:{
+							required:"Esta casilla debe estar completada"
 						}
-						// },
-
-						// nombre:{
-						// 	required:"Introduzca su nombre"
-						//  },
-
-						// apellidos:{
-						// 	required:"Introduzca su apellido"
-						// },
-						// fechaNacimiento:{
-						// 	required:"Debe insertar su fecha de nacimiento"
-
-						// },
-						// email:{
-						// 	required:"Esta casilla debe estar completada",
-						// 	email:"Debe completar esta casilla con un email"
-						// },
-						// numeroTelefono:{
-						// 	required:"Esta casilla debe estar completada",
-						// 	maxlength:"El número debe estar compuesto de 9 dígitos",
-						// 	minlength:"El número debe estar compuesto de 9 dígitos"
-
-						// },
-						// pass:{
-						// 	required:"Esta casilla debe estar completada"
-						// },
-						// confirmpass:{
-						// 	required:"Esta casilla debe estar completada",
-						// 	equalTo:"Ambas contraseñas deben ser iguales"
-						// },
-						// calle:{
-						// 	required:"Esta casilla debe estar completada"
-						// }
 				
 					}
 			
