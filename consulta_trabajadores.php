@@ -62,7 +62,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<script src="js\jquery-3.1.1.min.js"></script>
+	<!-- <script src="js\jquery-3.1.1.min.js"></script> -->
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script language="JavaScript" type="text/javascript">
+	$(document).ready(function(){
+    	$("a.borrar").click(function(e){
+       	 if(!confirm('Are you sure?')){
+            e.preventDefault();
+            return false;
+        }
+        return true;
+    });
+});
+</script>
 
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/consulta_trabajadores.css" />
@@ -238,7 +250,10 @@
 							
 							
                             <td>
-								<input id="borrar" name="borrar" onClick="" type="submit">
+								<a id="borrar" name="borrar" class="borrar"
+								 href="accion_borrar_trabajador.php" >Borrar</a>
+								 <!-- onclick="return confirm('¿Estás seguro?')" -->
+								<!-- <input id="borrar" name="borrar" onClick="" type="submit"> -->
                                 <!-- <button id="borrar" name="borrar" type=submit class="editar_fila" onclick="pregunta()" value="exy">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar">
                                 </button>  -->

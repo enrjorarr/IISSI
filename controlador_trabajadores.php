@@ -20,11 +20,11 @@
 			
 		
 		
-	//  if ($_REQUEST["borrar"] == TRUE )
+	 if ($_REQUEST["borrar"] == TRUE )
 	  Header("Location: accion_borrar_trabajador.php"); 
 
-	//  else {
-	// 	 Header("Location: consulta_trabajadores.php");
-	// 	}
+	 else {
+		 Header("Location: consulta_trabajadores.php");
+		}
 	 }
 ?>
