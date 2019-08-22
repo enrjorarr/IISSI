@@ -19,11 +19,12 @@
 		$_SESSION["trabajador"] = $trabajador;
 			
 		
-		var_dump($_REQUEST["Borrado"] );exit;
-	 if ($_REQUEST["Borrado"] == TRUE ){  Header("Location: accion_borrar_trabajador.php"); }
+		
+	//  if ($_REQUEST["borrar"] == TRUE )
+	  Header("Location: accion_borrar_trabajador.php"); 
 
-	 if($_REQUEST["Borrado"] == FALSE ) {
-		 Header("Location: consulta_trabajadores.php");
-		}
+	//  else {
+	// 	 Header("Location: consulta_trabajadores.php");
+	// 	}
 	 }
 ?>

@@ -163,7 +163,7 @@
 
 	<article class="trabajador">
 
-		<form method="get" action="controlador_trabajadores.php">
+		<form id="form1" name="form1" method="get" action="controlador_trabajadores.php">
 
 			<div class="fila_trabajador">
 
@@ -238,10 +238,10 @@
 							
 							
                             <td>
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila" >
-								
+								<input id="borrar" name="borrar" onClick="" type="submit">
+                                <!-- <button id="borrar" name="borrar" type=submit class="editar_fila" onclick="pregunta()" value="exy">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar">
-                                </button>
+                                </button>  -->
                             </td>
 
                         </tr>
@@ -278,24 +278,17 @@
   
 
 </body>
-<script type = "text/javascript">
-
- $("img").click(function(){
-	
-    var r = confirm("Está seguro de que quiere despedir");
-	
-	if(r == FALSE){
-		var res = FALSE;
-		document.getElementById(
-			"borrar").innerHTML = res;
-	}
-	else{
-		var res = TRUE;
-		document.getElementById(
-			"borrar").innerHTML = res;
-	}
-    });
 
 
-</script> 
+<script type="text/javascript">
+
+document.getElementById("form1").onsubmit = function onSubmit(form) {
+   singleAmount = document.getElementById("form1").value;
+   if (confirm("Are you sure you want to submit the value of " + form1 + " ?"))
+      return true;
+   else
+     return false;
+</script>
+
 </html>
+
