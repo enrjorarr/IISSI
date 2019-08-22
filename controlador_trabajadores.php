@@ -20,7 +20,7 @@
 			
 		
 		
-	 if ($_REQUEST["borrar"] == TRUE )
+	 if (isset($_REQUEST["borrar"]) )
 	  Header("Location: accion_borrar_trabajador.php"); 
 
 	 else {
