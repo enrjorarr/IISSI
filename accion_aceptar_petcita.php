@@ -24,12 +24,13 @@
         $usuario["horaInicio"]=$petcita["HORAINICIO"];
         $usuario["duracionMin"]=$petcita["DURACIONMIN"];
         $usuario["coste"]=$petcita["COSTE"];
+        $usuario["tipoCita"]=$petcita["TIPOCITA"];
         
-        
+        var_dump($excepcion1);exit;
 
         $excepcion1 = alta_cita($conexion,$usuario);
         
-       
+        
         
         
         if($excepcion1){
