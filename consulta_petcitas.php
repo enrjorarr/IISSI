@@ -34,7 +34,7 @@
     
     // La consulta que ha de paginarse
     $query = 'SELECT PETICIONCITAS.OIDPETCITA, PETICIONCITAS.DNI, PETICIONCITAS.MOTIVO,PETICIONCITAS.FECHAINICIO, '
-    . 'PETICIONCITAS.IDPACIENTE '
+	. 'PETICIONCITAS.IDPACIENTE, PETCITAS.TIPOCITA '
     .' FROM PETICIONCITAS '
     .' ORDER BY FECHAINICIO ';
 
@@ -190,7 +190,7 @@
 
 						<!-- mostrando título -->
 
-						  
+						
 						<input id="OIDPETCITA" name="OIDPETCITA" type="hidden" value="<?php echo $fila["OIDPETCITA"]; ?>"/>
                         <tbody>
                         <tr>
