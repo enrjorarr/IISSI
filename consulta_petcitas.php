@@ -183,6 +183,10 @@
 
 						type="hidden" value="<?php echo $fila["IDPACIENTE"]; ?>"/>
 
+					<input id="TIPOCITA" name="TIPOCITA"
+
+						type="hidden" value="<?php echo $fila["TIPOCITA"]; ?>"/>
+
 
 
 
@@ -198,6 +202,7 @@
                             <td><?php echo $fila["DNI"]; ?></td>
                             <td><?php echo $fila["FECHAINICIO"]; ?></td>
                             <td><?php echo $fila["IDPACIENTE"]; ?></td>
+							<td><?php echo $fila["TIPOCITA"]; ?></td>
                             <td>
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar">

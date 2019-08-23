@@ -12,7 +12,7 @@
 		$_SESSION["errores"] = null;
 	}
 	else 
-		Header("Location: form_alta_petcita.php");	
+		Header("Location: form_alta_petCita.php");	
 
 	$conexion = crearConexionBD(); 
 
