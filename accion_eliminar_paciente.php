@@ -19,7 +19,7 @@
 		$idpaciente = $paciente["IDPACIENTE"];
 
         unset($_SESSION["paciente"]);
-
+		
 
 		}
 ?>

@@ -94,6 +94,8 @@ else {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>-->
   <!-- Hay que indicar el fichero externo de estilos -->
     <link rel="stylesheet" type="text/css" href="css/consulta_pacientes.css" />
 	<script type="text/javascript" src="./js/boton.js"></script>
@@ -102,7 +104,7 @@ else {
   <script language="JavaScript" type="text/javascript">
 	$(document).ready(function(){
     	$("a.borrar").click(function(e){
-       	 if(!confirm('¿Estás seguro?')){
+       	 if(!confirm('¿Estás seguro de que quieres borrar el paciente?')){
             e.preventDefault();
             return false;
         }
@@ -260,7 +262,7 @@ include_once ("cabecera.php");
 							<td>
 
 							<a id="borrar" name="borrar" class="borrar"
-								 href="accion_borrar_paciente.php" ><input type=submit id="borrar" 
+								 href="accion_eliminar_paciente.php" ><input type=submit id="borrar" 
 								 name="borrar" value="Borrar">
 							</a>
                                 <!-- <button id="borrar" name="borrar" type="submit" class="editar_fila">
