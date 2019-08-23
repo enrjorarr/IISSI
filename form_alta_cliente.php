@@ -167,7 +167,8 @@
 			
 			
 			<div><label for="pass">Password:<em STYLE="color:red;">*</em></label>
-                <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
+                <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" 
+				title="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 			</div>
 			<div><label for="confirmpass">Confirmar Password: </label>
 				<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña"  oninput="passwordConfirmation();""required"/>
@@ -205,8 +206,9 @@
 				{
 					rules:{
 						nif:{
-							required:true,
-						},
+							required:true
+							
+							},
 
 						nombre:{
 							required:true
@@ -229,7 +231,10 @@
 							minlength:9
 						},
 						pass:{
-							required:true
+							required:true,
+							minlength:8,
+							maxlength:20
+							
 						},
 						confirmpass:{
 							required:true,
@@ -242,8 +247,8 @@
 					messages:{
 						nif:{
 	
-							required:"Por favor introduzca su nif",
-
+							required:"Por favor introduzca su nif"
+						
 						
 						},
 
@@ -269,7 +274,9 @@
 
 						},
 						pass:{
-							required:"Esta casilla debe estar completada"
+							required:"Esta casilla debe estar completada",
+							minlenght:"La contraseña es muy corta",
+							maxlength:"La contraseña es muy larga"
 						},
 						confirmpass:{
 							required:"Esta casilla debe estar completada",

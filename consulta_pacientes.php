@@ -98,7 +98,22 @@ else {
     <link rel="stylesheet" type="text/css" href="css/consulta_pacientes.css" />
 	<script type="text/javascript" src="./js/boton.js"></script>
   <?php include_once("head.php"); ?>
+
+  <script language="JavaScript" type="text/javascript">
+	$(document).ready(function(){
+    	$("a.borrar").click(function(e){
+       	 if(!confirm('¿Estás seguro?')){
+            e.preventDefault();
+            return false;
+        }
+        return true;
+    });
+});
+</script>
+
   <title>Gestión de veterinaria:pacientes</title>
+
+
 </head>
 
 <body>
@@ -243,9 +258,14 @@ include_once ("cabecera.php");
                             <td> <?php echo $fila["ESPECIE"]; ?></td>
                             <td><?php echo $dni; ?></td>
 							<td>
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+
+							<a id="borrar" name="borrar" class="borrar"
+								 href="accion_borrar_paciente.php" ><input type=submit id="borrar" 
+								 name="borrar" value="Borrar">
+							</a>
+                                <!-- <button id="borrar" name="borrar" type="submit" class="editar_fila">
                                     <img src="images/borrar.png" class="editar_fila" alt="Borrar">
-                                </button>
+                                </button> -->
                             </td>
                         </tr>
                         </tbody>
