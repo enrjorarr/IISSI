@@ -84,8 +84,8 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	}
 
 
-	if($nuevoUsuario["fechaNacimiento"]==""){
-		$errores[] = "<p>La fecha de nacimiento no puede estar vacía</p>";	
+	if($nuevoUsuario["fechaInicio"]==""){
+		$errores[] = "<p>La fecha no puede estar vacía</p>";	
 	}
 
 	if($nuevoUsuario["TipoCita"]==""){

@@ -146,7 +146,9 @@
 			</div>
 		
 			<div><label for="horaInicio">Hora de Inicio:<em STYLE="color:red;">*</em></label>
-			<input type="text" id="horaInicio" name="horaInicio" pattern = "/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/"  title="Debe con usarse el siguiente formato HH:mm "value="<?php echo $formulario['horaInicio'];?>"required/>
+			<input type="text" id="horaInicio" name="horaInicio" pattern="/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/"
+			 title="Debe con usarse el siguiente formato HH:mm "
+				value="<?php echo $formulario['horaInicio'];?>"required/>
 			</div>
 
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
@@ -155,8 +157,8 @@
  
 			<div><label for="TipoCita">Tipo de Cita:<em STYLE="color:red;">*</em></label>
 			<select name="TipoCita">
-                <option value="c">Consulta</option>
-                <option value="p">Peluquería</option>
+                <option type="text" value="c">Consulta</option>
+                <option type="text" value="p">Peluquería</option>
         	</select>
             </div>
 
@@ -205,10 +207,11 @@
 							required:true
 						 },
 
-						horaInicio:{
-							required:true
-						},
+						 horaInicio:{
+							 required:true
+						 },
 
+						
 						duracionMin:{
 							required:true,
 							min:15,
@@ -216,12 +219,12 @@
 						},
 						coste:{
 							required:true,
-						min:0	
+							min:0	
 						},
 						oidTrabajador:{
 							required:true,
-							maxlength:9,
-							minlength:9
+							maxlength:2,
+							minlength:1
 						}
 					},
 					messages:{
@@ -229,13 +232,17 @@
 							required:"Por favor introduzca su nif",
 						},
 
-						horaInicio:{
-							required:"Este campo debe estar completo"
-						 },
+						
 
 						fechaInicio:{
 							required:"Este campo debe estar completo"
 						},
+
+						
+						horaInicio:{
+							 required:"Este campo debe estar completo"
+						 },
+
 						duracionMin:{
 							required:"Debe contener un número",
 							min:"La duración minima es de 15 minutos",
@@ -243,8 +250,8 @@
 						},
 						oidTrabajador:{
 							required:"Esta casilla debe estar completada",
-							maxlength:"El número debe estar compuesto de 9 dígitos",
-							minlength:"El número debe estar compuesto de 9 dígitos"
+							maxlength:"El número debe estar compuesto de 1 a 2 dígitos",
+							minlength:"El número debe estar compuesto de 1 a 2 dígitos"
 
 						},
 						coste:{

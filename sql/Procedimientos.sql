@@ -1,6 +1,5 @@
 
 
-
 create or replace PROCEDURE ALTA_CITA(
     
     OIDGestor IN CitaS.OIDGestor%TYPE,
@@ -13,10 +12,19 @@ create or replace PROCEDURE ALTA_CITA(
     TipoCita IN CitaS.TipoCita%TYPE
     )IS
     BEGIN
-    INSERT INTO Citas VALUES(0,Dni, OIDGestor,FechaInicio, HoraInicio, DuracionMin,Coste,OIDTrabajador,TipoCita);
+    INSERT INTO CitaS VALUES(0,
+    Dni,
+    OIDGestor,
+    
+    FechaInicio,
+    HoraInicio,
+    DuracionMin,
+    Coste,
+    TipoCita,
+    OIDTrabajador);
+    
   COMMIT WORK;
 END ALTA_CITA;
-/
 
 create or replace PROCEDURE ALTA_CLIENTE(
     Dni                  IN     Clientes.Dni%TYPE,

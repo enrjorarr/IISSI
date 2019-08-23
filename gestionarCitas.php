@@ -19,11 +19,11 @@ function consultarCitasPorDNI($conexion,$nif) {
 
 function alta_cita($conexion,$usuario) {
     $fecha = date('d/m/Y', strtotime($usuario["fechaInicio"]));
-
-   
-    
+	// var_dump($usuario);exit;
 	try {
-		$consulta = "CALL ALTA_CITA( :OIDGestor,:Dni,:FechaInicio, :HoraInicio, :DuracionMin, :Coste, :TipoCita)";
+
+	
+		$consulta = "CALL ALTA_CITA(  :OIDGestor,:Dni,:FechaInicio, :HoraInicio, :DuracionMin, :Coste,:OIDTrabajador,:TipoCita)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':Dni',$usuario["nif"]);
 		$stmt->bindParam(':OIDGestor',$usuario["OIDGestor"]);
@@ -31,13 +31,16 @@ function alta_cita($conexion,$usuario) {
 		$stmt->bindParam(':HoraInicio',$usuario["horaInicio"]);
 		$stmt->bindParam(':DuracionMin',$usuario["duracionMin"]);
 		$stmt->bindParam(':Coste',$usuario["coste"]);
-		$stmt->bindParam(':TipoCita',$usuario["tipoCita"]);
+		$stmt->bindParam(':TipoCita',$usuario["TipoCita"]);
+		$stmt->bindParam(':OIDTrabajador',$usuario["OIDTrabajador"]);
+
 		
 		$stmt->execute();
 		
 		return true;	
 	} catch(PDOException $e) {
-      var_dump($e);exit;
+
+      var_dump($e->getMessage());exit;
 		return false;
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
 		
