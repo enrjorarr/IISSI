@@ -139,7 +139,8 @@
 			</div>
 
 			<div><label for="numeroTelefono">Telefono:<em STYLE="color:red;">*</em></label>
-			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" pattern="^[0-9]{9}"value="<?php echo $formulario['numeroTelefono'];?>" required/>
+			<input id="numeroTelefono" name="numeroTelefono" type="text" size="9" pattern="^[0-9]{9}" title="El número debe tener 9 dígitos"
+			value="<?php echo $formulario['numeroTelefono'];?>" required/>
 			</div>
 
 			<div><label for="tipoTrabajador">Tipo de trabajador:<em STYLE="color:red;">*</em></label>
@@ -212,7 +213,7 @@
 					rules:{
 						nif:{
 							required:true,
-							nifES:true
+					
 						},
 
 						nombre:{
@@ -262,7 +263,7 @@
 						nif:{
 	
 							required:"Por favor introduzca su nif",
-							nifEs:"formato incorrecto de nif"
+			
 						
 						},
 

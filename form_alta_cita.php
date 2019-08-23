@@ -150,7 +150,7 @@
 			</div>
 
 			<div><label for="duracionMin">Duración en minutos:<em STYLE="color:red;">*</em></label>
-			<input id="duracionMin" name="duracionMin"  type="number"  value="<?php echo $formulario['duracionMin'];?>" required/>
+			<input id="duracionMin" name="duracionMin"  type="number" title="Debe insertar un número" value="<?php echo $formulario['duracionMin'];?>" required/>
 			</div>
  
 			<div><label for="TipoCita">Tipo de Cita:<em STYLE="color:red;">*</em></label>
@@ -199,7 +199,6 @@
 					rules:{
 						nif:{
 							required:true,
-							nifES:true
 						},
 
 						fechaInicio:{
@@ -228,7 +227,6 @@
 					messages:{
 						nif:{
 							required:"Por favor introduzca su nif",
-							nifEs:"formato incorrecto de nif"
 						},
 
 						horaInicio:{
@@ -239,7 +237,7 @@
 							required:"Este campo debe estar completo"
 						},
 						duracionMin:{
-							required:true,
+							required:"Debe contener un número",
 							min:"La duración minima es de 15 minutos",
 							max:"La duración maxima es de 59 minutos"
 						},

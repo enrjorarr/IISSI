@@ -64,4 +64,6 @@ main{
 	border-radius: 5px;
 	box-sizing: border-box;
 }
-
+.error{
+    color:red;
+  }

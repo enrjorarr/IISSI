@@ -9,6 +9,8 @@
 		$cita["HORAINICIO"] = $_REQUEST["HORAINICIO"];
 		$cita["DURACIONMIN"] = $_REQUEST["DURACION"];
 		$cita["COSTE"] = $_REQUEST["COSTE"];
+		$cita["OIDTRABAJADOR"] = $_REQUEST["OIDTRABAJADOR"];
+		$cita["TIPOCITA"] = $_REQUEST["TIPOCITA"];
 		
 		$_SESSION["cita"] = $cita;
 			
