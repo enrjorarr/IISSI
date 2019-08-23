@@ -21,6 +21,7 @@
 		$petcita["HORAINICIO"] = $_REQUEST["HoraInicio"];
 		$petcita["DURACIONMIN"] = $_REQUEST["DuracionMin"];
 		$petcita["COSTE"] = $_REQUEST["Coste"];
+		$petcita["TIPOCITA"] = $_REQUEST["TIPOCITA"];
 		$_SESSION["petcita"] = $petcita;
 		
 		Header("Location: accion_aceptar_petcita.php");

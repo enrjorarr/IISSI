@@ -91,7 +91,8 @@
     	<th>DNI</th>
     	<th>Fecha</th>
         <th>ID Paciente</th>
-        <th>Rechazar</th>
+		<th>Tipo Cita</th>
+		<th>Rechazar</th>
         <th>Aceptar</th>
 
 
