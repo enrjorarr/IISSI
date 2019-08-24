@@ -19,7 +19,7 @@ function consultarCitasPorDNI($conexion,$nif) {
 
 function alta_cita($conexion,$usuario) {
     $fecha = date('d/m/Y', strtotime($usuario["fechaInicio"]));
-	// var_dump($usuario);exit;
+	 //var_dump($usuario);exit;
 	try {
 
 	
@@ -31,8 +31,8 @@ function alta_cita($conexion,$usuario) {
 		$stmt->bindParam(':HoraInicio',$usuario["horaInicio"]);
 		$stmt->bindParam(':DuracionMin',$usuario["duracionMin"]);
 		$stmt->bindParam(':Coste',$usuario["coste"]);
-		$stmt->bindParam(':TipoCita',$usuario["TipoCita"]);
-		$stmt->bindParam(':OIDTrabajador',$usuario["OIDTrabajador"]);
+		$stmt->bindParam(':TipoCita',$usuario["tipoCita"]);
+		$stmt->bindParam(':OIDTrabajador',$usuario["OIDTRABAJADOR"]);
 
 		
 		$stmt->execute();
