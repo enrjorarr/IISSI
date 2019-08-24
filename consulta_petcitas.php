@@ -69,6 +69,19 @@
   <title>consulta citas</title>
 	<?php include_once("head_staff.php"); ?>
   
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+
+<script language="JavaScript" type="text/javascript">
+  $(document).ready(function(){
+	  $("a.borrar").click(function(e){
+		  if(!confirm('¿Estás seguro de que quieres borrar el paciente?')){
+		  e.preventDefault();
+		  return false;
+	  }
+	  return true;
+  });
+});
+</script>
 </head>
 
 <body>
@@ -205,9 +218,10 @@
                             <td><?php echo $fila["IDPACIENTE"]; ?></td>
 							<td><?php echo $fila["TIPOCITA"]; ?></td>
                             <td>
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
-                                    <img src="images/borrar.png" class="editar_fila" alt="Borrar">
-                                </button>
+							<a id="borrar" name="borrar" class="borrar"
+								 href="accion_eliminar_cita.php" ><input type=submit id="borrar" 
+								 name="borrar" value="Borrar">
+							</a>
                             </td>
                             <td>
                                 <button id="aceptar" name="aceptar" type="submit" class="editar_fila">
