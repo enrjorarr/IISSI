@@ -248,9 +248,9 @@
 				
 
 			</div>
-				Coste               :<input type="number" id = "Coste" name="Coste" > <br/>
-			    Hora de inicio      :<input type="text" id = "HoraInicio" name="HoraInicio" ><br/>
-				Duracion en minutos :  <input type= "number" id = "DuracionMin"  name = "DuracionMin"><br/>
+				Coste               :<input type="number" id = "Coste" name="Coste"> <br/>
+			    Hora de inicio      :<input type="text" id = "HoraInicio" name="HoraInicio" pattern="^(?:0?[1-9]|1[0-2]):[0-5][0-9]\s?(?:[aApP](\.?)[mM]\1)?$"><br/>
+				Duracion en minutos :  <input type= "number" id = "DuracionMin"  name = "DuracionMin" ><br/>
 				OID Trabajador: <input type= "number" id = "OIDTrabajador"  name = "OIDTrabajador">
 		</form>
 
