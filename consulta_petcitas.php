@@ -68,6 +68,18 @@
   
   <title>consulta citas</title>
 	<?php include_once("head_staff.php"); ?>
+
+		<!--include jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
+ 
+	<!--include jQuery Validation Plugin-->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+		type="text/javascript"></script>
+ 
+	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
+		type="text/javascript"></script>
   
 	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 
@@ -171,7 +183,7 @@
 
 	<article class="petcita">
 
-		<form method="get" action="controlador_petcitas.php">
+		<form method="get" id="consultaPetCita"action="controlador_petcitas.php">
 
 			<div class="fila_petcita">
 
@@ -265,4 +277,68 @@
   
 
 </body>
+
+<script type = "text/javascript">
+
+		$(function(){
+
+			$("#consultaPetCita").validate(
+				{
+					rules:{
+						Coste:{
+							required:true,
+							min:0	
+						},
+						HoraInicio:{
+							 required:true
+						 },
+						 
+						 DuracionMin:{
+							required:true,
+							min:15,
+							max:59
+						},
+						
+						OIDTrabajador:{
+							required:true,
+							maxlength:2,
+							minlength:1
+						}
+					},
+					messages:{
+						Coste:{
+							required:"Este campo debe estar completo",
+							min:"No se admiten precios negativos"	
+						},
+
+						HoraInicio:{
+							 required:"Este campo debe estar completo"
+						 },
+
+						DuracionMin:{
+							required:"Debe contener un número",
+							min:"La duración minima es de 15 minutos",
+							max:"La duración maxima es de 59 minutos"
+						},
+						OIDTrabajador:{
+							required:"Esta casilla debe estar completada",
+							maxlength:"El número debe estar compuesto de 1 a 2 dígitos",
+							minlength:"El número debe estar compuesto de 1 a 2 dígitos"
+
+						}
+						
+						
+				
+					}
+			
+
+				});	
+
+			});
+
+	
+	
+	</script>
+
+	</html>
         

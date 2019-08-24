@@ -179,18 +179,22 @@
 		</fieldset>
 
 		
-		<div><input class="butn" type="submit" value="Crear" /></div>
-	
-	</form>
+		<div><input class="butn" id="boton" type="submit" value="Crear" /></div>
 
+		
 	<?php
 		include_once("pie.php");
 		cerrarConexionBD($conexion);
 	?>
+	
+	</form>
 
+	
 
 	
 	</body>
+
+	
 
 	<script type = "text/javascript">
 
