@@ -47,7 +47,9 @@
 		?>
 				<h1>La cita se ha registrado satisfactoriamente</h1>
 				<div >	
+					Pulsa <a href="form_alta_cliente.php">aquí</a> para crear otra cita.
 				</div>
+				
 		<?php } else { ?>
 				<h1>Puede que el dni del cliente no exista.</h1>
 				<div >	
