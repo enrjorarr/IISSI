@@ -25,12 +25,14 @@
         $usuario["duracionMin"]=$petcita["DURACIONMIN"];
         $usuario["coste"]=$petcita["COSTE"];
         $usuario["tipoCita"]=$petcita["TIPOCITA"];
+        $usuario["OIDTRABAJADOR"]=$petcita["OIDTRABAJADOR"];
+
         
        
-        var_dump( $usuario);exit;
+     //   var_dump( $petcita);exit;
         $excepcion1 = alta_cita($conexion,$usuario);
         
-        var_dump($excepcion1);exit;
+       // var_dump($excepcion1);exit;
         
         
         if($excepcion1){
