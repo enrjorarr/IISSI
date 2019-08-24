@@ -176,7 +176,8 @@
 							minlength:9
 						},
 						pass:{
-							required:true
+							required:true,
+							minlength:8
 						},
 						confirmpass:{
 							required:true,
@@ -209,7 +210,8 @@
 
 						},
 						pass:{
-							required:"Esta casilla debe estar completada"
+							required:"Esta casilla debe estar completada",
+							minlength:"Debe contener al menos 8 caracteres"
 						},
 						confirmpass:{
 							required:"Esta casilla debe estar completada",
