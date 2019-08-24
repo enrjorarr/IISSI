@@ -52,8 +52,8 @@
 	    
 		// Mostrar los erroes de validación (Si los hay)
 		if (isset($errores) && count($errores)>0) { 
-	    	echo "<div id=\"div_errores\" class=\"error\" style=\"margin-top:20%\">";
-			echo "<div id =\"Obj1\" class = \"error\" style=\"font-family: 'ABeeZee', sans-serif;\">><h1> Errores en el formulario:</h1>";echo "</div>";
+	    	echo "<div id=\"div_errores\" class=\"error\" style=\"margin-top:15%\">";
+			echo "<div id =\"Obj1\" class = \"error\"  style=\"margin-left:15%\" , style=\"font-family: 'ABeeZee', sans-serif;\"><h1> Errores en el formulario:</h1>";echo "</div>";
     		foreach($errores as $error){
     			echo $error;
 			} 

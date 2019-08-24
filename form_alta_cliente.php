@@ -79,17 +79,7 @@
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Gestión de Clinica Veterinaria: Alta de Cliente</title>
   <?php include_once("head.php");?>
-  	<!--include jQuery -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-		type="text/javascript"></script>
- 
-	<!--include jQuery Validation Plugin-->
-	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
-		type="text/javascript"></script>
- 
-	<!--Optional: include only if you are using the extra rules in additional-methods.js -->
-	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js"
-		type="text/javascript"></script>
+  
 </head>
 
 <body>
@@ -132,8 +122,7 @@
   		}
 	?>
 	
-	<form id="altaCliente" method="get" action="validacion_alta_cliente.php" >
-		<!--novalidate--> 
+	<form id="altaCliente" method="get" action="validacion_alta_cliente.php" novalidate> 
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
 		<fieldset class="datos1" ><legend>Datos personales</legend>
