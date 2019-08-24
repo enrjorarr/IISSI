@@ -9,7 +9,6 @@
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
 		$gestor = $_SESSION["formulario"];
-		
 		$_SESSION["formulario"] = null;
 		$_SESSION["errores"] = null;
 	}
@@ -40,8 +39,11 @@
 	?>
 
 	<main>
-		<?php if (alta_cita($conexion, $gestor)) { 
-
+	
+		<?php 
+		var_dump( $gestor);exit;
+		if (alta_cita($conexion, $gestor)) { 
+		 
 		?>
 				<h1>La cita se ha registrado satisfactoriamente</h1>
 				<div >	

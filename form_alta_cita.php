@@ -146,7 +146,7 @@
 			</div>
 		
 			<div><label for="horaInicio">Hora de Inicio:<em STYLE="color:red;">*</em></label>
-			<input type="text" id="horaInicio" name="horaInicio" pattern="/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/"
+			<input type="text" id="horaInicio" name="horaInicio" pattern="^(?:0?[1-9]|1[0-2]):[0-5][0-9]\s?(?:[aApP](\.?)[mM]\1)?$"
 			 title="Debe con usarse el siguiente formato HH:mm "
 				value="<?php echo $formulario['horaInicio'];?>"required/>
 			</div>
