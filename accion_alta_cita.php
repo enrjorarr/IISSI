@@ -30,7 +30,7 @@
   <link rel="stylesheet" type="text/css" href="css/accion_alta_petCita.css" />
 
   <title>Gestión de Veterinaria: Alta de Usuario realizada con éxito</title>
-  <?php include_once("head.php")?>
+  <?php include_once("head_staff.php")?>
 </head>
 
 <body>
