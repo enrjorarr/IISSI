@@ -34,9 +34,10 @@
 </head>
 
 <body>
-	<?php
-        include_once("cabecera.php");
-	?>
+<?php
+	include_once("cabecera_gestor.php");
+
+?>
 
 	<main>
 	
