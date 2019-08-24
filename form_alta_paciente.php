@@ -143,7 +143,8 @@
 			<input id="raza" name="raza" type="text" size="40" pattern="[A-Za-z\s]+" value="<?php echo $formulario['raza'];?>" required/>
 			</div>
             <div><label for="idPaciente">ID del Paciente:<em STYLE="color:red;">*</em></label>
-			<input id="idPaciente" name="idPaciente" type="text" pattern="^[0-9]{9}" value="<?php echo $formulario['idPaciente'];?>" required/>
+			<input id="idPaciente" name="idPaciente" type="text" pattern="^[0-9]{9}" title ="El id debe contener 9 dígitos"
+			 value="<?php echo $formulario['idPaciente'];?>" required/>
 			</div>
 
 		</fieldset>
