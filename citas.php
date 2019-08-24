@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class = "movimientoTexto1">
-                    <br><a href="form_alta_petCita.php">Consulta</a>
+                    <br><a>Consulta</a>
                 </div>            
             </div>
         </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class = "movimientoTexto2">
-                    <br><a href="form_alta_petCita.php">Peluquería</a>
+                    <br><a>Peluquería</a>
                 </div>
             </div>
         </div>
