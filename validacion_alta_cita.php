@@ -25,8 +25,8 @@
 		$nuevoUsuario['horaInicio'] = $_REQUEST["horaInicio"];
 		$nuevoUsuario['duracionMin'] = $_REQUEST["duracionMin"];
 		$nuevoUsuario['coste'] = $_REQUEST["coste"];
-		$nuevoUsuario["TipoCita"] = $_REQUEST["TipoCita"];
-		$nuevoUsuario["OIDTrabajador"] =  $_REQUEST["oidTrabajador"];
+		$nuevoUsuario["tipoCita"] = $_REQUEST["tipoCita"];
+		$nuevoUsuario["OIDTRABAJADOR"] =  $_REQUEST["oidTrabajador"];
 		
 		
 
@@ -66,7 +66,7 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	
 
 	// Validación del gestor			
-	if($nuevoUsuario["OIDTrabajador"]=="") 
+	if($nuevoUsuario["OIDTRABAJADOR"]=="") 
 		$errores[] = "<p>Debe introducirse el OID del trabajador</p>";
 	
 	// Validación de la fecha inicio
@@ -88,14 +88,14 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 		$errores[] = "<p>La fecha no puede estar vacía</p>";	
 	}
 
-	if($nuevoUsuario["TipoCita"]==""){
-		$errores[] = "<p>La fecha de nacimiento no puede estar vacía</p>";	
+	if($nuevoUsuario["tipoCita"]==""){
+		$errores[] = "<p>El tipo de cita debe estar definico</p>";	
 	}
 
-	if($nuevoUsuario["OIDTrabajador"]=="") 
+	if($nuevoUsuario["OIDTRABAJADOR"]=="") 
 		$errores[] = "<p>El oid no puede estar vacío</p>";
-	else if($nuevoUsuario["OIDTrabajador"] > 999){
-		$errores[] = "<p>El oid no puede contener mas de 3 cifras: " . $nuevoUsuario["OIDTrabajador"]. "</p>";
+	else if($nuevoUsuario["OIDTRABAJADOR"] > 999){
+		$errores[] = "<p>El oid no puede contener mas de 3 cifras: " . $nuevoUsuario["OIDTRABAJADOR"]. "</p>";
 	}
 
 	if($nuevoUsuario["coste"]=="") 

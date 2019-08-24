@@ -41,7 +41,7 @@
 	<main>
 	
 		<?php 
-		var_dump( $gestor);exit;
+		
 		if (alta_cita($conexion, $gestor)) { 
 		 
 		?>

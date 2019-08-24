@@ -19,7 +19,7 @@ function consultarCitasPorDNI($conexion,$nif) {
 
 function alta_cita($conexion,$usuario) {
     $fecha = date('d/m/Y', strtotime($usuario["fechaInicio"]));
-	 //var_dump($usuario);exit;
+	 
 	try {
 
 	

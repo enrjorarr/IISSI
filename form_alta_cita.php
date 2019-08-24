@@ -155,8 +155,8 @@
 			<input id="duracionMin" name="duracionMin"  type="number" title="Debe insertar un número" value="<?php echo $formulario['duracionMin'];?>" required/>
 			</div>
  
-			<div><label for="TipoCita">Tipo de Cita:<em STYLE="color:red;">*</em></label>
-			<select name="TipoCita">
+			<div><label for="tipoCita">Tipo de Cita:<em STYLE="color:red;">*</em></label>
+			<select name="tipoCita">
                 <option type="text" value="c">Consulta</option>
                 <option type="text" value="p">Peluquería</option>
         	</select>
