@@ -129,12 +129,12 @@
                 
                 <div class = "motivo">
                     <label for="motivo">Motivo: </label>
-                    <input type="text" name="motivo" id="motivo" style="width:25%"  pattern="[A-Za-z\s]+" value="<?php echo $formulario['motivo'];?>" required/>
+                    <input type="text" name="motivo" id="motivo" style="width:25%"  pattern="[A-Za-z\s]+$" title="El motivo debe tener únicamente letras mayúsculas y minúsculas" value="<?php echo $formulario['motivo'];?>" required/>
                 </div>
 
 		        <div class="tratamiento">
                     <label for="tratamiento">Tratamiento: </label>
-                    <input type="text" name="tratamiento" id="tratamiento" style="width:22%" pattern="[A-Za-z\s]+" value="<?php echo $formulario['tratamiento'];?>" required/>
+                    <input type="text" name="tratamiento" id="tratamiento" style="width:22%" pattern="[A-Za-z\s]+$" title="El tratamiento debe tener únicamente letras mayúsculas y minúsculas" value="<?php echo $formulario['tratamiento'];?>" required/>
 				</div>
 				
 				<div class="OIDHistorial">
@@ -178,7 +178,7 @@
 						
 						OIDHistorial:{
 							required:true,
-							maxlength:1,
+							maxlength:4,
 							minlength:1
 						}
 					
@@ -201,9 +201,9 @@
 							required:"Introduzca el tratamiento",
 						},
 						OIDHistorial:{
-							required:"El id debe contener 1 dígito",
-							maxlength:"El número debe estar compuesto de 1 dígito",
-							minlength:"El número debe estar compuesto de 1 dígito"
+							required:"El id debe contener dígitos",
+							maxlength:"El número debe contener menos de 5 dígitos",
+							minlength:"El número debe estar compuesto de al menos 1 dígito"
 
 						}
 				

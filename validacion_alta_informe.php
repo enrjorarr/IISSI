@@ -50,12 +50,12 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	if($nuevoUsuario["tratamiento"]=="") 
 		$errores[] = "<p>El tratamiento no puede estar vacío</p>";
 	else if(!preg_match("/^[A-Za-z\s]+$/", $nuevoUsuario["tratamiento"])){
-		$errores[] = "<p>El motivo debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["tratamiento"]. "</p>";
+		$errores[] = "<p>El tratamiento debe tener únicamente letras mayúsculas y minúsculas: " . $nuevoUsuario["tratamiento"]. "</p>";
 	}
 
 	if($nuevoUsuario["OIDHistorial"]=="") 
 		$errores[] = "<p>El OIDHistorial no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]$/", $nuevoUsuario["OIDHistorial"])){
+	else if(!preg_match("/^[0-9]+$/", $nuevoUsuario["OIDHistorial"])){
 		$errores[] = "<p>El id puede contener un maximo de 4 números: " . $nuevoUsuario["OIDHistorial"]. "</p>";
 	}
 
