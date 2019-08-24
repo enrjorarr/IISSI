@@ -26,11 +26,11 @@
         $usuario["coste"]=$petcita["COSTE"];
         $usuario["tipoCita"]=$petcita["TIPOCITA"];
         
-        var_dump($excepcion1);exit;
-
+       
+        var_dump( $usuario);exit;
         $excepcion1 = alta_cita($conexion,$usuario);
         
-        
+        var_dump($excepcion1);exit;
         
         
         if($excepcion1){
