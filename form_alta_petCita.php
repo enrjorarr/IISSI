@@ -139,7 +139,8 @@
 		<fieldset class="datos1" ><legend>Datos de la cita</legend>
 
 			<div><label for="fecha">Fecha solicitada :<em STYLE="color:red;">*</em></label>
-			<input id="fecha" name="fecha" type="date" size="80" min="<?php echo $hoy;?>" value="<?php echo $formulario['fecha'];?>"required/>
+			<input id="fecha" name="fecha" type="date" size="80" min="<?php echo $hoy;?>" title="Las citas no se pueden dar en el pasado :("
+			value="<?php echo $formulario['fecha'];?>"required/>
 			</div>
 
 			<div><label for="motivo">Motivo :<em STYLE="color:red;">*</em></label>
