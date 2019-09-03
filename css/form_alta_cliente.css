@@ -68,3 +68,9 @@ input[type=text], input[type=date],input[type=email],input[type=password] {
   .error{
     color:red;
   }
+
+  .vali{
+    float:right;
+    margin-right:5%;
+    margin-top:2%;
+}

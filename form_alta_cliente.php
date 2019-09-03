@@ -134,8 +134,9 @@
 	?>
 	
 	<form id="altaCliente" method="get" action="validacion_alta_cliente.php" >
-			// novalidate> 
-		<!--onsubmit="return validateForm()"-->   
+	<!-- novalidate-->
+		<!--onsubmit="return validateForm()"-->  
+	
 		<p><i>Los campos obligatorios están marcados con </i><em STYLE="color:red;">*</em></p>
 		<fieldset class="datos1" ><legend>Datos personales</legend>
 			<div></div><label for="nif">DNI:<em STYLE="color:red;">*</em></label>
@@ -186,13 +187,28 @@
 			</div>
 		</fieldset>
 
-		<div><input class="butn" type="submit" value="Enviar" /></div>
+		<div><input class="butn" type="submit" value="Enviar" />
+		 
+		</div>
+
+		<div class="vali">
+    		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+        		<img style="border:0;width:88px;height:31px"
+            	src="http://jigsaw.w3.org/css-validator/images/vcss"
+           		 alt="¡CSS Válido!" />
+    		</a>
+		</div>
+
 		<?php
 		include_once("pie.php");
 		cerrarConexionBD($conexion);
 	?>
 
+
+
 	</form>
+
+	
 
 
 
