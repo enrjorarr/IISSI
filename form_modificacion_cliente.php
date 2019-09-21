@@ -11,7 +11,7 @@
 
     //$cliente = consultarUsuario2email($conexion,$email);
     
-	if (!isset($_SESSION["formulario"])) {
+	if (isset($_SESSION["formulario"])) {
 		$formulario['nombre'] = "";                                   //
 		$formulario['apellidos'] = "";                                //    
         $formulario['pass'] = "";                                    //

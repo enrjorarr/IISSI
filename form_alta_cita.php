@@ -8,7 +8,7 @@
 	require_once("gestionarTrabajadores.php");
 
 
-    if(!isset($_SESSION["formulario"])){
+    if(isset($_SESSION["formulario"])){
         $formulario['nif'] = "";                                     
 		$formulario['OIDGestor'] = "";                                   
 		$formulario['fechaInicio'] = "";                                   

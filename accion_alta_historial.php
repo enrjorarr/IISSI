@@ -37,7 +37,7 @@
 		<?php if (alta_informes($conexion, $nuevoUsuario)) { 
 				$_SESSION['login'] = $nuevoUsuario['IDPaciente'];
 		?>
-				<h1>El informe se ha creado correctamente.</h1>
+				<h1>El historial se ha creado correctamente.</h1>
 				<div >	
 			   		Pulsa <a href="historial_paciente.php">aquí</a> para volver.
 				</div>

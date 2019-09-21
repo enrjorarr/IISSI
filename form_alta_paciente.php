@@ -11,7 +11,7 @@
 	//require_once("gestionar_generos_literarios.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
-	if (!isset($_SESSION["formulario"])) {
+	if (isset($_SESSION["formulario"])) {
 
 		$formulario['nif'] = "";                                      //   
 		$formulario['fechaNacimiento'] = "";                          //           

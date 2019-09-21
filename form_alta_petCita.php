@@ -7,7 +7,7 @@
 		$code  = $_POST["code"];
 	}
 
-    if(!isset($_SESSION["formulario"])){
+    if(isset($_SESSION["formulario"])){
         $formulario['nif'] = "";                                                                       
 		$formulario['motivo'] = "";                                                                
 		$formulario['fecha'] = "";                                    
